@@ -1,0 +1,26 @@
+.nav{
+  display: flex;
+  align-items: center;
+    &-title{
+      position: relative;
+      display: inline-block;
+      padding-left: 23px;
+      text-transform: uppercase;
+      @extend .font-heavy;
+        &:before{
+          content: '';
+          position: absolute;
+          top: 5px;
+          left: 0;
+          width: 13px;
+          height: 13px;
+          border-radius: 50%;
+          background-color: currentColor;
+        }
+    }
+    .link{
+      &:not(:last-child){
+        margin-right: 77px;
+      }
+    }
+}

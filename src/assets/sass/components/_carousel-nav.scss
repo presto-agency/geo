@@ -1,0 +1,27 @@
+.carousel{
+    &-nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+        &-btns{
+          display: flex;
+          align-items: center;
+            .link-btn-arrow{
+              &:not(:last-child){
+                margin-right: 23px;
+              }
+            }
+        }
+        &-pagination{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          @extend .font-title-regular;
+          padding-top: 15px;
+            p, div{
+              font-family: inherit;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.filters{
+    &-list{
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px rgba(255,255,255,.15) solid;
+      border-bottom: 1px rgba(255,255,255,.15) solid;
+      min-height: 115px;
+        &-search{
+          flex: 1;
+          max-width: 332px;
+        }
+        &-categories{
+          flex: 1;
+          border-left: 1px rgba(255,255,255,.15) solid;
+          border-right: 1px rgba(255,255,255,.15) solid;
+        }
+        &-sort{
+          flex: 1;
+          max-width: 372px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+    }
+}

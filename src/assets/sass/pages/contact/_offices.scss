@@ -1,0 +1,80 @@
+.offices{
+  padding: 127px 0 0;
+  margin-bottom: 127px;
+    &-list{
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 24px;
+        &-box{
+          width: 50%;
+          padding-bottom: 40px;
+          margin-bottom: 52px;
+            &:nth-child(even){
+              padding-left: 35px;
+            }
+            &:nth-child(odd){
+              padding-right: 35px;
+            }
+            &:not(:last-child):not(:nth-last-child(2)){
+              border-bottom: 1px $white solid;
+            }
+        }
+        .office{
+            &-city{
+              text-transform: uppercase;
+            }
+            &-address{
+              margin: 0 0 0 auto;
+              max-width: 205px;
+            }
+            &-email{
+              display: block;
+              max-width: 205px;
+              margin-left: auto;
+              margin-top: 21px;
+            }
+        }
+    }
+}
+
+.office{
+    &-city{
+      color: $blue;
+      font-size: 22px;
+      @extend .font-title;
+      margin-bottom: 8px;
+    }
+    &-phone,
+    &-fax{
+      text-transform: uppercase;
+      font-size: 20px;
+      line-height: 1.25em;
+      @extend .font-book;
+    }
+    &-address{
+      @extend .font-book;
+      max-width: 202px;
+      margin-top: 29px;
+      margin-bottom: 19px;
+      line-height: 1.25em;
+    }
+    &-email{
+      @extend .font-book;
+      display: inline-block;
+    }
+    &-preview{
+      overflow: hidden;
+      height: 635px;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+    }
+    &-content{
+      padding: 25px 0
+    }
+    .link-follow{
+      margin-top: 24px;
+    }
+}

@@ -1,0 +1,67 @@
+.map{
+  width: 1177px;
+  height: 1111px;
+  margin: 38px auto 0;
+  position: relative;
+    &-offices{
+      position: absolute;
+      bottom: 114px;
+      left: 79%;
+        &-list{
+          margin-top: 16px;
+            li{
+              margin-bottom: 4px;
+              position: relative;
+              transition: color .4s ease, padding-left .4s ease;
+              cursor: pointer;
+              white-space: nowrap;
+                &:before{
+                  content: '';
+                  position: absolute;
+                  width: 7px;
+                  height: 7px;
+                  border-radius: 50%;
+                  background-color: $blue;
+                  top: 7px;
+                  left: 0;
+                  opacity: 0;
+                  transform: translateX(-5px);
+                  transition: opacity .4s ease, transform .4s ease;
+                  pointer-events: none;
+                }
+                &.active,
+                &:hover{
+                  color: $blue;
+                  padding-left: 15px;
+                    &:before{
+                      opacity: 1;
+                      transform: translate(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.country{
+  fill: transparent;
+  stroke: $white;
+  stroke-width: 3px;
+  transition: all .4s ease;
+    &-title{
+      pointer-events: none;
+        path{
+          fill: $white
+        }
+    }
+    &.place{
+      fill: rgba(255,255,255,.25);
+      cursor: pointer;
+        //&:hover{
+        //  fill: $blue;
+        //}
+    }
+    &.active{
+      fill: $blue;
+    }
+}

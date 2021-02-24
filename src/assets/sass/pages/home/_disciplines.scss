@@ -1,0 +1,56 @@
+.disciplines{
+  margin: 134px 0;
+    &-box{
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+      //padding-top: 122px;
+      padding: 50px 0;
+      justify-content: center;
+        &-preview{
+          display: none;
+        }
+        &-title{
+          margin: 18px 0 16px;
+        }
+        &-description{
+          max-width: 430px;
+          margin-bottom: 42px;
+        }
+    }
+    &-carousel{
+      //position: sticky;
+      top: 50px;
+      right: 0;
+      position: absolute;
+      width: 1110px;
+      overflow: hidden;
+        &-list{
+          display: flex;
+          flex-direction: column-reverse;
+          position: relative;
+        }
+        &-slide{
+          width: 100%;
+          height: 100vh;
+          position: relative;
+          margin-bottom: -190px;
+        }
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        svg{
+          position: absolute;
+          top: -70px;
+          left: 0;
+        }
+        @include d(1900){
+          width: 55vw;
+        }
+    }
+}

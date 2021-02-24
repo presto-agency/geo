@@ -1,0 +1,25 @@
+.footer{
+  padding: 72px 0 30px;
+    &-logo{
+      width: 90px;
+      margin-left: -5px;
+      margin-top: -8px;
+      display: inline-block;
+    }
+    &-nav{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 59px;
+      max-width: 560px;
+        .nav-title{
+          margin-bottom: 10px;
+        }
+    }
+    .subscription{
+      margin-top: 64px;
+    }
+    .link{
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+}

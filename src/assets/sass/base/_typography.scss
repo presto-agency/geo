@@ -1,0 +1,61 @@
+h1{
+  font-size: 131px;
+  color: $white;
+  line-height: .98em;
+  @extend .font-title;
+    @include d(1700){
+      font-size: 120px;
+    }
+    @include d(1440){
+      font-size: 106px;
+    }
+}
+
+h2{
+  font-size: 90px;
+  @extend .font-title;
+  line-height: 1.03em;
+  color: $white;
+    @include d(1700){
+      font-size: 82px;
+    }
+    @include d(1440){
+      font-size: 70px;
+    }
+}
+
+h3{
+  font-size: 48px;
+  @extend .font-title;
+  color: $white;
+  line-height: 1.25em;
+    @include d(1700){
+      font-size: 42px;
+    }
+    @include d(1440){
+      font-size: 36px;
+    }
+}
+
+h4{
+  font-size: 36px;
+  @extend .font-title;
+  color: $white;
+  line-height: 1.25em;
+}
+
+h5{
+  font-size: 28px;
+}
+
+h6{
+  font-size: 22px;
+  @extend .font-title;
+  color: $white;
+  line-height: 1.7em;
+}
+
+p{
+  font-size: inherit;
+  line-height: 1.5em;
+}

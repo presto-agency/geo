@@ -1,0 +1,16 @@
+.hero{
+    &-inner{
+      padding: 248px 0 215px;
+        &.__default{
+          padding-bottom: 82px;
+            & + .filters{
+              margin-top: -26px;
+            }
+            & + .project-page{
+              .project-page-banner{
+                margin-top: -22px;
+              }
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.team{
+  padding: 62px 0;
+    &-list{
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -49px;
+      padding-top: 58px;
+        &-box{
+          padding: 0 49px;
+          width: 33.33%;
+          margin-bottom: 77px;
+        }
+    }
+}
+
+.person{
+  &-photo{
+    height: 402px;
+    overflow: hidden;
+    margin-bottom: 12px;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  }
+  &-name{
+    margin-bottom: 6px;
+  }
+  &-position{
+    opacity: .25;
+    font-size: 14px;
+  }
+}

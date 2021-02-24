@@ -1,0 +1,45 @@
+.font{
+    &-title{
+      font-family: "Graphik-Semibold", sans-serif;
+        &-medium{
+          font-family: "Graphik-Medium", sans-serif;
+        }
+        &-regular{
+          font-family: "Graphik-Regular", sans-serif;
+        }
+    }
+    &-heavy{
+      font-family: "Avenir-Heavy", sans-serif;
+    }
+    &-medium{
+      font-family: "Avenir-Medium", sans-serif;
+    }
+    &-book{
+      font-family: "Avenir-Book", sans-serif;
+    }
+}
+
+.h{
+    &-1{
+      @extend h1;
+    }
+    &-2{
+      @extend h2;
+    }
+    &-3{
+      @extend h3;
+    }
+    &-4{
+      @extend h4;
+    }
+    &-5{
+      @extend h5;
+    }
+    &-6{
+      @extend h6;
+    }
+}
+
+.blue{
+  color: $blue;
+}

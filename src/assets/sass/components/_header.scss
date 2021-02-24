@@ -1,0 +1,35 @@
+.header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 48px 0;
+  z-index: 3;
+    &-logo{
+      display: inline-block;
+      width: 90px;
+      margin-top: -12px;
+    }
+    &-nav{
+      padding-top: 16px;
+      padding-left: 150px;
+      padding-right: 93px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+        &-search{
+          position: relative;
+          top: 3px;
+        }
+        @include d(1440){
+          padding-left: 40px;
+        }
+    }
+    &-cta{
+      text-align: right;
+        .link-btn{
+          height: 48px;
+          line-height: 48px;
+        }
+    }
+}

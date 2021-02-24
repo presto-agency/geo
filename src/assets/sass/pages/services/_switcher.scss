@@ -1,0 +1,138 @@
+.services {
+  &-switcher {
+    padding: 48px 0;
+  }
+  &-carousel {
+    padding: 43px 0 0 83px;
+    max-width: 815px;
+      &-wrap{
+          position: relative;
+              .carousel-nav-pagination{
+                  position: absolute;
+                  top: 30px;
+                  left: 7px;
+              }
+              .carousel-nav-btns{
+                  position: absolute;
+                  top: 41px;
+                  right: 0;
+              }
+      }
+      &-slide {
+        padding-bottom: 50px;
+      }
+  }
+  &-title {
+    text-transform: uppercase;
+  }
+  &-description {
+    font-size: 12px;
+    padding: 6px 0 0 30px;
+        li{
+            margin-bottom: 5px;
+        }
+  }
+  &-tabs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 80px;
+      &-item{
+        flex: 1;
+        padding-bottom: 5px;
+          &:not(:last-child){
+            padding-right: 5px;
+          }
+      }
+  }
+  &-tab{
+    height: 170px;
+    padding: 0 49px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+      &-title{
+        font-size: 14px;
+        text-transform: uppercase;
+        @extend .font-title;
+        margin: 0 -26px;
+        position: relative;
+      }
+      &-numb{
+        font-size: 14px;
+        color: $blue;
+        @extend .font-title;
+        transition: opacity .4s ease, color .4s ease;
+      }
+      &-plus{
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border: 1px $white solid;
+        top: 6px;
+        right: 46px;
+        transition: opacity .4s ease;
+        opacity: 0;
+          &:before,
+          &:after{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: $white;
+          }
+          &:before{
+            width: 1px;
+            height: 18px;
+          }
+          &:after{
+            width: 18px;
+            height: 1px;
+          }
+      }
+      .hexagon{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        pointer-events: none;
+        transition: opacity .4s ease;
+          path{
+            fill: none;
+            stroke: $white;
+          }
+          &.active{
+            opacity: 0;
+              path{
+                fill: $blue;
+                stroke: none;
+              }
+          }
+      }
+      @include hover(991){
+        &:hover{
+          .hexagon{
+            opacity: 0;
+            &.active{
+              opacity: 1;
+            }
+          }
+          .services-tab{
+            &-numb{
+              color: $white;
+              opacity: .5;
+            }
+            &-plus{
+              opacity: 1;
+            }
+          }
+        }
+      }
+  }
+}

@@ -1,0 +1,68 @@
+/*
+Base settings
+ */
+@import "base/base";
+@import "base/colors";
+@import "base/mixins";
+@import "base/classes";
+@import "base/typography";
+
+/*
+Libs
+ */
+@import "../libs/grid.min.css";
+@import "../../../node_modules/slick-carousel/slick/slick.css";
+@import "../../../node_modules/slick-carousel/slick/slick-theme.css";
+
+/*
+Pages
+ */
+@import "pages/home/hero";
+@import "pages/home/about";
+@import "pages/home/clients";
+@import "pages/home/disciplines";
+@import "pages/home/services";
+@import "pages/home/projects";
+@import "pages/home/contact";
+// contact
+@import "pages/contact/offices";
+@import "pages/contact/feedback";
+//projects
+@import "pages/projects/projects";
+@import "pages/project/project";
+@import "pages/project/project-page";
+//services
+@import "pages/services/switcher";
+@import "pages/services/disciplines-accordion";
+//about
+@import "pages/about/team";
+@import "pages/about/testimonials";
+@import "pages/about/where-we-work";
+//news
+@import "pages/news/filters";
+@import "pages/news/news";
+@import "pages/news/post";
+//article
+@import "pages/article/article";
+//404
+@import "pages/404/page-not-found";
+
+@import "pages/search/search";
+
+/*
+Components
+ */
+@import "components/app";
+@import "components/header";
+@import "components/footer";
+@import "components/nav";
+@import "components/subscription";
+@import "components/input";
+@import "components/hero";
+@import "components/slick-settings";
+@import "components/carousel-nav";
+@import "components/video";
+@import "components/accordion";
+@import "components/value";
+@import "components/map";
+@import "components/google-map";

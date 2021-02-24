@@ -1,0 +1,37 @@
+.services{
+  padding: 127px 0;
+    &-list{
+      margin-bottom: -5px;
+      position: relative;
+      height: 184px;
+        &.__reverse{
+          .list-scroll{
+            display: flex;
+            flex-direction: row-reverse;
+          }
+          .services-list-item{
+            &:not(:last-child){
+              margin-right: 0;
+              margin-left: 245px;
+            }
+          }
+        }
+        &-item{
+          display: inline-block;
+          padding: 62px 0;
+            &:not(:last-child){
+              margin-right: 245px;
+            }
+            @include d(1440){
+              padding: 52px 0;
+            }
+        }
+        .list-scroll{
+          position: absolute;
+          white-space: nowrap;
+        }
+        @include d(1440){
+          height: 150px;
+        }
+    }
+}

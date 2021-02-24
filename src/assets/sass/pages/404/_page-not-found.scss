@@ -1,0 +1,27 @@
+.pnf{
+  padding: 168px 0;
+    &-preview{
+      overflow: hidden;
+      position: relative;
+      height: 700px;
+        img{
+          min-width: 100%;
+          min-height: 100%;
+          max-height: none;
+        }
+    }
+    &-content{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 470px;
+        &-title{
+          margin-bottom: 20px;
+        }
+        &-description{
+          margin-bottom: 45px;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+.input{
+  width: 100%;
+  background-color: transparent;
+  border: 1px $grey-100 solid;
+  height: 45px;
+  font-size: 16px;
+  color: $white;
+  @extend .font-title-regular;
+  padding: 0 20px;
+  transition: border-color .4s ease;
+    &-container{
+      position: relative;
+      margin-bottom: 36px;
+        &-border{
+          margin-bottom: 0;
+            .input{
+              border: none;
+              border-bottom: 1px rgba(255,255,255,.25) solid;
+              padding: 0;
+              @extend .font-heavy;
+                &-border{
+                  position: absolute;
+                }
+            }
+        }
+        &.error{
+          .input{
+            border-color: $red;
+              &-border{
+                background-color: $red;
+              }
+          }
+        }
+    }
+    &-border{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: $white;
+      transition: width .4s ease, background-color .4s ease;
+        &.active{
+          width: 100%;
+        }
+    }
+    &-error{
+      color: $red;
+      @extend .font-book;
+      font-size: 12px;
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+    }
+    &-label{
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    &-search{
+        &-btn{
+          border: none;
+          padding: 0;
+          background-color: transparent;
+          position: absolute;
+          top: 50%;
+          left: -7px;
+          transform: translateY(-50%);
+          width: 30px;
+          height: 30px;
+          background-repeat: no-repeat;
+          background-size: 18px;
+          background-position: center;
+          background-image: url(../../../assets/images/icons/loupe-blue.svg);
+        }
+    }
+    &.search{
+        &-news{
+          border: none;
+        }
+    }
+    &::-webkit-input-placeholder {
+      color: $white;
+    }
+    &::-moz-placeholder {
+      color: $white;
+    }
+    &:-ms-input-placeholder {
+      color: $white;
+    }
+    &:-moz-placeholder {
+      color: $white;
+    }
+    &:focus{
+      & ~ .input-border{
+        width: 100%;
+      }
+    }
+}
+
+.textarea{
+  @extend .input;
+  height: 147px;
+  padding: 15px 20px;
+}
+
+.select{
+    &-custom{
+      max-width: 272px;
+      width: 100%;
+    }
+}

@@ -1,0 +1,63 @@
+.accordion{
+    &-header{
+      position: relative;
+      padding: 30px 0;
+      border-bottom: 1px $white solid;
+        &-title{
+          max-width: 910px;
+        }
+        &-btn{
+          position: absolute;
+          width: 69px;
+          height: 69px;
+          border-radius: 50%;
+          top: 42px;
+          right: 0;
+          background-color: $blue;
+          transform: rotate(90deg);
+          transition: transform .4s ease;
+          cursor: pointer;
+            svg{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              width: 26px;
+              height: 15px;
+              pointer-events: none;
+            }
+            path{
+              fill: $white;
+            }
+        }
+    }
+    &-content{
+      padding: 50px 0;
+      display: none;
+        &-description{
+          max-width: 590px;
+        }
+    }
+    &-projects{
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -47px;
+      padding-top: 90px;
+        &-box{
+          width: 50%;
+          padding: 0 47px;
+        }
+    }
+    &.active{
+      .accordion{
+        &-content{
+          display: block;
+        }
+        &-header{
+          &-btn{
+            transform: rotate(270deg);
+          }
+        }
+      }
+    }
+}

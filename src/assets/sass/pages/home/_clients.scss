@@ -1,0 +1,23 @@
+.clients{
+  padding: 22px 0;
+    &-overlay{
+      width: 100%;
+    }
+    &-list{
+      white-space: nowrap;
+      padding-top: 54px;
+        &-item{
+          display: inline-block;
+          width: 369px;
+          height: 369px;
+          border-radius: 50%;
+          border: 1px rgba(255,255,255,.1) solid;
+          line-height: 384px;
+          text-align: center;
+          margin: 0 -15px;
+            img{
+              pointer-events: none;
+            }
+        }
+    }
+}

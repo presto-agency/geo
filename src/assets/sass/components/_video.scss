@@ -1,0 +1,74 @@
+.video{
+  position: relative;
+  width: 100%;
+  height: 100%;
+    &-btn{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 81px;
+      height: 81px;
+      border-radius: 50%;
+      background-color: $white;
+      cursor: pointer;
+      transition: opacity .2s ease;
+        &:before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 28px;
+        height: 26px;
+        background-repeat: no-repeat;
+        background-size: 22px;
+        background-position: center;
+        pointer-events: none;
+      }
+        &.__play{
+          &:before{
+            background-image: url(../../images/icons/play.svg);
+            left: 54%;
+          }
+        }
+        &.__pause{
+          opacity: 0;
+            &:before{
+              background-image: url(../../images/icons/pause.svg);
+              left: 50%;
+            }
+        }
+    }
+    &-poster{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity .2s ease;
+      pointer-events: none;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+    }
+    &.loaded{
+      .video{
+          &-poster{
+            opacity: 0;
+          }
+      }
+    }
+    &.playing{
+      z-index: 1;
+    }
+    &:hover{
+      .video{
+        &-btn{
+          opacity: 1;
+        }
+      }
+    }
+}

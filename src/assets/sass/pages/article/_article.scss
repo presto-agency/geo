@@ -1,0 +1,49 @@
+.article{
+  padding-bottom: 130px;
+    &-banner{
+      height: 810px;
+      overflow: hidden;
+      margin: -21px 0 80px;
+        img{
+          min-width: 100%;
+          min-height: 100%;
+          max-height: none;
+        }
+    }
+    &-date{
+      font-size: 14px;
+      @extend .font-title;
+      margin-top: 11px;
+    }
+    &-description{
+      padding-right: 40px;
+        .h-4{
+          line-height: 1.12em;
+        }
+    }
+    &-body{
+      padding: 50px 0 22px;
+      line-height: 1.375em;
+        p{
+          line-height: inherit;
+          margin-bottom: 23px;
+        }
+        img{
+          margin: 35px 0 50px;
+        }
+    }
+    &-action{
+        &-nav{
+          .link-follow{
+            @extend .h-6;
+            text-transform: none;
+              &-icon{
+                margin-left: 33px;
+              }
+          }
+        }
+        &-social{
+
+        }
+    }
+}
