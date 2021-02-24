@@ -1,0 +1,126 @@
+.projects{
+    &-sort{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 14px 0;
+    }
+    &-list{
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -10px;
+      padding: 43px 0;
+        &-box{
+          padding: 0 10px;
+          width: 50%;
+          margin-bottom: 46px;
+        }
+    }
+}
+
+.project{
+    &-preview{
+      position: relative;
+      overflow: hidden;
+      display: block;
+        &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,.15);
+        pointer-events: none;
+      }
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+    }
+    &-content{
+      display: flex;
+      padding: 15px 0 5px;
+        &-title{
+          flex: 1;
+          max-width: 55%;
+        }
+        &-description{
+          flex: 1;
+          max-width: 45%;
+          padding-top: 5px;
+        }
+        &-action{
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+          padding-top: 3px;
+        }
+    }
+    &-title{
+
+    }
+    &-tags{
+      display: flex;
+      padding: 4px 0;
+    }
+    &-tag{
+      color: $white;
+      opacity: .25;
+      position: relative;
+      padding-left: 15px;
+      margin-right: 15px;
+      font-size: 14px;
+        &:before{
+          content: '';
+          position: absolute;
+          width: 7px;
+          height: 7px;
+          top: 7px;
+          left: 0;
+          border-radius: 50%;
+          background-color: currentColor;
+          pointer-events: none;
+        }
+    }
+    &-description{
+
+    }
+    &-action{
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: $blue;
+      position: relative;
+        svg{
+          width: 20px;
+          height: 10px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%) rotate(-45deg);
+        }
+        path{
+          fill: $white;
+        }
+    }
+    &-item{
+        .project{
+            &-preview{
+              height: 490px;
+            }
+        }
+    }
+}
+
+.project{
+    &-accordion{
+      margin-bottom: 80px;
+        .project{
+          &-preview{
+            height: 380px;
+          }
+        }
+    }
+}
