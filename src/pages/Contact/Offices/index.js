@@ -23,7 +23,7 @@ const Offices = () => {
                             {
                                 data.map((office,key) => (
                                     <div className="offices-list-box" key={key}>
-                                        <div className="office">
+                                        <div className="office parallax">
                                             <div className="office-preview">
                                                 <img src={office.preview} alt={office.city} />
                                             </div>

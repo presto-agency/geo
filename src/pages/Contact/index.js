@@ -10,8 +10,8 @@ const ContactPage = () => {
                     <div className="row">
                         <div className="col-xl-9">
                             <div className="hero-content">
-                                <p className="label label-uppercase">contact us</p>
-                                <h1 className="h-2 hero-content-title">For any enquiries, or just to say hello.</h1>
+                                <p className="label label-uppercase fade">contact us</p>
+                                <h1 className="h-2 hero-content-title split-title">For any enquiries, or just to say hello.</h1>
                             </div>
                         </div>
                     </div>

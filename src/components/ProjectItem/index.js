@@ -5,7 +5,7 @@ import routes from 'routes';
 const ProjectItem = ({ project: { id, title, preview, tags } }) => {
     return (
         <div className="project project-item">
-            <Link to={`${routes.project.index}/${id}`} className="project-preview">
+            <Link to={`${routes.project.index}/${id}`} className="project-preview parallax">
                 <img src={preview} alt={title} />
             </Link>
             <div className="project-content">

@@ -8,7 +8,7 @@ import FootBanner  from "components/FootBanner";
 const ServicesPage = () => {
     return (
         <div className="page">
-            <HeroInner title="Our Services" label="Main Expertise" />
+            <HeroInner title="Our Services" label="Main Expertise" toScroll="#services-switcher" />
             <Detail />
             <Switcher />
             <DisciplinesAccordion />

@@ -7,13 +7,12 @@ const ArticleBody = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-12">
-                        <div className="article-banner">
+                        <div className="article-banner scale">
                             <img
                                 src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1526&q=80"
                                 alt=""
                                 data-scroll={true}
                                 data-scroll-speed="-2"
-                                data-scroll-position="center"
                             />
                         </div>
                     </div>

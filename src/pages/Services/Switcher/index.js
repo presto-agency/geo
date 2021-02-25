@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import CarouselNav from "components/CarouselNav";
@@ -9,7 +9,7 @@ import ServicesTabs from "./Tabs";
 
 const Switcher = () => {
 
-    const { data, activeTab } = useSelector(state => state.services);
+    const { data } = useSelector(state => state.services);
     const carousel = React.createRef();
     const [currentSlide, setCurrentSlide] = useState(1);
     const [totalSlides, setTotalSlides] = useState(data.length);
@@ -25,6 +25,7 @@ const Switcher = () => {
         lazyLoad: true,
         beforeChange: (index, nextIndex) => {
             setCurrentSlide(nextIndex + 1);
+            locoScroll.scrollTo('#services-switcher', { duration: 10 });
         },
     };
 
@@ -36,12 +37,9 @@ const Switcher = () => {
         carousel.current.slickPrev();
     };
 
-    useEffect(() => {
-        if(activeTab !== null) {
-            carousel.current.slickGoTo(activeTab);
-            locoScroll.scrollTo('#services-switcher', { duration: 10 });
-        }
-    }, [activeTab]);
+    const handleChange = (id) => {
+        carousel.current.slickGoTo(id);
+    };
 
     return (
         <section className="section services-switcher" id="services-switcher">
@@ -66,7 +64,7 @@ const Switcher = () => {
                                 totalSlides={totalSlides}
                             />
                         </div>
-                        <ServicesTabs services={data} />
+                        <ServicesTabs services={data} onClick={handleChange} />
                     </div>
                 </div>
             </div>

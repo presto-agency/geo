@@ -4,7 +4,14 @@ import routes from 'routes';
 
 const AboutDetail = () => {
     return (
-        <section className="section about">
+        <section
+            className="section about"
+            id="home-about"
+            // data-scroll={true}
+            // data-scroll-id="split-content-on-scroll"
+            // data-scroll-repeat="false"
+            // data-scroll-call="split-content-on-scroll"
+        >
             <div className="container">
                 <div className="row">
                     <div className="col-xl-5 offset-xl-1">

@@ -9,13 +9,12 @@ import ProjectPageCarousel from "./Carousel";
 const ProjectBody = () => {
     return (
         <section className="section project-page">
-            <div className="project-page-banner">
+            <div className="project-page-banner scale">
                 <img
                     src="https://images.unsplash.com/photo-1441040744088-a70b8213d4d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
                     alt=""
                     data-scroll={true}
                     data-scroll-speed="-2"
-                    data-scroll-position="center"
                 />
             </div>
             <div className="project-page-facts">

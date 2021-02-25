@@ -6,7 +6,7 @@ import routes from 'routes'
 const Post = ({ post: { id, preview, title, description } }) => {
     return (
         <div className="post">
-            <Link to={`${routes.news.index}/${id}`} className="post-preview">
+            <Link to={`${routes.news.index}/${id}`} className="post-preview parallax">
                 <img src={preview} alt={title} />
             </Link>
             <div className="post-content">

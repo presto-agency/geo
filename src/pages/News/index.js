@@ -11,7 +11,7 @@ const NewsPage = () => {
                         <div className="col-xl-9">
                             <div className="hero-content">
                                 <p className="label label-uppercase">Our news</p>
-                                <h1 className="h-1 hero-content-title">News </h1>
+                                <h1 className="h-1 hero-content-title split-title">News </h1>
                             </div>
                         </div>
                     </div>

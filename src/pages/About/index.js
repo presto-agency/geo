@@ -10,7 +10,7 @@ import WhereWeWork from "./WhereWeWork";
 const AboutPage = () => {
     return (
         <div className="page">
-            <HeroInner title="About Us" label="who we are" />
+            <HeroInner title="About Us" label="who we are" toScroll="#about-detail-values" />
             <Detail/>
             <Team />
             <Testimonials />

@@ -3,7 +3,7 @@ import list from './list';
 
 const Team = () => {
     return (
-        <section className="section team">
+        <section className="section team" id="team">
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">

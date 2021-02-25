@@ -18,6 +18,7 @@ import Footer from "components/Footer";
 import {routeIn, routeOut} from "utils/routeTransition";
 
 const App = () => {
+
     return (
         <Router>
             <SmoothScroll>
@@ -32,8 +33,9 @@ const App = () => {
                                     appear={true}
                                     onEnter={(node, appears) => routeIn(pathname, node, appears)}
                                     onExit={(node, appears) => routeOut(node, appears)}
-                                    timeout={{ enter: 1000, exit: 1000 }}
+                                    timeout={{ enter: 1500, exit: 1000 }}
                                 >
+                                    <div className="transition-box">
                                     <Switch location={location}>
                                         <Route path={routes.index} exact component={HomePage} />
                                         <Route path={routes.about} component={AboutPage} />
@@ -46,12 +48,13 @@ const App = () => {
                                         <Route path={routes.search} component={SearchPage} />
                                         <Route path="*" component={PageNotFound} />
                                     </Switch>
+                                    <Footer />
+                                    </div>
                                 </Transition>
                             </TransitionGroup>
                         )
                     }}
                 />
-                <Footer />
             </SmoothScroll>
         </Router>
     );

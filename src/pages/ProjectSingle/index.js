@@ -30,10 +30,10 @@ const ProjectSinglePage = () => {
                         <div className="col-xl-12">
                             <div className="hero-content">
                                 <div className="project-tags">
-                                    <p className="project-tag">Building</p>
-                                    <p className="project-tag">Residential</p>
+                                    <p className="project-tag fade">Building</p>
+                                    <p className="project-tag fade">Residential</p>
                                 </div>
-                                <h1 className="h-1 hero-content-title">Park View</h1>
+                                <h1 className="h-1 hero-content-title split-title">Park View</h1>
                             </div>
                         </div>
                     </div>

@@ -10,8 +10,8 @@ const ArticlePage = () => {
                     <div className="row">
                         <div className="col-xl-12">
                             <div className="hero-content">
-                                <p className="label label-uppercase">Evens</p>
-                                <h1 className="h-2 hero-content-title">Enter our festive giveaways</h1>
+                                <p className="label label-uppercase fade">Evens</p>
+                                <h1 className="h-2 hero-content-title split-title">Enter our festive giveaways</h1>
                             </div>
                         </div>
                     </div>

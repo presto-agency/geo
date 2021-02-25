@@ -11,7 +11,7 @@ const PageNotFound = () => {
                     <div className="row">
                         <div className="col-xl-6">
                             <div className="pnf-content">
-                                <h2 className="pnf-content-title h-2">Houston, we have a problem!</h2>
+                                <h2 className="pnf-content-title h-2 split-title">Houston, we have a problem!</h2>
                                 <p className="pnf-content-description">Error 404, the page you are looking for doesn't exist.</p>
                                 <div className="pnf-content-action">
                                     <Link to={routes.index} className="link-btn">Take me home</Link>

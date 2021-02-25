@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import routes from 'routes';
 import logo from 'assets/images/logo.png';
 import Subscription from "components/Subscription";
@@ -11,7 +11,7 @@ const Footer = () => {
         if(link.blank) {
             return <a href={link.url} target="_blank" className="link">{link.title}</a>
         }
-        return <NavLink to={link.url} className="link">{link.title}</NavLink>;
+        return <Link to={link.url} className="link">{link.title}</Link>;
 
     };
 

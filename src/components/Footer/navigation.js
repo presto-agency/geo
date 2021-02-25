@@ -66,32 +66,32 @@ export default [
         list: [
             {
                 title: 'Dubai, UAE',
-                url: '',
+                url: routes.contact,
                 blank: false,
             },
             {
                 title: 'Abu Dhabi Branch',
-                url: '',
+                url: routes.contact,
                 blank: false,
             },
             {
                 title: 'Lebanon',
-                url: '',
+                url: routes.contact,
                 blank: false,
             },
             {
                 title: 'KSA',
-                url: '',
+                url: routes.contact,
                 blank: false,
             },
             {
                 title: 'Egypt',
-                url: '',
+                url: routes.contact,
                 blank: false,
             },
             {
                 title: 'Iraq',
-                url: '',
+                url: routes.contact,
                 blank: false,
             }
         ]
