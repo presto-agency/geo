@@ -11,6 +11,7 @@ Base settings
 Libs
  */
 @import "../libs/grid.min.css";
+@import "../libs/odometer-theme-default.css";
 @import "../../../node_modules/slick-carousel/slick/slick.css";
 @import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 
@@ -67,3 +68,4 @@ Components
 @import "components/value";
 @import "components/map";
 @import "components/google-map";
+@import "components/modal";

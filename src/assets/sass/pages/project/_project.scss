@@ -3,21 +3,33 @@
     position: relative;
     overflow: hidden;
     display: block;
-    &:after{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0,0,0,.15);
-      pointer-events: none;
-    }
-    img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+      &-box{
+        height: 100%;
+        width: 100%;
+        transition: transform 1s ease;
+      }
+      &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,.15);
+        pointer-events: none;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      @include hover(991){
+        &:hover{
+          .project-preview-box{
+            transform: scale(1.2);
+          }
+        }
+      }
   }
   &-content{
     display: flex;

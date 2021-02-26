@@ -6,7 +6,12 @@ const ProjectItem = ({ project: { id, title, preview, tags } }) => {
     return (
         <div className="project project-item">
             <Link to={`${routes.project.index}/${id}`} className="project-preview parallax">
-                <img src={preview} alt={title} />
+                <div className="project-preview-box">
+                    <img
+                        src={preview}
+                        alt={title}
+                    />
+                </div>
             </Link>
             <div className="project-content">
                 <div className="project-content-title">

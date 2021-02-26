@@ -75,7 +75,7 @@ const ProjectsSort = () => {
     };
 
     return (
-        <div className="projects-sort">
+        <div className="projects-sort fade">
             <CustomSelect options={projects} placeholder="All projects" callback={handleProjectsChange}  />
             <CustomSelect options={locations} placeholder="All locations" callback={handleLocationChange}  />
             <CustomSelect options={sort} placeholder="Sort by" callback={handleSortChange}  />

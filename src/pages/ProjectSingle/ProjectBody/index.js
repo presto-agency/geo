@@ -10,46 +10,50 @@ const ProjectBody = () => {
     return (
         <section className="section project-page">
             <div className="project-page-banner scale">
-                <img
-                    src="https://images.unsplash.com/photo-1441040744088-a70b8213d4d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                    alt=""
+                <div
+                    className="banner-box"
                     data-scroll={true}
                     data-scroll-speed="-2"
-                />
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1441040744088-a70b8213d4d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                        alt=""
+                    />
+                </div>
             </div>
             <div className="project-page-facts">
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-10 offset-xl-1">
-                            <h3 className="h-3">Key facts</h3>
+                            <h3 className="h-3 fade-on-scroll">Key facts</h3>
                             <hr className="hr"/>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-xl-5 offset-xl-1">
                             <div className="project-facts">
-                                <div className="project-facts-item">
+                                <div className="project-facts-item fade-on-scroll">
                                     <div className="project-fact-icon">
                                         <img src={locationIcon} alt="Location" />
                                     </div>
                                     <p className="label-uppercase">Location</p>
                                     <p className="project-fact-value">Riyadh, KSA</p>
                                 </div>
-                                <div className="project-facts-item">
+                                <div className="project-facts-item fade-on-scroll">
                                     <div className="project-fact-icon">
                                         <img src={clientIcon} alt="Client" />
                                     </div>
                                     <p className="label-uppercase">Client</p>
                                     <p className="project-fact-value">H. E. Mohammed Khalifa Bin Yousef Alsuwaidi</p>
                                 </div>
-                                <div className="project-facts-item">
+                                <div className="project-facts-item fade-on-scroll">
                                     <div className="project-fact-icon">
                                         <img src={squareIcon} alt="BUA" />
                                     </div>
                                     <p className="label-uppercase">BUA</p>
                                     <p className="project-fact-value">13,924,000 m<sup>2</sup></p>
                                 </div>
-                                <div className="project-facts-item">
+                                <div className="project-facts-item fade-on-scroll">
                                     <div className="project-fact-icon">
                                         <img src={factsIcon} alt="Key facts" />
                                     </div>
@@ -60,7 +64,7 @@ const ProjectBody = () => {
                                         <li>290 hotel rooms</li>
                                     </ul>
                                 </div>
-                                <div className="project-facts-item">
+                                <div className="project-facts-item fade-on-scroll">
                                     <div className="project-fact-icon">
                                         <img src={areaIcon} alt="Plot area" />
                                     </div>
@@ -70,7 +74,7 @@ const ProjectBody = () => {
                             </div>
                         </div>
                         <div className="col-xl-5">
-                            <div className="project-fact-description">
+                            <div className="project-fact-description fade-on-scroll">
                                 <p>A full fledged city designed around an Olympic Village designed to cater for a future prospect to hold the world summer Olympics in KSA. The city contains more than 30,000 villa, 30,000 residential unit, a five star hotel, a mega mall, 700,000 sqm of office space and more.</p>
                             </div>
                         </div>

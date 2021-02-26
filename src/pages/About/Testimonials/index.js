@@ -38,7 +38,7 @@ const Testimonials = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
-                        <p className="label">Testimonials</p>
+                        <p className="label fade-on-scroll">Testimonials</p>
                         <CarouselNav
                             onNext={next}
                             onPrev={prev}

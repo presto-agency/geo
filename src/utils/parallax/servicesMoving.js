@@ -1,10 +1,8 @@
 import gsap, { TimelineMax, Power1 } from "gsap/gsap-core";
 import {locoScroll} from "components/SmoothScroll";
 
-export const servicesMove = (obj) => {
+export const servicesMove = (object, dir) => {
 
-    // const list = obj.el.querySelectorAll('.list-scroll');
-    //
     // const titleTl = gsap.timeline({
     //     scrollTrigger: {
     //         trigger: list[0],

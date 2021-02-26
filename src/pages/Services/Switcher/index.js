@@ -46,7 +46,7 @@ const Switcher = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
-                        <p className="label">Our Services</p>
+                        <p className="label fade-on-scroll">Our Services</p>
                         <div className="services-carousel-wrap">
                             <CarouselPagination
                                 currentSlide={currentSlide}

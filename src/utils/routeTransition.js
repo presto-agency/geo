@@ -66,7 +66,7 @@ export const routeOut = (node) => {
             width: '100%',
             duration: 0,
             opacity: 0,
-            ease: Power0.easeOut,
+            ease: 'none',
             onComplete: () => {
                 setTimeout(() => {
                     locoScroll.scrollTo(0, {

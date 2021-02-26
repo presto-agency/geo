@@ -121,6 +121,9 @@ body{
         }
     }
     &-follow{
+      padding: 0;
+      border: none;
+      background-color: transparent;
       color: $blue;
       text-transform: uppercase;
       @extend .font-heavy;
@@ -265,4 +268,8 @@ body{
   border: none;
   height: 1px;
   background-color: $white;
+}
+
+.c-scrollbar{
+  display: none;
 }

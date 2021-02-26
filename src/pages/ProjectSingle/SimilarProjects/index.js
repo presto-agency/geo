@@ -7,7 +7,7 @@ const SimilarProjects = ({ data }) => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
-                        <div className="accordion-projects">
+                        <div className="accordion-projects fade-on-scroll">
                             {
                                 data.slice(0,2).map((project, key) => <ProjectAccordion project={project} key={key} />)
                             }

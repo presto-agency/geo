@@ -7,7 +7,7 @@
         &.__reverse{
           .list-scroll{
             display: flex;
-            flex-direction: row-reverse;
+            //flex-direction: row-reverse;
           }
           .services-list-item{
             &:not(:last-child){

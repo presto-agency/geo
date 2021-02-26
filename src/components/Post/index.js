@@ -9,7 +9,7 @@ const Post = ({ post: { id, preview, title, description } }) => {
             <Link to={`${routes.news.index}/${id}`} className="post-preview parallax">
                 <img src={preview} alt={title} />
             </Link>
-            <div className="post-content">
+            <div className="post-content fade-on-scroll">
                 <div className="post-tags">
                     <span className="post-tags-item">#solar</span>
                     <span className="post-tags-item">#aboutsun</span>

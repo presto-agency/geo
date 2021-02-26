@@ -11,7 +11,7 @@ const Clients = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
-                        <p className="label">Trusted by</p>
+                        <p className="label fade-on-scroll">Trusted by</p>
                     </div>
                 </div>
             </div>

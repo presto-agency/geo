@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import list from './list';
 
 const Services = () => {
@@ -13,19 +13,31 @@ const Services = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
-                        <p className="label">Our services</p>
+                        <p className="label fade-on-scroll">Our services</p>
                     </div>
                 </div>
             </div>
             <div className="services-list">
-                <div className="list-scroll">
+                <div
+                    className="list-scroll"
+                    data-scroll={true}
+                    data-scroll-speed="2"
+                    data-scroll-position="top"
+                    data-scroll-direction="horizontal"
+                >
                     {
                         list.map((item, key) => <p className="services-list-item h-3" key={key}>{item.title}</p>)
                     }
                 </div>
             </div>
             <div className="services-list __reverse">
-                <div className="list-scroll">
+                <div
+                    className="list-scroll"
+                    data-scroll={true}
+                    data-scroll-speed="1.5"
+                    data-scroll-position="top"
+                    data-scroll-direction="horizontal"
+                >
                     {
                         list.map((item, key) => <p className="services-list-item h-3" key={key}>{item.title}</p>)
                     }

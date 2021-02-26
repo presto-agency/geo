@@ -11,12 +11,12 @@ const HeroInner = ({ title, label, toScroll }) => {
                 <div className="row">
                     <div className="col-xl-8">
                         <div className="hero-content">
-                            <p className="label label-uppercase">{label}</p>
+                            <p className="label label-uppercase fade">{label}</p>
                             <h1 className="h-1 hero-content-title split-title">{title}</h1>
                         </div>
                     </div>
                     <div className="col-xl-4">
-                        <div className="follow follow-inner">
+                        <div className="follow follow-inner fade">
                             <button
                                 className="follow-link"
                                 onClick={() => locoScroll.scrollTo(`${toScroll}`, { duration: 500 })}>

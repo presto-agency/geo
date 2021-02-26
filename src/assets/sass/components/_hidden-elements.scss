@@ -1,8 +1,3 @@
-.fade-in-up{
-  opacity: 0;
-  transform: translateY(100px);
-}
-
 .split-title{
   overflow: hidden;
 }
@@ -15,4 +10,15 @@
 
 .fade{
   opacity: 0;
+    &-on-scroll{
+      opacity: 0;
+      transform: translateY(100px);
+    }
+}
+
+.group{
+    &-scale,
+    &-fade{
+      opacity: 0;
+    }
 }

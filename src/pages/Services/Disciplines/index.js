@@ -9,7 +9,7 @@ const DisciplinesAccordion = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
-                        <p className="label">Disciplines</p>
+                        <p className="label fade-on-scroll">Disciplines</p>
                         <div className="disciplines-accordion-box">
                             {
                                 list.map((discipline, key) => <DisciplineSingleAccordion discipline={discipline} key={key} />)

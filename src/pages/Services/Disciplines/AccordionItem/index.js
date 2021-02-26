@@ -16,7 +16,7 @@ const DisciplineSingleAccordion = ({ discipline: { discipline, description, proj
     return (
         <div className={`accordion ${collapsed ? '' : 'active'}`}>
             <div className="accordion-header">
-                <div className="accordion-header-title">
+                <div className="accordion-header-title fade-on-scroll">
                     <p className="h-2">{discipline}</p>
                 </div>
                 <div className="accordion-header-btn" onClick={handleToggle}>

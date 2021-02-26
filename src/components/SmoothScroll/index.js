@@ -7,6 +7,8 @@ import 'locomotive-scroll/dist/locomotive-scroll.css';
 import {servicesMove} from "utils/parallax/servicesMoving";
 import {disciplinesMoving} from "utils/parallax/disciplinesMoving";
 import {photoParallax} from "utils/parallax/photosParallax";
+import {contentParallax} from "utils/parallax/contentParallax";
+import {groupParallax} from "utils/parallax/groupParallax";
 
 export let locoScroll;
 
@@ -34,8 +36,15 @@ const SmoothScroll = (props) => {
         });
 
         locoScroll.on('call', (func, dir, obj) => {
-            servicesMove(obj);
-            disciplinesMoving();
+            if(func === 'services-moving') {
+                servicesMove(obj, dir);
+            }
+            if(func === 'disciplines-moving') {
+                disciplinesMoving();
+            }
+            if(func === 'group-parallax') {
+                groupParallax();
+            }
         });
 
         history.listen(() => {
@@ -65,6 +74,9 @@ const SmoothScroll = (props) => {
 
         //photos parallax on scroll
         photoParallax();
+
+        //content parallax on scroll
+        contentParallax();
 
     }, [pathname]);
 

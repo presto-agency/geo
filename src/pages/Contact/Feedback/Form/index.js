@@ -1,9 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import validationSchema from "./validationScheme";
+import {openModal} from "store/modal/actions";
 
 const FeedbackForm = () => {
 
+    const dispatch = useDispatch();
     const initialValues = {
         name: '',
         email: '',
@@ -11,6 +14,7 @@ const FeedbackForm = () => {
     };
 
     const onSubmit = (value) => {
+        dispatch(openModal('done'));
         console.log(value);
     };
 

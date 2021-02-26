@@ -11,7 +11,7 @@ const OtherNews = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-12">
-                        <h3 className="h-3">Oher news</h3>
+                        <h3 className="h-3 fade-on-scroll">Oher news</h3>
                         <div className="news-list">
                             {
                                 data.slice(0,2).map((post, key) => (
@@ -21,7 +21,7 @@ const OtherNews = () => {
                                 ))
                             }
                         </div>
-                        <hr className="hr"/>
+                        <hr className="hr fade-on-scroll"/>
                     </div>
                 </div>
             </div>

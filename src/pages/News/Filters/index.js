@@ -9,7 +9,7 @@ const Filters = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-12">
-                        <div className="filters-list">
+                        <div className="filters-list fade">
                             <FilterSearch />
                             <FilterCategories />
                             <FilterSort />

@@ -1,5 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import {openModal} from "store/modal/actions";
 import routes from 'routes';
 import nav from './navigation';
 import logo from 'assets/images/logo.png';
@@ -8,6 +10,7 @@ import searchIcon from 'assets/images/icons/loupe.svg';
 const Header = () => {
 
     const { pathname } = useLocation();
+    const dispatch = useDispatch();
 
     return (
         <header className="header">
@@ -32,12 +35,12 @@ const Header = () => {
                             }
                             </nav>
                             <div className="header-nav-search">
-                                <Link className="link" to={routes.search}>
+                                <button className="link" onClick={() => dispatch(openModal('search'))}>
                                     <span className="link-icon">
                                         <img src={searchIcon} alt="Search" />
                                     </span>
                                     Search
-                                </Link>
+                                </button>
                             </div>
                         </div>
                     </div>
