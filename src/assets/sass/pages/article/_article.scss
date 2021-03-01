@@ -37,6 +37,9 @@
         }
     }
     &-action{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
         &-nav{
           .link-follow{
             @extend .h-6;
@@ -47,7 +50,12 @@
           }
         }
         &-social{
-
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+            .link-social{
+              margin-left: 25px;
+            }
         }
     }
 }

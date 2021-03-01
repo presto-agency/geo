@@ -148,6 +148,31 @@ body{
           }
         }
     }
+    &-social{
+      width: 17px;
+      height: 17px;
+      background-repeat: no-repeat;
+      background-size: 17px;
+      background-position: center;
+      transition: opacity .4s ease;
+        &[aria-label="pinterest"]{
+          background-image: url(../../images/icons/pinterest.svg);
+        }
+        &[aria-label="facebook"]{
+          background-image: url(../../images/icons/facebook.svg);
+        }
+        &[aria-label="twitter"]{
+          background-image: url(../../images/icons/twitter.svg);
+        }
+        &[aria-label="linkedin"]{
+          background-image: url(../../images/icons/linkedin.svg);
+        }
+       @include hover(991){
+         &:hover{
+           opacity: .5;
+         }
+       }
+    }
 }
 
 .label{

@@ -1,5 +1,6 @@
 import React from 'react';
 import FollowLink from "components/FollowLink";
+import Sharing from "../Sharing";
 
 const ArticleBody = () => {
     return (
@@ -48,7 +49,7 @@ const ArticleBody = () => {
                                     <FollowLink title="Next news" to="/news/1" />
                                 </div>
                                 <div className="article-action-social">
-
+                                    <Sharing />
                                 </div>
                             </div>
                         </div>
