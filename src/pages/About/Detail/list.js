@@ -2,7 +2,7 @@ export default [
     {
         id: 0,
         label: 'People',
-        title: '130+',
+        title: '130',
         description: 'We\'re a world-class team of diverse individuals who are here to do great work as well as be great to work with. Explore our culture manual.'
     },
     {
@@ -20,7 +20,7 @@ export default [
     {
         id: 3,
         label: 'Growth',
-        title: '160%',
+        title: '160',
         description: 'As fastest growing agency, we’ve strengthened our company with new leadership, talent, and clients the past two years.'
     }
 ]

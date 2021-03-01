@@ -1,4 +1,5 @@
 import React from 'react';
+import MetaTags from 'react-meta-tags';
 import Hero from "./Hero";
 import AboutDetail from "./About";
 import Clients from "./Clients";
@@ -7,10 +8,17 @@ import Services from "./Services";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import FootBanner  from "components/FootBanner";
+import logo from "assets/images/logo.png";
 
 const HomePage = () => {
     return (
         <div className="page">
+            <MetaTags>
+                <title>Global Engineering Office</title>
+                <meta name="description" content="Global Engineering Office" />
+                <meta property="og:title" content="Global Engineering Office" />
+                <meta property="og:image" content={logo} />
+            </MetaTags>
             <Hero />
             <AboutDetail />
             <Clients />

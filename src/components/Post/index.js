@@ -7,7 +7,9 @@ const Post = ({ post: { id, preview, title, description } }) => {
     return (
         <div className="post">
             <Link to={`${routes.news.index}/${id}`} className="post-preview parallax">
-                <img src={preview} alt={title} />
+                <div className="post-preview-box">
+                    <img src={preview} alt={title} />
+                </div>
             </Link>
             <div className="post-content fade-on-scroll">
                 <div className="post-tags">

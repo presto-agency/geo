@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import Odometer from 'react-odometerjs';
+import CountUp from 'react-countup';
 
-const CounterAnimate = ({ value }) => {
+const Counter = ({ value, isVisible }) => {
 
-    const [val, setVal] = useState(null);
+    const [val, setVal] = useState(0);
 
     useEffect(() => {
-        setVal(value)
-    }, []);
+        isVisible ? setVal(value) : setVal(0);
+    }, [isVisible]);
 
-    return <Odometer value={val} format="d" duration={400} />
+    return <CountUp start={0} end={val} duration={3} />
+
 };
 
-export default CounterAnimate;
+export default Counter;

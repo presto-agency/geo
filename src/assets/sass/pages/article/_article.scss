@@ -4,6 +4,10 @@
       height: 810px;
       overflow: hidden;
       margin: -21px 0 80px;
+        &-box{
+          height: 100%;
+          width: 100%;
+        }
         img{
           min-width: 100%;
           min-height: 100%;

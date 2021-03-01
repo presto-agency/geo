@@ -1,8 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import list from './list';
-import CounterAnimate from "components/Counter";
+import Counter from "../../../components/Counter";
 
 const Detail = () => {
+
+    const { isVisible } = useSelector(state => state.about);
+
     return (
         <section className="section detail">
             <div className="container">
@@ -12,13 +16,20 @@ const Detail = () => {
                         <div
                             className="detail-values fade"
                             id="about-detail-values"
+                            data-scroll={true}
+                            data-scroll-offset="30%, 70%"
+                            data-scroll-id="about-values"
+                            data-scroll-repeat="false"
+                            data-scroll-call="about-values"
                         >
                             {
                                 list.map((value, key) => (
                                     <div className="detail-values-box" key={key}>
                                         <div className="value">
                                             <p className="label-uppercase">{value.label}</p>
-                                            <p className="value-title h-2">{value.title}</p>
+                                            <p className="value-title h-2">
+                                                <Counter value={value.title} isVisible={isVisible} />
+                                            </p>
                                             <p className="value-description">{value.description}</p>
                                         </div>
                                     </div>

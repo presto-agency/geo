@@ -6,6 +6,7 @@ import services from "store/services/reducers";
 import offices from "store/offices/reducers";
 import news from 'store/news/reducers'
 import modal from 'store/modal/reducers';
+import about from "store/about/reducers";
 
 export default combineReducers({
     router: connectRouter(history),
@@ -13,5 +14,6 @@ export default combineReducers({
     services,
     offices,
     news,
-    modal
+    modal,
+    about
 });

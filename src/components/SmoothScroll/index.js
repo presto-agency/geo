@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import gsap from 'gsap';
 import { useHistory, useLocation } from 'react-router-dom';
 import LocomotiveScroll from 'locomotive-scroll';
@@ -9,11 +10,14 @@ import {disciplinesMoving} from "utils/parallax/disciplinesMoving";
 import {photoParallax} from "utils/parallax/photosParallax";
 import {contentParallax} from "utils/parallax/contentParallax";
 import {groupParallax} from "utils/parallax/groupParallax";
+import {showInViewport} from "store/about/actions";
 
 export let locoScroll;
 
 const SmoothScroll = (props) => {
 
+    const dispatch = useDispatch();
+    const { isVisible } = useSelector(state => state.about);
     const scrollRef = React.createRef();
     const history = useHistory();
     const { pathname } = useLocation();
@@ -36,14 +40,21 @@ const SmoothScroll = (props) => {
         });
 
         locoScroll.on('call', (func, dir, obj) => {
-            if(func === 'services-moving') {
-                servicesMove(obj, dir);
-            }
-            if(func === 'disciplines-moving') {
-                disciplinesMoving();
-            }
-            if(func === 'group-parallax') {
-                groupParallax();
+            switch (func) {
+                case 'services-moving':
+                    servicesMove(obj, dir);
+                    return true;
+                case 'disciplines-moving':
+                    disciplinesMoving();
+                    return true;
+                case 'group-parallax':
+                    groupParallax();
+                    return true;
+                case 'about-values':
+                    if(!isVisible) {
+                        dispatch(showInViewport(true));
+                    }
+                    return true;
             }
         });
 

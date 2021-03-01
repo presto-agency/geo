@@ -14,3 +14,8 @@ Modal
  */
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
+
+/*
+About
+ */
+export const SHOW_IN_VIEWPORT = 'SHOW_IN_VIEWPORT';

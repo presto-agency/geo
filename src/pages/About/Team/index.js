@@ -8,7 +8,7 @@ const Team = () => {
             id="team"
             data-scroll={true}
             data-scroll-id="group-parallax"
-            data-scroll-repeat="true"
+            data-scroll-repeat="false"
             data-scroll-call="group-parallax"
         >
             <div className="container">
