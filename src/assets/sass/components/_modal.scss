@@ -39,6 +39,16 @@
                               stroke: $white;
                             }
                         }
+                        @include hover(991){
+                          &:hover{
+                            svg{
+                              transform: rotate(180deg);
+                                line{
+                                  stroke: $blue;
+                                }
+                            }
+                          }
+                        }
                     }
                 }
             }
@@ -67,8 +77,10 @@
               width: 20px;
               height: 20px;
               fill: none;
+              transition: transform .4s ease;
                 line{
                   stroke: $black;
+                  transition: all .4s ease;
                 }
             }
         }

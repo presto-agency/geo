@@ -1,8 +1,12 @@
-import Tween, { Power0, Power2 } from 'gsap';
+import Tween, { Power2 } from 'gsap';
 import {locoScroll} from "components/SmoothScroll";
 import SplitTextJS from 'split-text-js';
 import {scaleIn} from "utils/common/scaleIn";
 import {fadeInContent} from "utils/common/fadeInContent";
+import {photoParallax} from "utils/parallax/photosParallax";
+import {contentParallax} from "utils/parallax/contentParallax";
+import {scaleMapOnScroll} from "utils/parallax/scaleMapOnScroll";
+import {groupParallax} from "utils/parallax/groupParallax";
 
 export const routeIn = (pathname, node, appears) => {
 
@@ -37,6 +41,14 @@ export const routeIn = (pathname, node, appears) => {
             delay: 0.5,
             ease: Power2.easeInOut,
             onComplete: () => {
+
+                //animation on scroll
+                photoParallax();
+                contentParallax();
+                scaleMapOnScroll();
+                groupParallax();
+
+                //animation on load page
                 //display split title
                 if(!!title) {
                     Tween.to(splitWords, {

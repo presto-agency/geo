@@ -6,7 +6,7 @@ const ProjectAccordion = ({ project: { id, preview, title, tags } }) => {
     return (
         <div className="accordion-projects-box">
             <div className="project project-accordion">
-                <Link to={`${routes.project.index}/${id}`} className="project-preview">
+                <Link to={`${routes.project.index}/${id}`} className="project-preview parallax">
                     <div className="project-preview-box">
                         <img src={preview} alt={title} />
                     </div>

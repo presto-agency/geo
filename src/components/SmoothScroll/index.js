@@ -7,9 +7,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import {servicesMove} from "utils/parallax/servicesMoving";
 import {disciplinesMoving} from "utils/parallax/disciplinesMoving";
-import {photoParallax} from "utils/parallax/photosParallax";
-import {contentParallax} from "utils/parallax/contentParallax";
-import {groupParallax} from "utils/parallax/groupParallax";
 import {showInViewport} from "store/about/actions";
 
 export let locoScroll;
@@ -47,9 +44,6 @@ const SmoothScroll = (props) => {
                 case 'disciplines-moving':
                     disciplinesMoving();
                     return true;
-                case 'group-parallax':
-                    groupParallax();
-                    return true;
                 case 'about-values':
                     if(!isVisible) {
                         dispatch(showInViewport(true));
@@ -82,13 +76,8 @@ const SmoothScroll = (props) => {
     }, []);
 
     useEffect(() => {
-
-        //photos parallax on scroll
-        photoParallax();
-
-        //content parallax on scroll
-        contentParallax();
-
+        //on init page
+        dispatch(showInViewport(false));
     }, [pathname]);
 
     return (

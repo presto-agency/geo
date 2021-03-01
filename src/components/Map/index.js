@@ -15,7 +15,13 @@ const Map = () => {
     };
 
     return (
-        <div className="map">
+        <div
+            className="map"
+            data-scroll={true}
+            data-scroll-id="map"
+            data-scroll-repeat="false"
+            data-scroll-call="map"
+        >
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 3899.9 3710.3">
                 <g>
                     <path className="country" d="M2472.1,629.2l35.7-19.3l42.2,1.1l17.6,22.4l67.5,18.7l21,0.6l43.7,14.2l16.2,34.9l28.9,5.7l23.8,27.5h58.1

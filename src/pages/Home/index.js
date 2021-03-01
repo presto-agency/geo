@@ -9,8 +9,8 @@ import Projects from "./Projects";
 import Contact from "./Contact";
 import FootBanner  from "components/FootBanner";
 import logo from "assets/images/logo.png";
-
 const HomePage = () => {
+
     return (
         <div className="page">
             <MetaTags>

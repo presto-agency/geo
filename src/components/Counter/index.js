@@ -6,7 +6,7 @@ const Counter = ({ value, isVisible }) => {
     const [val, setVal] = useState(0);
 
     useEffect(() => {
-        isVisible ? setVal(value) : setVal(0);
+        isVisible ? setVal(parseInt(value)) : setVal(0);
     }, [isVisible]);
 
     return <CountUp start={0} end={val} duration={3} />
