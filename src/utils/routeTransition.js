@@ -82,13 +82,17 @@ export const routeOut = (node) => {
             opacity: 0,
             ease: 'none',
             onComplete: () => {
-                setTimeout(() => {
-                    locoScroll.scrollTo(0, {
-                        callback: () => locoScroll.update(),
-                        duration: 100,
-                        disableLerp: true
-                    });
-                }, 300);
+                if(window.innerWidth > 991) {
+                    setTimeout(() => {
+                        locoScroll.scrollTo(0, {
+                            callback: () => locoScroll.update(),
+                            duration: 100,
+                            disableLerp: true
+                        });
+                    }, 300);
+                } else {
+                    window.scrollTo(0, 0);
+                }
             }
         });
 
