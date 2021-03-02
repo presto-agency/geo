@@ -1,3 +1,9 @@
 .where-we-work{
   padding: 217px 0 214px;
+    @include d(1440){
+      padding: 130px 0 200px;
+    }
+    @include d(991){
+      padding: 70px 0 120px;
+    }
 }

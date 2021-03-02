@@ -12,5 +12,14 @@
               }
             }
         }
+        @include d(1440){
+          padding: 240px 0 160px;
+        }
+        @include d(1300){
+          padding: 215px 0 130px;
+        }
+        @include d(991){
+          padding: 200px 0 70px;
+        }
     }
 }

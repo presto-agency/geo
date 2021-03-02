@@ -12,12 +12,30 @@
           min-width: 100%;
           min-height: 100%;
           max-height: none;
+          object-fit: cover;
+        }
+        @include d(1700){
+          height: 800px;
+        }
+        @include d(1500){
+          height: 750px;
+        }
+        @include d(1440){
+          height: 100vh;
+          max-height: 700px;
+        }
+        @include d(991){
+          margin: 0 -50px 50px;
         }
     }
     &-date{
       font-size: 14px;
       @extend .font-title;
       margin-top: 11px;
+        @include d(991){
+          margin-top: 0;
+          margin-bottom: 30px;
+        }
     }
     &-description{
       padding-right: 40px;

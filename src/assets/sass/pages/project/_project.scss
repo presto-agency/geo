@@ -34,14 +34,13 @@
   }
   &-content{
     display: flex;
+    justify-content: space-between;
     padding: 15px 0 5px;
     &-title{
       flex: 1;
-      max-width: 55%;
     }
     &-description{
       flex: 1;
-      max-width: 45%;
       padding-top: 5px;
     }
     &-action{
@@ -49,10 +48,8 @@
       display: flex;
       justify-content: flex-end;
       padding-top: 3px;
+      max-width: 100px;
     }
-  }
-  &-title{
-
   }
   &-tags{
     display: flex;
@@ -77,9 +74,6 @@
       pointer-events: none;
     }
   }
-  &-description{
-
-  }
   &-action{
     width: 42px;
     height: 42px;
@@ -102,16 +96,31 @@
     .project{
       &-preview{
         height: 490px;
+          @include d(991){
+            height: 45vw;
+            min-height: 340px;
+          }
+          @include d(767){
+            height: 65vw;
+          }
       }
     }
   }
   &-accordion{
     margin-bottom: 80px;
-    .project{
-      &-preview{
-        height: 380px;
+      .project{
+          &-preview{
+            height: 380px;
+              @include d(991){
+                height: 40vw;
+                min-height: 300px;
+              }
+              @include d(767){
+                height: 80vw;
+                min-height: 350px;
+              }
+          }
       }
-    }
   }
   &-facts{
     display: flex;

@@ -9,6 +9,18 @@ h1{
     @include d(1440){
       font-size: 106px;
     }
+    @include d(1300){
+      font-size: 98px;
+    }
+    @include d(1200){
+      font-size: 88px;
+    }
+    @include d(991){
+      font-size: 84px;
+    }
+    @include d(767){
+      font-size: 74px;
+    }
 }
 
 h2{
@@ -21,6 +33,18 @@ h2{
     }
     @include d(1440){
       font-size: 70px;
+    }
+    @include d(1300){
+      font-size: 64px;
+    }
+    @include d(1200){
+      font-size: 58px;
+    }
+    @include d(991){
+      font-size: 54px;
+    }
+    @include d(767){
+      font-size: 46px;
     }
 }
 
@@ -42,6 +66,18 @@ h4{
   @extend .font-title;
   color: $white;
   line-height: 1.25em;
+    @include d(1440){
+      font-size: 32px;
+    }
+    @include d(1300){
+      font-size: 30px;
+    }
+    @include d(1200){
+      font-size: 28px;
+    }
+    @include d(991){
+      font-size: 26px;
+    }
 }
 
 h5{
@@ -53,6 +89,9 @@ h6{
   @extend .font-title;
   color: $white;
   line-height: 1.7em;
+    @include d(1300){
+      font-size: 20px;
+    }
 }
 
 p{

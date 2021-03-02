@@ -5,6 +5,9 @@
       border-bottom: 1px $white solid;
         &-title{
           max-width: 910px;
+            @include d(1200){
+              padding-right: 90px;
+            }
         }
         &-btn{
           position: absolute;
@@ -29,6 +32,13 @@
             path{
               fill: $white;
             }
+            @include d(1300){
+              top: 30px;
+            }
+            @include d(991){
+              width: 58px;
+              height: 58px;
+            }
         }
     }
     &-content{
@@ -46,6 +56,19 @@
         &-box{
           width: 50%;
           padding: 0 47px;
+            @include d(1300){
+              padding: 0 30px;
+            }
+            @include d(767){
+              padding: 0;
+              width: 100%;
+            }
+        }
+        @include d(1300){
+          margin: 0 -30px;
+        }
+        @include d(767){
+          margin: 0;
         }
     }
     &.active{

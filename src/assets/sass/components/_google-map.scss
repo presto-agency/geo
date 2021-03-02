@@ -1,5 +1,13 @@
 .google-map{
   height: 860px;
+    @include d(1800){
+      height: 800px;
+    }
+    @include d(1700){
+      min-height: 500px;
+      height: 100vh;
+      max-height: 700px;
+    }
 }
 
 .marker{

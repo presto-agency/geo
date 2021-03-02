@@ -10,7 +10,7 @@ const Feedback = () => {
             </div>
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-5 offset-xl-7">
+                    <div className="col-lg-5 offset-lg-7">
                         <div className="feedback-form fade">
                             <FeedbackForm />
                         </div>

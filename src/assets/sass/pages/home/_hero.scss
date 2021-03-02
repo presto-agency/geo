@@ -14,6 +14,9 @@
       padding-top: 54px;
       position: relative;
       z-index: 1;
+        @include d(991){
+          max-width: 100%;
+        }
     }
     &-offices{
         &-title{
@@ -75,11 +78,31 @@
               height: 959px;
             }
             @include d(1440){
-              height: 826px;
+              height: 836px;
+            }
+            @include d(1300){
+              height: 738px;
+            }
+            @include d(1200){
+              height: 706px;
             }
         }
+        @include d(991){
+          & div{
+            height: 100%;
+          }
+        }
+    }
+    @include d(1500){
+      padding: 220px 0 200px;
     }
     @include d(1440){
       padding: 210px 0 170px;
+    }
+    @include d(1300){
+      padding: 193px 0 110px;
+    }
+    @include d(767){
+      padding: 190px 0 150px;
     }
 }

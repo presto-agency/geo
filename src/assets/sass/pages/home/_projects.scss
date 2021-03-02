@@ -17,6 +17,20 @@
             .project{
                 &-preview{
                   height: 597px;
+                    img{
+                      opacity: 1;
+                    }
+                    @include d(1300){
+                      height: 500px;
+                    }
+                    @include d(991){
+                      height: 100vh;
+                      max-height: 700px;
+                    }
+                    @include d(767){
+                      height: 90vw;
+                      min-height: 500px;
+                    }
                 }
                 &-description{
                   display: -webkit-box;
@@ -24,7 +38,25 @@
                   -webkit-line-clamp: 2;
                   overflow: hidden;
                 }
+                &-content{
+                    &-title{
+                      max-width: 55%;
+                    }
+                    &-description{
+                      max-width: 45%;
+                    }
+                    @include d(991){
+                      padding: 15px 50px 5px;
+                    }
+                }
             }
+        }
+        @include d(1300){
+          min-height: 580px;
+        }
+        @include d(991){
+          margin: 0 -50px;
+          min-height: 0;
         }
     }
 }

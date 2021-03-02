@@ -1,7 +1,6 @@
 .projects{
     &-sort{
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       padding: 14px 0;
       position: relative;
@@ -16,6 +15,13 @@
           padding: 0 10px;
           width: 50%;
           margin-bottom: 46px;
+            @include d(767){
+              width: 100%;
+              padding: 0;
+            }
+        }
+        @include d(767){
+          margin: 0;
         }
     }
 }

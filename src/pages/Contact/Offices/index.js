@@ -10,7 +10,7 @@ const Offices = () => {
         <section className="section offices" id="offices">
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-2">
+                    <div className="col-lg-2">
                         <h3
                             className="h-3 offices-title"
                             data-scroll={true}
@@ -18,7 +18,7 @@ const Offices = () => {
                             data-scroll-target="#offices"
                         >Offices</h3>
                     </div>
-                    <div className="col-xl-10">
+                    <div className="col-lg-10">
                         <div className="offices-list">
                             {
                                 data.map((office,key) => (

@@ -9,6 +9,21 @@
           padding: 0 49px;
           width: 33.33%;
           margin-bottom: 77px;
+            @include d(1300){
+              padding: 0 30px;
+            }
+            @include d(991){
+              width: 50%;
+            }
+            @include d(767){
+              padding: 0 10px;
+            }
+        }
+        @include d(1300){
+          margin: 0 -30px;
+        }
+        @include d(767){
+          margin: 0 -10px;
         }
     }
 }
@@ -23,6 +38,17 @@
         height: 100%;
         object-fit: cover;
         opacity: 0;
+      }
+      @include d(1440){
+        height: 350px;
+      }
+      @include d(991){
+        height: 50vw;
+        min-height: 340px;
+      }
+      @include d(767){
+        height: 50vw;
+        min-height: 280px;
       }
   }
   &-name{

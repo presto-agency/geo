@@ -7,30 +7,46 @@
     max-width: 815px;
       &-wrap{
           position: relative;
-              .carousel-nav-pagination{
-                  position: absolute;
-                  top: 30px;
-                  left: 7px;
+            .carousel-nav-pagination{
+              @include m(992){
+                position: absolute;
+                top: 30px;
+                left: 7px;
               }
-              .carousel-nav-btns{
-                  position: absolute;
-                  top: 41px;
-                  right: 0;
+              @include d(991){
+                justify-content: flex-start;
               }
+            }
+            .carousel-nav-btns{
+              @include m(992){
+                position: absolute;
+                top: 41px;
+                right: 0;
+              }
+            }
       }
       &-slide {
         padding-bottom: 50px;
+      }
+      @include d(1440){
+        max-width: 80%;
+      }
+      @include d(991){
+        max-width: 100%;
+        padding: 30px 0 0 0;
       }
   }
   &-title {
     text-transform: uppercase;
   }
   &-description {
-    font-size: 12px;
     padding: 6px 0 0 30px;
-        li{
-            margin-bottom: 5px;
-        }
+      li{
+        margin-bottom: 5px;
+      }
+      @include d(991){
+        padding: 6px 0 0;
+      }
   }
   &-tabs{
     display: flex;
@@ -40,9 +56,28 @@
       &-item{
         flex: 1;
         padding-bottom: 5px;
-          &:not(:last-child){
-            padding-right: 5px;
+          @include m(1201){
+            &:not(:last-child){
+              padding-right: 5px;
+            }
           }
+          @include d(1200){
+            flex: none;
+            padding: 0 15px 30px;
+          }
+      }
+      @include d(1440){
+        padding-top: 50px;
+        margin: 0 -90px;
+      }
+      @include d(1300){
+        margin: 0 -100px;
+      }
+      @include d(1200){
+        margin: 0;
+      }
+      @include d(991){
+        display: none;
       }
   }
   &-tab{
@@ -61,6 +96,12 @@
         @extend .font-title;
         margin: 0 -26px;
         position: relative;
+          @include d(1600){
+            font-size: 12px;
+          }
+          @include d(1200){
+            font-size: 11px;
+          }
       }
       &-numb{
         font-size: 14px;
@@ -94,6 +135,10 @@
           &:after{
             width: 18px;
             height: 1px;
+          }
+          @include d(1600){
+            top: 12px;
+            right: 40px;
           }
       }
       .hexagon{
@@ -133,6 +178,9 @@
             }
           }
         }
+      }
+      @include d(1200){
+        width: 200px;
       }
   }
 }

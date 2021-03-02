@@ -16,23 +16,23 @@ const Header = () => {
         <header className="header">
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-2">
+                    <div className="col-xl-2 col-lg-2 col-5">
                         <Link to={routes.index} className="header-logo">
                             <img src={logo} alt="Global Engineering Office" />
                         </Link>
                     </div>
-                    <div className="col-xl-8">
+                    <div className="col-xl-8 col-lg-7 col-7">
                         <div className="header-nav">
                             <nav className="nav">
-                            {
-                                nav.map(link => (
-                                    <NavLink
-                                        key={link.url}
-                                        to={link.url}
-                                        className="link"
-                                    >{link.title}</NavLink>
-                                ))
-                            }
+                                {
+                                    nav.map(link => (
+                                        <NavLink
+                                            key={link.url}
+                                            to={link.url}
+                                            className="link"
+                                        >{link.title}</NavLink>
+                                    ))
+                                }
                             </nav>
                             <div className="header-nav-search">
                                 <button className="link" onClick={() => dispatch(openModal('search'))}>
@@ -42,9 +42,16 @@ const Header = () => {
                                     Search
                                 </button>
                             </div>
+                            <div className="burger">
+                                <div className="burger-box">
+                                    <div className="burger-box-arrow" />
+                                    <div className="burger-box-arrow" />
+                                    <div className="burger-box-arrow" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-xl-2">
+                    <div className="col-xl-2 col-lg-3 d-none d-lg-block">
                         <div className="header-cta">
                             <Link
                                 to={routes.contact}

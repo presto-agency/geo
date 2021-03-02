@@ -7,12 +7,19 @@
       align-items: flex-start;
       position: relative;
       z-index: 1;
-      //padding-top: 122px;
       padding: 50px 0;
       justify-content: center;
       margin-bottom: -150px;
         &-preview{
-          display: none;
+          height: 500px;
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            @include m(992){
+              display: none;
+            }
         }
         &-title{
           margin: 18px 0 16px;
@@ -20,6 +27,13 @@
         &-description{
           max-width: 430px;
           margin-bottom: 42px;
+            @include d(991){
+              max-width: 100%;
+            }
+        }
+        @include d(991){
+          min-height: 0;
+          margin-bottom: 0;
         }
     }
     &-carousel{
@@ -33,6 +47,9 @@
           display: flex;
           flex-direction: column-reverse;
           position: relative;
+            @include d(1440){
+              margin-bottom: 80px;
+            }
         }
         &-slide{
           width: 100%;
@@ -54,5 +71,21 @@
         @include d(1900){
           width: 55vw;
         }
+    }
+    &-mobile-carousel{
+      @include d(991){
+        margin: 0 -50px;
+          .disciplines{
+            &-box{
+              padding: 0 50px;
+              &-preview{
+                margin: 0 -50px 40px;
+              }
+            }
+          }
+      }
+    }
+    @include d(991){
+      margin: 50px 0;
     }
 }

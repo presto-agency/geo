@@ -2,5 +2,9 @@
   padding: 125px 0 50px;
     &-title{
       max-width: 505px;
+        @include d(991){
+          max-width: 100%;
+          margin-bottom: 30px;
+        }
     }
 }

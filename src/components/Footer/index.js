@@ -19,13 +19,13 @@ const Footer = () => {
         <footer className="footer">
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-6">
+                    <div className="col-lg-6">
                         <Link to={routes.index} className="footer-logo">
                             <img src={logo} alt="Global Engineering Office" />
                         </Link>
                         <Subscription />
                     </div>
-                    <div className="col-xl-6">
+                    <div className="col-lg-6">
                         <h6 className="h-6">We believe in traditions and incorporate them within our innovations. Client is the soul of the project.</h6>
                         <div className="footer-nav">
                             {

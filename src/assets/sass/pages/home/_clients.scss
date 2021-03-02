@@ -18,6 +18,11 @@
             img{
               pointer-events: none;
             }
+            @include d(1300){
+              width: 330px;
+              height: 330px;
+              line-height: 338px;
+            }
         }
     }
 }

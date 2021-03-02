@@ -23,7 +23,7 @@ const ArticleBody = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-xl-2">
+                    <div className="col-xl-2 col-lg-2">
                         <p
                             className="article-date fade-on-scroll"
                             data-scroll={true}
@@ -31,7 +31,7 @@ const ArticleBody = () => {
                             data-scroll-target="#article-body"
                         >Jan 15, 2020</p>
                     </div>
-                    <div className="col-xl-8">
+                    <div className="col-xl-8 col-lg-10">
                         <div id="article-body">
                             <div className="article-description fade-on-scroll">
                                 <h4 className="h-4">This December we are giving you the chance to win a signed copy of Portfolio or The Flying Gherkin children’s activity pack. Decide where The Flying Gherkin should visit next. Submit your drawing of The Flying Gherkin at its next destination to win a festive Flying Gherkin activity pack.</h4>

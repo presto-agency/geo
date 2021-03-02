@@ -7,10 +7,27 @@
             outline: none;
           }
         }
+        @include d(767){
+          padding-top: 0;
+        }
     }
     .carousel-nav-btns{
       justify-content: flex-end;
       margin-top: -33px;
+      position: relative;
+      z-index: 1;
+        @include d(767){
+          margin-top: 0;
+          margin-bottom: -85px;
+        }
+    }
+    .label{
+      @include d(767){
+        margin-bottom: 50px;
+      }
+    }
+    @include d(1300){
+      padding: 80px 0;
     }
 }
 
@@ -47,21 +64,34 @@
               background-position: center;
               background-image: url(../../../images/icons/dots.svg);
               pointer-events: none;
+                @include d(1440){
+                  left: -65px;
+                }
+            }
+            @include d(1440){
+              width: 84px;
+              height: 84px;
+              margin-left: 65px;
             }
         }
         &-title{
           margin-top: 72px;
+          padding-right: 200px;
         }
         &-position{
           font-size: 14px;
           opacity: .25;
           margin-top: 5px;
+          padding-right: 200px;
         }
         &-logo{
           width: 145px;
           position: absolute;
           bottom: 5px;
           right: 0;
+        }
+        @include d(767){
+          margin-bottom: 30px;
         }
     }
     &-body{
@@ -71,5 +101,17 @@
         .h-4{
           line-height: 1.12em;
         }
+        @include d(1440){
+          max-width: 75%;
+        }
+        @include d(991){
+          max-width: 70%;
+        }
+        @include d(767){
+          max-width: 100%;
+        }
+    }
+    @include d(767){
+      flex-direction: column;
     }
 }

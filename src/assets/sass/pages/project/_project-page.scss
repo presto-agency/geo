@@ -7,12 +7,39 @@
           min-width: 100%;
           min-height: 100%;
           max-height: none;
+          object-fit: cover;
+        }
+        @include d(1700){
+          height: 850px;
+        }
+        @include d(1600){
+          height: 800px;
+        }
+        @include d(1500){
+          height: 750px;
+        }
+        @include d(1440){
+          height: 100vh;
+          max-height: 700px;
         }
     }
     &-banners{
-        .project-page-banner{
-          height: 954px;
-        }
+      .project-page-banner{
+        height: 954px;
+          @include d(1700){
+            height: 850px;
+          }
+          @include d(1600){
+            height: 800px;
+          }
+          @include d(1500){
+            height: 750px;
+          }
+          @include d(1440){
+            height: 100vh;
+            max-height: 700px;
+          }
+      }
     }
     &-facts{
       padding: 116px 0 0;
@@ -22,6 +49,14 @@
     }
     &-description{
       padding: 153px 0 140px;
+        .h-4{
+          @include d(991){
+            margin-bottom: 30px;
+          }
+        }
+        @include d(991){
+          padding: 120px 0;
+        }
     }
 }
 

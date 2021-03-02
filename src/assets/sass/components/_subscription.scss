@@ -1,24 +1,27 @@
-.subscription{
-    max-width: 485px;
-    &-container{
-        padding-top: 2px;
-    }
-    &-btn{
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 40px;
-        height: 100%;
-        padding: 0;
-        border: none;
-        background-color: transparent;
-        background-repeat: no-repeat;
-        background-position: center right;
-        background-image: url(../../images/icons/send.svg);
-        background-size: 26px;
-    }
-    .input{
-        height: 56px;
-        padding-right: 50px;
-    }
+.subscription {
+  max-width: 485px;
+  &-container {
+    padding-top: 2px;
+  }
+  &-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-image: url(../../images/icons/send.svg);
+    background-size: 26px;
+  }
+  .input {
+    height: 56px;
+    padding-right: 50px;
+  }
+  @include d(1300) {
+    max-width: 90%;
+  }
 }

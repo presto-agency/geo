@@ -17,7 +17,7 @@ const Detail = () => {
                             className="detail-values fade"
                             id="about-detail-values"
                             data-scroll={true}
-                            data-scroll-offset="30%, 70%"
+                            data-scroll-offset="20%, 70%"
                             data-scroll-id="about-values"
                             data-scroll-repeat="false"
                             data-scroll-call="about-values"

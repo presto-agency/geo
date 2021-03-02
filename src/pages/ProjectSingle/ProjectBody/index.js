@@ -30,7 +30,7 @@ const ProjectBody = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-xl-5 offset-xl-1">
+                        <div className="col-xl-5 offset-xl-1 col-lg-6">
                             <div className="project-facts">
                                 <div className="project-facts-item fade-on-scroll">
                                     <div className="project-fact-icon">
@@ -73,7 +73,7 @@ const ProjectBody = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-5">
+                        <div className="col-xl-5 col-lg-6">
                             <div className="project-fact-description fade-on-scroll">
                                 <p>A full fledged city designed around an Olympic Village designed to cater for a future prospect to hold the world summer Olympics in KSA. The city contains more than 30,000 villa, 30,000 residential unit, a five star hotel, a mega mall, 700,000 sqm of office space and more.</p>
                             </div>

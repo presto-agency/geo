@@ -18,7 +18,7 @@ const Contact = () => {
                 <div className="row">
                     {
                         data.map((office, key) => (
-                            <div className="col-xl-3 offset-xl-1" key={key}>
+                            <div className="col-xl-3 offset-xl-1 col-lg-4 col-sm-6" key={key}>
                                 <div className="contact-box">
                                     <div className="office fade-on-scroll">
                                         <p className="office-city">{office.city}</p>

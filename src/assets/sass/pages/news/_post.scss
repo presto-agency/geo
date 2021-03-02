@@ -24,6 +24,19 @@
             }
           }
         }
+        @include d(1440){
+          height: 585px;
+        }
+        @include d(1300){
+          height: 500px;
+        }
+        @include d(1200){
+          height: 460px;
+        }
+        @include d(991){
+          height: 50vw;
+          min-height: 380px;
+        }
     }
     &-content{
       padding: 24px 0;

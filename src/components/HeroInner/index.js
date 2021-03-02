@@ -9,13 +9,13 @@ const HeroInner = ({ title, label, toScroll }) => {
         <section className="section hero hero-inner">
             <div className="container">
                 <div className="row">
-                    <div className="col-xl-8">
+                    <div className="col-lg-8">
                         <div className="hero-content">
                             <p className="label label-uppercase fade">{label}</p>
                             <h1 className="h-1 hero-content-title split-title">{title}</h1>
                         </div>
                     </div>
-                    <div className="col-xl-4">
+                    <div className="col-lg-4">
                         <div className="follow follow-inner fade">
                             <button
                                 className="follow-link"

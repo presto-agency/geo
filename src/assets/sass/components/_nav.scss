@@ -21,6 +21,15 @@
     .link{
       &:not(:last-child){
         margin-right: 77px;
+          @include d(1300){
+            margin-right: 70px;
+          }
+          @include d(1200){
+            margin-right: 50px;
+          }
       }
+    }
+    @include d(991){
+      display: none;
     }
 }

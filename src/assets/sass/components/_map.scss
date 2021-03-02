@@ -40,6 +40,33 @@
                 }
             }
         }
+        @include d(991){
+          bottom: 40px;
+          left: 75%;
+        }
+        @include d(767){
+          bottom: -25px;
+        }
+    }
+    @include d(1600){
+      width: 1120px;
+      height: 1062px;
+    }
+    @include d(1440){
+      width: 1000px;
+      height: 950px;
+    }
+    @include d(1300){
+      width: 920px;
+      height: 870px;
+    }
+    @include d(1200){
+      width: 760px;
+      height: 740px;
+    }
+    @include d(991){
+      width: 100%;
+      height: auto;
     }
 }
 

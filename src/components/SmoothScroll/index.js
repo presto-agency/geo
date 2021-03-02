@@ -28,12 +28,13 @@ const SmoothScroll = (props) => {
             lerp: 0.08,
             getDirection: true,
             reloadOnContextChange: true,
-            // tablet: {
-            //     smooth: true
-            // },
-            // smartphone: {
-            //     smooth: true
-            // }
+            tablet: {
+                smooth: true,
+                breakpoint: 992
+            },
+            smartphone: {
+                smooth: false
+            }
         });
 
         locoScroll.on('call', (func, dir, obj) => {
