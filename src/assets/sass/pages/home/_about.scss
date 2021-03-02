@@ -7,4 +7,7 @@
           margin-bottom: 30px;
         }
     }
+    @include d(480){
+      padding: 70px 0;
+    }
 }

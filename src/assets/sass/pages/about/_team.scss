@@ -26,6 +26,9 @@
           margin: 0 -10px;
         }
     }
+    @include d(480){
+      padding-bottom: 0;
+    }
 }
 
 .person{
@@ -49,6 +52,12 @@
       @include d(767){
         height: 50vw;
         min-height: 280px;
+      }
+      @include d(575){
+        height: 60vw;
+      }
+      @include d(480){
+        min-height: 200px;
       }
   }
   &-name{

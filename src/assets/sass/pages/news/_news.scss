@@ -78,6 +78,11 @@
                           bottom: 30px;
                           left: 85px;
                         }
+                        @include d(480){
+                          bottom: 10px;
+                          left: 45px;
+                          padding-right: 20px;
+                        }
                     }
                     &-description{
                       display: none;
@@ -92,9 +97,19 @@
             @include d(1440){
               padding: 0 30px;
             }
+            @include d(767){
+              width: 100%;
+              padding: 0;
+            }
+            @include d(480){
+              margin-bottom: 50px;
+            }
         }
         @include d(1440){
           margin: 0 -30px;
+        }
+        @include d(767){
+          margin: 0;
         }
     }
     &-other{

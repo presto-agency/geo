@@ -27,9 +27,39 @@
           @include d(1200){
             margin-right: 50px;
           }
+          @include d(991){
+            margin-right: 0;
+          }
+      }
+      @include d(991){
+        font-size: 30px;
+        font-family: "Graphik-Semibold", sans-serif;
+        margin-bottom: 20px;
       }
     }
+    &.active{
+      opacity: 1;
+      z-index: 0;
+      pointer-events: auto;
+    }
     @include d(991){
-      display: none;
+      opacity: 0;
+      pointer-events: none;
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $black;
+      overflow-y: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 170px 50px 20px;
+      transition: opacity .4s ease;
+    }
+    @include d(575){
+      padding: 170px 20px 20px;
     }
 }

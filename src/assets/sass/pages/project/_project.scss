@@ -36,20 +36,23 @@
     display: flex;
     justify-content: space-between;
     padding: 15px 0 5px;
-    &-title{
-      flex: 1;
-    }
-    &-description{
-      flex: 1;
-      padding-top: 5px;
-    }
-    &-action{
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-      padding-top: 3px;
-      max-width: 100px;
-    }
+      &-title{
+        flex: 1;
+      }
+      &-description{
+        flex: 1;
+        padding-top: 5px;
+      }
+      &-action{
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 3px;
+        max-width: 50px;
+      }
+      @include d(575){
+        flex-direction: column;
+      }
   }
   &-tags{
     display: flex;
@@ -103,6 +106,9 @@
           @include d(767){
             height: 65vw;
           }
+          @include d(480){
+            min-height: 220px;
+          }
       }
     }
   }
@@ -119,6 +125,14 @@
                 height: 80vw;
                 min-height: 350px;
               }
+              @include d(480){
+                min-height: 200px;
+              }
+          }
+          &-content{
+            @include d(575){
+              flex-direction: row;
+            }
           }
       }
   }

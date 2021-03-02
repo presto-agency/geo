@@ -27,7 +27,7 @@ const Disciplines = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-8 offset-xl-1 col-lg-8">
-                        <DetectCarouselType>
+                        <DetectCarouselType data={list} >
                             {
                                 list.map((box, key) => (
                                     <div

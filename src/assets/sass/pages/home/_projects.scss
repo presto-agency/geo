@@ -31,22 +31,36 @@
                       height: 90vw;
                       min-height: 500px;
                     }
+                    @include d(575){
+                      min-height: 380px;
+                    }
                 }
                 &-description{
-                  display: -webkit-box;
-                  -webkit-box-orient: vertical;
-                  -webkit-line-clamp: 2;
-                  overflow: hidden;
+                  @include m(576){
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                  }
                 }
                 &-content{
                     &-title{
                       max-width: 55%;
+                        @include d(575){
+                          max-width: 100%;
+                        }
                     }
                     &-description{
                       max-width: 45%;
+                        @include d(575){
+                          max-width: 100%;
+                        }
                     }
                     @include d(991){
                       padding: 15px 50px 5px;
+                    }
+                    @include d(575){
+                      padding: 15px 20px 5px;
                     }
                 }
             }
@@ -58,5 +72,11 @@
           margin: 0 -50px;
           min-height: 0;
         }
+        @include d(575){
+          margin: 0 -20px;
+        }
+    }
+    @include d(767){
+      padding: 50px 0;
     }
 }

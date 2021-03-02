@@ -17,7 +17,7 @@ const Clients = () => {
             </div>
             <div className="clients-overlay">
                 <div
-                    className="clients-list"
+                    className="clients-list horizontal-moving"
                     data-scroll={true}
                     data-scroll-speed="5"
                     data-scroll-position="top"

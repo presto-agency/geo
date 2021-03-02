@@ -17,11 +17,25 @@
           margin: 0 -15px;
             img{
               pointer-events: none;
+                @include d(480){
+                  max-height: 40px;
+                  max-width: 110px;
+                }
             }
             @include d(1300){
               width: 330px;
               height: 330px;
               line-height: 338px;
+            }
+            @include d(575){
+              width: 280px;
+              height: 280px;
+              line-height: 288px;
+            }
+            @include d(480){
+              width: 210px;
+              height: 210px;
+              line-height: 218px;
             }
         }
     }

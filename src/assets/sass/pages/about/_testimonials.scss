@@ -20,6 +20,9 @@
           margin-top: 0;
           margin-bottom: -85px;
         }
+        @include d(480){
+          margin-bottom: -73px;
+        }
     }
     .label{
       @include d(767){
@@ -67,16 +70,28 @@
                 @include d(1440){
                   left: -65px;
                 }
+                @include d(480){
+                  background-size: 20px;
+                  left: -45px;
+                }
             }
             @include d(1440){
               width: 84px;
               height: 84px;
               margin-left: 65px;
             }
+            @include d(480){
+              width: 58px;
+              height: 58px;
+              margin-left: 45px;
+            }
         }
         &-title{
           margin-top: 72px;
           padding-right: 200px;
+            @include d(480){
+              padding-right: 100px;
+            }
         }
         &-position{
           font-size: 14px;
@@ -89,6 +104,10 @@
           position: absolute;
           bottom: 5px;
           right: 0;
+            @include d(480){
+              width: 100px;
+              bottom: 10px;
+            }
         }
         @include d(767){
           margin-bottom: 30px;

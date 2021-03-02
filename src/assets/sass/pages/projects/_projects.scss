@@ -5,6 +5,15 @@
       padding: 14px 0;
       position: relative;
       z-index: 1;
+        .select-custom{
+          @include d(575){
+            max-width: 100%;
+            margin-bottom: 10px;
+          }
+        }
+        @include d(575){
+          flex-direction: column;
+        }
     }
     &-list{
       display: flex;

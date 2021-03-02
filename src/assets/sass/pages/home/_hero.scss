@@ -105,4 +105,7 @@
     @include d(767){
       padding: 190px 0 150px;
     }
+    @include d(575){
+      padding: 190px 0 120px;
+    }
 }

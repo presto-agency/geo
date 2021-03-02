@@ -20,6 +20,13 @@
             @include m(992){
               display: none;
             }
+            @include d(575){
+              height: 80vw;
+              min-height: 380px;
+            }
+            @include d(480){
+              min-height: 280px;
+            }
         }
         &-title{
           margin: 18px 0 16px;
@@ -78,14 +85,44 @@
           .disciplines{
             &-box{
               padding: 0 50px;
-              &-preview{
-                margin: 0 -50px 40px;
-              }
+                &-preview{
+                  margin: 0 -50px 40px;
+                    @include d(575){
+                      margin: 0 -20px 40px;
+                    }
+                }
+                @include d(575){
+                  padding: 0 20px;
+                }
             }
           }
       }
+      @include d(575){
+        margin: 0 -20px;
+      }
+    }
+    .carousel-nav-btns{
+      position: absolute;
+      z-index: 1;
+        @include d(991){
+          top: 415px;
+          right: 0;
+        }
+        @include d(575){
+          top: 65vw;
+          right: 30px;
+        }
+        @include d(480){
+          top: 58vw;
+        }
+        @include m(992){
+          display: none;
+        }
     }
     @include d(991){
       margin: 50px 0;
+    }
+    @include d(480){
+      margin-bottom: 0;
     }
 }

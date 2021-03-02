@@ -36,20 +36,8 @@ const Modal = () => {
                 }
             });
         } else {
-            Tween.to(modalContent, {
-                duration: 0.5,
-                opacity: 0,
-                pointerEvents: 'auto',
-                ease: Power4.easeOut,
-                onComplete: () => {
-                    Tween.to(modal.current, {
-                        duration: 1,
-                        yPercent: 100,
-                        pointerEvents: 'none',
-                        display: 'none',
-                        ease: Power4.easeOut,
-                    })
-                }
+            Tween.to(modal.current, {
+                display: 'none',
             });
         }
 

@@ -28,6 +28,10 @@
               font-size: 18px;
               height: 64px;
               @extend .font-medium;
+              padding-right: 110px;
+                @include d(480){
+                  font-size: 16px;
+                }
             }
             .link-follow{
               position: absolute;
@@ -79,11 +83,18 @@
       opacity: .5;
       color: $white;
       text-transform: lowercase;
+      pointer-events: none;
       transition: font-size .4s ease, transform .4s ease, top .4s ease;
         &.active{
           transform: translateY(0);
           font-size: 18px;
           top: -15px;
+            @include d(480){
+              font-size: 12px;
+            }
+        }
+        @include d(480){
+          font-size: 16px;
         }
     }
     &-search{
@@ -113,6 +124,9 @@
         transform: translateY(0);
         font-size: 18px;
         top: -15px;
+          @include d(480){
+            font-size: 12px;
+          }
       }
     }
     &::-webkit-input-placeholder {
@@ -144,5 +158,8 @@
     &-custom{
       max-width: 272px;
       width: 100%;
+        &.focused{
+          z-index: 3;
+        }
     }
 }

@@ -25,6 +25,9 @@
             @include d(1440){
               padding: 52px 0;
             }
+            @include d(575){
+              padding: 30px 0;
+            }
         }
         .list-scroll{
           position: absolute;
@@ -32,6 +35,9 @@
         }
         @include d(1440){
           height: 150px;
+        }
+        @include d(575){
+          height: 97px;
         }
     }
     @include d(1200){

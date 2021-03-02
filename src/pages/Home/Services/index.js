@@ -19,7 +19,7 @@ const Services = () => {
             </div>
             <div className="services-list">
                 <div
-                    className="list-scroll"
+                    className="list-scroll horizontal-moving"
                     data-scroll={true}
                     data-scroll-speed="2"
                     data-scroll-position="top"
@@ -32,7 +32,7 @@ const Services = () => {
             </div>
             <div className="services-list __reverse">
                 <div
-                    className="list-scroll"
+                    className="list-scroll horizontal-moving"
                     data-scroll={true}
                     data-scroll-speed="1.5"
                     data-scroll-position="top"

@@ -11,8 +11,17 @@
       justify-content: space-between;
       margin-top: 59px;
       max-width: 560px;
+        &-item{
+          @include d(480){
+            width: 50%;
+            margin-bottom: 40px;
+          }
+        }
         .nav-title{
           margin-bottom: 10px;
+        }
+        @include d(575){
+          flex-wrap: wrap;
         }
     }
     .subscription{

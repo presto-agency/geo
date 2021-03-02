@@ -14,15 +14,24 @@
                 @include d(1300){
                   padding-left: 30px;
                 }
+                @include d(767){
+                  padding-left: 0;
+                }
             }
             &:nth-child(odd){
               padding-right: 35px;
                 @include d(1300){
                   padding-right: 30px;
                 }
+                @include d(767){
+                  padding-right: 0;
+                }
             }
             &:not(:last-child):not(:nth-last-child(2)){
               border-bottom: 1px $white solid;
+            }
+            @include d(767){
+              width: 100%;
             }
         }
         .office{
@@ -103,6 +112,13 @@
         @include d(991){
           height: 50vw;
           min-height: 380px;
+        }
+        @include d(767){
+          height: 60vw;
+        }
+        @include d(480){
+          height: 70vw;
+          min-height: 200px;
         }
     }
     &-content{

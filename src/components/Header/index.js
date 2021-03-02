@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import {openModal} from "store/modal/actions";
@@ -11,6 +11,7 @@ const Header = () => {
 
     const { pathname } = useLocation();
     const dispatch = useDispatch();
+    const [openNav, setOpenNav] = useState(false);
 
     return (
         <header className="header">
@@ -23,7 +24,7 @@ const Header = () => {
                     </div>
                     <div className="col-xl-8 col-lg-7 col-7">
                         <div className="header-nav">
-                            <nav className="nav">
+                            <nav className={`nav ${openNav ? 'active': ''}`}>
                                 {
                                     nav.map(link => (
                                         <NavLink
@@ -42,7 +43,7 @@ const Header = () => {
                                     Search
                                 </button>
                             </div>
-                            <div className="burger">
+                            <div className={`burger ${openNav ? 'active': ''}`} onClick={() => setOpenNav(!openNav)}>
                                 <div className="burger-box">
                                     <div className="burger-box-arrow" />
                                     <div className="burger-box-arrow" />

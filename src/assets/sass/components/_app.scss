@@ -29,6 +29,9 @@ body{
       width: 100%;
       padding: 0 50px;
     }
+    @include d(575){
+      padding: 0 20px;
+    }
 }
 
 .section{
@@ -202,6 +205,9 @@ body{
           font-size: 14px;
           letter-spacing: .05em;
         }
+        @include d(480){
+          font-size: 12px;
+        }
     }
 }
 
@@ -218,6 +224,9 @@ body{
       justify-content: flex-start;
         @include d(1440){
           padding-top: 50px;
+        }
+        @include d(991){
+          margin-left: 0;
         }
     }
     &-link{
@@ -249,6 +258,9 @@ body{
     }
     @include d(1500){
       margin-top: 0;
+    }
+    @include d(480){
+      padding-right: 50px;
     }
 }
 
@@ -323,6 +335,10 @@ body{
           height: 1px;
           background-color: $white;
           pointer-events: none;
+            @include d(480){
+              left: 0;
+              right: 0;
+            }
         }
         &-box{
           width: 25%;
@@ -331,11 +347,21 @@ body{
               margin: 0 30px 50px;
               width: calc(50% - 60px);
             }
+            @include d(480){
+              width: 100%;
+              margin: 0 0 50px;
+            }
         }
         @include d(991){
           flex-wrap: wrap;
           margin: 70px -30px 0;
         }
+        @include d(480){
+          margin: 70px 0 0;
+        }
+    }
+    @include d(480){
+      padding-bottom: 0;
     }
 }
 
@@ -363,6 +389,7 @@ body{
           width: 100%;
           height: 2px;
           background-color: $white;
+          transition: all .4s ease;
             &:nth-child(1){
               top: 0;
             }
@@ -374,6 +401,23 @@ body{
               bottom: 0;
             }
         }
+    }
+    &.active{
+      .burger-box{
+        &-arrow{
+          &:nth-child(1){
+            transform: rotate(-135deg);
+            top: 6px;
+          }
+          &:nth-child(2){
+            width: 0;
+          }
+          &:nth-child(3){
+            transform: rotate(135deg);
+            bottom: 6px;
+          }
+        }
+      }
     }
     @include m(992){
       display: none;

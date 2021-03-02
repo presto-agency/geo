@@ -6,5 +6,8 @@
     }
     .office{
       max-width: 300px;
+        @include d(575){
+          max-width: 100%;
+        }
     }
 }

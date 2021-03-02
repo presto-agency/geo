@@ -46,6 +46,11 @@
         }
         @include d(767){
           bottom: -25px;
+          left: 70%;
+        }
+        @include d(480){
+          bottom: -95px;
+          left: 60%;
         }
     }
     @include d(1600){
@@ -67,6 +72,14 @@
     @include d(991){
       width: 100%;
       height: auto;
+    }
+    @include d(767){
+      width: 100vw;
+      height: auto;
+      margin: 0 -50px;
+    }
+    @include d(575){
+      margin: 0 -20px;
     }
 }
 

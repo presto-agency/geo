@@ -73,7 +73,19 @@
           justify-content: flex-end;
             .link-social{
               margin-left: 25px;
+                @include d(480){
+                  margin-right: 25px;
+                  margin-left: 0;
+                }
             }
+            @include d(480){
+              justify-content: flex-start;
+              margin-top: 30px;
+            }
+        }
+        @include d(480){
+          flex-direction: column;
+          align-items: flex-start;
         }
     }
 }

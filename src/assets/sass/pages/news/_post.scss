@@ -37,6 +37,13 @@
           height: 50vw;
           min-height: 380px;
         }
+        @include d(767){
+          height: 65vw;
+        }
+        @include d(480){
+          height: 80vw;
+          min-height: 200px;
+        }
     }
     &-content{
       padding: 24px 0;
@@ -55,5 +62,8 @@
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;
+        @include d(480){
+          -webkit-line-clamp: 5;
+        }
     }
 }

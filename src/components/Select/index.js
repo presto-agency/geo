@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Select from "react-select";
 import { customStyles } from './styles';
 
 const CustomSelect = ({ options, callback, placeholder = 'Sort by' }) => {
+
+    const [focused, setFocused] = useState(false);
 
     return (
         <Select
@@ -11,7 +13,9 @@ const CustomSelect = ({ options, callback, placeholder = 'Sort by' }) => {
             defaultValue={{ label: placeholder }}
             onChange={(value) => callback(value)}
             options={options}
-            className="select-custom"
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
+            className={`select-custom ${focused ? 'focused': ''}`}
         />
     )
 };

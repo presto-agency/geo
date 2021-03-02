@@ -7,6 +7,7 @@ import {photoParallax} from "utils/parallax/photosParallax";
 import {contentParallax} from "utils/parallax/contentParallax";
 import {scaleMapOnScroll} from "utils/parallax/scaleMapOnScroll";
 import {groupParallax} from "utils/parallax/groupParallax";
+import {horizontalMoving} from "utils/parallax/horizontalMoving";
 
 export const routeIn = (pathname, node, appears) => {
 
@@ -47,6 +48,7 @@ export const routeIn = (pathname, node, appears) => {
                 contentParallax();
                 scaleMapOnScroll();
                 groupParallax();
+                horizontalMoving();
 
                 //animation on load page
                 //display split title

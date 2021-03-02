@@ -21,6 +21,12 @@ h1{
     @include d(767){
       font-size: 74px;
     }
+    @include d(575){
+      font-size: 64px;
+    }
+    @include d(480){
+      font-size: 46px;
+    }
 }
 
 h2{
@@ -46,6 +52,12 @@ h2{
     @include d(767){
       font-size: 46px;
     }
+    @include d(575){
+      font-size: 40px;
+    }
+    @include d(480){
+      font-size: 34px;
+    }
 }
 
 h3{
@@ -58,6 +70,9 @@ h3{
     }
     @include d(1440){
       font-size: 36px;
+    }
+    @include d(767){
+      font-size: 30px;
     }
 }
 
@@ -91,6 +106,9 @@ h6{
   line-height: 1.7em;
     @include d(1300){
       font-size: 20px;
+    }
+    @include d(480){
+      font-size: 18px;
     }
 }
 

@@ -8,6 +8,9 @@
             @include d(1200){
               padding-right: 90px;
             }
+            @include d(480){
+              padding-right: 60px;
+            }
         }
         &-btn{
           position: absolute;
@@ -38,6 +41,11 @@
             @include d(991){
               width: 58px;
               height: 58px;
+            }
+            @include d(480){
+              width: 52px;
+              height: 52px;
+              top: 21px;
             }
         }
     }
