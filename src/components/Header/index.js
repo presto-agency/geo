@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import {openModal} from "store/modal/actions";
@@ -12,6 +12,12 @@ const Header = () => {
     const { pathname } = useLocation();
     const dispatch = useDispatch();
     const [openNav, setOpenNav] = useState(false);
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            setOpenNav(false);
+        });
+    }, []);
 
     return (
         <header className="header">
