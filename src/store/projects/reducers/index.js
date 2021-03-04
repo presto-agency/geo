@@ -10,7 +10,7 @@ const initialState = {
             tags: ['Logistics & Industrial', 'Industrial'],
             preview: 'https://cdn.pixabay.com/photo/2018/04/28/10/55/architecture-3357028_960_720.jpg',
             video: {
-                url: 'https://cdn.videvo.net/videvo_files/video/free/2019-09/small_watermarked/190828_07_MarinaBayatNightDrone_UHD_02_preview.webm',
+                url: 'https://youtu.be/4jSv9oFM5m0',
                 playing: false
             }
         },
