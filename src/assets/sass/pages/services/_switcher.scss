@@ -3,8 +3,8 @@
     padding: 48px 0;
   }
   &-carousel {
-    padding: 43px 0 0 83px;
-    max-width: 815px;
+    padding: 43px 0 0 95px;
+    max-width: 970px;
       &-wrap{
           position: relative;
             .carousel-nav-pagination{
@@ -41,30 +41,38 @@
   }
   &-description {
     padding: 6px 0 0 30px;
+    column-count: 2;
       li{
         margin-bottom: 5px;
+        display: inline-block;
+        width: 100%;
       }
       @include d(991){
         padding: 6px 0 0;
       }
   }
   &-tabs{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    //display: flex;
+    //flex-wrap: wrap;
+    //justify-content: center;
     padding-top: 80px;
+    margin: 0 -5px;
       &-item{
-        flex: 1;
+        //flex: 1;
         padding-bottom: 5px;
-          @include m(1201){
-            &:not(:last-child){
-              padding-right: 5px;
-            }
-          }
           @include d(1200){
             flex: none;
             padding: 0 15px 30px;
           }
+      }
+      .slick{
+        &-slide{
+          transition: opacity .4s ease;
+          opacity: 0;
+        }
+        &-active{
+          opacity: 1;
+        }
       }
       @include d(1440){
         padding-top: 50px;
@@ -82,7 +90,9 @@
   }
   &-tab{
     height: 170px;
+    //width: 195px;
     padding: 0 49px;
+    margin: 0 auto;
     text-align: center;
     position: relative;
     display: flex;

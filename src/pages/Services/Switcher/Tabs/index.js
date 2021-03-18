@@ -1,19 +1,19 @@
 import React from 'react';
-import ServicesTab from "../Tab";
+import PropTypes from 'prop-types';
+
 
 const ServicesTabs = ({ services, onClick }) => {
 
+
+
     return (
-        <div className="services-tabs">
-            {
-                services.map((service, key) => (
-                    <div className="services-tabs-item" key={key} onClick={() => onClick(key)}>
-                        <ServicesTab service={service} id={key+1} />
-                    </div>
-                ))
-            }
-        </div>
+        <div></div>
     )
 };
 
 export default ServicesTabs;
+
+ServicesTabs.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    services: PropTypes.array.isRequired
+};

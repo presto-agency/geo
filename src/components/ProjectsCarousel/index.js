@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import Slider from 'react-slick';
 import CarouselNav from "components/CarouselNav";
 import CarouselPagination from "components/CarouselPagination";
-import {stopPlayingAllVideos} from "store/projects/actions";
+import {stopPlayingAllVideos} from "store/videos/actions";
 import ProjectSlide from "./Slide";
 
 const ProjectsCarousel = ({ data }) => {

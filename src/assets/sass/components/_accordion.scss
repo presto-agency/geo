@@ -4,7 +4,13 @@
       padding: 30px 0;
       border-bottom: 1px $white solid;
         &-title{
-          max-width: 910px;
+          padding-right: 100px;
+            .h-2{
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+            }
             @include d(1200){
               padding-right: 90px;
             }

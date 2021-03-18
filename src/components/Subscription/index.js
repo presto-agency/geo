@@ -1,15 +1,35 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
+
+import {openModal} from "store/modal/actions";
+import {submitContact} from "store/contact/actions";
+
 import validationSchema from "./validationSchema";
 
 const Subscription = () => {
+
+    const dispatch = useDispatch();
+    const { error, loading } = useSelector(state => state.contact);
+    const [loadingState, setLoadingState] = useState(false);
 
     const initialValues = {
       email: ''
     };
 
-    const onSubmit = (value) => {
-        console.log(value);
+    useEffect(() => {
+        if(!loading && loadingState) {
+            setLoadingState(false);
+            if(!error){
+                dispatch(openModal('done'));
+            }
+        }
+    }, [loading]);
+
+    const onSubmit = (value, formikBag) => {
+        dispatch(submitContact(value));
+        setLoadingState(true);
+        formikBag.resetForm();
     };
 
     return (
@@ -39,6 +59,11 @@ const Subscription = () => {
                                 <button className="subscription-btn" type="submit" />
                             </div>
                         </div>
+                        {
+                            !!error
+                                ? <p className="paragraph __error">Ooops, some wrongs, please reload the page and try again</p>
+                                : null
+                        }
                     </div>
                 </Form>
             )

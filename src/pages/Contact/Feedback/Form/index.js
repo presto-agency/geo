@@ -1,21 +1,36 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Formik, Form } from 'formik';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Formik, Form, Field } from 'formik';
+
 import validationSchema from "./validationScheme";
 import {openModal} from "store/modal/actions";
+import {submitContact} from "store/contact/actions";
 
 const FeedbackForm = () => {
 
     const dispatch = useDispatch();
+    const { error, loading } = useSelector(state => state.contact);
+    const [loadingState, setLoadingState] = useState(false);
+
     const initialValues = {
         name: '',
         email: '',
         message: ''
     };
 
-    const onSubmit = (value) => {
-        dispatch(openModal('done'));
-        console.log(value);
+    useEffect(() => {
+        if(!loading && loadingState) {
+            setLoadingState(false);
+            if(!error){
+                dispatch(openModal('done'));
+            }
+        }
+    }, [loading]);
+
+    const onSubmit = (value, formikBag) => {
+        dispatch(submitContact(value));
+        setLoadingState(true);
+        formikBag.resetForm();
     };
 
     return (
@@ -26,40 +41,40 @@ const FeedbackForm = () => {
             enableReinitialize
         >
             {
-                ({ handleSubmit, handleChange, errors, values }) => (
+                ({ handleSubmit, errors }) => (
                     <Form onSubmit={handleSubmit}>
                         <div className={`input-container ${!!errors.name ? 'error' : ''}`}>
                             <span className="input-label">Name</span>
-                            <input
+                            <Field
                                 type="text"
                                 className="input"
                                 name="name"
-                                value={values.name}
-                                onChange={handleChange}
                             />
                             <div className="input-error">{errors.name}</div>
                         </div>
                         <div className={`input-container ${!!errors.email ? 'error' : ''}`}>
                             <span className="input-label">Email</span>
-                            <input
+                            <Field
                                 type="text"
                                 className="input"
                                 name="email"
-                                value={values.email}
-                                onChange={handleChange}
                             />
                             <div className="input-error">{errors.email}</div>
                         </div>
                         <div className="input-container">
                             <span className="input-label">Message</span>
-                            <textarea
+                            <Field
+                                component="textarea"
                                 className="textarea"
                                 name="message"
-                                value={values.message}
-                                onChange={handleChange}
                             />
                         </div>
                         <button className="link-btn" type="submit">Send</button>
+                        {
+                            !!error
+                            ? <p className="paragraph __error">Ooops, some wrongs, please reload the page and try again</p>
+                            : null
+                        }
                     </Form>
                 )
             }

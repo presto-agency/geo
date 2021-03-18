@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Wave from 'react-wavify'
-import routes from 'routes';
-import list from './list';
-import DetectCarouselType from "./detectCarouselType";
 
-const Disciplines = () => {
+import routes from 'routes';
+
+import DetectCarouselType from "./detectCarouselType";
+import {isEmpty} from "utils/detectEmptyObject";
+import Preloader from "components/Preloader";
+import {locoScroll} from "components/SmoothScroll";
+
+const _baseURL = process.env.REACT_APP_API_URL;
+
+const Disciplines = ({ data }) => {
 
     const carouselStyles = {
-      height: window.innerHeight
+        height: window.innerHeight
     };
     const wSize = {
         width: '100%',
         height: window.innerHeight
     };
+
+    useEffect(() => {
+        if(!isEmpty(data)){
+            locoScroll.update();
+        }
+    }, [data]);
+
+    if(isEmpty(data)){
+       return <Preloader />
+    }
 
     return (
         <section
@@ -27,9 +43,9 @@ const Disciplines = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-8 offset-xl-1 col-lg-8">
-                        <DetectCarouselType data={list} >
+                        <DetectCarouselType data={data} >
                             {
-                                list.map((box, key) => (
+                                data.map((box, key) => (
                                     <div
                                         className="disciplines-box"
                                         key={key}
@@ -39,10 +55,10 @@ const Disciplines = () => {
                                         data-scroll-direction="vertical"
                                     >
                                         <div className="disciplines-box-preview">
-                                            <img src={box.preview} alt={box.title} />
+                                            <img src={_baseURL + box.serviceMedia.url} alt={box.name} />
                                         </div>
                                         <p className="label">Main Expertise</p>
-                                        <p className="disciplines-box-title h-2 split-content">{box.title}</p>
+                                        <p className="disciplines-box-title h-2 split-content">{box.name}</p>
                                         <p className="disciplines-box-description">{box.description}</p>
                                         <Link to={routes.services} className="link-btn">Our services</Link>
                                     </div>
@@ -58,7 +74,7 @@ const Disciplines = () => {
                     <div className="disciplines-carousel">
                         <div className="disciplines-carousel-list">
                             {
-                                list.slice(0).reverse().map((box, key) => (
+                                data.slice(0).reverse().map((box, key) => (
                                     <div className="disciplines-carousel-slide" key={key} style={carouselStyles}>
                                         <Wave
                                             className="wave"
@@ -77,7 +93,7 @@ const Disciplines = () => {
                                                 height={wSize.height}
                                                 patternUnits="userSpaceOnUse">
                                                 <image
-                                                    href={box.preview}
+                                                    href={_baseURL + box.serviceMedia.url}
                                                     // width={wSize.width}
                                                     height={wSize.height}
                                                     className="image-slide"

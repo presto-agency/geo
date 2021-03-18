@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ServicesTab = ({ service, id }) => {
+
     return (
         <div className="services-tab">
             <svg width="100%" height="100%" viewBox="0 0 195 169" fill="none" xmlns="http://www.w3.org/2000/svg" className="hexagon">
@@ -11,9 +13,14 @@ const ServicesTab = ({ service, id }) => {
             </svg>
             <div className="services-tab-plus" />
             <p className="services-tab-numb">{id < 10 ? '0'+id : id} /</p>
-            <p className="services-tab-title">{service.title}</p>
+            <p className="services-tab-title">{service.name}</p>
         </div>
     )
 };
 
 export default ServicesTab;
+
+ServicesTab.propTypes = {
+    id: PropTypes.number.isRequired,
+    service: PropTypes.object.isRequired
+};

@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import MetaTags from 'react-meta-tags';
+
 import Hero from "./Hero";
 import AboutDetail from "./About";
 import Clients from "./Clients";
 import Disciplines from "./Disciplines";
 import Services from "./Services";
-import Projects from "./Projects";
+import Videos from "./Videos";
 import Contact from "./Contact";
-import FootBanner  from "components/FootBanner";
+import FootBanner from "components/FootBanner";
+
+import {getServices} from "store/services/actions";
+import {getDisciplines} from "store/disciplines/actions";
+import {isEmpty} from "utils/detectEmptyObject";
 import logo from "assets/images/logo.png";
+import footerBanner from 'assets/images/home/Sport_Academy.jpg';
+
 const HomePage = () => {
+
+    const dispatch = useDispatch();
+    const services = useSelector(state => state.services.data);
+    const disciplines = useSelector(state => state.disciplines.data);
+
+    useEffect(() => {
+        //get services
+        if(isEmpty(services)) {
+            dispatch(getServices());
+        }
+        //get disciplines
+        if(isEmpty(disciplines)) {
+            dispatch(getDisciplines());
+        }
+    }, [dispatch]);
 
     return (
         <div className="page">
@@ -22,11 +45,11 @@ const HomePage = () => {
             <Hero />
             <AboutDetail />
             <Clients />
-            <Disciplines/>
-            <Services />
-            <Projects />
+            <Disciplines data={services} />
+            <Services data={disciplines} />
+            <Videos />
             <Contact />
-            <FootBanner src="https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" />
+            <FootBanner src={footerBanner} />
         </div>
     )
 };

@@ -1,23 +1,33 @@
 import React, { useState } from 'react';
 import {locoScroll} from "components/SmoothScroll";
 import ProjectAccordion from "../Project";
+import ApiClient from "service/ApiClient";
 
-const DisciplineSingleAccordion = ({ discipline: { discipline, description, projects } }) => {
+const DisciplineSingleAccordion = ({ discipline: { id, name, description } }) => {
 
+    const apiClient = new ApiClient();
     const [collapsed, setCollapsed] = useState(true);
+    const [projects, setProjects] = useState({});
 
     const handleToggle = () => {
         setCollapsed(!collapsed);
+
+        // apiClient.getProjectByDisciplineId(id)
+        //     .then(data => setProjects(data));
+
+        console.log(id);
+
         setTimeout(() => {
             locoScroll.update();
         }, 100);
     };
 
+
     return (
         <div className={`accordion ${collapsed ? '' : 'active'}`}>
             <div className="accordion-header">
-                <div className="accordion-header-title fade-on-scroll">
-                    <p className="h-2">{discipline}</p>
+                <div className="accordion-header-title">
+                    <p className="h-2">{name}</p>
                 </div>
                 <div className="accordion-header-btn" onClick={handleToggle}>
                     <svg width="26" height="15" viewBox="0 0 26 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,9 +40,9 @@ const DisciplineSingleAccordion = ({ discipline: { discipline, description, proj
                     <p>{description}</p>
                 </div>
                 <div className="accordion-projects">
-                    {
-                        projects.map((project, key) => <ProjectAccordion project={project} key={key} />)
-                    }
+                    {/*{*/}
+                    {/*    projects.map((project, key) => <ProjectAccordion project={project} key={key} />)*/}
+                    {/*}*/}
                 </div>
             </div>
         </div>

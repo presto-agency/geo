@@ -5,6 +5,7 @@ import createSagaMiddleWare from 'redux-saga';
 import history from 'browserHistory';
 import logger from 'redux-logger';
 import rootReducer from "./rootReducer";
+import rootSaga from "./rootSaga";
 
 const bindMiddleware = (middleware) => {
     if(process.env.NODE_ENV !== 'production') {
@@ -20,6 +21,6 @@ const enhancer = bindMiddleware([sagaMiddleware, routerMiddleware(history)]);
 
 const store = createStore(rootReducer, enhancer);
 
-// sagaMiddleware.run();
+sagaMiddleware.run(rootSaga);
 
 export default store;

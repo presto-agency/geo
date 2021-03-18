@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import list from './list';
 
-const Services = () => {
+import Preloader from "components/Preloader";
+import {isEmpty} from "utils/detectEmptyObject";
+import {locoScroll} from "components/SmoothScroll";
+
+const Services = ({ data }) => {
+
+    useEffect(() => {
+        if(!isEmpty(data)){
+            locoScroll.update();
+        }
+    }, [data]);
+
+    if(isEmpty(data)){
+        return <Preloader />
+    }
 
     return (
         <section className="section services"
@@ -13,7 +27,7 @@ const Services = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
-                        <p className="label fade-on-scroll">Our services</p>
+                        <p className="label fade-on-scroll">Disciplines</p>
                     </div>
                 </div>
             </div>
@@ -26,7 +40,7 @@ const Services = () => {
                     data-scroll-direction="horizontal"
                 >
                     {
-                        list.map((item, key) => <p className="services-list-item h-3" key={key}>{item.title}</p>)
+                        data.slice(0,10).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)
                     }
                 </div>
             </div>
@@ -39,7 +53,7 @@ const Services = () => {
                     data-scroll-direction="horizontal"
                 >
                     {
-                        list.map((item, key) => <p className="services-list-item h-3" key={key}>{item.title}</p>)
+                        data.slice(10,20).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)
                     }
                 </div>
             </div>

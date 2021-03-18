@@ -36,29 +36,29 @@ export default [
         list: [
             {
                 title: 'Facebook',
-                url: 'https://www.facebook.com/',
+                url: 'https://www.facebook.com/GeoGlobalEngineeringOffice/',
                 blank: true,
             },
             {
                 title: 'Linkedin',
-                url: 'https://www.linkedin.com/',
+                url: 'https://www.linkedin.com/company/geo-global-engineering-office',
                 blank: true,
             },
             {
                 title: 'Instagram',
-                url: 'https://www.instagram.com/',
+                url: 'https://instagram.com/p/BUFaH2gjPvR',
                 blank: true,
             },
-            {
-                title: 'Pinterest',
-                url: 'https://www.pinterest.com/',
-                blank: true,
-            },
-            {
-                title: 'Twitter',
-                url: 'https://twitter.com/',
-                blank: true,
-            }
+            // {
+            //     title: 'Pinterest',
+            //     url: 'https://www.pinterest.com/',
+            //     blank: true,
+            // },
+            // {
+            //     title: 'Twitter',
+            //     url: 'https://twitter.com/',
+            //     blank: true,
+            // }
         ]
     },
     {

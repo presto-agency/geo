@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import ProjectVideo from "./Video";
 
 const ProjectSlide = ({ project }) => {
+
     return (
         <div className="projects-carousel-slide">
             <div className="project">
@@ -39,3 +42,7 @@ const ProjectSlide = ({ project }) => {
 };
 
 export default ProjectSlide;
+
+ProjectSlide.propTypes = {
+    project: PropTypes.object.isRequired
+};

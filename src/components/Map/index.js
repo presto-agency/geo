@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+
+import {isEmpty} from "utils/detectEmptyObject";
+import {getOffices} from "store/offices/actions";
+import Preloader from "components/Preloader";
 
 const Map = () => {
 
-    const { data } = useSelector(state => state.offices);
+    const dispatch = useDispatch();
+    const { data, loading } = useSelector(state => state.offices);
     const [selectedCountry, setSelectedCountry] = useState('');
+    const [uniqCountries, setUniqCountries] = useState([]);
 
     const handleHover = (country) => {
         setSelectedCountry(country);
@@ -14,6 +20,22 @@ const Map = () => {
         setSelectedCountry('');
     };
 
+    useEffect(() => {
+        if(isEmpty(data)) {
+            dispatch(getOffices());
+        } else {
+            let countries = [];
+            data.map(office => {
+                countries.push(office.country.toLowerCase());
+            });
+            setUniqCountries([...new Set(countries)]);
+        }
+    }, [dispatch, data]);
+
+    if(loading || isEmpty(data)) {
+        return <Preloader />
+    }
+
     return (
         <div
             className="map"
@@ -22,7 +44,7 @@ const Map = () => {
             data-scroll-repeat="false"
             data-scroll-call="map"
         >
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 3899.9 3710.3">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 3899.9 3710.3">
                 <g>
                     <path className="country" d="M2472.1,629.2l35.7-19.3l42.2,1.1l17.6,22.4l67.5,18.7l21,0.6l43.7,14.2l16.2,34.9l28.9,5.7l23.8,27.5h58.1
                         l6,88.8l-1.5,10.7l11.9,2.9h20.9l38.4,22.8l45.8-21.5v-25l34.8-20.3l69.5-20.4l18.9-80.6h38.4v-8.1l28.5-21.4l42,19.7h7.7v-44.6
@@ -52,8 +74,8 @@ const Map = () => {
                         3621.8,413.4 3654.8,407.5 3594.3,379.4 3574.5,359.1 3559.1,379.6 3511.8,391.4 3489.4,366.9 3478.2,342.7 3508.4,310.5
                         3493.9,292.3 	"/>
                     <path
-                        className={`country place ${selectedCountry === 'Egypt' ? 'active': ''}`}
-                        onMouseEnter={() => handleHover('Egypt')}
+                        className={`country place ${selectedCountry.toLowerCase() === 'egypt' ? 'active': ''}`}
+                        onMouseEnter={() => handleHover('egypt')}
                         onMouseLeave={() => handleLeave()}
                         d="M387.9,1202.9l-16.9-24.3l-38.6-0.5l-8.9-12.2l-45.2-0.6l-27-6.7l-26.5,12.5l-18.1,5.4l-11.9-30.7l-6.5-2.9
                         l-3.4,14.2l4.3,29.2l12.5,33.4c0.4,1,0.4,2.2,0,3.2l-18.4,53.1l8.2,35.8c0.1,0.3,0.1,0.6,0.1,0.9l25.5,585.3l823.9-22.3l0.2-12.8
@@ -108,8 +130,8 @@ const Map = () => {
                         l45.8-5.5l55.4-46.5c0.9-0.8,2.1-1.2,3.3-1.2l84.3,1.1l216.9-237l-56-0.7c-0.5,0-1.1-0.1-1.6-0.3l-284.6-99.1
                         c-2-0.7-3.3-2.5-3.3-4.6l0.4-26.1l-38.3-47.4c-0.4-0.6-0.8-1.2-0.9-1.9l-4.7-19.3c-0.2-0.9-0.2-1.9,0.2-2.8L1525,2724z"/>
                     <path
-                        className={`country place ${selectedCountry === 'Iraq' ? 'active': ''}`}
-                        onMouseEnter={() => handleHover('Iraq')}
+                        className={`country place ${selectedCountry.toLowerCase() === 'iraq' ? 'active': ''}`}
+                        onMouseEnter={() => handleHover('iraq')}
                         onMouseLeave={() => handleLeave()}
                         d="M1677.4,732.7c-0.6-0.3-1.1-0.8-1.4-1.5l-15-31.2l-33.8,21.8c-0.8,0.5-1.9,0.7-2.8,0.3
                         c-0.9-0.3-1.7-1.1-1.9-2.1l-9.9-34.1l-47,7.8c-0.4,0.1-0.8,0.1-1.2,0l-36.7-8l-32.3,20l-4,15.4c-0.2,0.7-0.6,1.3-1.1,1.7
@@ -124,8 +146,8 @@ const Map = () => {
                         c0.2-0.5,0.5-0.9,0.8-1.2l30.2-26.7l5.3-17l-7.8-16.7c-0.5-1.1-0.4-2.4,0.4-3.3l11.2-14.3l-8.8-7.9h-24.9c-0.8,0-1.5-0.3-2.1-0.8
                         l-24.9-21.4c-0.7-0.6-1.1-1.5-1.1-2.4v-36L1677.4,732.7z"/>
                     <path
-                        className={`country place ${selectedCountry === 'UAE' ? 'active': ''}`}
-                        onMouseEnter={() => handleHover('UAE')}
+                        className={`country place ${selectedCountry.toLowerCase() === 'uae' ? 'active': ''}`}
+                        onMouseEnter={() => handleHover('uae')}
                         onMouseLeave={() => handleLeave()}
                         d="M2488.6,1554l-14.2,0.8l-11.1,20.6l-13.4,19l-23.7,18.2l-37.2,44.3l-45.9,49l-62.5,25.3l-80.7-13.4
                         l-26.4,12.1l47.9,79.9h83.6c0.6,0,1.2,0.2,1.7,0.5l21.8,13.7h67.7l7.8-35.5c0.1-0.3,0.2-0.6,0.4-0.9l20.9-36v-20.4
@@ -154,8 +176,8 @@ const Map = () => {
                     <path className="country" d="M1708.7,502c-0.1-0.1-0.2-0.1-0.3-0.2l-21.6-15.6l-21,3.5l34.2,42.1l36.6,25.1l25.1-3.5l-17.4-31.9
                         L1708.7,502z"/>
                     <path
-                        className={`country place ${selectedCountry === 'KSA' ? 'active': ''}`}
-                        onMouseEnter={() => handleHover('KSA')}
+                        className={`country place ${selectedCountry.toLowerCase() === 'saudi_arabia' ? 'active': ''}`}
+                        onMouseEnter={() => handleHover('saudi_arabia')}
                         onMouseLeave={() => handleLeave()}
                         d="M2046.5,1555.5l-30.1-53l-38.7-38.8l-20.6-11.9l-7.1-19l-26.1-49.9h-44.3c-0.9,0-1.8-0.4-2.4-1.1l-32.3-37.6
                         h-31.8c-0.5,0-1-0.1-1.4-0.3l-20.9-10.5l-28.8,10.7c-0.8,0.3-1.6,0.3-2.4-0.1l-24.7-10.9h-49.9c-0.3,0-0.6,0-0.9-0.1l-52.2-15.8
@@ -249,8 +271,8 @@ const Map = () => {
                         c0-0.1,0.1-0.3,0.1-0.4l8.9-24.9c0.5-1.3,1.6-2.1,3-2.1h20.8c0.9,0,1.7,0.4,2.3,1l7.6,8.2v-27.5c0-1.1,0.6-2.2,1.6-2.7l12.3-7.2
                         l-3.7-18.1l-3.8,16.6c-0.3,1.2-1.3,2.1-2.5,2.4l-47.3,9.2l-7.6,39.4l-17.4,29.7l3.4,21.4c0.1,0.5,0,1.1-0.1,1.6L939.5,1169.3z"/>
                     <path
-                        className={`country place ${selectedCountry === 'Lebanon' ? 'active': ''}`}
-                        onMouseEnter={() => handleHover('Lebanon')}
+                        className={`country place ${selectedCountry.toLowerCase() === 'lebanon' ? 'active': ''}`}
+                        onMouseEnter={() => handleHover('lebanon')}
                         onMouseLeave={() => handleLeave()}
                         d="M982,1006.7l-11.6,41.7l42.6-8.3l6.7-28.6h0c0.1-0.4,0.2-0.8,0.5-1.1l28.5-40.3c0.2-0.3,0.4-0.5,0.7-0.7
                         l33.6-25.7l-12.9-28l-8.8-9.1l-31.6,5.6l-0.9,7.6l-22.1,51.4L982,1006.7z"/>
@@ -696,13 +718,13 @@ const Map = () => {
                 <p className="label label-uppercase">Our offices</p>
                 <ul className="map-offices-list">
                     {
-                        data.map((office, key) => (
+                        uniqCountries.map((country, key) => (
                             <li
-                                className={`map-offices-btn ${selectedCountry === office.country ? 'active' : ''}`}
+                                className={`map-offices-btn ${selectedCountry.toLowerCase() === country ? 'active' : ''}`}
                                 key={key}
-                                onMouseEnter={() => handleHover(office.country)}
+                                onMouseEnter={() => handleHover(country)}
                                 onMouseLeave={() => handleLeave()}
-                            >{office.city}</li>
+                            >{country.toUpperCase().replace('_', ' ')}</li>
                         ))
                     }
                 </ul>

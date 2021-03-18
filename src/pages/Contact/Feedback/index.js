@@ -1,6 +1,7 @@
 import React from 'react';
-import banner from 'assets/images/contact-us.jpg';
+
 import FeedbackForm from "./Form";
+import banner from 'assets/images/contact-us.jpg';
 
 const Feedback = () => {
     return (

@@ -46,7 +46,7 @@ const SmoothScroll = (props) => {
                     disciplinesMoving();
                     return true;
                 case 'about-values':
-                    if(!isVisible) {
+                    if(!isVisible && dir === 'enter') {
                         dispatch(showInViewport(true));
                     }
                     return true;

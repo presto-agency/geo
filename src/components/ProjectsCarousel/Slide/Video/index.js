@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ReactPlayer from "react-player";
-import {togglePlayingVideo} from "store/projects/actions";
+import {togglePlayingVideo} from "store/videos/actions";
 
 const ProjectVideo = ({ project }) => {
 
