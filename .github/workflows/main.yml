@@ -23,7 +23,7 @@ jobs:
         env:
           REGISTRY: docker.pkg.github.com
           USERNAME: ${{ github.repository_owner }}
-          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          PASSWORD: ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
         with:
           host: ${{ secrets.PROD_SERVER_IP }}
           user: root
