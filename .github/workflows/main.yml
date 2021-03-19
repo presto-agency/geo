@@ -20,16 +20,13 @@ jobs:
           dockerfile: Dockerfile
 
       - uses: matheusvanzan/sshpass-action@v2
-        env:
-          USERNAME: ${{ github.repository_owner }}
-          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         with:
           host: ${{ secrets.PROD_SERVER_IP }}
           user: root
           pass: ${{ secrets.DO_PASS }}
           run: |
             cd ~/app
-            echo "$PASSWORD" | docker login https://docker.pkg.github.com -u "$USERNAME" --password-stdin
+            echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.repository }} --password-stdin
             docker-compose stop
             docker-compose rm --force front-end
             docker pull https://docker.pkg.github.com/presto-agency/geo/geo-front:latest
