@@ -2,24 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import routes from 'routes'
 
-const ProjectAccordion = ({ project: { id, preview, title, tags } }) => {
+const ProjectAccordion = ({ project: { id, topImage, name, keyFacts: { country, city } } }) => {
     return (
         <div className="accordion-projects-box">
             <div className="project project-accordion">
                 <Link to={`${routes.project.index}/${id}`} className="project-preview parallax">
                     <div className="project-preview-box">
-                        <img src={preview} alt={title} />
+                        <img
+                            src={!!topImage ? topImage.url : 'https://via.placeholder.com/300/?text=GEO project'}
+                            alt={name}
+                        />
                     </div>
                 </Link>
                 <div className="project-content">
                     <div className="project-content-title">
-                        <p className="project-title h-6">{title}</p>
+                        <p className="project-title h-6">{name}</p>
                         <div className="project-tags">
-                            {
-                                tags.map((tag, key) => (
-                                    <p className="project-tag" key={key}>{tag}</p>
-                                ))
-                            }
+                            {!!country ? <p className="project-tag" >{country}</p> : null }
+                            {!!city ? <p className="project-tag" >{city}</p> : null }
                         </div>
                     </div>
                     <div className="project-content-action">

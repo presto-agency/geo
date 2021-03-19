@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ProjectAccordion from "pages/Services/Disciplines/Project";
 
 const SimilarProjects = ({ data }) => {

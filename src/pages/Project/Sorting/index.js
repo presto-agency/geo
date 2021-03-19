@@ -7,10 +7,6 @@ const locations = [
       label: 'All locations'
     },
     {
-        value: 'Iraq',
-        label: 'Iraq'
-    },
-    {
         value: 'UAE',
         label: 'UAE'
     },
@@ -25,6 +21,10 @@ const locations = [
     {
         value: 'Egypt',
         label: 'Egypt'
+    },
+    {
+        value: 'Iraq',
+        label: 'Iraq'
     }
 ];
 const projects = [
@@ -33,12 +33,24 @@ const projects = [
         label: 'All projects'
     },
     {
-        value: 'popular',
-        label: 'Popular'
+        value: 'Major Projects',
+        label: 'Major Projects'
     },
     {
-        value: 'latest',
-        label: 'Latest'
+        value: 'Urban Planning',
+        label: 'Urban Planning'
+    },
+    {
+        value: 'Buildings',
+        label: 'Buildings'
+    },
+    {
+        value: 'Logistics, E-Commerce & Industrial',
+        label: 'Logistics, E-Commerce & Industrial'
+    },
+    {
+        value: 'Infrastructure & Roads',
+        label: 'Infrastructure & Roads'
     }
 ];
 const sort = [
@@ -49,14 +61,6 @@ const sort = [
     {
         value: 'date_desc',
         label: 'Date: from oldest to newest'
-    },
-    {
-        value: 'size_asc',
-        label: 'Size: from largest to smallest'
-    },
-    {
-        value: 'size_desc',
-        label: 'Size: from smallest to largest'
     }
 ];
 

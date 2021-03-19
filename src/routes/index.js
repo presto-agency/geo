@@ -10,5 +10,6 @@ export default {
         index: '/news',
         article: '/news/:id'
     },
-    contact: '/contact'
+    contact: '/contact',
+    searchResult: '/search'
 }

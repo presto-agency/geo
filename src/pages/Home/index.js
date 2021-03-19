@@ -1,36 +1,34 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, lazy, Suspense } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import MetaTags from 'react-meta-tags';
 
 import Hero from "./Hero";
 import AboutDetail from "./About";
 import Clients from "./Clients";
-import Disciplines from "./Disciplines";
 import Services from "./Services";
-import Videos from "./Videos";
-import Contact from "./Contact";
 import FootBanner from "components/FootBanner";
-
-import {getServices} from "store/services/actions";
-import {getDisciplines} from "store/disciplines/actions";
 import {isEmpty} from "utils/detectEmptyObject";
+import {getHomePage} from "store/homePage/actions";
+import Preloader from "components/Preloader";
+import {locoScroll} from "components/SmoothScroll";
+
 import logo from "assets/images/logo.png";
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
+
+const Disciplines       = lazy(() => import("./Disciplines"));
+const Videos            = lazy(() => import("./Videos"));
+const Contact           = lazy(() => import("./Contact"));
 
 const HomePage = () => {
 
     const dispatch = useDispatch();
-    const services = useSelector(state => state.services.data);
-    const disciplines = useSelector(state => state.disciplines.data);
+    const { loading, data } = useSelector((state) => state.homePage);
 
     useEffect(() => {
-        //get services
-        if(isEmpty(services)) {
-            dispatch(getServices());
-        }
-        //get disciplines
-        if(isEmpty(disciplines)) {
-            dispatch(getDisciplines());
+        if(isEmpty(data)) {
+            dispatch(getHomePage());
+        } else {
+            locoScroll.update();
         }
     }, [dispatch]);
 
@@ -43,12 +41,18 @@ const HomePage = () => {
                 <meta property="og:image" content={logo} />
             </MetaTags>
             <Hero />
-            <AboutDetail />
-            <Clients />
-            <Disciplines data={services} />
-            <Services data={disciplines} />
-            <Videos />
-            <Contact />
+            <AboutDetail data={data} />
+            <Clients data={data.clientLogos || {}} />
+            <Suspense fallback={<Preloader />}>
+                <Disciplines />
+            </Suspense>
+            <Services />
+            <Suspense fallback={<Preloader />}>
+                <Videos />
+            </Suspense>
+            <Suspense fallback={<Preloader />}>
+                <Contact />
+            </Suspense>
             <FootBanner src={footerBanner} />
         </div>
     )
