@@ -1,0 +1,38 @@
+name: Deploy to DO
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build and Publish latest Docker image
+        uses: VaultVulp/gp-docker-action@1.1.7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          image-name: geo-front
+          dockerfile: Dockerfile
+
+      - uses: matheusvanzan/sshpass-action@v2
+        env:
+          REGISTRY: docker.pkg.github.com
+          USERNAME: ${{ github.repository_owner }}
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          host: ${{ secrets.PROD_SERVER_IP }}
+          user: root
+          pass: ${{ secrets.DO_PASS }}
+          run: |
+            cd ~/app
+            docker login -u "$USERNAME" -p "$PASSWORD" "$REGISTRY"
+            docker-compose stop
+            docker-compose rm --force front-end
+            docker pull "$REGISTRY"/presto-agency/geo/geo-front:latest
+            docker-compose up -d --build
+            docker logout "$REGISTRY"
