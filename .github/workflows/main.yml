@@ -1,4 +1,4 @@
-name: CI
+name: Deploy to DO
 on:
   push:
     branches: [ master ]
@@ -18,4 +18,22 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         image-name: geo-front
         dockerfile: Dockerfile
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      DO_PASS: ${{ secrets.DO_PASS }}
+      PROD_SERVER_IP: ${{ secrets.PROD_SERVER_IP }}
+      REGISTRY: docker.pkg.github.com
+      USERNAME: ${{ github.repository_owner }}
+      PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Update packages & install sshpass
+        run: |
+          apt-get update -y
+          apt-get install sshpass -y
+          echo "$DO_PASS"
+          echo "$PROD_SERVER_IP"
+      - name: Deploy to DO
+        run: 
+          sshpass -p "$DO_PASS" ssh -oStrictHostKeyChecking=no root@"$PROD_SERVER_IP" "cd ~/app; docker login -u "$USERNAME" -p "$PASSWORD" "$REGISTRY"; docker-compose stop; docker-compose rm --force front-end; docker pull "$REGISTRY"/presto-agency/geo/geo-front:latest; docker-compose up -d --build; docker logout ${CI_REGISTRY};"
 
