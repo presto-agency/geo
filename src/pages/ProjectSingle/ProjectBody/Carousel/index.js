@@ -49,13 +49,13 @@ const ProjectPageCarousel = () => {
                     totalSlides={totalSlides}
                 />
             </div>
-            <Slider ref={carousel} className="projects-carousel" {...settings}>
-                {
-                    data.map((project, key) => (
-                        <ProjectPageCarouselSlide project={project} key={key} />
-                    ))
-                }
-            </Slider>
+            {/*<Slider ref={carousel} className="projects-carousel" {...settings}>*/}
+            {/*    {*/}
+            {/*        data.map((project, key) => (*/}
+            {/*            <ProjectPageCarouselSlide project={project} key={key} />*/}
+            {/*        ))*/}
+            {/*    }*/}
+            {/*</Slider>*/}
         </div>
     )
 };

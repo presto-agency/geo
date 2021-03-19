@@ -1,15 +1,19 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import validationSchema from "./validationSchema";
+import {searchProjects} from "store/projects/actions";
 
 const SearchForm = () => {
+
+    const dispatch = useDispatch();
 
     const initialValues = {
         query: ''
     };
 
     const onSubmit = (value) => {
-        console.log(value);
+        dispatch(searchProjects(value));
     };
 
     return (

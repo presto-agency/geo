@@ -1,11 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+
 import ProjectBody from "./ProjectBody";
 import Banners from "./Banners";
 import SomeDescription from "./SomeDescription";
 import GoogleMap from "components/GoogleMap";
 import SimilarProjects from "./SimilarProjects";
-import FootBanner from "../../components/FootBanner";
+import FootBanner from "components/FootBanner";
 
 const ProjectSinglePage = () => {
 
@@ -20,7 +21,6 @@ const ProjectSinglePage = () => {
             url: 'https://images.unsplash.com/photo-1453284441168-8780c9f52097?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'
         }
     ];
-    const { data } = useSelector(state => state.projects);
 
     return (
         <div className="page">
@@ -43,7 +43,7 @@ const ProjectSinglePage = () => {
             <Banners data={banners} />
             <SomeDescription />
             <GoogleMap />
-            <SimilarProjects data={data} />
+            {/*<SimilarProjects data={data} />*/}
             <FootBanner src="https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" />
         </div>
     )

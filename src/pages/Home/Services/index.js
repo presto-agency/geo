@@ -1,19 +1,27 @@
 import React, { useEffect } from 'react';
-import list from './list';
+import {useDispatch, useSelector} from "react-redux";
+
+import {getDisciplines} from "store/disciplines/actions";
 
 import Preloader from "components/Preloader";
 import {isEmpty} from "utils/detectEmptyObject";
 import {locoScroll} from "components/SmoothScroll";
 
-const Services = ({ data }) => {
+const Services = () => {
+
+    const dispatch = useDispatch();
+    const disciplines = useSelector(state => state.disciplines.data);
 
     useEffect(() => {
-        if(!isEmpty(data)){
+        //get disciplines
+        if(isEmpty(disciplines)) {
+            dispatch(getDisciplines());
+        } else {
             locoScroll.update();
         }
-    }, [data]);
+    }, [disciplines]);
 
-    if(isEmpty(data)){
+    if(isEmpty(disciplines)){
         return <Preloader />
     }
 
@@ -40,7 +48,7 @@ const Services = ({ data }) => {
                     data-scroll-direction="horizontal"
                 >
                     {
-                        data.slice(0,10).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)
+                        disciplines.slice(0,20).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)
                     }
                 </div>
             </div>
@@ -53,7 +61,7 @@ const Services = ({ data }) => {
                     data-scroll-direction="horizontal"
                 >
                     {
-                        data.slice(10,20).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)
+                        disciplines.slice(20,40).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)
                     }
                 </div>
             </div>

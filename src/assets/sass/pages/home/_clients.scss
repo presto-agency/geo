@@ -17,9 +17,11 @@
           margin: 0 -15px;
             img{
               pointer-events: none;
+              max-width: 120px;
+              max-height: 60px;
                 @include d(480){
-                  max-height: 40px;
                   max-width: 110px;
+                  max-height: 40px;
                 }
             }
             @include d(1300){

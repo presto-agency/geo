@@ -20,6 +20,9 @@ export default class ApiClient {
         return response.json();
     }
 
+    /*
+    GET
+     */
     getDisciplines = async () => {
         return await this.getSources('disciplines');
     };
@@ -28,14 +31,29 @@ export default class ApiClient {
         return await this.getSources('services');
     };
 
+    getProjects = async () => {
+        return await this.getSources('projects');
+    };
+
     getProjectByDisciplineId = async (id = '') => {
         return await this.getSources(`projects?discipline.id_eq=${id}`);
+    };
+
+    getProjectsByQuery = async (query) => {
+        return await this.getSources(`projects?name_contains=${query}`);
     };
 
     getOffices = async () => {
         return await this.getSources('offices');
     };
 
+    getHome = async () => {
+        return await this.getSources('home');
+    };
+
+    /*
+    POST
+     */
     postContacts = async (data) => {
         return await this.getSources('clients-contacts', 'POST', data);
     };

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Transition, TransitionGroup } from 'react-transition-group';
 import SmoothScroll from "components/SmoothScroll";
 import routes from 'routes';
+
 import HomePage from "pages/Home";
 import AboutPage from "pages/About";
 import ServicesPage from "pages/Services";
@@ -11,10 +12,13 @@ import NewsPage from "pages/News";
 import ContactPage from "pages/Contact";
 import ProjectSinglePage from "pages/ProjectSingle";
 import ArticlePage from "pages/Article";
+import SearchResultPage from "pages/SearchResult";
 import PageNotFound from "pages/404";
+
 import Header from "components/Header";
 import Footer from "components/Footer";
 import Modal from "components/Modal";
+
 import {routeIn, routeOut} from "utils/routeTransition";
 
 const App = () => {
@@ -45,6 +49,7 @@ const App = () => {
                                             <Route path={routes.news.article} component={ArticlePage} />
                                             <Route path={routes.news.index} exact component={NewsPage} />
                                             <Route path={routes.contact} component={ContactPage} />
+                                            <Route path={routes.searchResult} component={SearchResultPage} />
                                             <Route path="*" component={PageNotFound} />
                                         </Switch>
                                         <Footer />

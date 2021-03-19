@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import {getProjects} from "store/projects/actions";
+import FootBanner from "components/FootBanner";
+import {isEmpty} from "utils/detectEmptyObject";
+import Preloader from "components/Preloader";
+import {locoScroll} from "components/SmoothScroll";
 import ProjectsSort from "./Sorting";
 import ProjectsList from "./List";
-import FootBanner from "../../components/FootBanner";
+
+import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 
 const ProjectPage = () => {
+
+    const dispatch = useDispatch();
+    const { data, loading } = useSelector(state => state.projects);
+
+    useEffect(() => {
+        if(isEmpty(data)) {
+            dispatch(getProjects());
+        }
+        if(!isEmpty(data)){
+            locoScroll.update();
+        }
+    }, [data]);
+
+    if(loading || isEmpty(data)){
+        return <Preloader />
+    }
+
     return (
         <div className="page">
             <section className="section hero hero-inner projects">
@@ -11,12 +36,12 @@ const ProjectPage = () => {
                     <div className="row">
                         <div className="col-12">
                             <ProjectsSort/>
-                            <ProjectsList />
+                            <ProjectsList data={data} />
                         </div>
                     </div>
                 </div>
             </section>
-            <FootBanner src="https://images.unsplash.com/photo-1519760370-4a5c4dc9a17a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80" />
+            <FootBanner src={footerBanner} />
         </div>
     )
 };

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Wave from 'react-wavify'
 
 import routes from 'routes';
+import list from './list';
 
 import DetectCarouselType from "./detectCarouselType";
 import {isEmpty} from "utils/detectEmptyObject";
@@ -11,7 +12,7 @@ import {locoScroll} from "components/SmoothScroll";
 
 const _baseURL = process.env.REACT_APP_API_URL;
 
-const Disciplines = ({ data }) => {
+const Disciplines = () => {
 
     const carouselStyles = {
         height: window.innerHeight
@@ -21,15 +22,15 @@ const Disciplines = ({ data }) => {
         height: window.innerHeight
     };
 
-    useEffect(() => {
-        if(!isEmpty(data)){
-            locoScroll.update();
-        }
-    }, [data]);
+    // useEffect(() => {
+    //     if(!isEmpty(data)){
+    //         locoScroll.update();
+    //     }
+    // }, [data]);
 
-    if(isEmpty(data)){
-       return <Preloader />
-    }
+    // if(isEmpty(data)){
+    //    return <Preloader />
+    // }
 
     return (
         <section
@@ -43,9 +44,9 @@ const Disciplines = ({ data }) => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-8 offset-xl-1 col-lg-8">
-                        <DetectCarouselType data={data} >
+                        <DetectCarouselType data={list} >
                             {
-                                data.map((box, key) => (
+                                list.map((box, key) => (
                                     <div
                                         className="disciplines-box"
                                         key={key}
@@ -55,11 +56,11 @@ const Disciplines = ({ data }) => {
                                         data-scroll-direction="vertical"
                                     >
                                         <div className="disciplines-box-preview">
-                                            <img src={_baseURL + box.serviceMedia.url} alt={box.name} />
+                                            <img src={_baseURL + box.preview} alt={box.title} />
                                         </div>
                                         <p className="label">Main Expertise</p>
-                                        <p className="disciplines-box-title h-2 split-content">{box.name}</p>
-                                        <p className="disciplines-box-description">{box.description}</p>
+                                        <p className="disciplines-box-title h-2 split-content">{box.title}</p>
+                                        <div className="disciplines-box-description" dangerouslySetInnerHTML={{ __html: box.description }} />
                                         <Link to={routes.services} className="link-btn">Our services</Link>
                                     </div>
                                 ))
@@ -74,7 +75,7 @@ const Disciplines = ({ data }) => {
                     <div className="disciplines-carousel">
                         <div className="disciplines-carousel-list">
                             {
-                                data.slice(0).reverse().map((box, key) => (
+                                list.slice(0).reverse().map((box, key) => (
                                     <div className="disciplines-carousel-slide" key={key} style={carouselStyles}>
                                         <Wave
                                             className="wave"
@@ -93,7 +94,7 @@ const Disciplines = ({ data }) => {
                                                 height={wSize.height}
                                                 patternUnits="userSpaceOnUse">
                                                 <image
-                                                    href={_baseURL + box.serviceMedia.url}
+                                                    href={_baseURL + box.preview}
                                                     // width={wSize.width}
                                                     height={wSize.height}
                                                     className="image-slide"

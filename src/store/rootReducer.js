@@ -9,9 +9,12 @@ import modal from 'store/modal/reducers';
 import about from "store/about/reducers";
 import disciplines from "store/disciplines/reducers";
 import contact from "store/contact/reducers";
+import projects from "store/projects/reducers";
+import homePage from "store/homePage/reducers";
 
 export default combineReducers({
     router: connectRouter(history),
+    homePage,
     videos,
     services,
     offices,
@@ -19,5 +22,6 @@ export default combineReducers({
     modal,
     about,
     disciplines,
-    contact
+    contact,
+    projects
 });
