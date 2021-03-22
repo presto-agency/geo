@@ -34,6 +34,7 @@ jobs:
             echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.repository }} --password-stdin
             docker-compose stop
             docker-compose rm --force front-end
+            docker rmi docker.pkg.github.com/presto-agency/geo/geo-front:latest
             docker pull https://docker.pkg.github.com/presto-agency/geo/geo-front:latest
             docker-compose up -d --build
             docker logout https://docker.pkg.github.com
