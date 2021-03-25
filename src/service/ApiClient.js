@@ -35,12 +35,16 @@ export default class ApiClient {
         return await this.getSources('projects');
     };
 
-    getProjectByDisciplineId = async (id = '') => {
-        return await this.getSources(`projects?discipline.id_eq=${id}`);
+    getProjectByDisciplineId = async ({ disciplineId, projectId }) => {
+        return await this.getSources(`projects?discipline.id_eq=${disciplineId}&id_ne=${projectId}`);
     };
 
     getProjectsByQuery = async (query) => {
         return await this.getSources(`projects?name_contains=${query}`);
+    };
+
+    getProjectById = async (id) => {
+        return await this.getSources(`projects/${id}`);
     };
 
     getOffices = async () => {

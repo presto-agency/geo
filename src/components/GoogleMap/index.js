@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
+import Geocode from "react-geocode";
 import styles from './styles';
 import Marker from "./Marker";
 
@@ -11,6 +12,17 @@ const map = {
     },
 };
 const KEY =  process.env.REACT_APP_GOOGLE_API_KEY;
+
+Geocode.setApiKey('AIzaSyB1iaIIXz46FOxfDQ3veVtju7t1K8VQVgk');
+Geocode.fromAddress('Dubai South').then(
+    (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        console.log(lat, lng);
+    },
+    (error) => {
+        console.error(error);
+    }
+);
 
 const GoogleMap = () => {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import list from './list';
-import Counter from "../../../components/Counter";
+import Counter from "components/Counter";
 
 const Detail = () => {
 
@@ -17,10 +17,10 @@ const Detail = () => {
                             className="detail-values fade"
                             id="about-detail-values"
                             data-scroll={true}
+                            data-scroll-call="about-values"
                             data-scroll-offset="20%, 70%"
                             data-scroll-id="about-values"
                             data-scroll-repeat="false"
-                            data-scroll-call="about-values"
                         >
                             {
                                 list.map((value, key) => (

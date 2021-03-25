@@ -4,13 +4,27 @@ import {
     GET_PROJECTS_ERROR,
     SEARCH_PROJECTS_END,
     SEARCH_PROJECTS_ERROR,
-    SEARCH_PROJECTS_START} from "store/constants";
+    SEARCH_PROJECTS_START,
+    GET_SINGLE_PROJECT_END, 
+    GET_SINGLE_PROJECT_ERROR,
+    GET_SINGLE_PROJECT_START} from "store/constants";
+import {GET_SIMILAR_PROJECTS_END, GET_SIMILAR_PROJECTS_ERROR, GET_SIMILAR_PROJECTS_START} from "../../constants";
 
 const initialState = {
     loading: false,
     data: {},
     error: null,
     selected: {
+        loading: false,
+        data: {},
+        error: null
+    },
+    singleProject: {
+        loading: false,
+        data: {},
+        error: null
+    },
+    similar: {
         loading: false,
         data: {},
         error: null
@@ -58,6 +72,58 @@ export default function projectsReducer(state = initialState, action) {
                 ...state,
                 selected: {
                     ...state.selected,
+                    loading: false,
+                    error: action.payload
+                }
+            };
+        case GET_SINGLE_PROJECT_START:
+            return {
+                ...state,
+                singleProject: {
+                    ...state.singleProject,
+                    loading: true
+                }
+            };
+        case GET_SINGLE_PROJECT_END:
+            return {
+                ...state,
+                singleProject: {
+                    ...state.singleProject,
+                    loading: false,
+                    data: action.payload
+                }
+            };
+        case GET_SINGLE_PROJECT_ERROR:
+            return {
+                ...state,
+                singleProject: {
+                    ...state.singleProject,
+                    loading: false,
+                    error: action.payload
+                }
+            };
+        case GET_SIMILAR_PROJECTS_START:
+            return {
+                ...state,
+                similar: {
+                    ...state.similar,
+                    loading: true
+                }
+            };
+        case GET_SIMILAR_PROJECTS_END:
+            return {
+                ...state,
+                similar: {
+                    ...state.similar,
+                    loading: false,
+                    data: action.payload
+                }
+            };
+        case GET_SIMILAR_PROJECTS_ERROR:
+            return {
+                ...state,
+                similar: {
+                    ...state.similar,
                     loading: false,
                     error: action.payload
                 }

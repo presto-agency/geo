@@ -1,34 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React from 'react';
+import {useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Formik, Form } from 'formik';
-import {isEmpty} from "utils/detectEmptyObject";
-import routes from 'routes';
+
 import validationSchema from "./validationSchema";
 import {searchProjects} from "store/projects/actions";
-import { closeModal } from "store/modal/actions";
 
 const SearchForm = () => {
 
     const dispatch = useDispatch();
-    const result = useSelector((state) => state.projects.selected.data);
     const history = useHistory();
-    const [searchQuery, setSearchQuery] = useState('');
-
-    useEffect(() => {
-        if(!isEmpty(result)) {
-            dispatch(closeModal());
-            history.push(`${routes.searchResult}/?query=${searchQuery}`);
-        }
-    }, [result]);
 
     const initialValues = {
         query: ''
     };
 
     const onSubmit = (value) => {
-        dispatch(searchProjects(value));
-        setSearchQuery(value.query);
+        dispatch(searchProjects({ value, history }));
     };
 
     return (

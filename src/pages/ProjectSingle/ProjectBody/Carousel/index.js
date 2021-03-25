@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import Slider from "react-slick";
 import CarouselNav from "components/CarouselNav";
 import CarouselPagination from "components/CarouselPagination";
 import ProjectPageCarouselSlide from "./Slide";
 
-const ProjectPageCarousel = () => {
+const ProjectPageCarousel = ({ data }) => {
 
-    const { data } = useSelector(state => state.projects);
     const [currentSlide, setCurrentSlide] = useState(1);
     const [totalSlides, setTotalSlides] = useState(data.length);
 
@@ -49,13 +47,13 @@ const ProjectPageCarousel = () => {
                     totalSlides={totalSlides}
                 />
             </div>
-            {/*<Slider ref={carousel} className="projects-carousel" {...settings}>*/}
-            {/*    {*/}
-            {/*        data.map((project, key) => (*/}
-            {/*            <ProjectPageCarouselSlide project={project} key={key} />*/}
-            {/*        ))*/}
-            {/*    }*/}
-            {/*</Slider>*/}
+            <Slider ref={carousel} className="projects-carousel" {...settings}>
+                {
+                    data.map((project, key) => (
+                        <ProjectPageCarouselSlide project={project} key={key} />
+                    ))
+                }
+            </Slider>
         </div>
     )
 };

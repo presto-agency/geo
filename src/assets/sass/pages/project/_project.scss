@@ -170,6 +170,9 @@
           li{
             position: relative;
             padding-left: 15px;
+              &:not(:last-child){
+                margin-bottom: 5px;
+              }
               &:before{
                 content: '';
                 position: absolute;
