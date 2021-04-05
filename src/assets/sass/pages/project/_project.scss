@@ -83,17 +83,22 @@
     border-radius: 50%;
     background-color: $blue;
     position: relative;
-    svg{
-      width: 20px;
-      height: 10px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%) rotate(-45deg);
-    }
-    path{
-      fill: $white;
-    }
+      svg{
+        width: 20px;
+        height: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(-45deg);
+      }
+      path{
+        fill: $white;
+      }
+      @include hover(991){
+        &:hover{
+
+        }
+      }
   }
   &-item{
     .project{

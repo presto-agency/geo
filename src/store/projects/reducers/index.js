@@ -13,6 +13,7 @@ import {GET_SIMILAR_PROJECTS_END, GET_SIMILAR_PROJECTS_ERROR, GET_SIMILAR_PROJEC
 const initialState = {
     loading: false,
     data: {},
+    totalCount: null,
     error: null,
     selected: {
         loading: false,
@@ -42,7 +43,8 @@ export default function projectsReducer(state = initialState, action) {
             return {
                 ...state,
                 loading: false,
-                data: action.payload
+                data: action.payload.posts,
+                totalCount: action.payload.postsCount
             };
         case GET_PROJECTS_ERROR:
             return {

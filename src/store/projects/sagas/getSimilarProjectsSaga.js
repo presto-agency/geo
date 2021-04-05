@@ -1,15 +1,16 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
-import {GET_SIMILAR_PROJECTS_ERROR, GET_SIMILAR_PROJECTS_START} from "../../constants";
-import ApiClient from "../../../service/ApiClient";
+import {GET_SIMILAR_PROJECTS_END, GET_SIMILAR_PROJECTS_ERROR, GET_SIMILAR_PROJECTS_START} from "store/constants";
+import ApiClient from "service/ApiClient";
 
 const apiClient = new ApiClient();
 
 function* getSimilarProjects({ payload }) {
     try {
         const data = yield call(apiClient.getProjectByDisciplineId, payload);
-
-        console.log('saga similar - ', data);
-
+        yield put({
+            type: GET_SIMILAR_PROJECTS_END,
+            payload: data
+        });
     } catch ({ message }) {
         yield put({
             type: GET_SIMILAR_PROJECTS_ERROR,

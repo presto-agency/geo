@@ -85,9 +85,9 @@ export const routeOut = (node) => {
                 if(window.innerWidth > 991) {
                     setTimeout(() => {
                         locoScroll.scrollTo(0, {
-                            callback: () => locoScroll.update(),
                             duration: 100,
-                            disableLerp: true
+                            disableLerp: true,
+                            callback: () => locoScroll.update()
                         });
                     }, 300);
                 } else {

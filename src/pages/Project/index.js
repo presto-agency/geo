@@ -20,10 +20,11 @@ const ProjectPage = () => {
         if(isEmpty(data)) {
             dispatch(getProjects());
         }
-        if(!isEmpty(data)){
+        setTimeout(() => {
             locoScroll.update();
-        }
-    }, [data]);
+            console.log('update scroll');
+        }, 500);
+    }, [dispatch]);
 
     if(loading || isEmpty(data)){
         return <Preloader />

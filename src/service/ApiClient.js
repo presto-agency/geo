@@ -32,7 +32,11 @@ export default class ApiClient {
     };
 
     getProjects = async () => {
-        return await this.getSources('projects');
+        return await this.getSources('projects?_start=0&_limit=2');
+    };
+
+    getProjectsCount = async () => {
+        return await this.getSources('projects/count');
     };
 
     getProjectByDisciplineId = async ({ disciplineId, projectId }) => {

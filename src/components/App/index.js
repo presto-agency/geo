@@ -25,41 +25,42 @@ const App = () => {
 
     return (
         <Router>
-            <SmoothScroll>
+
                 <Route
                     render={({ location }) => {
                         const { pathname, key } = location;
                         return (
-                            <TransitionGroup component={null}>
-                                <Transition
-                                    key={key}
-                                    appear={true}
-                                    onEnter={(node, appears) => routeIn(pathname, node, appears)}
-                                    onExit={(node, appears) => routeOut(node, appears)}
-                                    timeout={{ enter: 1500, exit: 1000 }}
-                                >
-                                    <div className="transition-box">
-                                        <Header />
-                                        <Switch location={location}>
-                                            <Route path={routes.index} exact component={HomePage} />
-                                            <Route path={routes.about} component={AboutPage} />
-                                            <Route path={routes.services} component={ServicesPage} />
-                                            <Route path={routes.project.detail} component={ProjectSinglePage} />
-                                            <Route path={routes.project.index} exact component={ProjectPage} />
-                                            <Route path={routes.news.article} component={ArticlePage} />
-                                            <Route path={routes.news.index} exact component={NewsPage} />
-                                            <Route path={routes.contact} component={ContactPage} />
-                                            <Route path={routes.searchResult} component={SearchResultPage} />
-                                            <Route path="*" component={PageNotFound} />
-                                        </Switch>
-                                        <Footer />
-                                    </div>
-                                </Transition>
-                            </TransitionGroup>
+                            <SmoothScroll>
+                                <TransitionGroup component={null}>
+                                    <Transition
+                                        key={key}
+                                        appear={true}
+                                        onEnter={(node, appears) => routeIn(pathname, node, appears)}
+                                        onExit={(node, appears) => routeOut(node, appears)}
+                                        timeout={{ enter: 1500, exit: 1000 }}
+                                    >
+                                        <div className="transition-box">
+                                            <Header />
+                                            <Switch location={location}>
+                                                <Route path={routes.index} exact component={HomePage} />
+                                                <Route path={routes.about} component={AboutPage} />
+                                                <Route path={routes.services} component={ServicesPage} />
+                                                <Route path={routes.project.detail} component={ProjectSinglePage} />
+                                                <Route path={routes.project.index} exact component={ProjectPage} />
+                                                <Route path={routes.news.article} component={ArticlePage} />
+                                                <Route path={routes.news.index} exact component={NewsPage} />
+                                                <Route path={routes.contact} component={ContactPage} />
+                                                <Route path={routes.searchResult} component={SearchResultPage} />
+                                                <Route path="*" component={PageNotFound} />
+                                            </Switch>
+                                            <Footer />
+                                        </div>
+                                    </Transition>
+                                </TransitionGroup>
+                            </SmoothScroll>
                         )
                     }}
                 />
-            </SmoothScroll>
             <Modal />
         </Router>
     );

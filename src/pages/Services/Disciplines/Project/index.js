@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import routes from 'routes'
 
+const _baseURL = process.env.REACT_APP_API_URL;
+
 const ProjectAccordion = ({ project: { id, topImage, name, keyFacts: { country, city } } }) => {
     return (
         <div className="accordion-projects-box">
@@ -9,7 +11,7 @@ const ProjectAccordion = ({ project: { id, topImage, name, keyFacts: { country, 
                 <Link to={`${routes.project.index}/${id}`} className="project-preview parallax">
                     <div className="project-preview-box">
                         <img
-                            src={!!topImage ? topImage.url : 'https://via.placeholder.com/300/?text=GEO project'}
+                            src={!!topImage ? _baseURL + topImage.url : 'https://via.placeholder.com/300/?text=GEO project'}
                             alt={name}
                         />
                     </div>
