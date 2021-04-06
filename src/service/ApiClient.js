@@ -1,3 +1,4 @@
+import paginationParams from "constants/paginationParams";
 const _baseURL = process.env.REACT_APP_API_URL;
 
 export default class ApiClient {
@@ -31,8 +32,9 @@ export default class ApiClient {
         return await this.getSources('services');
     };
 
-    getProjects = async () => {
-        return await this.getSources('projects?_start=0&_limit=2');
+    getProjects = async (start = paginationParams.start) => {
+        console.log(`projects?_start=${start}&_limit=${paginationParams.limit}`);
+        return await this.getSources(`projects?_start=${start}&_limit=${paginationParams.limit}`);
     };
 
     getProjectsCount = async () => {

@@ -1,0 +1,16 @@
+.pagination{
+  display: flex;
+  align-items: center;
+  @extend .font-title-medium;
+  font-size: 14px;
+    .next,
+    .previous{
+      display: none;
+    }
+    a{
+      padding: 0 5px;
+    }
+    .active{
+      color: $blue;
+    }
+}

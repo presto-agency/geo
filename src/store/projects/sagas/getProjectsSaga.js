@@ -4,8 +4,9 @@ import ApiClient from "service/ApiClient";
 
 const apiClient = new ApiClient();
 
-function* getProjects() {
+function* getProjects({ payload }) {
     try {
+        console.log('saga start from - ', payload);
         const posts = yield call(apiClient.getProjects);
         const postsCount = yield call(apiClient.getProjectsCount);
         yield put({

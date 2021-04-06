@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import ReactPaginate from 'react-paginate';
 
+import routes from 'routes';
 import {getProjects} from "store/projects/actions";
 import FootBanner from "components/FootBanner";
 import {isEmpty} from "utils/detectEmptyObject";
@@ -11,20 +13,24 @@ import ProjectsList from "./List";
 
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 
-const ProjectPage = () => {
+const ProjectPage = ({ history, match: { params } }) => {
 
     const dispatch = useDispatch();
     const { data, loading } = useSelector(state => state.projects);
 
     useEffect(() => {
         if(isEmpty(data)) {
-            dispatch(getProjects());
+            dispatch(getProjects(params.pageNumber));
+            setTimeout(() => {
+                locoScroll.update();
+            }, 500);
         }
-        setTimeout(() => {
-            locoScroll.update();
-            console.log('update scroll');
-        }, 500);
     }, [dispatch]);
+
+    const handlePageClick = ({ selected }) => {
+        // dispatch(getProjects(selected));
+        // history.push(`/project/page/${selected}`);
+    };
 
     if(loading || isEmpty(data)){
         return <Preloader />
@@ -38,6 +44,20 @@ const ProjectPage = () => {
                         <div className="col-12">
                             <ProjectsSort/>
                             <ProjectsList data={data} />
+                            <ReactPaginate
+                                onPageChange={handlePageClick}
+                                breakLabel={'...'}
+                                pageCount={12}
+                                // initialPage={params.pageNumber}
+                                // disableInitialCallback={true}
+                                containerClassName={'pagination'}
+                                activeClassName={'active'}
+                                marginPagesDisplayed={2}
+                                pageRangeDisplayed={2}
+                                // hrefBuilder={(href) => {
+                                //     return `page/${href}`
+                                // }}
+                            />
                         </div>
                     </div>
                 </div>

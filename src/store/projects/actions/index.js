@@ -4,9 +4,9 @@ import {
     GET_SINGLE_PROJECT_START,
     GET_SIMILAR_PROJECTS_START} from "store/constants";
 
-export const getProjects = () => ({
+export const getProjects = (pageNumber) => ({
     type: GET_PROJECTS_START,
-    payload: null
+    payload: pageNumber
 });
 
 export const searchProjects = (query) => ({
