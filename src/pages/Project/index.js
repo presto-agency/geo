@@ -1,40 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import ReactPaginate from 'react-paginate';
+import Pagination from "react-js-pagination";
+import paginationParams from "constants/paginationParams";
 
-import routes from 'routes';
+import {isEmpty} from "utils/detectEmptyObject";
+import {photoParallax} from "utils/parallax/photosParallax";
 import {getProjects} from "store/projects/actions";
 import FootBanner from "components/FootBanner";
-import {isEmpty} from "utils/detectEmptyObject";
-import Preloader from "components/Preloader";
 import {locoScroll} from "components/SmoothScroll";
 import ProjectsSort from "./Sorting";
 import ProjectsList from "./List";
 
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 
-const ProjectPage = ({ history, match: { params } }) => {
+const ProjectPage = () => {
 
     const dispatch = useDispatch();
-    const { data, loading } = useSelector(state => state.projects);
+    const { data, totalCount, filters: { category, location, sort } } = useSelector(state => state.projects);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [filter, setFilter] = useState({
+       category: '' || category,
+       location: '' || location,
+       sort: '' || sort
+    });
 
     useEffect(() => {
-        if(isEmpty(data)) {
-            dispatch(getProjects(params.pageNumber));
+        // if(isEmpty(data)) {
+            dispatch(getProjects({
+                start: (( currentPage - 1 ) * paginationParams.limit ) || 0,
+                currentPage,
+                ...filter
+            }));
             setTimeout(() => {
                 locoScroll.update();
-            }, 500);
-        }
-    }, [dispatch]);
+            }, 1000);
+        // }
+    }, [currentPage, filter]);
 
-    const handlePageClick = ({ selected }) => {
-        // dispatch(getProjects(selected));
-        // history.push(`/project/page/${selected}`);
+    const handlePageChange = (a) => {
+        setCurrentPage(a);
+        locoScroll.scrollTo('#project-sort', {
+            duration: 200,
+            disableLerp: false,
+        });
     };
 
-    if(loading || isEmpty(data)){
-        return <Preloader />
-    }
+    const handleFilterChange = (a) => {
+        setFilter({
+            ...filter,
+            [a.filter]: a.value
+        });
+    };
 
     return (
         <div className="page">
@@ -42,21 +58,17 @@ const ProjectPage = ({ history, match: { params } }) => {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <ProjectsSort/>
+                            <ProjectsSort onChange={handleFilterChange} defaultValues={filter} />
                             <ProjectsList data={data} />
-                            <ReactPaginate
-                                onPageChange={handlePageClick}
-                                breakLabel={'...'}
-                                pageCount={12}
-                                // initialPage={params.pageNumber}
-                                // disableInitialCallback={true}
-                                containerClassName={'pagination'}
-                                activeClassName={'active'}
-                                marginPagesDisplayed={2}
-                                pageRangeDisplayed={2}
-                                // hrefBuilder={(href) => {
-                                //     return `page/${href}`
-                                // }}
+                            <Pagination
+                                activePage={currentPage}
+                                itemsCountPerPage={1}
+                                totalItemsCount={Math.floor(totalCount / paginationParams.limit)}
+                                pageRangeDisplayed={5}
+                                onChange={handlePageChange}
+                                hideNavigation={true}
+                                hideFirstLastPages={true}
+                                hideDisabled={true}
                             />
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 import paginationParams from "constants/paginationParams";
+import {transformProjectUrl} from "utils/transformUrls";
 const _baseURL = process.env.REACT_APP_API_URL;
 
 export default class ApiClient {
@@ -32,13 +33,12 @@ export default class ApiClient {
         return await this.getSources('services');
     };
 
-    getProjects = async (start = paginationParams.start) => {
-        console.log(`projects?_start=${start}&_limit=${paginationParams.limit}`);
-        return await this.getSources(`projects?_start=${start}&_limit=${paginationParams.limit}`);
+    getProjects = async (start = paginationParams.start, category = '', location = '', sort = 'ASC') => {
+        return await this.getSources(`projects?${transformProjectUrl(start, category, location, sort)}`);
     };
 
-    getProjectsCount = async () => {
-        return await this.getSources('projects/count');
+    getProjectsCount = async (start = paginationParams.start, category = '', location = '', sort = 'ASC') => {
+        return await this.getSources(`projects/count?${transformProjectUrl(start, category, location, sort)}`);
     };
 
     getProjectByDisciplineId = async ({ disciplineId, projectId }) => {

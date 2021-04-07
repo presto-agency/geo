@@ -37,8 +37,8 @@ const App = () => {
                         )
                     }}
                 />
-                <Modal />
             </SmoothScroll>
+            <Modal />
         </Router>
     );
 };

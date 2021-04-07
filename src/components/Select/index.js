@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import Select from "react-select";
 import { customStyles } from './styles';
 
-const CustomSelect = ({ options, callback, placeholder = 'Sort by' }) => {
+const CustomSelect = ({ options, callback, defaultValue }) => {
 
     const [focused, setFocused] = useState(false);
 
     return (
         <Select
             styles={customStyles}
-            defaultValue={{ label: placeholder }}
+            defaultValue={defaultValue}
             onChange={(value) => callback(value)}
             options={options}
             onFocus={() => setFocused(true)}

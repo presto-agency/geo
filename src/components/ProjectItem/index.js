@@ -5,11 +5,11 @@ import routes from 'routes';
 
 const _baseURL = process.env.REACT_APP_API_URL;
 
-const ProjectItem = ({ project: { id, name, topImage, keyFacts: { country, city } } }) => {
+const ProjectItem = ({ project: { id, name, topImage, country, city } }) => {
 
     return (
         <div className="project project-item">
-            <Link to={`${routes.project.index}/${id}`} className="project-preview parallax">
+            <Link to={`${routes.project.index}/${id}`} className="project-preview">
                 <div className="project-preview-box">
                     <img
                         src={!!topImage ? _baseURL + topImage.url : 'https://via.placeholder.com/300/?text=GEO project'}

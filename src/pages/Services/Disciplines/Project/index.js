@@ -4,7 +4,7 @@ import routes from 'routes'
 
 const _baseURL = process.env.REACT_APP_API_URL;
 
-const ProjectAccordion = ({ project: { id, topImage, name, keyFacts: { country, city } } }) => {
+const ProjectAccordion = ({ project: { id, topImage, name, country, city } }) => {
     return (
         <div className="accordion-projects-box">
             <div className="project project-accordion">

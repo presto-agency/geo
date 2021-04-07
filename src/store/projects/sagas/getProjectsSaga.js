@@ -4,14 +4,13 @@ import ApiClient from "service/ApiClient";
 
 const apiClient = new ApiClient();
 
-function* getProjects({ payload }) {
+function* getProjects({ payload: { start, currentPage, category, location, sort } }) {
     try {
-        console.log('saga start from - ', payload);
-        const posts = yield call(apiClient.getProjects);
-        const postsCount = yield call(apiClient.getProjectsCount);
+        const posts = yield call(apiClient.getProjects, start, category, location, sort);
+        const postsCount = yield call(apiClient.getProjectsCount, start, category, location, sort);
         yield put({
             type: GET_PROJECTS_END,
-            payload: { posts, postsCount }
+            payload: { posts, postsCount, currentPage, category, location, sort }
         });
     } catch ({ message }) {
         yield put({

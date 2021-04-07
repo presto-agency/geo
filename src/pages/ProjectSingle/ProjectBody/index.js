@@ -43,14 +43,14 @@ const ProjectBody = ({ data }) => {
                         <div className="col-xl-5 offset-xl-1 col-lg-6">
                             <div className="project-facts">
                                 {
-                                    !!data.keyFacts.city
+                                    !!data.city
                                     ? (
                                         <div className="project-facts-item fade-on-scroll">
                                             <div className="project-fact-icon">
                                                 <img src={locationIcon} alt="Location" />
                                             </div>
                                             <p className="label-uppercase">Location</p>
-                                            <p className="project-fact-value">{data.keyFacts.city}</p>
+                                            <p className="project-fact-value">{data.city}</p>
                                         </div>
                                         )
                                     : null
@@ -63,26 +63,26 @@ const ProjectBody = ({ data }) => {
                                                 <img src={clientIcon} alt="Client" />
                                             </div>
                                             <p className="label-uppercase">Client</p>
-                                            <p className="project-fact-value">{data.keyFacts.client}</p>
+                                            <p className="project-fact-value">{data.client}</p>
                                         </div>
                                         )
                                     : null
                                 }
                                 {
-                                    !!data.keyFacts.bua
+                                    !!data.bua
                                     ? (
                                         <div className="project-facts-item fade-on-scroll">
                                             <div className="project-fact-icon">
                                                 <img src={squareIcon} alt="BUA" />
                                             </div>
                                             <p className="label-uppercase">BUA</p>
-                                            <p className="project-fact-value">{numberWithCommas(data.keyFacts.bua)} m<sup>2</sup></p>
+                                            <p className="project-fact-value">{numberWithCommas(data.bua)} m<sup>2</sup></p>
                                         </div>
                                         )
                                     : null
                                 }
                                 {
-                                    !!data.keyFacts.keyFacts.length
+                                    !!data.keyFacts.length
                                     ? (
                                         <div className="project-facts-item fade-on-scroll">
                                             <div className="project-fact-icon">
@@ -91,7 +91,7 @@ const ProjectBody = ({ data }) => {
                                             <p className="label-uppercase">Key facts</p>
                                             <ul className="project-fact-value">
                                                 {
-                                                    data.keyFacts.keyFacts.map(fact => (
+                                                    data.keyFacts.map(fact => (
                                                         !!fact.Item ? <li key={fact.id}>{fact.Item}</li> : null
                                                     ))
                                                 }
@@ -101,14 +101,14 @@ const ProjectBody = ({ data }) => {
                                     : null
                                 }
                                 {
-                                    !!data.keyFacts.plotArea
+                                    !!data.plotArea
                                     ? (
                                         <div className="project-facts-item fade-on-scroll">
                                             <div className="project-fact-icon">
                                                 <img src={areaIcon} alt="Plot area" />
                                             </div>
                                             <p className="label-uppercase">Plot area</p>
-                                            <p className="project-fact-value">{numberWithCommas(data.keyFacts.plotArea)} m<sup>2</sup></p>
+                                            <p className="project-fact-value">{numberWithCommas(data.plotArea)} m<sup>2</sup></p>
                                         </div>
                                         )
                                     : null

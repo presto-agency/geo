@@ -35,8 +35,8 @@ const ProjectSinglePage = ({ match }) => {
                         <div className="col-xl-12">
                             <div className="hero-content">
                                 <div className="project-tags fade">
-                                    {!!data.keyFacts.country ? <p className="project-tag" >{data.keyFacts.country}</p> : null }
-                                    {!!data.keyFacts.city ? <p className="project-tag" >{data.keyFacts.city}</p> : null }
+                                    {!!data.country ? <p className="project-tag" >{data.country}</p> : null }
+                                    {!!data.city ? <p className="project-tag" >{data.city}</p> : null }
                                 </div>
                                 <SplitTitle>
                                     <h1 className="h-1 hero-content-title split-title">{data.name}</h1>

@@ -7,13 +7,21 @@ import {
     SEARCH_PROJECTS_START,
     GET_SINGLE_PROJECT_END, 
     GET_SINGLE_PROJECT_ERROR,
-    GET_SINGLE_PROJECT_START} from "store/constants";
-import {GET_SIMILAR_PROJECTS_END, GET_SIMILAR_PROJECTS_ERROR, GET_SIMILAR_PROJECTS_START} from "../../constants";
+    GET_SINGLE_PROJECT_START,
+    GET_SIMILAR_PROJECTS_END,
+    GET_SIMILAR_PROJECTS_ERROR,
+    GET_SIMILAR_PROJECTS_START} from "store/constants";
 
 const initialState = {
     loading: false,
     data: {},
     totalCount: null,
+    currentPage: 1,
+    filters: {
+        category: '',
+        location: '',
+        sort: '',
+    },
     error: null,
     selected: {
         loading: false,
@@ -44,7 +52,14 @@ export default function projectsReducer(state = initialState, action) {
                 ...state,
                 loading: false,
                 data: action.payload.posts,
-                totalCount: action.payload.postsCount
+                totalCount: action.payload.postsCount,
+                currentPage: action.payload.currentPage,
+                filters: {
+                    ...state.filters,
+                    category: action.payload.category,
+                    location: action.payload.location,
+                    sort: action.payload.sort
+                }
             };
         case GET_PROJECTS_ERROR:
             return {
