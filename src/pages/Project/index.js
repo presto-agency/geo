@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import Pagination from "react-js-pagination";
 import paginationParams from "constants/paginationParams";
 
-import {isEmpty} from "utils/detectEmptyObject";
-import {photoParallax} from "utils/parallax/photosParallax";
 import {getProjects} from "store/projects/actions";
 import FootBanner from "components/FootBanner";
 import {locoScroll} from "components/SmoothScroll";

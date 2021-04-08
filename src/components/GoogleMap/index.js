@@ -28,8 +28,8 @@ const GoogleMap = () => {
 
     const [defaultOptions, setDefaultOptions] = useState({
         center: {
-            lat: 24.7253981,
-            lng: 46.2620301
+            lat: 24,
+            lng: 54
         },
         zoom: 7
     });

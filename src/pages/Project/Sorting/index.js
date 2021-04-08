@@ -24,13 +24,13 @@ const projects = [
         filter: 'category'
     },
     {
-        value: 'Logistics, E-Commerce & Industrial',
-        label: 'Logistics, E-Commerce & Industrial',
+        value: 'Logistics, E-Commerce, Industrial',
+        label: 'Logistics, E-Commerce, Industrial',
         filter: 'category'
     },
     {
-        value: 'Infrastructure & Roads',
-        label: 'Infrastructure & Roads',
+        value: 'Infrastructure, Roads',
+        label: 'Infrastructure, Roads',
         filter: 'category'
     }
 ];
