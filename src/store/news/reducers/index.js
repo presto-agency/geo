@@ -1,72 +1,112 @@
+import {
+    GET_NEWS_END,
+    GET_NEWS_ERROR,
+    GET_NEWS_START, GET_SIMILAR_NEWS_END, GET_SIMILAR_NEWS_ERROR, GET_SIMILAR_NEWS_START,
+    GET_SINGLE_ARTICLE_END, GET_SINGLE_ARTICLE_ERROR,
+    GET_SINGLE_ARTICLE_START
+} from "../../constants";
+
 const initialState = {
     loading: false,
-    data: [
-        {
-            id: 0,
-            preview: 'https://images.unsplash.com/photo-1494522855154-9297ac14b55f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80',
-            title: 'Enter our festive giveaways',
-            description: 'This December we are giving you the chance to win a signed copy of Portfolio or The Flying Gherkin children’s activity pack. Decide where The Flying Gherkin should visit next. Submit your drawing of The Flying Gherkin at its next destination to win a festive Flying Gherkin activity pack.',
-            tags: ['#solar', '#aboutsun', '#battery'],
-            category: 'events',
-            date: 'Jan 15, 2020',
-            content: '<p>Foster + Partners architects and engineers have developed a radical new plan to build a temporary double-decker crossing within the existing structure of Hammersmith Bridge in London, which has been closed fully on safety grounds since 13 August this year. The proposal which has been presented to the Hammersmith & Fulham Council envisages pedestrians, cyclists and, potentially, motor vehicles being able to use the bridge during its repair and restoration. A new raised truss structure would be built above the existing road deck, featuring a lower level for pedestrians and cyclists and an upper level for cars and buses.</p> <p>The raised deck would enable existing approach routes for traffic to be used, causing minimum disruption for residents on both banks of the river. The structure will also provide support for the bridge as well as a safe platform for restoration work to be carried out. The new truss structure would be assembled in two halves and launched from each side over the existing road surface. It will be supported on each bank and at the two existing piers. As a result, there will be no added load on the existing bridge deck. Elements of the Grade 2* listed bridge that need repair, including pedestals, anchors and chains, would be lifted away and transported by barges to an off-site facility for safe repair and restoration. Contractors would use the new lower pedestrian deck to access the works. When completed, the temporary raised deck would be removed.</p> <img src="https://images.unsplash.com/photo-1474696100102-01b8519f06f3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="" /> <p>By repairing the bridge off-site, the huge task of restoration can be done at greater speed, to a higher level and at significantly reduced cost. It would also minimise noise, environmental impact and onsite activity, as well as reducing the all-important carbon footprint of the works.</p> <p>Luke Fox, Senior Executive Partner at Foster + Partners said “We are excited to propose this simple solution to what is an important missing piece of London’s infrastructure that also gives the opportunity to bring back to life a beautiful and iconic bridge by Sir Joseph Bazalgette” Roger Ridsdill Smith, head of Structural Engineering at Foster + Partners said “We believe that our concept resolves the two challenges for Hammersmith Bridge economically and efficiently: delivering a temporary crossing quickly, whilst providing a safe support to access and refurbish the existing bridge.</p> <p>“We appreciate the engagement and contribution from the technical experts and committees in charge of the bridge and look forward to further studies to develop the scheme” David MacKenzie – Executive Director at COWI said “We consider that this approach is practical and viable. Our experience is that offsite refurbishment of bridge structures is safer and more controlled, and results in a higher quality final outcome when the structure is re-installed.”</p>',
-        },
-        {
-            id: 1,
-            preview: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
-            title: 'The Great Court at the British Museum turns 20',
-            description: 'The British Museum’s Great Court turned twenty on Sunday 6 December 2020.  As the departure point for Museum visitors, it has transformed the experience of the Museum. Decide where The Flying Gherkin should visit next. Submit your drawing of The Flying Gherkin at its next destination to win a festive Flying Gherkin activity pack.',
-            tags: ['#solar', '#aboutsun', '#battery'],
-            category: 'events',
-            date: 'Jan 15, 2020',
-            content: '<p>Foster + Partners architects and engineers have developed a radical new plan to build a temporary double-decker crossing within the existing structure of Hammersmith Bridge in London, which has been closed fully on safety grounds since 13 August this year. The proposal which has been presented to the Hammersmith & Fulham Council envisages pedestrians, cyclists and, potentially, motor vehicles being able to use the bridge during its repair and restoration. A new raised truss structure would be built above the existing road deck, featuring a lower level for pedestrians and cyclists and an upper level for cars and buses.</p> <p>The raised deck would enable existing approach routes for traffic to be used, causing minimum disruption for residents on both banks of the river. The structure will also provide support for the bridge as well as a safe platform for restoration work to be carried out. The new truss structure would be assembled in two halves and launched from each side over the existing road surface. It will be supported on each bank and at the two existing piers. As a result, there will be no added load on the existing bridge deck. Elements of the Grade 2* listed bridge that need repair, including pedestals, anchors and chains, would be lifted away and transported by barges to an off-site facility for safe repair and restoration. Contractors would use the new lower pedestrian deck to access the works. When completed, the temporary raised deck would be removed.</p> <img src="https://images.unsplash.com/photo-1474696100102-01b8519f06f3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="" /> <p>By repairing the bridge off-site, the huge task of restoration can be done at greater speed, to a higher level and at significantly reduced cost. It would also minimise noise, environmental impact and onsite activity, as well as reducing the all-important carbon footprint of the works.</p> <p>Luke Fox, Senior Executive Partner at Foster + Partners said “We are excited to propose this simple solution to what is an important missing piece of London’s infrastructure that also gives the opportunity to bring back to life a beautiful and iconic bridge by Sir Joseph Bazalgette” Roger Ridsdill Smith, head of Structural Engineering at Foster + Partners said “We believe that our concept resolves the two challenges for Hammersmith Bridge economically and efficiently: delivering a temporary crossing quickly, whilst providing a safe support to access and refurbish the existing bridge.</p> <p>“We appreciate the engagement and contribution from the technical experts and committees in charge of the bridge and look forward to further studies to develop the scheme” David MacKenzie – Executive Director at COWI said “We consider that this approach is practical and viable. Our experience is that offsite refurbishment of bridge structures is safer and more controlled, and results in a higher quality final outcome when the structure is re-installed.”</p>',
-        },
-        {
-            id: 2,
-            preview: 'https://images.unsplash.com/photo-1593908717206-8eeffb2d5776?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-            title: 'Partners reveals plans',
-            description: 'The British Museum’s Great Court turned twenty on Sunday 6 December 2020.  As the departure point for Museum visitors, it has transformed the experience of the Museum. Decide where The Flying Gherkin should visit next. Submit your drawing of The Flying Gherkin at its next destination to win a festive Flying Gherkin activity pack.',
-            tags: ['#solar', '#aboutsun', '#battery'],
-            category: 'events',
-            date: 'Jan 15, 2020',
-            content: '<p>Foster + Partners architects and engineers have developed a radical new plan to build a temporary double-decker crossing within the existing structure of Hammersmith Bridge in London, which has been closed fully on safety grounds since 13 August this year. The proposal which has been presented to the Hammersmith & Fulham Council envisages pedestrians, cyclists and, potentially, motor vehicles being able to use the bridge during its repair and restoration. A new raised truss structure would be built above the existing road deck, featuring a lower level for pedestrians and cyclists and an upper level for cars and buses.</p> <p>The raised deck would enable existing approach routes for traffic to be used, causing minimum disruption for residents on both banks of the river. The structure will also provide support for the bridge as well as a safe platform for restoration work to be carried out. The new truss structure would be assembled in two halves and launched from each side over the existing road surface. It will be supported on each bank and at the two existing piers. As a result, there will be no added load on the existing bridge deck. Elements of the Grade 2* listed bridge that need repair, including pedestals, anchors and chains, would be lifted away and transported by barges to an off-site facility for safe repair and restoration. Contractors would use the new lower pedestrian deck to access the works. When completed, the temporary raised deck would be removed.</p> <img src="https://images.unsplash.com/photo-1581505438518-7d8c07ef0d1d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" alt="" /> <p>By repairing the bridge off-site, the huge task of restoration can be done at greater speed, to a higher level and at significantly reduced cost. It would also minimise noise, environmental impact and onsite activity, as well as reducing the all-important carbon footprint of the works.</p> <p>Luke Fox, Senior Executive Partner at Foster + Partners said “We are excited to propose this simple solution to what is an important missing piece of London’s infrastructure that also gives the opportunity to bring back to life a beautiful and iconic bridge by Sir Joseph Bazalgette” Roger Ridsdill Smith, head of Structural Engineering at Foster + Partners said “We believe that our concept resolves the two challenges for Hammersmith Bridge economically and efficiently: delivering a temporary crossing quickly, whilst providing a safe support to access and refurbish the existing bridge.</p> <p>“We appreciate the engagement and contribution from the technical experts and committees in charge of the bridge and look forward to further studies to develop the scheme” David MacKenzie – Executive Director at COWI said “We consider that this approach is practical and viable. Our experience is that offsite refurbishment of bridge structures is safer and more controlled, and results in a higher quality final outcome when the structure is re-installed.”</p>',
-        },
-        {
-            id: 3,
-            preview: 'https://cdn.pixabay.com/photo/2018/07/14/15/27/cafe-3537801_960_720.jpg',
-            title: 'Enter our festive giveaways',
-            description: 'This December we are giving you the chance to win a signed copy of Portfolio or The Flying Gherkin children’s activity pack. Decide where The Flying Gherkin should visit next. Submit your drawing of The Flying Gherkin at its next destination to win a festive Flying Gherkin activity pack.',
-            tags: ['#solar', '#aboutsun', '#battery'],
-            category: 'events',
-            date: 'Jan 15, 2020',
-            content: '<p>Foster + Partners architects and engineers have developed a radical new plan to build a temporary double-decker crossing within the existing structure of Hammersmith Bridge in London, which has been closed fully on safety grounds since 13 August this year. The proposal which has been presented to the Hammersmith & Fulham Council envisages pedestrians, cyclists and, potentially, motor vehicles being able to use the bridge during its repair and restoration. A new raised truss structure would be built above the existing road deck, featuring a lower level for pedestrians and cyclists and an upper level for cars and buses.</p> <p>The raised deck would enable existing approach routes for traffic to be used, causing minimum disruption for residents on both banks of the river. The structure will also provide support for the bridge as well as a safe platform for restoration work to be carried out. The new truss structure would be assembled in two halves and launched from each side over the existing road surface. It will be supported on each bank and at the two existing piers. As a result, there will be no added load on the existing bridge deck. Elements of the Grade 2* listed bridge that need repair, including pedestals, anchors and chains, would be lifted away and transported by barges to an off-site facility for safe repair and restoration. Contractors would use the new lower pedestrian deck to access the works. When completed, the temporary raised deck would be removed.</p> <img src="https://images.unsplash.com/photo-1474696100102-01b8519f06f3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="" /> <p>By repairing the bridge off-site, the huge task of restoration can be done at greater speed, to a higher level and at significantly reduced cost. It would also minimise noise, environmental impact and onsite activity, as well as reducing the all-important carbon footprint of the works.</p> <p>Luke Fox, Senior Executive Partner at Foster + Partners said “We are excited to propose this simple solution to what is an important missing piece of London’s infrastructure that also gives the opportunity to bring back to life a beautiful and iconic bridge by Sir Joseph Bazalgette” Roger Ridsdill Smith, head of Structural Engineering at Foster + Partners said “We believe that our concept resolves the two challenges for Hammersmith Bridge economically and efficiently: delivering a temporary crossing quickly, whilst providing a safe support to access and refurbish the existing bridge.</p> <p>“We appreciate the engagement and contribution from the technical experts and committees in charge of the bridge and look forward to further studies to develop the scheme” David MacKenzie – Executive Director at COWI said “We consider that this approach is practical and viable. Our experience is that offsite refurbishment of bridge structures is safer and more controlled, and results in a higher quality final outcome when the structure is re-installed.”</p>',
-        },
-        {
-            id: 4,
-            preview: 'https://cdn.pixabay.com/photo/2018/02/27/06/30/skyscraper-3184798_960_720.jpg',
-            title: 'The Great Court at the British Museum turns 20',
-            description: 'The British Museum’s Great Court turned twenty on Sunday 6 December 2020.  As the departure point for Museum visitors, it has transformed the experience of the Museum. Decide where The Flying Gherkin should visit next. Submit your drawing of The Flying Gherkin at its next destination to win a festive Flying Gherkin activity pack.',
-            tags: ['#solar', '#aboutsun', '#battery'],
-            category: 'events',
-            date: 'Jan 15, 2020',
-            content: '<p>Foster + Partners architects and engineers have developed a radical new plan to build a temporary double-decker crossing within the existing structure of Hammersmith Bridge in London, which has been closed fully on safety grounds since 13 August this year. The proposal which has been presented to the Hammersmith & Fulham Council envisages pedestrians, cyclists and, potentially, motor vehicles being able to use the bridge during its repair and restoration. A new raised truss structure would be built above the existing road deck, featuring a lower level for pedestrians and cyclists and an upper level for cars and buses.</p> <p>The raised deck would enable existing approach routes for traffic to be used, causing minimum disruption for residents on both banks of the river. The structure will also provide support for the bridge as well as a safe platform for restoration work to be carried out. The new truss structure would be assembled in two halves and launched from each side over the existing road surface. It will be supported on each bank and at the two existing piers. As a result, there will be no added load on the existing bridge deck. Elements of the Grade 2* listed bridge that need repair, including pedestals, anchors and chains, would be lifted away and transported by barges to an off-site facility for safe repair and restoration. Contractors would use the new lower pedestrian deck to access the works. When completed, the temporary raised deck would be removed.</p> <img src="https://images.unsplash.com/photo-1474696100102-01b8519f06f3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="" /> <p>By repairing the bridge off-site, the huge task of restoration can be done at greater speed, to a higher level and at significantly reduced cost. It would also minimise noise, environmental impact and onsite activity, as well as reducing the all-important carbon footprint of the works.</p> <p>Luke Fox, Senior Executive Partner at Foster + Partners said “We are excited to propose this simple solution to what is an important missing piece of London’s infrastructure that also gives the opportunity to bring back to life a beautiful and iconic bridge by Sir Joseph Bazalgette” Roger Ridsdill Smith, head of Structural Engineering at Foster + Partners said “We believe that our concept resolves the two challenges for Hammersmith Bridge economically and efficiently: delivering a temporary crossing quickly, whilst providing a safe support to access and refurbish the existing bridge.</p> <p>“We appreciate the engagement and contribution from the technical experts and committees in charge of the bridge and look forward to further studies to develop the scheme” David MacKenzie – Executive Director at COWI said “We consider that this approach is practical and viable. Our experience is that offsite refurbishment of bridge structures is safer and more controlled, and results in a higher quality final outcome when the structure is re-installed.”</p>',
-        },
-        {
-            id: 5,
-            preview: 'https://cdn.pixabay.com/photo/2016/04/25/23/30/house-1353389_960_720.jpg',
-            title: 'Partners reveals plans',
-            description: 'The British Museum’s Great Court turned twenty on Sunday 6 December 2020.  As the departure point for Museum visitors, it has transformed the experience of the Museum. Decide where The Flying Gherkin should visit next. Submit your drawing of The Flying Gherkin at its next destination to win a festive Flying Gherkin activity pack.',
-            tags: ['#solar', '#aboutsun', '#battery'],
-            category: 'events',
-            date: 'Jan 15, 2020',
-            content: '<p>Foster + Partners architects and engineers have developed a radical new plan to build a temporary double-decker crossing within the existing structure of Hammersmith Bridge in London, which has been closed fully on safety grounds since 13 August this year. The proposal which has been presented to the Hammersmith & Fulham Council envisages pedestrians, cyclists and, potentially, motor vehicles being able to use the bridge during its repair and restoration. A new raised truss structure would be built above the existing road deck, featuring a lower level for pedestrians and cyclists and an upper level for cars and buses.</p> <p>The raised deck would enable existing approach routes for traffic to be used, causing minimum disruption for residents on both banks of the river. The structure will also provide support for the bridge as well as a safe platform for restoration work to be carried out. The new truss structure would be assembled in two halves and launched from each side over the existing road surface. It will be supported on each bank and at the two existing piers. As a result, there will be no added load on the existing bridge deck. Elements of the Grade 2* listed bridge that need repair, including pedestals, anchors and chains, would be lifted away and transported by barges to an off-site facility for safe repair and restoration. Contractors would use the new lower pedestrian deck to access the works. When completed, the temporary raised deck would be removed.</p> <img src="https://images.unsplash.com/photo-1581505438518-7d8c07ef0d1d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" alt="" /> <p>By repairing the bridge off-site, the huge task of restoration can be done at greater speed, to a higher level and at significantly reduced cost. It would also minimise noise, environmental impact and onsite activity, as well as reducing the all-important carbon footprint of the works.</p> <p>Luke Fox, Senior Executive Partner at Foster + Partners said “We are excited to propose this simple solution to what is an important missing piece of London’s infrastructure that also gives the opportunity to bring back to life a beautiful and iconic bridge by Sir Joseph Bazalgette” Roger Ridsdill Smith, head of Structural Engineering at Foster + Partners said “We believe that our concept resolves the two challenges for Hammersmith Bridge economically and efficiently: delivering a temporary crossing quickly, whilst providing a safe support to access and refurbish the existing bridge.</p> <p>“We appreciate the engagement and contribution from the technical experts and committees in charge of the bridge and look forward to further studies to develop the scheme” David MacKenzie – Executive Director at COWI said “We consider that this approach is practical and viable. Our experience is that offsite refurbishment of bridge structures is safer and more controlled, and results in a higher quality final outcome when the structure is re-installed.”</p>',
-        }
-    ],
-    error: null
+    data: {},
+    error: null,
+    totalCount: null,
+    currentPage: 1,
+    filters: {
+        query: '',
+        category: '',
+        sort: ''
+    },
+    singleArticle: {
+        loading: false,
+        data: {},
+        error: null
+    },
+    similar: {
+        loading: false,
+        data: {},
+        error: null
+    }
 };
 
 export default function newsReducer(state = initialState, action) {
     switch (action.type) {
+        case GET_NEWS_START:
+            return {
+                ...state,
+                loading: true
+            };
+        case GET_NEWS_END:
+            return {
+                ...state,
+                loading: false,
+                data: action.payload.news,
+                totalCount: action.payload.newsCount,
+                filters: {
+                    ...state.filters,
+                    query: action.payload.query,
+                    category: action.payload.category,
+                    sort: action.payload.sort
+                }
+            };
+        case GET_NEWS_ERROR:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            };
+        case GET_SINGLE_ARTICLE_START:
+            return {
+                ...state,
+                singleArticle: {
+                    ...state.singleArticle,
+                    loading: true
+                }
+            };
+        case GET_SINGLE_ARTICLE_END:
+            return {
+                ...state,
+                singleArticle: {
+                    ...state.singleArticle,
+                    loading: false,
+                    data: action.payload
+                }
+            };
+        case GET_SINGLE_ARTICLE_ERROR:
+            return {
+                ...state,
+                singleArticle: {
+                    ...state.singleArticle,
+                    loading: false,
+                    error: action.payload
+                }
+            };
+        case GET_SIMILAR_NEWS_START:
+            return {
+                ...state,
+                similar: {
+                    ...state.similar,
+                    loading: true
+                }
+            };
+        case GET_SIMILAR_NEWS_END:
+            return {
+                ...state,
+                similar: {
+                    ...state.similar,
+                    loading: false,
+                    data: action.payload
+                }
+            };
+        case GET_SIMILAR_NEWS_ERROR:
+            return {
+                ...state,
+                similar: {
+                    ...state.similar,
+                    loading: false,
+                    error: action.payload
+                }
+            };
         default:
             return state;
     }

@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {getNews} from "store/news/actions";
+
 import Filters from "./Filters";
 import NewsList from "./List";
 
 const NewsPage = () => {
+
+    const dispatch = useDispatch();
+    const { data } = useSelector((state) => state.news);
+
+    useEffect(() => {
+        dispatch(getNews({
+            start: 0
+        }));
+    }, [dispatch]);
+
     return (
         <div className="page">
             <section className="section hero hero-inner __default">
@@ -18,7 +32,7 @@ const NewsPage = () => {
                 </div>
             </section>
             <Filters />
-            <NewsList />
+            <NewsList data={data} />
         </div>
     )
 };

@@ -3,20 +3,32 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import routes from 'routes'
 
-const Post = ({ post: { id, preview, title, description } }) => {
+const _baseURL = process.env.REACT_APP_API_URL;
+
+const Post = ({ post: { id, topImage, title, description, tags } }) => {
     return (
         <div className="post">
             <Link to={`${routes.news.index}/${id}`} className="post-preview parallax">
                 <div className="post-preview-box">
-                    <img src={preview} alt={title} />
+                    <img
+                        src={!!topImage ? _baseURL + topImage.url : 'https://via.placeholder.com/300/?text=GEO article'}
+                        alt={title}
+                    />
                 </div>
             </Link>
             <div className="post-content fade-on-scroll">
-                <div className="post-tags">
-                    <span className="post-tags-item">#solar</span>
-                    <span className="post-tags-item">#aboutsun</span>
-                    <span className="post-tags-item">#battery</span>
-                </div>
+                {
+                    !!tags.length
+                    ? (
+                        <div className="post-tags">
+                            {
+                                tags.map((tag, key) => (
+                                    <span className="post-tags-item" key={key}>#{tag.name}</span>
+                                ))
+                            }
+                        </div>
+                    ) : null
+                }
                 <Link to={`${routes.news.index}/${id}`} className="post-title h-4">{title}</Link>
                 <p className="post-description">{description}</p>
             </div>

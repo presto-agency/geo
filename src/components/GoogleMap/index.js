@@ -13,23 +13,12 @@ const map = {
 };
 const KEY =  process.env.REACT_APP_GOOGLE_API_KEY;
 
-// Geocode.setApiKey('AIzaSyB1iaIIXz46FOxfDQ3veVtju7t1K8VQVgk');
-// Geocode.fromAddress('Dubai South').then(
-//     (response) => {
-//         const { lat, lng } = response.results[0].geometry.location;
-//         console.log(lat, lng);
-//     },
-//     (error) => {
-//         console.error(error);
-//     }
-// );
-
-const GoogleMap = () => {
+const GoogleMap = ({ data }) => {
 
     const [defaultOptions, setDefaultOptions] = useState({
         center: {
-            lat: 24,
-            lng: 54
+            lat: data.latlng[0] || 24,
+            lng: data.latlng[1] || 54
         },
         zoom: 7
     });

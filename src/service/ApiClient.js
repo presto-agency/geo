@@ -1,5 +1,5 @@
 import paginationParams from "constants/paginationParams";
-import {transformProjectUrl} from "utils/transformUrls";
+import { transformProjectUrl, transformNewsUrl } from "utils/transformUrls";
 const _baseURL = process.env.REACT_APP_API_URL;
 
 export default class ApiClient {
@@ -51,6 +51,23 @@ export default class ApiClient {
 
     getProjectById = async (id) => {
         return await this.getSources(`projects/${id}`);
+    };
+
+    getNews = async (start = paginationParams.start, query = '', category = '', sort = 'ASC') => {
+        console.log(`/news-items?${transformNewsUrl(start, query, category, sort)}`);
+        return await this.getSources(`/news-items?${transformNewsUrl(start, query, category, sort)}`);
+    };
+
+    getNewsCount = async (start = paginationParams.start, query = '', category = '', sort = 'ASC') => {
+        return await this.getSources(`/news-items/count?${transformNewsUrl(start, query, category, sort)}`);
+    };
+
+    getArticleById = async (id) => {
+        return await this.getSources(`/news-items/${id}`);
+    };
+
+    getSimilarNews = async (category = '', articleId) => {
+        return await this.getSources(`news-items?category=${category}&id_ne=${articleId}&_limit=2`);
     };
 
     getOffices = async () => {

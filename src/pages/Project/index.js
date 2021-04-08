@@ -23,16 +23,14 @@ const ProjectPage = () => {
     });
 
     useEffect(() => {
-        // if(isEmpty(data)) {
-            dispatch(getProjects({
-                start: (( currentPage - 1 ) * paginationParams.limit ) || 0,
-                currentPage,
-                ...filter
-            }));
-            setTimeout(() => {
-                locoScroll.update();
-            }, 1000);
-        // }
+        dispatch(getProjects({
+            start: (( currentPage - 1 ) * paginationParams.limit ) || 0,
+            currentPage,
+            ...filter
+        }));
+        setTimeout(() => {
+            locoScroll.update();
+        }, 1000);
     }, [currentPage, filter]);
 
     const handlePageChange = (a) => {

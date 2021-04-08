@@ -52,6 +52,7 @@
       display: flex;
         &-item{
           color: $blue;
+          text-transform: lowercase;
         }
     }
     &-title{

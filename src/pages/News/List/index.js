@@ -1,10 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+
 import Post from "components/Post";
+import {isEmpty} from "utils/detectEmptyObject";
+import Preloader from "components/Preloader";
 
-const NewsList = () => {
+const NewsList = ({ data }) => {
 
-    const { data } = useSelector(state => state.news);
+    if(isEmpty(data)){
+        return <Preloader />
+    }
+
+    if(!data.length) {
+        return <p>Nothing found</p>
+    }
 
     return (
         <section className="section news">

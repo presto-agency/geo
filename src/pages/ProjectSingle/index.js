@@ -36,7 +36,7 @@ const ProjectSinglePage = ({ match }) => {
                             <div className="hero-content">
                                 <div className="project-tags fade">
                                     {!!data.country ? <p className="project-tag" >{data.country}</p> : null }
-                                    {!!data.city ? <p className="project-tag" >{data.city}</p> : null }
+                                    {/*{!!data.city ? <p className="project-tag" >{data.city}</p> : null }*/}
                                 </div>
                                 <SplitTitle>
                                     <h1 className="h-1 hero-content-title split-title">{data.name}</h1>
@@ -49,7 +49,7 @@ const ProjectSinglePage = ({ match }) => {
             <ProjectBody data={data} />
             <Banners data={data.additionalImages} />
             {!!data.discipline ? <SomeDescription data={data.discipline} /> : null}
-            <GoogleMap />
+            {!!data.countryData ? <GoogleMap data={data.countryData} /> : null }
             {!!data.discipline ? <SimilarProjects disciplineId={data.discipline.id} projectId={data.id} /> : null}
             <FootBanner src={footerBanner} />
         </div>
