@@ -23,6 +23,19 @@
                 }
             }
         }
+        &-check{
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+            @include hover(991){
+              &:hover{
+                opacity: 1;
+                  .input-check-title{
+                    color: $blue;
+                  }
+              }
+            }
+        }
         &.__search{
             .input{
               font-size: 18px;
@@ -112,6 +125,19 @@
           background-size: 18px;
           background-position: center;
           background-image: url(../../../assets/images/icons/loupe-blue.svg);
+        }
+    }
+    &-check{
+      position: absolute;
+      pointer-events: none;
+        &:checked{
+            & ~ .input-check-title{
+              color: $blue;
+            }
+        }
+        &-title{
+          cursor: pointer;
+          transition: color .4s ease;
         }
     }
     &.search{

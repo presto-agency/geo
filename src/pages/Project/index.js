@@ -28,9 +28,9 @@ const ProjectPage = () => {
             currentPage,
             ...filter
         }));
-        setTimeout(() => {
-            locoScroll.update();
-        }, 1000);
+        // setTimeout(() => {
+        //     locoScroll.update();
+        // }, 1000);
     }, [currentPage, filter]);
 
     const handlePageChange = (a) => {
@@ -46,6 +46,7 @@ const ProjectPage = () => {
             ...filter,
             [a.filter]: a.value
         });
+        setCurrentPage(1);
     };
 
     return (
@@ -59,7 +60,7 @@ const ProjectPage = () => {
                             <Pagination
                                 activePage={currentPage}
                                 itemsCountPerPage={1}
-                                totalItemsCount={Math.floor(totalCount / paginationParams.limit)}
+                                totalItemsCount={Math.ceil(totalCount / paginationParams.limit)}
                                 pageRangeDisplayed={5}
                                 onChange={handlePageChange}
                                 hideNavigation={true}

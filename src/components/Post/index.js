@@ -8,7 +8,7 @@ const _baseURL = process.env.REACT_APP_API_URL;
 const Post = ({ post: { id, topImage, title, description, tags } }) => {
     return (
         <div className="post">
-            <Link to={`${routes.news.index}/${id}`} className="post-preview parallax">
+            <Link to={`${routes.news.index}/${id}`} className="post-preview">
                 <div className="post-preview-box">
                     <img
                         src={!!topImage ? _baseURL + topImage.url : 'https://via.placeholder.com/300/?text=GEO article'}
@@ -16,7 +16,7 @@ const Post = ({ post: { id, topImage, title, description, tags } }) => {
                     />
                 </div>
             </Link>
-            <div className="post-content fade-on-scroll">
+            <div className="post-content">
                 {
                     !!tags.length
                     ? (

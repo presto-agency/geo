@@ -15,24 +15,15 @@ const NewsList = ({ data }) => {
     }
 
     return (
-        <section className="section news">
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <div className="news-list">
-                            {
-                                data.map((post, key) => (
-                                        <div className="news-list-box" key={key}>
-                                            <Post post={post} />
-                                        </div>
-                                ))
-                            }
+        <div className="news-list">
+            {
+                data.map((post, key) => (
+                        <div className="news-list-box" key={key}>
+                            <Post post={post} />
                         </div>
-                        <hr className="hr"/>
-                    </div>
-                </div>
-            </div>
-        </section>
+                ))
+            }
+        </div>
     )
 };
 

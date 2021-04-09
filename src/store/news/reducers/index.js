@@ -42,6 +42,7 @@ export default function newsReducer(state = initialState, action) {
                 loading: false,
                 data: action.payload.news,
                 totalCount: action.payload.newsCount,
+                currentPage: action.payload.currentPage,
                 filters: {
                     ...state.filters,
                     query: action.payload.query,

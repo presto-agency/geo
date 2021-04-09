@@ -1,37 +1,29 @@
 import React  from 'react';
 import CustomSelect from "components/Select";
 
-const options = [
+const sort = [
     {
-        value: 'date_asc',
-        label: 'Date: from newest to oldest'
+        value: 'ASC',
+        label: 'Date: from newest to oldest',
+        filter: 'sort'
     },
     {
-        value: 'date_desc',
-        label: 'Date: from oldest to newest'
-    },
-    {
-        value: 'size_asc',
-        label: 'Size: from largest to smallest'
-    },
-    {
-        value: 'size_desc',
-        label: 'Size: from smallest to largest'
+        value: 'DESC',
+        label: 'Date: from oldest to newest',
+        filter: 'sort'
     }
 ];
 
-const FilterSort = () => {
+const FilterSort = ({ onChange, defaultValue }) => {
 
-    const onChange = (value) => {
-      console.log('news sort - ', value);
-    };
+    const defaultSort = sort.filter(post => post.value === defaultValue);
 
     return (
         <div className="filters-list-sort">
             <CustomSelect
-                options={options}
+                options={sort}
                 callback={onChange}
-                placeholder="Sort by"
+                defaultValue={defaultSort[0] || {label: 'Sort by'}}
             />
         </div>
     )

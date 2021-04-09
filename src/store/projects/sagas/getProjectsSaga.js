@@ -13,7 +13,7 @@ function* getProjects({ payload: { start, currentPage, category, location, sort 
             type: GET_PROJECTS_END,
             payload: { posts, postsCount, currentPage, category, location, sort }
         });
-        yield location.update();
+        yield locoScroll.update();
     } catch ({ message }) {
         yield put({
             type: GET_PROJECTS_ERROR,

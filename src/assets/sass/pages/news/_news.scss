@@ -1,4 +1,5 @@
 .news{
+  margin-bottom: 30px;
     &-categories{
       display: flex;
       align-items: center;
@@ -53,15 +54,17 @@
                 .post{
                     &-preview{
                       height: 817px;
-                        &:before{
-                          content: '';
-                          position: absolute;
-                          top: 0;
-                          left: 0;
-                          bottom: 0;
-                          right: 0;
-                          background-color: rgba(0,0,0,.1);
-                          pointer-events: none;
+                        &-box{
+                          &:before{
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            bottom: 0;
+                            right: 0;
+                            background-color: rgba(0,0,0,.1);
+                            pointer-events: none;
+                          }
                         }
                         @include d(1700){
                           height: 800px;

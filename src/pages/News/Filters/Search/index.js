@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const FilterSearch = () => {
+const FilterSearch = ({ onSubmit }) => {
+
+    const [value, setValue] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        let query = {
+            value,
+            filter: 'query'
+        };
+        if(!!value) {
+            onSubmit(query);
+            setValue('');
+        }
+    };
+
     return (
         <div className="filters-list-search">
-            <div className="news-search">
+            <form className="news-search" onSubmit={handleSubmit}>
                 <div className="input-container">
                     <button className="input-search-btn" />
-                    <input type="text" className="input search-news" placeholder="Search" />
+                    <input
+                        type="text"
+                        className="input search-news"
+                        placeholder="Search"
+                        value={value}
+                        onChange={(event) => setValue(event.target.value)}
+                    />
                 </div>
-            </div>
+            </form>
         </div>
     )
 };
