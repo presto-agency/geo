@@ -1,28 +1,20 @@
 import React  from 'react';
-import { useSelector } from 'react-redux';
 
-import {isEmpty} from "utils/detectEmptyObject";
-import Preloader from "components/Preloader";
+import list from './list';
 
 import DisciplineSingleAccordion from "./AccordionItem";
 
 const DisciplinesAccordion = () => {
-
-    const { data } = useSelector(state => state.disciplines);
-
-    if(isEmpty(data)) {
-        return <Preloader />
-    }
 
     return (
         <section className="section disciplines-accordion">
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
-                        <p className="label fade-on-scroll">Disciplines</p>
+                        <p className="label fade-on-scroll">Main Expertise</p>
                         <div className="disciplines-accordion-box">
                             {
-                                data.slice(0, 10).map((discipline, key) => <DisciplineSingleAccordion discipline={discipline} key={key} />)
+                                list.slice(0, 10).map((item, key) => <DisciplineSingleAccordion item={item} key={key} />)
                             }
                         </div>
                     </div>

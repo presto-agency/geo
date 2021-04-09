@@ -1,4 +1,6 @@
 import React  from 'react';
+import PropTypes from 'prop-types';
+
 import CustomSelect from "components/Select";
 
 const sort = [
@@ -30,3 +32,8 @@ const FilterSort = ({ onChange, defaultValue }) => {
 };
 
 export default FilterSort;
+
+FilterSort.propTypes = {
+    onChange: PropTypes.func.isRequired,
+    defaultValue: PropTypes.string
+};

@@ -60,6 +60,9 @@
       display: none;
         &-description{
           max-width: 590px;
+            p:not(:last-child){
+              margin-bottom: 20px;
+            }
         }
     }
     &-projects{

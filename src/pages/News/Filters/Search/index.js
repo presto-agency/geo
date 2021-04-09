@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const FilterSearch = ({ onSubmit }) => {
 
@@ -35,3 +36,7 @@ const FilterSearch = ({ onSubmit }) => {
 };
 
 export default FilterSearch;
+
+FilterSearch.propTypes = {
+    onSubmit: PropTypes.func.isRequired
+};

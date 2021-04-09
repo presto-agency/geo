@@ -4,7 +4,7 @@ import routes from 'routes'
 
 const _baseURL = process.env.REACT_APP_API_URL;
 
-const ProjectAccordion = ({ project: { id, topImage, name, country, city } }) => {
+const ProjectAccordion = ({ project: { id, topImage, name, countryData, city } }) => {
     return (
         <div className="accordion-projects-box">
             <div className="project project-accordion">
@@ -20,7 +20,7 @@ const ProjectAccordion = ({ project: { id, topImage, name, country, city } }) =>
                     <div className="project-content-title">
                         <p className="project-title h-6">{name}</p>
                         <div className="project-tags">
-                            {!!country ? <p className="project-tag" >{country}</p> : null }
+                            {!!countryData ? <p className="project-tag" >{countryData.name}</p> : null }
                             {!!city ? <p className="project-tag" >{city}</p> : null }
                         </div>
                     </div>

@@ -54,7 +54,6 @@ export default class ApiClient {
     };
 
     getNews = async (start = paginationParams.start, query = '', category = '', sort = 'ASC') => {
-        console.log(`/news-items?${transformNewsUrl(start, query, category, sort)}`);
         return await this.getSources(`/news-items?${transformNewsUrl(start, query, category, sort)}`);
     };
 

@@ -35,7 +35,12 @@ const ProjectSinglePage = ({ match }) => {
                         <div className="col-xl-12">
                             <div className="hero-content">
                                 <div className="project-tags fade">
-                                    {!!data.country ? <p className="project-tag" >{data.country}</p> : null }
+                                    {
+                                        data.project_categories.map((category, key) => (
+                                            <p className="project-tag" key={key}>{category.name}</p>
+                                        ))
+                                    }
+                                    {/*{!!data.country ? <p className="project-tag" >{data.country}</p> : null }*/}
                                     {/*{!!data.city ? <p className="project-tag" >{data.city}</p> : null }*/}
                                 </div>
                                 <SplitTitle>

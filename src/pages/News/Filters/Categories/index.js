@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useDispatch} from "react-redux";
+import PropTypes from 'prop-types';
 
 const FilterCategories = ({ onChange, defaultValue }) => {
 
@@ -36,7 +36,6 @@ const FilterCategories = ({ onChange, defaultValue }) => {
                 ? { ...option, checked: true }
                 : { ...option, checked: false })
         );
-        console.log('default news category - ', defaultValue);
     }, [defaultValue]);
 
     const handleChange = (event) => {
@@ -73,3 +72,8 @@ const FilterCategories = ({ onChange, defaultValue }) => {
 };
 
 export default FilterCategories;
+
+FilterCategories.propTypes = {
+    onChange: PropTypes.func.isRequired,
+    defaultValue: PropTypes.string
+};

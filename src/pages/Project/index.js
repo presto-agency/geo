@@ -57,16 +57,21 @@ const ProjectPage = () => {
                         <div className="col-12">
                             <ProjectsSort onChange={handleFilterChange} defaultValues={filter} />
                             <ProjectsList data={data} />
-                            <Pagination
-                                activePage={currentPage}
-                                itemsCountPerPage={1}
-                                totalItemsCount={Math.ceil(totalCount / paginationParams.limit)}
-                                pageRangeDisplayed={5}
-                                onChange={handlePageChange}
-                                hideNavigation={true}
-                                hideFirstLastPages={true}
-                                hideDisabled={true}
-                            />
+                            {
+                                Math.ceil(totalCount / paginationParams.limit) > 1
+                                ? (
+                                    <Pagination
+                                        activePage={currentPage}
+                                        itemsCountPerPage={1}
+                                        totalItemsCount={Math.ceil(totalCount / paginationParams.limit)}
+                                        pageRangeDisplayed={5}
+                                        onChange={handlePageChange}
+                                        hideNavigation={true}
+                                        hideFirstLastPages={true}
+                                        hideDisabled={true}
+                                    />
+                                ) : null
+                            }
                         </div>
                     </div>
                 </div>

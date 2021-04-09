@@ -19,18 +19,23 @@ const projects = [
         filter: 'category'
     },
     {
+        value: 'Infrastructure, Roads',
+        label: 'Infrastructure, Roads',
+        filter: 'category'
+    },
+    {
         value: 'Buildings',
         label: 'Buildings',
         filter: 'category'
     },
     {
-        value: 'Logistics, E-Commerce, Industrial',
-        label: 'Logistics, E-Commerce, Industrial',
+        value: 'Logistics, E-Commerce Industrial',
+        label: 'Logistics, E-Commerce Industrial',
         filter: 'category'
     },
     {
-        value: 'Infrastructure, Roads',
-        label: 'Infrastructure, Roads',
+        value: 'Villa projects',
+        label: 'Villa projects',
         filter: 'category'
     }
 ];
@@ -41,8 +46,8 @@ const locations = [
         filter: 'location'
     },
     {
-        value: 'UAE',
-        label: 'UAE',
+        value: 'United Arab Emirates',
+        label: 'United Arab Emirates',
         filter: 'location'
     },
     {
@@ -51,18 +56,13 @@ const locations = [
         filter: 'location'
     },
     {
-        value: 'KSA',
-        label: 'KSA',
+        value: 'Saudi Arabia',
+        label: 'Saudi Arabia',
         filter: 'location'
     },
     {
         value: 'Egypt',
         label: 'Egypt',
-        filter: 'location'
-    },
-    {
-        value: 'Iraq',
-        label: 'Iraq',
         filter: 'location'
     }
 ];

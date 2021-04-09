@@ -5,7 +5,7 @@ import routes from 'routes';
 
 const _baseURL = process.env.REACT_APP_API_URL;
 
-const ProjectItem = ({ project: { id, name, topImage, country, city } }) => {
+const ProjectItem = ({ project: { id, name, topImage, city, countryData } }) => {
 
     return (
         <div className="project project-item">
@@ -21,7 +21,7 @@ const ProjectItem = ({ project: { id, name, topImage, country, city } }) => {
                 <div className="project-content-title">
                     <p className="project-title h-6">{name}</p>
                     <div className="project-tags">
-                        {!!country ? <p className="project-tag" >{country}</p> : null }
+                        {!!countryData ? <p className="project-tag" >{countryData.name}</p> : null }
                         {!!city ? <p className="project-tag" >{city}</p> : null }
                     </div>
                 </div>
