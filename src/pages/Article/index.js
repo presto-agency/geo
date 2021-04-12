@@ -15,6 +15,7 @@ const ArticlePage = ({ match }) => {
 
     const dispatch = useDispatch();
     const { data, loading } = useSelector((state) => state.news.singleArticle);
+    const nextArticle = useSelector((state) => state.news.nextArticle);
 
     useEffect(() => {
         dispatch(getSingleArticle(match.params.id));
@@ -46,7 +47,7 @@ const ArticlePage = ({ match }) => {
                     </div>
                 </div>
             </section>
-            <ArticleBody data={data} />
+            <ArticleBody data={data} nextArticle={nextArticle} />
             <OtherNews data={data} />
         </div>
     )

@@ -1,4 +1,4 @@
-import {GET_NEWS_START, GET_SIMILAR_NEWS_START, GET_SINGLE_ARTICLE_START} from "../../constants";
+import {GET_NEWS_START, GET_SIMILAR_NEWS_START, GET_SINGLE_ARTICLE_START} from "store/constants";
 
 export const getNews = (pageNumber) => ({
     type: GET_NEWS_START,

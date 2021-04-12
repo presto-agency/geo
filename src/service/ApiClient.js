@@ -5,7 +5,6 @@ const _baseURL = process.env.REACT_APP_API_URL;
 export default class ApiClient {
 
     async getSources(url, method = 'GET', body = null) {
-
         const response = await fetch(`${_baseURL}/${url}`, {
             method: method,
             body: !!body ? JSON.stringify(body) : null,
@@ -54,19 +53,23 @@ export default class ApiClient {
     };
 
     getNews = async (start = paginationParams.start, query = '', category = '', sort = 'ASC') => {
-        return await this.getSources(`/news-items?${transformNewsUrl(start, query, category, sort)}`);
+        return await this.getSources(`news-items?${transformNewsUrl(start, query, category, sort)}`);
     };
 
     getNewsCount = async (start = paginationParams.start, query = '', category = '', sort = 'ASC') => {
-        return await this.getSources(`/news-items/count?${transformNewsUrl(start, query, category, sort)}`);
+        return await this.getSources(`news-items/count?${transformNewsUrl(start, query, category, sort)}`);
     };
 
     getArticleById = async (id) => {
-        return await this.getSources(`/news-items/${id}`);
+        return await this.getSources(`news-items/${id}`);
     };
 
     getSimilarNews = async (category = '', articleId) => {
         return await this.getSources(`news-items?category=${category}&id_ne=${articleId}&_limit=2`);
+    };
+
+    getNextNews = async (createdDate = '') => {
+        return await this.getSources(`news-items?createdAt_gt=${createdDate}`);
     };
 
     getOffices = async () => {

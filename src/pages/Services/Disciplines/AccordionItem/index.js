@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
+
 import {locoScroll} from "components/SmoothScroll";
+import ApiClient from "service/ApiClient";
 import ProjectAccordion from "../Project";
 
-const DisciplineSingleAccordion = ({ item: { title, description } }) => {
+const apiClient = new ApiClient();
+
+const DisciplineSingleAccordion = ({ item: { title, description, category } }) => {
 
     const [collapsed, setCollapsed] = useState(true);
-    const [projects, setProjects] = useState({});
+    const [projects, setProjects] = useState([]);
 
     const handleToggle = () => {
-        setCollapsed(!collapsed);
+        if(collapsed) {
+            setCollapsed(false);
+            apiClient.getProjects(0, category, '', '')
+                .then(data => setProjects(data))
+                .catch(error => console.error(error));
+        } else {
+            setCollapsed(true);
+        }
 
         setTimeout(() => {
             locoScroll.update();
@@ -31,9 +42,12 @@ const DisciplineSingleAccordion = ({ item: { title, description } }) => {
             <div className="accordion-content">
                 <div className="accordion-content-description" dangerouslySetInnerHTML={{ __html: description }} />
                 <div className="accordion-projects">
-                    {/*{*/}
-                    {/*    projects.map((project, key) => <ProjectAccordion project={project} key={key} />)*/}
-                    {/*}*/}
+                    {
+                        !!projects.length
+                        ? (
+                            projects.slice(0,4).map((project, key) => <ProjectAccordion project={project} key={key} />)
+                        ) : null
+                    }
                 </div>
             </div>
         </div>

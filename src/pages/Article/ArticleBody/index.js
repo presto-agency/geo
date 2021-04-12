@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import routes from 'routes';
 import monthNames from 'constants/monthNames';
 import FollowLink from "components/FollowLink";
+import {isEmpty} from "utils/detectEmptyObject";
 import Sharing from "../Sharing";
 
 const _baseURL = process.env.REACT_APP_API_URL;
 
-const ArticleBody = ({ data }) => {
+const ArticleBody = ({ data, nextArticle }) => {
 
     const createdDate = new Date(data.createdAt);
     const month = monthNames[createdDate.getMonth()].abbreviation;
@@ -50,7 +52,12 @@ const ArticleBody = ({ data }) => {
                             <div className="article-body fade-on-scroll" dangerouslySetInnerHTML={{ __html: data.body }} />
                             <div className="article-action fade-on-scroll">
                                 <div className="article-action-nav">
-                                    <FollowLink title="Next news" to="/news/1" />
+                                {
+                                    !isEmpty(nextArticle.data)
+                                    ? (
+                                        <FollowLink title="Next news" to={`${routes.news.index}/${nextArticle.data.id}`} />
+                                    ) : null
+                                }
                                 </div>
                                 <div className="article-action-social">
                                     <Sharing data={data} />
@@ -67,5 +74,6 @@ const ArticleBody = ({ data }) => {
 export default ArticleBody;
 
 ArticleBody.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    nextArticle: PropTypes.object
 };

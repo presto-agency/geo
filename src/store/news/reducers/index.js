@@ -1,10 +1,9 @@
 import {
-    GET_NEWS_END,
-    GET_NEWS_ERROR,
-    GET_NEWS_START, GET_SIMILAR_NEWS_END, GET_SIMILAR_NEWS_ERROR, GET_SIMILAR_NEWS_START,
-    GET_SINGLE_ARTICLE_END, GET_SINGLE_ARTICLE_ERROR,
-    GET_SINGLE_ARTICLE_START
-} from "../../constants";
+    GET_NEWS_END, GET_NEWS_ERROR, GET_NEWS_START,
+    GET_NEXT_NEWS, GET_NEXT_NEWS_ERROR,
+    GET_SIMILAR_NEWS_END, GET_SIMILAR_NEWS_ERROR, GET_SIMILAR_NEWS_START,
+    GET_SINGLE_ARTICLE_END, GET_SINGLE_ARTICLE_ERROR, GET_SINGLE_ARTICLE_START
+} from "store/constants";
 
 const initialState = {
     loading: false,
@@ -24,6 +23,10 @@ const initialState = {
     },
     similar: {
         loading: false,
+        data: {},
+        error: null
+    },
+    nextArticle: {
         data: {},
         error: null
     }
@@ -105,6 +108,22 @@ export default function newsReducer(state = initialState, action) {
                 similar: {
                     ...state.similar,
                     loading: false,
+                    error: action.payload
+                }
+            };
+        case GET_NEXT_NEWS:
+            return {
+                ...state,
+                nextArticle: {
+                    ...state.nextArticle,
+                    data: action.payload,
+                }
+            };
+        case GET_NEXT_NEWS_ERROR:
+            return {
+                ...state,
+                nextArticle: {
+                    ...state.nextArticle,
                     error: action.payload
                 }
             };
