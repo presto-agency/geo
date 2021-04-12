@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {locoScroll} from "components/SmoothScroll";
+import SplitTitle from "../SplitTitle";
 
 const HeroInner = ({ title, label, toScroll }) => {
 
@@ -11,7 +12,9 @@ const HeroInner = ({ title, label, toScroll }) => {
                     <div className="col-lg-8">
                         <div className="hero-content">
                             <p className="label label-uppercase fade">{label}</p>
-                            <h1 className="h-1 hero-content-title split-title">{title}</h1>
+                            <SplitTitle>
+                                <h1 className="h-1 hero-content-title split-title">{title}</h1>
+                            </SplitTitle>
                         </div>
                     </div>
                     <div className="col-lg-4">

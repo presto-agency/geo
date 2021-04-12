@@ -1,19 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const TestimonialSingle = ({ testimonial: { author: { photo, name, position, logo }, comment } }) => {
+const _baseURL = process.env.REACT_APP_API_URL;
+
+const TestimonialSingle = ({ testimonial: { message, authorFullName, authorPosition, authorAvatar, companyLogo } }) => {
     return (
         <div className="testimonial">
             <div className="testimonial-author">
                 <div className="testimonial-author-photo">
-                    <img src={photo} alt={name} />
+                    <img src={_baseURL + authorAvatar.formats.thumbnail.url} alt={authorFullName} />
                 </div>
             </div>
             <div className="testimonial-body">
-                <p className="h-4">{comment}</p>
-                <p className="testimonial-author-title h-6">{name}</p>
-                <p className="testimonial-author-position">{position}</p>
+                <p className="h-4">{message}</p>
+                <p className="testimonial-author-title h-6">{authorFullName}</p>
+                <p className="testimonial-author-position">{authorPosition}</p>
                 <div className="testimonial-author-logo">
-                    <img src={logo} />
+                    <img src={_baseURL + companyLogo.url} />
                 </div>
             </div>
         </div>
@@ -21,3 +24,7 @@ const TestimonialSingle = ({ testimonial: { author: { photo, name, position, log
 };
 
 export default TestimonialSingle;
+
+TestimonialSingle.propTypes = {
+    testimonial: PropTypes.object.isRequired
+};

@@ -1,7 +1,10 @@
 import React from 'react';
-import list from './list';
+import PropTypes from 'prop-types';
 
-const Team = () => {
+const _baseURL = process.env.REACT_APP_API_URL;
+
+const Team = ({ data }) => {
+
     return (
         <section
             className="section team"
@@ -17,18 +20,18 @@ const Team = () => {
                         <p className="label fade-on-scroll">Our Team</p>
                         <div className="team-list">
                             {
-                                list.map((person, key) => (
+                                data.map((person, key) => (
                                     <div className="team-list-box" key={key}>
                                         <div className="person">
                                             <div className="person-photo">
                                                 <img
-                                                    src={person.preview}
-                                                    alt={person.name}
+                                                    src={_baseURL + person.avatar.formats.small.url}
+                                                    alt={`${person.firstName} ${person.lastName}`}
                                                     className="group-scale"
                                                 />
                                             </div>
                                             <div className="group-fade">
-                                                <p className="person-name h-6">{person.name}</p>
+                                                <p className="person-name h-6">{person.firstName} {person.lastName}</p>
                                                 <p className="person-position">{person.position}</p>
                                             </div>
                                         </div>
@@ -44,3 +47,7 @@ const Team = () => {
 };
 
 export default Team;
+
+Team.propTypes = {
+    data: PropTypes.array
+};

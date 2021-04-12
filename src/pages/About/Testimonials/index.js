@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import CarouselNav from "components/CarouselNav";
 import TestimonialSingle from "./Testimonial";
 import Slider from 'react-slick';
 import list from './list';
 
-const Testimonials = () => {
+const Testimonials = ({ data }) => {
 
     const [currentSlide, setCurrentSlide] = useState(1);
     const [totalSlides, setTotalSlides] = useState(list.length);
@@ -47,7 +49,7 @@ const Testimonials = () => {
                         />
                         <Slider ref={carousel} className="testimonials-carousel" {...settings}>
                             {
-                                list.map((testimonial, key) => (
+                                data.map((testimonial, key) => (
                                     <div className="testimonials-carousel-slide" key={key}>
                                         <TestimonialSingle testimonial={testimonial} />
                                     </div>
@@ -62,3 +64,7 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
+Testimonials.propTypes = {
+    data: PropTypes.array
+};

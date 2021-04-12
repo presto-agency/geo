@@ -31,6 +31,9 @@ export const CLOSE_MODAL = 'CLOSE_MODAL';
 About
  */
 export const SHOW_IN_VIEWPORT = 'SHOW_IN_VIEWPORT';
+export const GET_ABOUT_PAGE_START = 'GET_ABOUT_PAGE_START';
+export const GET_ABOUT_PAGE_END = 'GET_ABOUT_PAGE_END';
+export const GET_ABOUT_PAGE_ERROR = 'GET_ABOUT_PAGE_ERROR';
 
 /*
 Offices

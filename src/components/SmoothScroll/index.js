@@ -40,15 +40,15 @@ const SmoothScroll = (props) => {
             switch (func) {
                 case 'services-moving':
                     servicesMove(obj, dir);
-                    return true;
+                    return false;
                 case 'disciplines-moving':
                     disciplinesMoving();
-                    return true;
+                    return false;
                 case 'about-values':
                     if(!isVisible && dir === 'enter') {
                         dispatch(showInViewport(true));
                     }
-                    return true;
+                    return false;
             }
         });
 

@@ -76,8 +76,16 @@ export default class ApiClient {
         return await this.getSources('offices');
     };
 
+    /*
+    GET Pages
+     */
+
     getHome = async () => {
         return await this.getSources('home');
+    };
+
+    getAbout = async () => {
+        return await this.getSources('about-us');
     };
 
     /*
