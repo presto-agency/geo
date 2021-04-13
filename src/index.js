@@ -6,15 +6,18 @@ import App from 'components/App';
 import reportWebVitals from './reportWebVitals';
 import store from 'store';
 import history from 'browserHistory';
+import ErrorBoundary from "components/ErrorBoundary";
 import 'assets/sass/index.scss';
 
 ReactDOM.render(
     <Provider store={store}>
-        <ConnectedRouter history={history}>
+        {/*<ConnectedRouter history={history}>*/}
             <React.StrictMode>
-                <App />
+                <ErrorBoundary>
+                    <App />
+                </ErrorBoundary>
             </React.StrictMode>
-        </ConnectedRouter>
+        {/*</ConnectedRouter>*/}
     </Provider>,
   document.getElementById('root')
 );

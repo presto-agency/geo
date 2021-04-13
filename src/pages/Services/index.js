@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React  from 'react';
 
 import HeroInner from "components/HeroInner";
 import Detail from "./Detail";
@@ -7,20 +6,7 @@ import Switcher from "./Switcher";
 import DisciplinesAccordion from "./Disciplines";
 import FootBanner  from "components/FootBanner";
 
-import {isEmpty} from "utils/detectEmptyObject";
-import {getServices} from "store/services/actions";
-
 const ServicesPage = () => {
-
-    const dispatch = useDispatch();
-    const { data } = useSelector(state => state.services);
-
-    useEffect(() => {
-        if(isEmpty(data)) {
-            dispatch(getServices());
-        }
-    }, [dispatch, data]);
-
     return (
         <div className="page">
             <HeroInner title="Our Services" label="Main Expertise" toScroll="#services-switcher" />

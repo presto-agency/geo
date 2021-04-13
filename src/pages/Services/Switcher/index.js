@@ -11,11 +11,12 @@ import ServiceSlide from "./Slide";
 import ServicesTab from "./Tab";
 
 import {isEmpty} from "utils/detectEmptyObject";
+import {getServices} from "store/services/actions";
 // import {switchDisciplines} from "store/disciplines/actions";
 
 const Switcher = () => {
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const { loading, data } = useSelector(state => state.services);
     const carousel = React.createRef();
     const tabsCarousel = React.createRef();
@@ -23,13 +24,16 @@ const Switcher = () => {
     const [totalSlides, setTotalSlides] = useState(data.length);
 
     useEffect(() => {
+        if(isEmpty(data)) {
+            dispatch(getServices());
+        }
         setTotalSlides(data.length);
 
         // load first services disciplines
         // if(!isEmpty(data)){
         //     dispatch(switchDisciplines(data[0].disciplines));
         // }
-    }, [data]);
+    }, [dispatch, data]);
 
     const tabsSettings = {
         dots: false,
@@ -53,7 +57,7 @@ const Switcher = () => {
         adaptiveHeight: true,
         beforeChange: (index, nextIndex) => {
             setCurrentSlide(nextIndex + 1);
-            locoScroll.scrollTo('#services-switcher', { duration: 10 });
+            locoScroll.scrollTo('#services-switcher', { duration: 500 });
 
             // load selected services disciplines
             // dispatch(switchDisciplines(data[nextIndex].disciplines));

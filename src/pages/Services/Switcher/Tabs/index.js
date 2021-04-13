@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 
 
 const ServicesTabs = ({ services, onClick }) => {
-
-
-
     return (
         <div></div>
     )

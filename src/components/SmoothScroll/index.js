@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import gsap from 'gsap';
-// import { useHistory } from 'react-router-dom';
 import LocomotiveScroll from 'locomotive-scroll';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
@@ -16,7 +15,6 @@ const SmoothScroll = (props) => {
     const dispatch = useDispatch();
     const { isVisible } = useSelector(state => state.about);
     const scrollRef = React.createRef();
-    // const history = useHistory();
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect(() => {
@@ -76,7 +74,7 @@ const SmoothScroll = (props) => {
         ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
         ScrollTrigger.refresh();
 
-    }, []);
+    }, [dispatch]);
 
     return (
         <div id="wrapper" ref={scrollRef}>

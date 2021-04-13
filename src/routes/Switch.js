@@ -13,9 +13,9 @@ import ArticlePage from "pages/Article";
 import SearchResultPage from "pages/SearchResult";
 import PageNotFound from "pages/404";
 
-const SwitchWrapper = ({ location }) => {
+const SwitchWrapper = () => {
     return (
-        <Switch location={location}>
+        <Switch>
             <Route path={routes.index} exact component={HomePage} />
             <Route path={routes.about} component={AboutPage} />
             <Route path={routes.services} component={ServicesPage} />
