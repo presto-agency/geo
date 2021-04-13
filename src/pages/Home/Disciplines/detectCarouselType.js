@@ -17,6 +17,7 @@ const DetectCarouselType = (props) => {
         cssEase: 'ease',
         slidesToShow: 1,
         slidesToScroll: 1,
+        lazyLoad: true,
         beforeChange: (index, nextIndex) => {
             setCurrentSlide(nextIndex + 1);
         },
