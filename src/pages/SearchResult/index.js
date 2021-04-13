@@ -6,6 +6,7 @@ import {isEmpty} from "utils/detectEmptyObject";
 import FootBanner from "components/FootBanner";
 
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
+import MetaTags from "react-meta-tags";
 
 const SearchResultPage = ({ location: { params } }) => {
 
@@ -13,6 +14,12 @@ const SearchResultPage = ({ location: { params } }) => {
 
     return (
         <div className="page">
+            <MetaTags>
+                <title>Global Engineering Office | Search result</title>
+                <meta name="description" content="Search result" />
+                <meta property="og:title" content="Global Engineering Office | Search result" />
+                <meta property="og:image" content={footerBanner} />
+            </MetaTags>
             <section className="section hero hero-inner __default">
                 <div className="container">
                     <div className="row">

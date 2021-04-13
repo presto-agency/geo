@@ -20,10 +20,10 @@ const HeroCarousel = () => {
     return (
         <Slider className="hero-carousel" {...settings}>
             <div className="hero-carousel-slide scale">
-                <img data-src="http://164.90.162.188/api/uploads/Sport_Academy_f95c36b200.jpg" alt=""/>
+                <img src="http://164.90.162.188/api/uploads/Sport_Academy_f95c36b200.jpg" alt=""/>
             </div>
             <div className="hero-carousel-slide">
-                <img data-src="http://164.90.162.188/api/uploads/zabeel_DCP_ae0d7172ad.jpg" alt=""/>
+                <img src="http://164.90.162.188/api/uploads/zabeel_DCP_ae0d7172ad.jpg" alt=""/>
             </div>
         </Slider>
     )

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import MetaTags from "react-meta-tags";
 import { useSelector, useDispatch } from 'react-redux';
 import Pagination from "react-js-pagination";
 import paginationParams from "constants/paginationParams";
@@ -51,6 +52,12 @@ const ProjectPage = () => {
 
     return (
         <div className="page">
+            <MetaTags>
+                <title>Global Engineering Office | Our Projects</title>
+                <meta name="description" content="GEO has four main global business areas – Buildings, Roads, Infrastructure and Urbanism – although our multi-disciplinary approach means that any given project may involve people from any or all of the sectors or regions in which we operate." />
+                <meta property="og:title" content="Global Engineering Office | Our Projects" />
+                <meta property="og:image" content={footerBanner} />
+            </MetaTags>
             <section className="section hero hero-inner projects">
                 <div className="container">
                     <div className="row">

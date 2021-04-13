@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import MetaTags from "react-meta-tags";
 import { useSelector, useDispatch } from 'react-redux';
 import GoogleMap from "components/GoogleMap";
 
@@ -13,6 +14,8 @@ import SplitTitle from "components/SplitTitle";
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 
 import SimilarProjects from "./SimilarProjects";
+
+const _baseURL = process.env.REACT_APP_API_URL;
 
 const ProjectSinglePage = ({ match }) => {
 
@@ -29,6 +32,16 @@ const ProjectSinglePage = ({ match }) => {
 
     return (
         <div className="page">
+            <MetaTags>
+                <title>Global Engineering Office | {data.name}</title>
+                <meta name="description" content={data.description} />
+                <meta property="og:title" content={`Global Engineering Office | ${data.name}`} />
+                {
+                    !!data.topImage
+                    ? <meta property="og:image" content={_baseURL + data.topImage.formats.small.url} />
+                    : <meta property="og:image" content={footerBanner} />
+                }
+            </MetaTags>
             <section className="section hero hero-inner __default">
                 <div className="container">
                     <div className="row">

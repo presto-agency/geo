@@ -1,19 +1,27 @@
 import React  from 'react';
+import MetaTags from "react-meta-tags";
 
 import HeroInner from "components/HeroInner";
 import Detail from "./Detail";
 import Switcher from "./Switcher";
 import DisciplinesAccordion from "./Disciplines";
 import FootBanner  from "components/FootBanner";
+import footerBanner from 'assets/images/services/Caterpillar.jpg';
 
 const ServicesPage = () => {
     return (
         <div className="page">
+            <MetaTags>
+                <title>Global Engineering Office | Our Services</title>
+                <meta name="description" content="GEO is a firm of designers, engineers, planners and consultants providing a diverse range of professional services to clients around the middle-east. Our innovative and fully-integrated approach brings our full complement of skills and knowledge to bear on any given design problem. We exert a significant influence on the built environment and are the creative force behind many innovative and sustainable designs." />
+                <meta property="og:title" content="Global Engineering Office | Our Services" />
+                <meta property="og:image" content={footerBanner} />
+            </MetaTags>
             <HeroInner title="Our Services" label="Main Expertise" toScroll="#services-switcher" />
             <Detail />
             <Switcher />
             <DisciplinesAccordion />
-            <FootBanner src="https://images.unsplash.com/photo-1523192159590-edbd468b9518?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1568&q=80" />
+            <FootBanner src={footerBanner} />
         </div>
     )
 };

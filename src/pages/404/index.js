@@ -1,11 +1,19 @@
 import React from 'react';
+import MetaTags from "react-meta-tags";
 import { Link } from 'react-router-dom';
+
 import houston from 'assets/images/houston.jpg';
 import routes from 'routes';
 
 const PageNotFound = () => {
     return (
         <div className="page page-not-found">
+            <MetaTags>
+                <title>Global Engineering Office | Page not found</title>
+                <meta name="description" content="Houston, we have a problem!" />
+                <meta property="og:title" content="Global Engineering Office | Page not found" />
+                <meta property="og:image" content={houston} />
+            </MetaTags>
             <section className="section pnf">
                 <div className="container">
                     <div className="row">

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import MetaTags from "react-meta-tags";
 
 import HeroInner from "components/HeroInner";
 import FootBanner from "components/FootBanner";
@@ -11,6 +12,7 @@ import Detail from "./Detail";
 import Team from "./Team";
 import Testimonials from "./Testimonials";
 import WhereWeWork from "./WhereWeWork";
+import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 
 const AboutPage = () => {
 
@@ -32,12 +34,18 @@ const AboutPage = () => {
 
     return (
         <div className="page">
+            <MetaTags>
+                <title>Global Engineering Office | About Us</title>
+                <meta name="description" content="Our firm has competent staff working in offices in the United Arab Emirates and Lebanon. At any one time, we have many projects running concurrently." />
+                <meta property="og:title" content="Global Engineering Office | About Us" />
+                <meta property="og:image" content={footerBanner} />
+            </MetaTags>
             <HeroInner title={data.title} label={data.subTitle} toScroll="#about-detail-values" />
             <Detail data={data} />
             { !!data.team_members.length ? <Team data={data.team_members} /> : null }
             { !!data.testimonials.length ? <Testimonials data={data.testimonials} /> : null }
             <WhereWeWork />
-            <FootBanner src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1526&q=80" />
+            <FootBanner src={footerBanner} />
         </div>
     )
 };

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import MetaTags from "react-meta-tags";
 import { useDispatch, useSelector } from 'react-redux';
 
 import {getNews} from "store/news/actions";
@@ -10,6 +11,7 @@ import NewsList from "./List";
 import FilterSearch from "./Filters/Search";
 import FilterCategories from "./Filters/Categories";
 import FilterSort from "./Filters/Sort";
+import footerBanner from 'assets/images/services/Caterpillar.jpg';
 
 const NewsPage = () => {
 
@@ -56,6 +58,12 @@ const NewsPage = () => {
 
     return (
         <div className="page">
+            <MetaTags>
+                <title>Global Engineering Office | Our News</title>
+                <meta name="description" content="GEO has four main global business areas – Buildings, Roads, Infrastructure and Urbanism – although our multi-disciplinary approach means that any given project may involve people from any or all of the sectors or regions in which we operate." />
+                <meta property="og:title" content="Global Engineering Office | Our News" />
+                <meta property="og:image" content={footerBanner} />
+            </MetaTags>
             <section className="section hero hero-inner __default">
                 <div className="container">
                     <div className="row">

@@ -28,9 +28,9 @@ const ArticlePage = ({ match }) => {
     return (
         <div className="page">
             <MetaTags>
-                <title>{data.title}</title>
+                <title>Global Engineering Office | {data.title}</title>
                 <meta name="description" content={data.description} />
-                <meta property="og:title" content={data.title} />
+                <meta property="og:title" content={`Global Engineering Office | ${data.title}`} />
                 <meta property="og:image" content={_baseURL + data.topImage.formats.medium.url} />
             </MetaTags>
             <section className="section hero hero-inner __default">
