@@ -39,7 +39,7 @@ export const routeIn = (pathname, node, appears) => {
         {
             duration: 1,
             opacity: 1,
-            delay: 0.2,
+            delay: 0.5,
             ease: Power2.easeInOut,
             onComplete: () => {
 
