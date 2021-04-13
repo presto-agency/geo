@@ -30,7 +30,7 @@ const Clients = ({ data }) => {
                     {
                         data.map(logo => (
                             <div className="clients-list-item" key={logo.id}>
-                                <img src={_baseURL + logo.url} alt={logo.hash} />
+                                <img data-src={_baseURL + logo.url} alt={logo.hash} />
                             </div>
                         ))
                     }
