@@ -11,19 +11,19 @@ import 'assets/sass/index.scss';
 
 const rootElement = document.getElementById("root");
 
-if (rootElement.hasChildNodes()) {
-    hydrate(
-        <Provider store={store}>
-            <React.StrictMode>
-                <ErrorBoundary>
-                    <App />
-                </ErrorBoundary>
-            </React.StrictMode>
-        </Provider>,
-        document.getElementById('root')
-    );
+// if (rootElement.hasChildNodes()) {
+//     hydrate(
+//         <Provider store={store}>
+//             <React.StrictMode>
+//                 <ErrorBoundary>
+//                     <App />
+//                 </ErrorBoundary>
+//             </React.StrictMode>
+//         </Provider>,
+//         document.getElementById('root')
+//     );
 
-} else {
+// } else {
     render(
         <Provider store={store}>
             {/*<ConnectedRouter history={history}>*/}
@@ -37,7 +37,7 @@ if (rootElement.hasChildNodes()) {
         document.getElementById('root')
     );
 
-}
+// }
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
