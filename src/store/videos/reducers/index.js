@@ -5,7 +5,7 @@ const initialState = {
     data: [
         {
             id: 0,
-            preview: '',
+            preview: 'https://i.ytimg.com/vi_webp/4jSv9oFM5m0/maxresdefault.webp',
             video: {
                 url: 'https://youtu.be/4jSv9oFM5m0',
                 playing: false
@@ -13,7 +13,7 @@ const initialState = {
         },
         {
             id: 1,
-            preview: '',
+            preview: 'https://i.ytimg.com/vi_webp/Lth1FAkLwhY/maxresdefault.webp',
             video: {
                 url: 'https://youtu.be/Lth1FAkLwhY',
                 playing: false
@@ -21,7 +21,7 @@ const initialState = {
         },
         {
             id: 2,
-            preview: '',
+            preview: 'https://i.ytimg.com/vi_webp/c7TOuMl-Ags/maxresdefault.webp',
             video: {
                 url: 'https://youtu.be/c7TOuMl-Ags',
                 playing: false
@@ -29,7 +29,7 @@ const initialState = {
         },
         {
             id: 3,
-            preview: '',
+            preview: 'https://i.ytimg.com/vi_webp/BjZ0JVD4HWw/sddefault.webp',
             video: {
                 url: 'https://youtu.be/BjZ0JVD4HWw',
                 playing: false
@@ -37,7 +37,7 @@ const initialState = {
         },
         {
             id: 4,
-            preview: '',
+            preview: 'https://i.ytimg.com/vi_webp/bqwPMbhcZ5Q/sddefault.webp',
             video: {
                 url: 'https://youtu.be/bqwPMbhcZ5Q',
                 playing: false
@@ -45,7 +45,7 @@ const initialState = {
         },
         {
             id: 5,
-            preview: '',
+            preview: 'https://i.ytimg.com/vi_webp/g5_d08lJ53w/sddefault.webp',
             video: {
                 url: 'https://youtu.be/g5_d08lJ53w',
                 playing: false
@@ -53,7 +53,7 @@ const initialState = {
         },
         {
             id: 6,
-            preview: '',
+            preview: 'https://i.ytimg.com/vi_webp/TrgM8Mbh-p8/maxresdefault.webp',
             video: {
                 url: 'https://youtu.be/TrgM8Mbh-p8',
                 playing: false

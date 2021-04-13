@@ -15,7 +15,7 @@ import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 const Clients           = lazy(() => import("./Clients"));
 const Disciplines       = lazy(() => import("./Disciplines"));
 const Services          = lazy(() => import("./Services"));
-// const Videos            = lazy(() => import("./Videos"));
+const Videos            = lazy(() => import("./Videos"));
 const Contact           = lazy(() => import("./Contact"));
 const FootBanner        = lazy(() => import("components/FootBanner"));
 
@@ -46,7 +46,7 @@ const HomePage = () => {
                 <Clients data={data.clientLogos || {}} />
                 <Disciplines />
                 <Services />
-                {/*<Videos />*/}
+                <Videos />
                 <Contact />
                 <FootBanner src={footerBanner} />
             </Suspense>

@@ -7,29 +7,36 @@ const ProjectVideo = ({ project }) => {
 
     const dispatch = useDispatch();
     const [loaded, setLoaded] = useState(false);
+    const [canPlay, setCanPlay] = useState(false);
 
     const handleTogglePlaying = () => {
         project.video.playing = !project.video.playing;
         dispatch(togglePlayingVideo(project));
+        setCanPlay(true);
     };
 
     return (
         <div className={`video ${loaded ? 'loaded' : ''} ${project.video.playing ? 'playing' : ''} `}>
-            <ReactPlayer
-                url={project.video.url}
-                playing={project.video.playing}
-                playsinline={true}
-                onReady={() => setLoaded(true)}
-                config={{
-                    youtube: {
-                        playerVars: {
-                            showinfo: 0
-                        }
-                    },
-                }}
-                width="100%"
-                height="100%"
-            />
+            {
+                canPlay
+                ? (
+                    <ReactPlayer
+                        url={project.video.url}
+                        playing={project.video.playing}
+                        playsinline={true}
+                        onReady={() => setLoaded(true)}
+                        config={{
+                            youtube: {
+                                playerVars: {
+                                    showinfo: 0
+                                }
+                            },
+                        }}
+                        width="100%"
+                        height="100%"
+                    />
+                ) : <img src={project.preview} alt="" />
+            }
             <div className="video-poster">
                 <img src={project.poster} alt={project.title} />
             </div>
