@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MetaTags from "react-meta-tags";
 
 import HeroInner from "components/HeroInner";
-import FootBanner from "components/FootBanner";
 import {getAboutPage} from "store/about/actions";
 import {isEmpty} from "utils/detectEmptyObject";
 import Preloader from "components/Preloader";
 import {locoScroll} from "components/SmoothScroll";
-import Detail from "./Detail";
 import Team from "./Team";
 import Testimonials from "./Testimonials";
-import WhereWeWork from "./WhereWeWork";
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
+
+const Detail                = lazy(() => import("./Detail"));
+const WhereWeWork           = lazy(() => import("./WhereWeWork"));
+const FootBanner            = lazy(() => import("components/FootBanner"));
 
 const AboutPage = () => {
 
@@ -41,11 +42,15 @@ const AboutPage = () => {
                 <meta property="og:image" content={footerBanner} />
             </MetaTags>
             <HeroInner title={data.title} label={data.subTitle} toScroll="#about-detail-values" />
-            <Detail data={data} />
+            <Suspense fallback={<Preloader />}>
+                <Detail data={data} />
+            </Suspense>
             { !!data.team_members.length ? <Team data={data.team_members} /> : null }
             { !!data.testimonials.length ? <Testimonials data={data.testimonials} /> : null }
-            <WhereWeWork />
-            <FootBanner src={footerBanner} />
+            <Suspense fallback={<Preloader />}>
+                <WhereWeWork />
+                <FootBanner src={footerBanner} />
+            </Suspense>
         </div>
     )
 };

@@ -4,9 +4,6 @@ import MetaTags from 'react-meta-tags';
 
 import Hero from "./Hero";
 import AboutDetail from "./About";
-import Clients from "./Clients";
-import Services from "./Services";
-import Contact from "./Contact";
 import {isEmpty} from "utils/detectEmptyObject";
 import {getHomePage} from "store/homePage/actions";
 import Preloader from "components/Preloader";
@@ -15,8 +12,11 @@ import {locoScroll} from "components/SmoothScroll";
 import logo from "assets/images/logo.png";
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 
+const Clients           = lazy(() => import("./Clients"));
 const Disciplines       = lazy(() => import("./Disciplines"));
+const Services          = lazy(() => import("./Services"));
 const Videos            = lazy(() => import("./Videos"));
+const Contact           = lazy(() => import("./Contact"));
 const FootBanner        = lazy(() => import("components/FootBanner"));
 
 const HomePage = () => {
@@ -42,16 +42,12 @@ const HomePage = () => {
             </MetaTags>
             <Hero />
             <AboutDetail data={data} />
-            <Clients data={data.clientLogos || {}} />
             <Suspense fallback={<Preloader />}>
+                <Clients data={data.clientLogos || {}} />
                 <Disciplines />
-            </Suspense>
-            <Services />
-            <Suspense fallback={<Preloader />}>
+                <Services />
                 <Videos />
-            </Suspense>
-            <Contact />
-            <Suspense fallback={<Preloader />}>
+                <Contact />
                 <FootBanner src={footerBanner} />
             </Suspense>
         </div>

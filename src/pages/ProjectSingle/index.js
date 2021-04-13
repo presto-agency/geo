@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import MetaTags from "react-meta-tags";
 import { useSelector, useDispatch } from 'react-redux';
 import GoogleMap from "components/GoogleMap";
 
-import ProjectBody from "./ProjectBody";
 import Banners from "./Banners";
 import SomeDescription from "./SomeDescription";
-import FootBanner from "components/FootBanner";
 import {getSingleProject} from "store/projects/actions";
 import {isEmpty} from "utils/detectEmptyObject";
 import Preloader from "components/Preloader";
 import SplitTitle from "components/SplitTitle";
+import SimilarProjects from "./SimilarProjects";
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 
-import SimilarProjects from "./SimilarProjects";
+const ProjectBody           = lazy(() => import("./ProjectBody"));
+const FootBanner            = lazy(() => import("components/FootBanner"));
 
 const _baseURL = process.env.REACT_APP_API_URL;
 
@@ -64,12 +64,16 @@ const ProjectSinglePage = ({ match }) => {
                     </div>
                 </div>
             </section>
-            <ProjectBody data={data} />
+            <Suspense fallback={<Preloader />}>
+                <ProjectBody data={data} />
+            </Suspense>
             <Banners data={data.additionalImages} />
             {!!data.discipline ? <SomeDescription data={data.discipline} /> : null}
             {!!data.countryData ? <GoogleMap data={data.countryData} /> : null }
             {!!data.discipline ? <SimilarProjects disciplineId={data.discipline.id} projectId={data.id} /> : null}
-            <FootBanner src={footerBanner} />
+            <Suspense fallback={<Preloader />}>
+                <FootBanner src={footerBanner} />
+            </Suspense>
         </div>
     )
 };
