@@ -3,54 +3,54 @@ export default [
         title: 'Urban Planning & Master Planning',
         description: '<p>Each master plan we undertake is dealt with in a holistic & unique approach, where it respects the local preferences, the surrounding urban fabric, and end-user requirements. We not only conceive the developers’ aspirations but we exceed them with our innovative solutions.</p><p>We deal with all master developments size or context whether it is a small compound to a neighborhood to a city.</p>',
         preview: {
-            xl: 'https://previews.dropbox.com/p/thumb/ABK2oBj1fSuUVxUrS5kojjwkUdtAPW_oO02WpNLJec5LT2KvHY4FncHdIZXeNsAPYSWnCpNXjKubLnyCWZ2zDkg_KH_l4LIenfUcbERRSKC03MQSukwkraOvA_XHAW0_YEokz9tA0TTLNRxLQRYMaCk5g2MhpK52roboZx81I9skqLBdMBqccfS0lpt_SH_MPRyR5VKRaThrF1fOL5rvCXcFXyM_wnZYjnmVfFa6v_YsZWWeVK6iQOLAus_ve7AkOrm_K0AOh64hW_zkh5VTnmTa4KR620vGktwoZGiB9E2tswYidatFLopGeCnen4EC7dc2Qyz_PBQL1ERqw3cHn_jfKTxKwW28k-REutNddv4eGA/p.jpeg?size=2048x1536&size_mode=3',
-            md: 'https://previews.dropbox.com/p/thumb/ABL_s3Ph12u8drxUzlEmkvg07V3l4u7I_vIF4p2vdVPfbT7atw0z1EZwZ2OA_MgDJL3HPWlm94ZX1HoNxTvaH0Ao0uQVpReu1NKUtd_Vq1rnnLu7w3JzluukDndL_eNBlc6BDaxgVVAw4rOJ5Mx8rvz9qS-cJD8y1v5S76p6kWfkpY-5jbtZryB2vaAogg9ssMXYgqqsxpnu3Vb4zyXy3k8WeEL1sswIouqeM8mG6u0rvhYgnUqYZj1OEsXZhO03yTGfzg0QhUDQ5WtRHrG3q4hsVCxQw2ZnJKB-Ls_rmGy3iShnawY4xfCFpBdcEywRlQPCj_Vk2OCSvkftqNWEvg2C-PC_WdRxqW7BCSLkrYNm1w/p.jpeg?fv_content=true&size_mode=5',
-            webp: 'https://previews.dropbox.com/p/thumb/ABKqWSoRkh99o--hj_pKa_t4UlcY6SF8sY_xZ5gROmGZaTi7kNnxOFQMojQbAIn5DJyD2uW1xwLUXUWodmy_z7CHiJn2AxsbIBQdOZkp2qBkQquz4IOszX_ZUO09xtXPsJiUdjUqgHUPGXbfYxHbKDlhcADpBS-OujZ60LpqwF9phdqro16hE7_lpZvrPlhla5lwbZQjq5EDfqaGALJ-hXOg5n5gxkG3CruLwsC9CTSGdM5Y1ufH9inEsagxxh4ZYckQZiXrUbrHI-6lSzLcc6PcIHNkupjyUy7ZGQ2qdr-iDUaed_U76jMAYJfVKVGPYV-zIIV4hRnGR18MMX-Rv3JlCKG04AWZW-bidsBALbGIcw/p.jpeg?size=2048x1536&size_mode=3'
+            xl: 'http://dev.studiopresto.com/images/expertise/xl/Master_planning.jpg',
+            md: 'http://dev.studiopresto.com/images/expertise/md/Master_planning.jpg',
+            webp: 'http://dev.studiopresto.com/images/expertise/md/Master_planning.webp'
         },
     },
     {
         title: 'Infrastructure and roads',
         description: '<p>GEO has a huge experience in the design of roads, intersections, and utility services such as water supply networks, sewage, and pumping stations. We have diverse experience in multi-disciplinary developments and environmental projects throughout the Middle East and internationally.</p>',
         preview: {
-            xl: 'https://previews.dropbox.com/p/thumb/ABKLO1rw_Y4KFiV7yjzsXcrVTpeR_v3H8O9xTYDcivFNgsSRS3cqWr_0a_QFWApMAxq_sEa-NqT-Xm0oYo0xBIx9DbKu7KXYhM9Wr1p373gmi8e2BBslU9H9j416Myz68dw6xbirp2iwlKsXT-f90nuKiDb7J9kidYFtUn_T8H-IDnRtUJ-nUeg7p0zo93GxC_D_h3uv2KUmYeAbF8DEGRUHenjiKPLNXbpioTJgcg0FHHpTabXj-R6oXIl3-ttNZnixmktASw-2dDBAAno1e2_pePKW1UOl6FE8aKFtaPEwzy_B8d6iCIjRA82iUYy8T1VA5oKiwSgVgO1vm12Mgi1VuSm-DPtZzkYsI8B3McYUyg/p.png?size=2048x1536&size_mode=3',
-            md: 'https://previews.dropbox.com/p/thumb/ABJVsm1d4vNgythbXb06rM_nGed7nkMeM78D9DP1AQlCE4BB21l7HHAbDBYPZlPiWU14pOxRNoVJ62cfyUdgrwKZ4Zo5YzkWIDiA0vWTUcSL_gHiJFH_rGDdkXGtpNQhhooAj0NY4rPqbhskX8z1DhWKW8bMx3JbplphJuK5ji7ch2QZDJycnnwDRkVUB1zajseSfLSSxvqpX62hBjm12I76DrF_icKCx4YyiQ60DrxnlPFzwwCcOeylgjdnw65uRB-e2Mjl_bXVAMy2LIBCjdKQzn10l_AAHXWfC9nrP55vYDJrEejEr48t8Jh2Lmcm7xK0PDfO3MBwZs05vFwTbBEvO7d_alrAljD2Lw3BylNZcA/p.jpeg?size=2048x1536&size_mode=3',
-            webp: 'https://previews.dropbox.com/p/thumb/ABKbxjmZB4W4zoB1XZMQI4SjJUGw_VuM0pgrq-QrphyL3hgBttVmZ7qVZhP8cKo9fJU1K2pBWVo_8nyX4C5mVU6PnAEpkrH9qGhuGyCxwxVJ_w1tf3UZCQftl93h6nemFd-_g40p3L6pnGT76wy-ftosy0lWNTqRD0jFSIbVfS7m-TYB5tRoLK1wPYoaiM61WynnqI57J-mV-E4e9feIjfRHjRurU7dLdDbSJBBlQOflNafIFMTgoJeGpKdeZrstzl5LhYDCbVRQi7t3mpmfAXVUK6NLzqFPi_KhrA_8s_yP3YHz2LEdx_s3l53OgyTk8mWgVvDW9iBmiVYj57O46lMwitD6X7TbMoKI1Epgcxmm7Q/p.jpeg?fv_content=true&size_mode=5'
+            xl: 'http://dev.studiopresto.com/images/expertise/xl/Roads_and_Infrastructure.png',
+            md: 'http://dev.studiopresto.com/images/expertise/md/Roads_and_Infrastructure.jpg',
+            webp: 'http://dev.studiopresto.com/images/expertise/md/Roads_and_Infrastructure.webp'
         }
     },
     {
         title: 'Hospitality & Public Buildings',
         description: '<p>We in GEO approach design in a thorough way to create innovative solutions that answer the developer’s needs, by understanding the fundamental requirements to assure maximizing the financial potential without relenting of the architectural design excellence.</p> <p>Through the years we have produced a wide spectrum and variety of unique architectural designs that stand out of the crowd, making an everlasting statement to the beholder.</p>',
         preview: {
-            xl: 'https://previews.dropbox.com/p/thumb/ABLadJnXBnqtO2ZJPjHAcOfJRYRkA7wz2nXyMPNcXqkPVtemcXGoNWAvPLft0Oc6F8PtVgzv9RvIdjOjEp9zPshtdPKxvxeX13enhWILrF1Lhdo5egqbqNre3D3Wcet-IGRjAcmGejM99mtMOlMxQ5XiWr3_T25QRG27fB24ft8XWKameriMLahgYmMSd3DBKowVQx71lDq1QcOZ3jPi7xUz3tIMuxnHnQsJkaKOqKxq5R4Orw8lyPzirC7lRCJanBqZ9ejJ3D6mi-HSFkdy5Zdhe_PFMz1ydJ2igV4VnU7iB1xIIxJeHGEBCgnJ70t8gonjtAsdnhq2KWrVWMTKhmoy20nw-gJMo1ovLNGLYuKHJw/p.jpeg?fv_content=true&size_mode=5',
-            md: 'https://previews.dropbox.com/p/thumb/ABLQAtd-wGgCps4Mxyrpu9p7frVmvXyMDSs8bfShp11AGpdJEkHA6jkFAYlqiEMOr1MQCT1q3NSmwBZtgLG343V-GMJAbLMvwgDKOyFWWsDYPHId0zbz3sTOIm8wVQeEYcP3qH6zI6C5rlIorzZIiK8aXBCV1fWRwZf-uBZ8LBYgCUy0KXu-0bA69UROJ4kbZ1g9n9ep-NkhmKOJknobiMk8EOmqO9AWHTfO6g45noFcZcECO7j8DjWae-jJVN1Ljcz6pGqF91-aojeafSocXRwLy5zuLlmWuXCfSZe_oJPO4_c7BmHZIWQIRmQlJfE8bdydbXIATLv_gsYuG_5oepj2KHm0soZiad8tT3G9LhPYIg/p.jpeg?fv_content=true&size_mode=5',
-            webp: 'https://previews.dropbox.com/p/thumb/ABJJKPsoIKR0xmNCoxQW1vrS7puhKx6fDIYgTZNuiF3WbxZELFSO2n21IUxDD8Xu4mANy3pAQUE_YpmMUVqS7FO8j4aH7X_H6TiUc7TU2wLcK0igyJqW0sluPo6tzVUrUtGY4_F45_N3VzIVD0oYWiMnkO9VgOB2cWeXXkgfjdrKsJwLnVMQC3oY-icC6WLz6G0HOPAlp5xm9uHZN3dyx8MWwFBR1nZSd6fQt8dSIwFsRHyPEHdWfapUjwIxQ4WSuz3M_1TASSX9s7tmSTMVjEZVbQMQQzRCEhSypZ67C36hFMNwX2C91x3VGMoqK-IMMWOclxTgT92Nd466rjwU9WyIpyBXlB9FQvwTYPv_RPbo8g/p.jpeg?size=2048x1536&size_mode=3'
+            xl: 'http://dev.studiopresto.com/images/expertise/xl/DoubleTree_by_HILTON-Front_View.jpg',
+            md: 'http://dev.studiopresto.com/images/expertise/md/DoubleTree_by_HILTON-Front_View.jpg',
+            webp: 'http://dev.studiopresto.com/images/expertise/md/DoubleTree_by_HILTON-Front_View.webp'
         }
     },
     {
         title: 'Logistics & Industrial',
         description: '<p>We are proud to be recognized as one of the leading experts and innovators in Logistics and Industrial Buildings Design due to our proven track record of successful projects. We are proficient in every aspect of design due to the multidisciplinary approach that leaves no gap for err, where all services are done under one roof and consolidated together. Whatever were your needs in Logistics and Industrial projects GEO will cater to your needs with our forward-thinking and know-how in the design and supervision of complex Logistics and Industrial Buildings, including high bays, multi-story storages, automated warehouses, cold stores, complex industrial projects.</p>',
         preview: {
-            xl: 'https://previews.dropbox.com/p/thumb/ABIPhigkiHC_wyGyDnxjRb5-GafxxcAP6boUNitXDsfSE0FgQuX3Cqu1vaxqEEt168XpyT8CQ6GytzRpD_RAoo_2nH6nJKeoSUTNiGAsBPQvgf4s4fZ3Bj55jAv-SBmpcuITWETLhLh5MMYpYjLB8uLVzX5bpRCf4KSDTlJe5wL7fZuHduKryCXiX5GbcGBz3viupxkvjt1-EXi609s2ezPZRDHGw3vOxXUE18x4oNuFRxvWzysEWVKB_cKd6ScNNa9cU9_-TNeDkbKofWxJWThhiLl3Hslb4j3cw-W3Evj2dSmkhBUrUIZ38aMU8UsU6K2SMU6HlS6gZXrevbyoPwJlDPPJLEyg-Jvq35uiuAYhbQ/p.jpeg?size=2048x1536&size_mode=3',
-            md: 'https://previews.dropbox.com/p/thumb/ABJvjqRqXp-wnkuiHmCx5Ck4HSANc1AEOnB_2vy_D5p5Hxsm9WOaot1MSrUC2MxI0c13ql8Zi6JIkgTVuTvOUitN2llfBy-amm54kZDry0Y648vXzK1BMPytr5sQJWQGcweBPyc49l85kybOwgzgUMOdQ2QYqD0mt0RQJQHjjECM1gjfdf0lSyvGXutrF7M8ZPoCYHZL46Hlf8t3_7kbkm2cxX8A_P5dZFVZIs8qjMxwnOEBEv4LRg1f8JkzVu3R78zC2WoBbQd7Tbp4hNqBxbfbLfrKBjfnCWZiFqmbGivpAPVz95ERsmnludR2AZTtpLO3dJ2rKoIqG7zRYTKNrDHWJOS1OuEZzko7_QutRdmXGA/p.jpeg?fv_content=true&size_mode=5',
-            webp: 'https://previews.dropbox.com/p/thumb/ABKZ-GNnoX1DhBHwOlXWemRqIQ6uGHX4IKUZlA3_4d0gBuMcWPVb28_BywPLsQ_6I8PcJ3UWXbPp_4GRzLukVZfjT6Iit_JNNqur1ievSQS6dklNkmdzxf-0wioaR1DZvo3qUNLEFDjwaNZpc7f6aDWZTo7F1La5xrLubbVPAtNHiFtiz_I9I8Ex_nnpcWAaDS0SQKCEQeICouEMwbnXihb4v_4R3YGqjiYbRBc8VD6bTTlg9Kbpkkbsnw9re9chQPyHZ9MZfoZP6eDQ06VuP8xLCWba1vFGP3CprtC-hKCREmjPvxHucjAOy14tua6ZJ7MprJiIHE-P2hjMCcHdeICuc6P7qtl6u4mw_yQ1CsfTYA/p.jpeg?size=2048x1536&size_mode=3'
+            xl: 'http://dev.studiopresto.com/images/expertise/xl/View.jpg',
+            md: 'http://dev.studiopresto.com/images/expertise/md/View.jpg',
+            webp: 'http://dev.studiopresto.com/images/expertise/md/View.webp'
         }
     },
     {
         title: 'E-Commerce',
         description: '<p>E-commerce is the future of retail and is growing rapidly in the past few years, where GEO has undertaken numerous projects that vary from fulfillment centers, distribution centers, and pick up stations that cater to all E-commerce needs and type of shipments. We can provide an innovative solution that can cater to any E-commerce need in the most efficient and optimum way that is tailored to the clients\' requirements</p>',
         preview: {
-            xl: 'https://previews.dropbox.com/p/thumb/ABKJJlJL1SMXMtzoLZgSYwm6y7gY-J2qKXht53f2Y4-TwW0jFdUXlYR2wFX5sDtNdcDG81KJKpqj2JMCrddo_TEU5avpN4yAhDniE28AkrdWJIWy9mXEdOC3g5-WJd92d2FINw6nG8Oz2O4LsyNq4YuU0vnZ3UtipHsEicqsgQAdVFV4Qq2v99vqmylzzWEmwMxL01MeqW9kQBhQDRE-F6YAEOjTqzal2sRKMcjzpZNd0mNUkhwC8zcIf8ico5MYU1sZ6HbOyLT1kh0lZe2kvbXOMJg_gHELhZXbKdzQxfsWaRsvzN24Mzn5pQmYymAUdfS-Yxzp9_TCK7iLVAEO-khu16e-SaV26c6azcdtZYqpPg/p.jpeg?size=2048x1536&size_mode=3',
-            md: 'https://previews.dropbox.com/p/thumb/ABIhCc_66GsXNM3vECJqTXnems__B1a_O-H0BPKHgBYkzndaGMJyKmh1xp9aou9MJZuV1SbLg6kwxypJdOe5AQ7tqOdi6G8Tp3CRJpCfD7w7Pihv61x__7fbpeZDEDiScNeUE6dNgvCj1AWy0WsLtfmB2lSW3qR42mfFYlh9dM2WP502L84F0HUdY1HTzWp2hCHA_l4GLSVccpJHOFkgFpWl9d5TvAW2IL2MMGFQ4W81lcqoYbyN3EoYBm4UFyxxLbQKtyMe23d_Z-O8ZkVqVDrfdqDKeGZHAE8fFNM7QAwsSJ_nAwYUMO_E32OP-fw1yiB3wcRqiiNrvA8iIkcNoLETff0ln-4DYT-zWiHHNDEuBw/p.jpeg?size=2048x1536&size_mode=3',
-            webp: 'https://previews.dropbox.com/p/thumb/ABIjexFRcRt2srn2zKnk5DAuGQfguDRJGAchcsXHE5vAsBvvKVG3ifR-FQszwepbh1D1UiGlh0U0IlAfohDkx782ghkkEWZd4D0qFHObaoNrWwOu1KGfV0gtW4cdqA-spZSG83zGwEPx8s7CnYL3dUshZm9K55gfA9qnoSJuq8oUC8PNerhLJAQWW1mQFBLVcNd8ItMQYzzmhkYSudefcYJvuQtaTwdgiROpy0XLGHQ0C_ldhFZh1S5EATW9z279T8duWoANx8HEXk4l8L5HORdi0TZSunugwiZTJVDbn9H2zVIGCk7DCm09MlOvcqcVNMiUYx9_r-Fj6sRBGdGbhQw9hSbC_loVo84Z8kplSEmOvA/p.jpeg?size=2048x1536&size_mode=3'
+            xl: 'http://dev.studiopresto.com/images/expertise/xl/Ecommerce.JPG',
+            md: 'http://dev.studiopresto.com/images/expertise/md/Ecommerce.jpg',
+            webp: 'http://dev.studiopresto.com/images/expertise/md/Ecommerce.webp'
         }
     },
     {
         title: 'Food Industries',
         description: '<p>Food manufacturing & Processing operations pose many design challenges that are unique to the food industry, such as; physical and chemical abuse, risk of biological contamination, and extreme temperatures that vary from the extreme heat of hot processing and cooking to the below zero cooling of products. We in GEO have practical experience in the food-processing environment and understand the special demands of the food industry. Our wide experience in designing food facilities brings to our client innovative and cost-effective ideas for the project that meets the needs of our clients. Our experience covers many type of food industries such as Flight Catering, Meat Processing, Dates Processing, food storage, etc.</p>',
         preview: {
-            xl: 'https://previews.dropbox.com/p/thumb/ABJ5blpMsk3_5KWuUjPz4VapefNew6oE9WrxwqAywI6LnT-vBqpok5qGLvJZQrFNWH8Kzux_wkzhdTZGMVn8-bLFiNBxFRXXJmEHeYFTibTL3jsKawON63tTeAlUGViOYg-YDJs0opOdc-1wgj7eQv-AuCLe6BCRw-td2bI_vFrlq95DdsG-zJn-aaOhY9oXOYOYbPJ1iV_LjyBWivVNZgHqYuDPQsiHHnEtKOuEsZDKLGWq_QukmungXenOnx3AyXFtKezIq5hA5FoJ7KOi2wp9WnjQJ59slcUuS2XqxbbOdEqrOGi0PSyJSbgWoq7LChOjRhsvsDw432-n0EOOq99y20LMJuYF4FgGH9nFhX2uEQ/p.jpeg?fv_content=true&size_mode=5',
-            md: 'https://previews.dropbox.com/p/thumb/ABJfBI8cekSmNIdpPukj5bHV-TrHf4BIOSIjA9Vk7YJu7yC9mtdp278PuJj1sbO_uromOwtpvn8-jiy_TfHPys8LY5qCJ8isEvCA7e67YZX9lpgzYsT4WJf_rvSgXNEkvRGyM-VljkyBUPtGC_j_XdILgYMbgU_hc_5whMdZPCKDgI8whia3i6oQYdbUOR0o53Dr72wI40jpvcQjYgV3gEkFnJoIcnyGN_80AAZ5xy6ODDu-_wI_ATCkb-acjADJ9KJFd_9UKs7uS1xGBY3zCsX8QQbUVVHn0RbMGSybi5zHK3tgSoXvq6w7EUXNB2T1RCruRtg91aWHaKEnBHEhQVbmITAcAt48IVrc26nrKHOxoQ/p.jpeg?size=2048x1536&size_mode=3',
-            webp: 'https://previews.dropbox.com/p/thumb/ABK6v5WTJOvP33DnGMxY3Ws49nZX0Lolnb5Qyed6QDk548utPukG8VxM8zPgeJpKa7w9yLUexNmLc41453Zs8m-lkzvEolynH1eezD_5aAh3TQ0nMUT6qT_3hcOq1ftJrA-FFneg9azmlBkdv1QHzTZh4dFrwpQUFe6DfxguvgCfE19dQrCVE94Rvq3kyZ7VtNYJUTwXs7K12T39NQ2JS5tSDLYnk-ay_o_VU1mA-AhJDUPCxtZyADRxBciZ1J0Nq-htr5Lk9hwleB3S6dbuLopQ9FlYWJPnrNpodqcnvZpbI9kmz9UfUTR31aR44hOHt-lKKzbJZB1IOnfBlHPHwgzq6MdQ7kznlhXvXvMZSdi-2w/p.jpeg?fv_content=true&size_mode=5'
+            xl: 'http://dev.studiopresto.com/images/expertise/xl/Food_industry.jpg',
+            md: 'http://dev.studiopresto.com/images/expertise/md/Food_industry.jpg',
+            webp: 'http://dev.studiopresto.com/images/expertise/md/Food_industry.webp'
         }
     }
 ]

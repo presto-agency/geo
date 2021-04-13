@@ -17,9 +17,9 @@ const ProjectVideo = ({ project }) => {
 
     return (
         <div className={`video ${loaded ? 'loaded' : ''} ${project.video.playing ? 'playing' : ''} `}>
-            {/*{*/}
-            {/*    canPlay*/}
-            {/*    ? (*/}
+            {
+                canPlay
+                ? (
                     <ReactPlayer
                         url={project.video.url}
                         playing={project.video.playing}
@@ -35,8 +35,14 @@ const ProjectVideo = ({ project }) => {
                         width="100%"
                         height="100%"
                     />
-            {/*    ) : <img src={project.preview} alt="" />*/}
-            {/*}*/}
+                ) : (
+                    <picture>
+                        <source srcSet={project.previewWebp} type="image/webp" />
+                        <source srcSet={project.preview} type="image/jpg" />
+                        <img src={project.preview} alt="" />
+                    </picture>
+                )
+            }
             <div className="video-poster">
                 <img src={project.poster} alt={project.title} />
             </div>
