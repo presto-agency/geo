@@ -15,9 +15,13 @@ import {locoScroll} from "components/SmoothScroll";
 import logo from "assets/images/logo.png";
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 
-const Disciplines       = lazy(() => import("./Disciplines"));
-const Videos            = lazy(() => import("./Videos"));
-const Contact           = lazy(() => import("./Contact"));
+import Disciplines from "./Disciplines";
+import Videos from "./Videos";
+import Contact from "./Contact";
+
+// const Disciplines       = lazy(() => import("./Disciplines"));
+// const Videos            = lazy(() => import("./Videos"));
+// const Contact           = lazy(() => import("./Contact"));
 
 const HomePage = () => {
 
@@ -43,16 +47,16 @@ const HomePage = () => {
             <Hero />
             <AboutDetail data={data} />
             <Clients data={data.clientLogos || {}} />
-            <Suspense fallback={<Preloader />}>
+            {/*<Suspense fallback={<Preloader />}>*/}
                 <Disciplines />
-            </Suspense>
+            {/*</Suspense>*/}
             <Services />
-            <Suspense fallback={<Preloader />}>
+            {/*<Suspense fallback={<Preloader />}>*/}
                 <Videos />
-            </Suspense>
-            <Suspense fallback={<Preloader />}>
+            {/*</Suspense>*/}
+            {/*<Suspense fallback={<Preloader />}>*/}
                 <Contact />
-            </Suspense>
+            {/*</Suspense>*/}
             <FootBanner src={footerBanner} />
         </div>
     )
