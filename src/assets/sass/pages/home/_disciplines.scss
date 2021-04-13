@@ -34,6 +34,9 @@
         &-description{
           max-width: 430px;
           margin-bottom: 42px;
+            p:not(:last-child){
+              margin-bottom: 20px;
+            }
             @include d(991){
               max-width: 100%;
             }

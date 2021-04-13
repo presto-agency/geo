@@ -1,16 +1,14 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import { Link } from 'react-router-dom';
-import Wave from 'react-wavify'
+import Wave from "react-wavify";
 
 import routes from 'routes';
 import list from './list';
 
 import DetectCarouselType from "./detectCarouselType";
-import {isEmpty} from "utils/detectEmptyObject";
-import Preloader from "components/Preloader";
-import {locoScroll} from "components/SmoothScroll";
-
-const _baseURL = process.env.REACT_APP_API_URL;
+// import {isEmpty} from "utils/detectEmptyObject";
+// import Preloader from "components/Preloader";
+// import {locoScroll} from "components/SmoothScroll";
 
 const Disciplines = () => {
 
@@ -56,7 +54,11 @@ const Disciplines = () => {
                                         data-scroll-direction="vertical"
                                     >
                                         <div className="disciplines-box-preview">
-                                            <img src={_baseURL + box.preview} alt={box.title} />
+                                            <picture>
+                                                <source srcSet={box.preview.webp} type="image/webp" />
+                                                <source srcSet={box.preview.md} type="image/jpg" />
+                                                <img src={box.preview.md} alt={box.title} />
+                                            </picture>
                                         </div>
                                         <p className="label">Main Expertise</p>
                                         <p className="disciplines-box-title h-2 split-content">{box.title}</p>
@@ -72,40 +74,40 @@ const Disciplines = () => {
             {
                 window.innerWidth > 991
                 ? (
-                    <div className="disciplines-carousel">
-                        <div className="disciplines-carousel-list">
-                            {
-                                list.slice(0).reverse().map((box, key) => (
-                                    <div className="disciplines-carousel-slide" key={key} style={carouselStyles}>
-                                        <Wave
-                                            className="wave"
-                                            fill={`url(#image-${key})`}
-                                            paused={false}
-                                            options={{
-                                                height: ( wSize.height - 50 ),
-                                                width: wSize.width,
-                                                amplitude: 15,
-                                                speed: 0.55,
-                                                points: 9
-                                            }}>
-                                            <pattern
-                                                id={`image-${key}`}
-                                                width={wSize.width}
-                                                height={wSize.height}
-                                                patternUnits="userSpaceOnUse">
-                                                <image
-                                                    href={_baseURL + box.preview}
-                                                    // width={wSize.width}
+                        <div className="disciplines-carousel">
+                            <div className="disciplines-carousel-list">
+                                {
+                                    list.slice(0).reverse().map((box, key) => (
+                                        <div className="disciplines-carousel-slide" key={key} style={carouselStyles}>
+                                            <Wave
+                                                className="wave"
+                                                fill={`url(#image-${key})`}
+                                                paused={false}
+                                                options={{
+                                                    height: ( wSize.height - 50 ),
+                                                    width: wSize.width,
+                                                    amplitude: 15,
+                                                    speed: 0.55,
+                                                    points: 9
+                                                }}>
+                                                <pattern
+                                                    id={`image-${key}`}
+                                                    width={wSize.width}
                                                     height={wSize.height}
-                                                    className="image-slide"
-                                                />
-                                            </pattern>
-                                        </Wave>
-                                    </div>
-                                ))
-                            }
+                                                    patternUnits="userSpaceOnUse">
+                                                    <image
+                                                        href={box.preview.xl}
+                                                        // width={wSize.width}
+                                                        height={wSize.height}
+                                                        className="image-slide"
+                                                    />
+                                                </pattern>
+                                            </Wave>
+                                        </div>
+                                    ))
+                                }
+                            </div>
                         </div>
-                    </div>
                 ) : null
             }
         </section>
