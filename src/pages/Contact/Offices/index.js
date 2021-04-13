@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import Map from "components/Map";
 
 import {isEmpty} from "utils/detectEmptyObject";
 import {getOffices} from "store/offices/actions";
 import Preloader from "components/Preloader";
+
+const Map           = lazy(() => import("components/Map"));
 
 const _baseURL = process.env.REACT_APP_API_URL;
 
@@ -70,7 +71,9 @@ const Offices = () => {
                                 ))
                             }
                         </div>
-                        <Map />
+                        <Suspense fallback={<Preloader />}>
+                            <Map />
+                        </Suspense>
                     </div>
                 </div>
             </div>
