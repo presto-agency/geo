@@ -62,6 +62,7 @@ export const routeIn = (pathname, node, appears) => {
                 }
                 scaleIn();
                 fadeInContent();
+                locoScroll.update();
                 //end display split title
             }
         }
