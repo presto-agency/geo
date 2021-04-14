@@ -39,7 +39,6 @@ export const routeIn = (pathname, node, appears) => {
         {
             duration: 1,
             opacity: 1,
-            delay: 0.5,
             ease: Power2.easeInOut,
             onComplete: () => {
 
@@ -83,13 +82,13 @@ export const routeOut = (node) => {
             ease: 'none',
             onComplete: () => {
                 if(window.innerWidth > 991) {
-                    setTimeout(() => {
+                    // setTimeout(() => {
                         locoScroll.scrollTo(0, {
-                            duration: 100,
+                            duration: 5,
                             disableLerp: true,
                             callback: () => locoScroll.update()
                         });
-                    }, 300);
+                    // }, 300);
                 } else {
                     window.scrollTo(0, 0);
                 }
