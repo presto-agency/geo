@@ -5,7 +5,7 @@ const _baseURL = process.env.REACT_APP_API_URL;
 export default class ApiClient {
 
     async getSources(url, method = 'GET', body = null) {
-        const response = await fetch(`${_baseURL}/${url}`, {
+        const response = await fetch(`${_baseURL}/api/${url}`, {
             method: method,
             body: !!body ? JSON.stringify(body) : null,
             headers: {

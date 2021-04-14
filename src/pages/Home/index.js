@@ -22,7 +22,7 @@ const FootBanner        = lazy(() => import("components/FootBanner"));
 const HomePage = () => {
 
     const dispatch = useDispatch();
-    const { loading, data } = useSelector((state) => state.homePage);
+    const { data } = useSelector((state) => state.homePage);
 
     useEffect(() => {
         if(isEmpty(data)) {

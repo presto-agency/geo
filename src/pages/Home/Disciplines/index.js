@@ -4,11 +4,12 @@ import Wave from "react-wavify";
 
 import routes from 'routes';
 import list from './list';
-
 import DetectCarouselType from "./detectCarouselType";
 // import {isEmpty} from "utils/detectEmptyObject";
 // import Preloader from "components/Preloader";
 // import {locoScroll} from "components/SmoothScroll";
+
+const _baseURL = process.env.REACT_APP_API_URL;
 
 const Disciplines = () => {
 
@@ -55,9 +56,9 @@ const Disciplines = () => {
                                     >
                                         <div className="disciplines-box-preview">
                                             <picture>
-                                                <source srcSet={box.preview.webp} type="image/webp" />
-                                                <source srcSet={box.preview.md} type="image/jpg" />
-                                                <img src={box.preview.md} alt={box.title} />
+                                                <source srcSet={_baseURL + box.preview.webp} type="image/webp" />
+                                                <source srcSet={_baseURL + box.preview.md} type="image/jpg" />
+                                                <img src={_baseURL + box.preview.md} alt={box.title} />
                                             </picture>
                                         </div>
                                         <p className="label">Main Expertise</p>
@@ -96,7 +97,7 @@ const Disciplines = () => {
                                                     height={wSize.height}
                                                     patternUnits="userSpaceOnUse">
                                                     <image
-                                                        href={box.preview.xl}
+                                                        href={_baseURL + box.preview.xl}
                                                         // width={wSize.width}
                                                         height={wSize.height}
                                                         className="image-slide"

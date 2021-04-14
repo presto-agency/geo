@@ -1,6 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
 
+const _baseURL = process.env.REACT_APP_API_URL;
+
 const HeroCarousel = () => {
 
     const settings = {
@@ -20,10 +22,10 @@ const HeroCarousel = () => {
     return (
         <Slider className="hero-carousel" {...settings}>
             <div className="hero-carousel-slide scale">
-                <img src="http://164.90.162.188/api/uploads/Sport_Academy_f95c36b200.jpg" alt=""/>
+                <img src={`${_baseURL}/uploads/Sport_Academy_f95c36b200.jpg`} alt=""/>
             </div>
             <div className="hero-carousel-slide">
-                <img src="http://164.90.162.188/api/uploads/zabeel_DCP_ae0d7172ad.jpg" alt=""/>
+                <img src={`${_baseURL}/uploads/zabeel_DCP_ae0d7172ad.jpg`} alt=""/>
             </div>
         </Slider>
     )
