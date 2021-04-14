@@ -130,6 +130,7 @@
     &-check{
       position: absolute;
       pointer-events: none;
+      opacity: 0;
         &:checked{
             & ~ .input-check-title{
               color: $blue;
