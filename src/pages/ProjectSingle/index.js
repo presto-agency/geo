@@ -56,9 +56,9 @@ const ProjectSinglePage = ({ match }) => {
                                     {/*{!!data.country ? <p className="project-tag" >{data.country}</p> : null }*/}
                                     {/*{!!data.city ? <p className="project-tag" >{data.city}</p> : null }*/}
                                 </div>
-                                <SplitTitle>
-                                    <h1 className="h-1 hero-content-title split-title">{data.name}</h1>
-                                </SplitTitle>
+                                <h1 className="h-1 hero-content-title split-text">
+                                    <SplitTitle>{data.name}</SplitTitle>
+                                </h1>
                             </div>
                         </div>
                     </div>

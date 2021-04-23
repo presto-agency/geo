@@ -8,8 +8,8 @@ import {isEmpty} from "utils/detectEmptyObject";
 import {getHomePage} from "store/homePage/actions";
 import Preloader from "components/Preloader";
 import {locoScroll} from "components/SmoothScroll";
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 
-import logo from "assets/images/logo.png";
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 
 const Clients           = lazy(() => import("./Clients"));
@@ -19,7 +19,7 @@ const Videos            = lazy(() => import("./Videos"));
 const Contact           = lazy(() => import("./Contact"));
 const FootBanner        = lazy(() => import("components/FootBanner"));
 
-const HomePage = () => {
+const HomePage = ({ baseUrl }) => {
 
     const dispatch = useDispatch();
     const { data } = useSelector((state) => state.homePage);
@@ -36,10 +36,16 @@ const HomePage = () => {
     return (
         <div className="page">
             <MetaTags>
-                <title>Global Engineering Office</title>
-                <meta name="description" content="GEO is a firm of Architects, Designers, Engineers, Planners and Consultants providing a diverse range of professional services to clients around the Middle-East." />
-                <meta property="og:title" content="Global Engineering Office" />
-                <meta property="og:image" content={logo} />
+                <title>{data.title}</title>
+                <meta name="description" content={data.leftDescription} />
+                <meta property="og:title" content={data.title} />
+                {
+                    !isEmpty(data)
+                    ? <meta property="og:image" content={baseUrl + data.topImages[0].formats.small.url} />
+                    : null
+                }
+                <meta property="og:url" content={window.location.href} />
+                <meta property="og:description" content={data.leftDescription} />
             </MetaTags>
             <Hero data={data} />
             <AboutDetail data={data} />
@@ -55,4 +61,4 @@ const HomePage = () => {
     )
 };
 
-export default HomePage;
+export default WithBaseUrl()(HomePage);

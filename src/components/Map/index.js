@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {isEmpty} from "utils/detectEmptyObject";
 import {getOffices} from "store/offices/actions";
 import Preloader from "components/Preloader";
+import {setUniqueOfficesArray} from "utils/setUniqueOfficesArray";
 
 const Map = () => {
 
@@ -21,14 +22,10 @@ const Map = () => {
     };
 
     useEffect(() => {
-        if(isEmpty(data)) {
+        if(!data.length) {
             dispatch(getOffices());
         } else {
-            let countries = [];
-            data.map(office => {
-                countries.push(office.country.toLowerCase());
-            });
-            setUniqCountries([...new Set(countries)]);
+            setUniqCountries(setUniqueOfficesArray(data));
         }
     }, [dispatch, data]);
 

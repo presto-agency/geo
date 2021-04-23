@@ -6,7 +6,6 @@
       z-index: 1;
         &-title{
           padding-top: 31px;
-          max-width: 800px;
         }
     }
     &-detail{
@@ -33,6 +32,7 @@
         &-title{
           display: inline-block;
           position: relative;
+          text-transform: capitalize;
             &:not(:last-child){
               padding-right: 27px;
                 &:before{

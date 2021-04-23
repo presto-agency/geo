@@ -76,6 +76,10 @@ export default class ApiClient {
         return await this.getSources('offices');
     };
 
+    getSocial = async () => {
+        return await this.getSources('social-links');
+    };
+
     /*
     GET Pages
      */

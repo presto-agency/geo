@@ -1,4 +1,4 @@
-import {GET_OFFICES_START, GET_OFFICES_END, GET_SERVICES_ERROR} from "store/constants";
+import {GET_SOCIAL_END, GET_SOCIAL_ERROR, GET_SOCIAL_START} from "store/constants";
 
 const initialState = {
     loading: false,
@@ -6,20 +6,20 @@ const initialState = {
     error: null
 };
 
-export default function officesReducer(state = initialState, action) {
+export default function socialReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_OFFICES_START:
+        case GET_SOCIAL_START:
             return {
                 ...state,
                 loading: true
             };
-        case GET_OFFICES_END:
+        case GET_SOCIAL_END:
             return {
                 ...state,
                 loading: false,
                 data: action.payload
             };
-        case GET_SERVICES_ERROR:
+        case GET_SOCIAL_ERROR:
             return {
                 ...state,
                 loading: false,

@@ -1,6 +1,7 @@
 import React from 'react';
 import MetaTags from "react-meta-tags";
 
+import SplitTitle from "components/SplitTitle";
 import Feedback from "./Feedback";
 import Offices from "./Offices";
 import banner from 'assets/images/contact-us.jpg';
@@ -20,7 +21,9 @@ const ContactPage = () => {
                         <div className="col-xl-9">
                             <div className="hero-content">
                                 <p className="label label-uppercase fade">contact us</p>
-                                <h1 className="h-2 hero-content-title split-title">For any enquiries, or just to say hello.</h1>
+                                <h1 className="h-2 hero-content-title split-text">
+                                    <SplitTitle>For any enquiries, or just to say hello.</SplitTitle>
+                                </h1>
                             </div>
                         </div>
                     </div>

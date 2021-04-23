@@ -1,99 +1,29 @@
 import routes from 'routes';
 
 export default [
-   {
-        title: 'Menu',
-        list: [
-            {
-                title: 'Services',
-                url: routes.services,
-                blank: false,
-            },
-            {
-                title: 'About',
-                url: routes.about,
-                blank: false,
-            },
-            {
-                title: 'Project',
-                url: routes.project.index,
-                blank: false,
-            },
-            {
-                title: 'News',
-                url: routes.news.index,
-                blank: false,
-            },
-            {
-                title: 'Contact us',
-                url: routes.contact,
-                blank: false,
-            }
-        ]
+    {
+        title: 'Services',
+        url: routes.services,
+        blank: false,
     },
     {
-        title: 'Social',
-        list: [
-            {
-                title: 'Facebook',
-                url: 'https://www.facebook.com/GeoGlobalEngineeringOffice/',
-                blank: true,
-            },
-            {
-                title: 'Linkedin',
-                url: 'https://www.linkedin.com/company/geo-global-engineering-office',
-                blank: true,
-            },
-            {
-                title: 'Instagram',
-                url: 'https://instagram.com/p/BUFaH2gjPvR',
-                blank: true,
-            },
-            // {
-            //     title: 'Pinterest',
-            //     url: 'https://www.pinterest.com/',
-            //     blank: true,
-            // },
-            // {
-            //     title: 'Twitter',
-            //     url: 'https://twitter.com/',
-            //     blank: true,
-            // }
-        ]
+        title: 'About',
+        url: routes.about,
+        blank: false,
     },
     {
-        title: 'Offices',
-        list: [
-            {
-                title: 'Dubai, UAE',
-                url: routes.contact,
-                blank: false,
-            },
-            {
-                title: 'Abu Dhabi Branch',
-                url: routes.contact,
-                blank: false,
-            },
-            {
-                title: 'Lebanon',
-                url: routes.contact,
-                blank: false,
-            },
-            {
-                title: 'KSA',
-                url: routes.contact,
-                blank: false,
-            },
-            {
-                title: 'Egypt',
-                url: routes.contact,
-                blank: false,
-            },
-            {
-                title: 'Iraq',
-                url: routes.contact,
-                blank: false,
-            }
-        ]
+        title: 'Project',
+        url: routes.project.index,
+        blank: false,
+    },
+    {
+        title: 'News',
+        url: routes.news.index,
+        blank: false,
+    },
+    {
+        title: 'Contact us',
+        url: routes.contact,
+        blank: false,
     }
 ];

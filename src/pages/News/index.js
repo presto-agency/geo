@@ -6,6 +6,7 @@ import {getNews} from "store/news/actions";
 import Pagination from "react-js-pagination";
 import paginationParams from "constants/paginationParams";
 import {locoScroll} from "components/SmoothScroll";
+import SplitTitle from "components/SplitTitle";
 
 import NewsList from "./List";
 import FilterSearch from "./Filters/Search";
@@ -70,7 +71,9 @@ const NewsPage = () => {
                         <div className="col-xl-9">
                             <div className="hero-content">
                                 <p className="label label-uppercase fade">Our news</p>
-                                <h1 className="h-1 hero-content-title split-title">News </h1>
+                                <h1 className="h-1 hero-content-title split-text">
+                                    <SplitTitle>News</SplitTitle>
+                                </h1>
                             </div>
                         </div>
                     </div>

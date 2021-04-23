@@ -11,6 +11,7 @@ import disciplines from "store/disciplines/reducers";
 import contact from "store/contact/reducers";
 import projects from "store/projects/reducers";
 import homePage from "store/homePage/reducers";
+import social from "store/social/reducers";
 
 export default combineReducers({
     router: connectRouter(history),
@@ -23,5 +24,6 @@ export default combineReducers({
     about,
     disciplines,
     contact,
-    projects
+    projects,
+    social
 });

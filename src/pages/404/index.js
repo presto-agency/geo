@@ -2,8 +2,9 @@ import React from 'react';
 import MetaTags from "react-meta-tags";
 import { Link } from 'react-router-dom';
 
-import houston from 'assets/images/houston.jpg';
 import routes from 'routes';
+import SplitTitle from "components/SplitTitle";
+import houston from 'assets/images/houston.jpg';
 
 const PageNotFound = () => {
     return (
@@ -19,7 +20,9 @@ const PageNotFound = () => {
                     <div className="row">
                         <div className="col-xl-6">
                             <div className="pnf-content">
-                                <h2 className="pnf-content-title h-2 split-title">Houston, we have a problem!</h2>
+                                <h2 className="pnf-content-title h-2 split-text">
+                                    <SplitTitle>Houston, we have a problem!</SplitTitle>
+                                </h2>
                                 <p className="pnf-content-description fade">Error 404, the page you are looking for doesn't exist.</p>
                                 <div className="pnf-content-action fade">
                                     <Link to={routes.index} className="link-btn">Take me home</Link>

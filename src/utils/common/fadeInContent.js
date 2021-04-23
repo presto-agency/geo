@@ -14,7 +14,7 @@ export const fadeInContent = () => {
         Tween.fromTo(elements[i], {
             opacity: 0,
         }, {
-            delay: 0.2,
+            // delay: 0.2,
             y: 0,
             opacity: 1,
             duration: 2,

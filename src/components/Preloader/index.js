@@ -4,7 +4,7 @@ const Preloader = () => {
     return (
         <div className="container">
             <div className="preloader">
-                Loading...
+                {/*Loading...*/}
             </div>
         </div>
     )

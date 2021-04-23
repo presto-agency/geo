@@ -12,9 +12,9 @@ const HeroInner = ({ title, label, toScroll }) => {
                     <div className="col-lg-8">
                         <div className="hero-content">
                             <p className="label label-uppercase fade">{label}</p>
-                            <SplitTitle>
-                                <h1 className="h-1 hero-content-title split-title">{title}</h1>
-                            </SplitTitle>
+                            <h1 className="h-1 hero-content-title split-text">
+                                <SplitTitle>{title}</SplitTitle>
+                            </h1>
                         </div>
                     </div>
                     <div className="col-lg-4">

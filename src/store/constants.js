@@ -86,3 +86,10 @@ Home page
 export const GET_HOMEPAGE_START = 'GET_HOMEPAGE_START';
 export const GET_HOMEPAGE_END = 'GET_HOMEPAGE_END';
 export const GET_HOMEPAGE_ERROR = 'GET_HOMEPAGE_ERROR';
+
+/*
+Social links
+ */
+export const GET_SOCIAL_START = 'GET_SOCIAL_START';
+export const GET_SOCIAL_END = 'GET_SOCIAL_END';
+export const GET_SOCIAL_ERROR = 'GET_SOCIAL_ERROR';

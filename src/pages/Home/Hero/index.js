@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import HeroCarousel from './carousel';
 import {locoScroll} from "components/SmoothScroll";
 import SplitTitle from "components/SplitTitle";
+import {setUniqueOfficesArray} from "utils/setUniqueOfficesArray";
 
-const Hero = ({ data: { title, subTitle, topImages } }) => {
+const Hero = ({ data: { title, subTitle, topImages, offices } }) => {
+
+    const [uniqCountries, setUniqCountries] = useState([]);
+
+    useEffect(() => {
+        if(!!offices) {
+            setUniqCountries(setUniqueOfficesArray(offices));
+        }
+    }, [offices]);
 
     return (
         <section className="section hero">
@@ -42,12 +51,11 @@ const Hero = ({ data: { title, subTitle, topImages } }) => {
                             <div className="hero-offices fade">
                                 <p className="hero-offices-title">Our offices:</p>
                                 <div className="hero-offices-list">
-                                    <span className="hero-office-title">UAE</span>
-                                    <span className="hero-office-title">Abu Dhabi Branch</span>
-                                    <span className="hero-office-title">Lebanon</span>
-                                    <span className="hero-office-title">Egypt</span>
-                                    <span className="hero-office-title">KSA</span>
-                                    <span className="hero-office-title">Iraq</span>
+                                    {
+                                        uniqCountries.map((country, key) => (
+                                            <span className="hero-office-title" key={key}>{country}</span>
+                                        ))
+                                    }
                                 </div>
                             </div>
                         </div>

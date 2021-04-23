@@ -10,23 +10,6 @@ import {horizontalMoving} from "utils/parallax/horizontalMoving";
 
 export const routeIn = (pathname, node, appears) => {
 
-    //init split title
-    // const title = document.querySelector('.split-title');
-    // let childSplit;
-    // let splitWords;
-    // if(!!title) {
-    //     childSplit = new SplitTextJS(title, {
-    //         type: 'lines'
-    //     });
-    //     splitWords = childSplit.words;
-    //     Tween.set(splitWords, {
-    //         yPercent: 50,
-    //         opacity: 0,
-    //     });
-    // }
-    //end init split title
-
-
     Tween.set(node, {
         opacity: 0,
     });
@@ -49,16 +32,6 @@ export const routeIn = (pathname, node, appears) => {
                 horizontalMoving();
 
                 //animation on load page
-                //display split title
-                // if(!!title) {
-                //     Tween.to(splitWords, {
-                //         duration: 1,
-                //         yPercent: 0,
-                //         opacity: 1,
-                //         ease: Power2.easeOut,
-                //         stagger: 0.1
-                //     });
-                // }
                 scaleIn();
                 fadeInContent();
                 locoScroll.update();
