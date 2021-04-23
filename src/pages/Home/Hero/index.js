@@ -1,18 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import HeroCarousel from './carousel';
 import {locoScroll} from "components/SmoothScroll";
+import SplitTitle from "components/SplitTitle";
 
-const Hero = () => {
+const Hero = ({ data: { title, subTitle, topImages } }) => {
+
     return (
         <section className="section hero">
-            <HeroCarousel />
+            <HeroCarousel defaultImages={topImages} />
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8">
                         <div className="hero-content">
-                            <p className="label label-uppercase fade">Welcome we are</p>
-                            <h1 className="h-1 hero-content-title split-title">Global Engineering Office</h1>
+                            <p className="label label-uppercase fade">{subTitle}</p>
+                            <h1 className="h-1 hero-content-title split-text">
+                                <SplitTitle>{title}</SplitTitle>
+                            </h1>
                         </div>
                         <div className="follow fade">
                             <button
@@ -54,3 +59,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
+Hero.propTypes = {
+    data: PropTypes.object.isRequired
+};

@@ -39,9 +39,9 @@ const ArticlePage = ({ match }) => {
                         <div className="col-xl-12">
                             <div className="hero-content">
                                 <p className="label label-uppercase fade">{data.category}</p>
-                                <SplitTitle>
-                                    <h1 className="h-2 hero-content-title split-title">{data.title}</h1>
-                                </SplitTitle>
+                                <h1 className="h-2 hero-content-title split-text">
+                                    <SplitTitle>{data.title}</SplitTitle>
+                                </h1>
                             </div>
                         </div>
                     </div>

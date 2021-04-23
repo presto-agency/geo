@@ -5,13 +5,18 @@ import App from 'components/App';
 import reportWebVitals from './reportWebVitals';
 import store from 'store';
 import ErrorBoundary from "components/ErrorBoundary";
+import { ContextProvider } from 'components/Context';
 import 'assets/sass/index.scss';
+
+const _baseURL = process.env.REACT_APP_API_URL;
 
 render(
     <Provider store={store}>
         <React.StrictMode>
             <ErrorBoundary>
-                <App />
+                <ContextProvider value={_baseURL}>
+                    <App />
+                </ContextProvider>
             </ErrorBoundary>
         </React.StrictMode>
     </Provider>,

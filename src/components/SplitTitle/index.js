@@ -1,42 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import Tween, { Power2 } from 'gsap';
-import SplitTextJS from 'split-text-js';
 
 const SplitTitle = (props) => {
 
-    const title = React.createRef();
+    const title = props.children;
 
     useEffect(() => {
-
-        const titleText = title.current.querySelector('.split-title');
-
-        let childSplit;
-        let splitWords;
-            childSplit = new SplitTextJS(titleText, {
-                type: 'lines'
-            });
-            splitWords = childSplit.words;
-            Tween.set(splitWords, {
+        if(!!props.children) {
+            const words = document.querySelectorAll('.split-text-word');
+            Tween.set(words, {
                 yPercent: 50,
                 opacity: 0,
                 onComplete: () => {
                     setTimeout(() => {
-                        Tween.to(splitWords, {
+                        Tween.to(words, {
                             duration: 1,
                             yPercent: 0,
                             opacity: 1,
                             ease: Power2.easeOut,
                             stagger: 0.1
                         });
-                    }, 500);
+                    }, 200);
                 }
             });
+        }
+    }, [props.children]);
 
-    }, [title]);
+    if(!!props.children) {
+        return (
+            <Fragment>
+                {
+                    title.split(' ').map((word, key) => {
+                        return <span className="split-text-word" key={key}>{word}</span>
+                    })
+                }
+            </Fragment>
+        )
+    }
 
-    return (
-        <div ref={title}>{props.children}</div>
-    )
+    return <Fragment />
 };
 
 export default SplitTitle;

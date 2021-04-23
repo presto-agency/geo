@@ -473,3 +473,15 @@ body{
       display: none;
     }
 }
+
+.split{
+  &-text{
+    display: flex;
+    flex-wrap: wrap;
+      &-word{
+        &:not(:last-child){
+          margin-right: 10px;
+        }
+      }
+  }
+}

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 
-const _baseURL = process.env.REACT_APP_API_URL;
+import WithBaseUrl  from 'components/Hoc/withBaseUrl';
 
-const HeroCarousel = () => {
+const HeroCarousel = ({ defaultImages, baseUrl }) => {
 
     const settings = {
         dots: false,
@@ -11,24 +12,43 @@ const HeroCarousel = () => {
         infinite: true,
         speed: 1000,
         fade: true,
-        cssEase: 'ease',
+        cssEase: 'cubic-bezier(0.6, 0, 0.36, 1)',
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 5000,
-        lazyLoad: true
+        autoplaySpeed: 3000,
+        lazyLoad: true,
+        pauseOnHover: false
     };
+
+    if(!defaultImages) {
+        return <Fragment />
+    }
 
     return (
         <Slider className="hero-carousel" {...settings}>
-            <div className="hero-carousel-slide scale">
-                <img src={`${_baseURL}/uploads/Sport_Academy_f95c36b200.jpg`} alt=""/>
-            </div>
-            <div className="hero-carousel-slide">
-                <img src={`${_baseURL}/uploads/zabeel_DCP_ae0d7172ad.jpg`} alt=""/>
-            </div>
+            {
+                defaultImages.map((image, key) => (
+                    <div className="hero-carousel-slide" key={key}>
+                        <img
+                            srcSet={`
+                                ${baseUrl + image.url} 1920w,
+                                ${baseUrl + image.formats.medium.url} 576w`}
+                            sizes="
+                                (max-width: 1920px) 1920w,
+                                (max-width: 576px) 576w"
+                            src={baseUrl + image.url}
+                            alt={image.alternativeText || image.hash}
+                        />
+                    </div>
+                ))
+            }
         </Slider>
     )
 };
 
-export default HeroCarousel;
+export default WithBaseUrl()(HeroCarousel);
+
+HeroCarousel.propsTypes = {
+    defaultImages: PropTypes.array.isRequired
+};

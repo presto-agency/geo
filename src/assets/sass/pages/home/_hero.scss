@@ -6,6 +6,7 @@
       z-index: 1;
         &-title{
           padding-top: 31px;
+          max-width: 800px;
         }
     }
     &-detail{
@@ -73,6 +74,9 @@
               object-fit: cover;
               object-position: center;
               pointer-events: none;
+              will-change: transform;
+              transform: scale(1.2);
+              transition: transform 2s ease;
             }
             @include d(1700){
               height: 959px;
@@ -90,6 +94,11 @@
         @include d(991){
           & div{
             height: 100%;
+          }
+        }
+        .slick-current{
+          img{
+            transform: scale(1);
           }
         }
     }

@@ -53,4 +53,4 @@ export default [
             webp: '/uploads/Food_industry_md_3496ff16db.webp'
         }
     }
-]
+] 

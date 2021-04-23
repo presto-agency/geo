@@ -27,8 +27,9 @@ const HomePage = () => {
     useEffect(() => {
         if(isEmpty(data)) {
             dispatch(getHomePage());
-        } else {
-            locoScroll.update();
+            setTimeout(() => {
+                locoScroll.update();
+            }, 1000);
         }
     }, [dispatch]);
 
@@ -40,7 +41,7 @@ const HomePage = () => {
                 <meta property="og:title" content="Global Engineering Office" />
                 <meta property="og:image" content={logo} />
             </MetaTags>
-            <Hero />
+            <Hero data={data} />
             <AboutDetail data={data} />
             <Suspense fallback={<Preloader />}>
                 <Clients data={data.clientLogos || {}} />
