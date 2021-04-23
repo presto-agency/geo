@@ -53,7 +53,9 @@ const Hero = ({ data: { title, subTitle, topImages, offices } }) => {
                                 <div className="hero-offices-list">
                                     {
                                         uniqCountries.map((country, key) => (
-                                            <span className="hero-office-title" key={key}>{country}</span>
+                                            <span
+                                                className="hero-office-title"
+                                                key={key}>{country.replace('_', ' ')}</span>
                                         ))
                                     }
                                 </div>

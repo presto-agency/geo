@@ -86,7 +86,7 @@ const Footer = () => {
                                             <li key={key}>
                                                 <Link
                                                     to={routes.contact}
-                                                    className="link office-title">{country}</Link>
+                                                    className="link office-title">{country.replace('_', ' ')}</Link>
                                             </li>
                                         ))
                                     }

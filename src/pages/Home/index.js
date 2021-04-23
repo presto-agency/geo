@@ -39,11 +39,7 @@ const HomePage = ({ baseUrl }) => {
                 <title>{data.title}</title>
                 <meta name="description" content={data.leftDescription} />
                 <meta property="og:title" content={data.title} />
-                {
-                    !isEmpty(data)
-                    ? <meta property="og:image" content={baseUrl + data.topImages[0].formats.small.url} />
-                    : null
-                }
+                <meta property="og:image" content="http://164.90.162.188/uploads/Double_Tree_by_HILTON_Front_View_md_8aad79d9cb.jpg" />
                 <meta property="og:url" content={window.location.href} />
                 <meta property="og:description" content={data.leftDescription} />
             </MetaTags>
