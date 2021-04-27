@@ -71,5 +71,5 @@ const Hero = ({ data: { title, subTitle, topImages, offices } }) => {
 export default Hero;
 
 Hero.propTypes = {
-    data: PropTypes.object.isRequired
+    data: PropTypes.object
 };

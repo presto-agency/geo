@@ -8,7 +8,6 @@ import {isEmpty} from "utils/detectEmptyObject";
 import {getHomePage} from "store/homePage/actions";
 import Preloader from "components/Preloader";
 import {locoScroll} from "components/SmoothScroll";
-import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 
@@ -19,7 +18,7 @@ const Videos            = lazy(() => import("./Videos"));
 const Contact           = lazy(() => import("./Contact"));
 const FootBanner        = lazy(() => import("components/FootBanner"));
 
-const HomePage = ({ baseUrl }) => {
+const HomePage = () => {
 
     const dispatch = useDispatch();
     const { data } = useSelector((state) => state.homePage);
@@ -43,13 +42,13 @@ const HomePage = ({ baseUrl }) => {
                 <meta property="og:url" content={window.location.href} />
                 <meta property="og:description" content={data.leftDescription} />
             </MetaTags>
-            <Hero data={data} />
+            <Hero data={data || {}} />
             <AboutDetail data={data} />
             <Suspense fallback={<Preloader />}>
-                <Clients data={data.clientLogos || {}} />
-                <Disciplines />
+                <Clients defaultLogos={data.clientLogos || []} webpLogos={data.webpLogos || []} />
+                <Disciplines data={data.disciplines || []} />
                 <Services />
-                <Videos />
+                <Videos data={data.projects || []} />
                 <Contact />
                 <FootBanner src={footerBanner} />
             </Suspense>
@@ -57,4 +56,4 @@ const HomePage = ({ baseUrl }) => {
     )
 };
 
-export default WithBaseUrl()(HomePage);
+export default HomePage;

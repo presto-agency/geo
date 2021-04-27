@@ -9,7 +9,7 @@ function* getHomePage() {
         const data = yield call(apiClient.getHome);
         yield put({
             type: GET_HOMEPAGE_END,
-            payload: data
+            payload: data[0]
         });
     } catch ({ message }) {
         yield put({

@@ -1,17 +1,46 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {useDispatch} from "react-redux";
 import Slider from 'react-slick';
+
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 import CarouselNav from "components/CarouselNav";
 import CarouselPagination from "components/CarouselPagination";
-import {stopPlayingAllVideos} from "store/videos/actions";
-import ProjectSlide from "./Slide";
+import ProjectVideo from "./Video";
 
-const ProjectsCarousel = ({ data }) => {
+const ProjectsCarousel = ({ data, baseUrl }) => {
 
-    const dispatch = useDispatch();
     const [currentSlide, setCurrentSlide] = useState(1);
     const [totalSlides, setTotalSlides] = useState(data.length);
+    const [projects, setProjects] = useState([]);
+
+    useEffect(() => {
+        data.map(project => {
+           setProjects(projects => [...projects, { ...project, youtubeVideoPlaying: false }]);
+        });
+    }, [data]);
+
+    useEffect(() => {
+        console.log(projects);
+    }, [projects]);
+
+    const togglePlayingVideo = (project) => {
+        // setProjects(projects => [...projects, project]);
+        setProjects(
+            projects.map(
+                (option) => option.id === project.id ? { ...option, youtubeVideoPlaying : !option.youtubeVideoPlaying } : option
+            )
+        );
+    };
+
+    const stopPlayAllVideos = () => {
+        projects.forEach(project => {
+            Object.defineProperty(project, 'youtubeVideoPlaying', {
+                value: false,
+                writable: true
+            });
+        });
+        return projects;
+    };
 
     const carousel = React.createRef();
     const settings = {
@@ -26,18 +55,11 @@ const ProjectsCarousel = ({ data }) => {
         lazyLoad: true,
         beforeChange: (index, nextIndex) => {
             setCurrentSlide(nextIndex + 1);
-            dispatch(stopPlayingAllVideos(stopAllPlaying()));
+            setProjects(stopPlayAllVideos);
         },
-    };
+        afterChange: () => {
 
-    const stopAllPlaying = () => {
-        data.forEach(project => {
-            Object.defineProperty(project.video, 'playing', {
-                value: false,
-                writable: true
-            });
-        });
-        return data;
+        }
     };
 
     const next = () => {
@@ -64,8 +86,33 @@ const ProjectsCarousel = ({ data }) => {
             </div>
             <Slider ref={carousel} className="projects-carousel" {...settings}>
                 {
-                    data.map((project, key) => (
-                        <ProjectSlide project={project} key={key} />
+                    projects.map((project, key) => (
+                        <div className="projects-carousel-slide" key={key}>
+                            <div className="project">
+                                <div className="project-preview">
+                                    { !!project.youtubeVideoLink
+                                        ? <ProjectVideo
+                                            project={project}
+                                            baseUrl={baseUrl}
+                                            togglePlaying={togglePlayingVideo} />
+                                        : <img
+                                            src={baseUrl + project.topImage.formats.large.url || ''}
+                                            alt={project.name} /> }
+                                </div>
+                                <div className="project-content">
+                                    <div className="project-content-title">
+                                        <p className="project-title h-6">{project.name}</p>
+                                        <div className="project-tags">
+                                            {!!project.countryData ? <p className="project-tag" >{project.countryData.name}</p> : null }
+                                            {!!project.city ? <p className="project-tag" >{project.city}</p> : null }
+                                        </div>
+                                    </div>
+                                    <div className="project-content-description">
+                                        <p className="project-description">{project.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     ))
                 }
             </Slider>
@@ -73,7 +120,7 @@ const ProjectsCarousel = ({ data }) => {
     )
 };
 
-export default ProjectsCarousel;
+export default WithBaseUrl()(ProjectsCarousel);
 
 ProjectsCarousel.propTypes = {
     data: PropTypes.array.isRequired
