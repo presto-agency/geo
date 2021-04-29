@@ -19,7 +19,7 @@ const SimilarProjects = ({ disciplineId, projectId }) => {
     }
 
     return (
-        <section className="section">
+        <section className="section similar">
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">

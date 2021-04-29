@@ -1,51 +1,14 @@
-import React, { useState } from 'react';
-// import ReactPlayer from "react-player";
+import React  from 'react';
 
-const _baseURL = process.env.REACT_APP_API_URL;
-
-const ProjectPageCarouselSlide = ({ project }) => {
-
-    const [loaded, setLoaded] = useState(false);
-    const [playing, setPlaying] = useState(false);
-
-    const handleTogglePlaying = () => {
-        setPlaying(!playing);
-    };
+const ProjectPageCarouselSlide = ({ project, baseUrl }) => {
 
     return (
         <div className="projects-carousel-slide">
             <div className="project">
                 <div className="project-preview">
-                    {/*{ !!project.video.url*/}
-                    {/*    ? (*/}
-                    {/*        <div className={`video ${loaded ? 'loaded' : ''} ${playing ? 'playing' : ''} `}>*/}
-                    {/*            <ReactPlayer*/}
-                    {/*                url={project.video.url}*/}
-                    {/*                playing={playing}*/}
-                    {/*                playsinline={true}*/}
-                    {/*                onReady={() => setLoaded(true)}*/}
-                    {/*                config={{*/}
-                    {/*                    youtube: {*/}
-                    {/*                        playerVars: {*/}
-                    {/*                            showinfo: 0*/}
-                    {/*                        }*/}
-                    {/*                    },*/}
-                    {/*                }}*/}
-                    {/*                width="100%"*/}
-                    {/*                height="100%"*/}
-                    {/*            />*/}
-                    {/*            <div className="video-poster">*/}
-                    {/*                <img src={project.poster} alt={project.title} />*/}
-                    {/*            </div>*/}
-                    {/*            <div className={`video-btn ${playing ? '__pause' : '__play'}`} onClick={handleTogglePlaying} />*/}
-                    {/*        </div>*/}
-                    {/*    )*/}
-                    {/*    : <img*/}
-                    {/*        src={project.preview}*/}
-                    {/*        alt={project.title} /> }*/}
                     <img
-                        src={_baseURL + project.formats.large.url}
-                        alt={!!project.alternativeText ? project.alternativeText : project.name} />
+                        src={baseUrl + project.formats.large.url}
+                        alt={project.alternativeText || project.name} />
                 </div>
             </div>
         </div>

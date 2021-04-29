@@ -5,8 +5,8 @@
   position: relative;
     &-offices{
       position: absolute;
-      bottom: 114px;
-      left: 79%;
+      top: 73%;
+      left: 80%;
         &-list{
           margin-top: 16px;
             li{
@@ -29,6 +29,19 @@
                   transition: opacity .4s ease, transform .4s ease;
                   pointer-events: none;
                 }
+                p{
+                  font-size: 14px;
+                  max-width: 192px;
+                  white-space: normal;
+                  display: none;
+                  margin-top: 10px;
+                    &:last-child{
+                      margin-bottom: 15px;
+                    }
+                    @include d(480){
+                      font-size: 12px;
+                    }
+                }
                 &.active,
                 &:hover{
                   color: $blue;
@@ -37,19 +50,24 @@
                       opacity: 1;
                       transform: translate(0);
                     }
+                    p{
+                      display: block;
+                    }
                 }
             }
         }
+        &-btn{
+          @include d(480){
+            font-size: 12px;
+          }
+        }
         @include d(991){
-          bottom: 40px;
           left: 75%;
         }
         @include d(767){
-          bottom: -25px;
           left: 70%;
         }
         @include d(480){
-          bottom: -95px;
           left: 60%;
         }
     }

@@ -11,36 +11,21 @@ const ProjectsCarousel = ({ data, baseUrl }) => {
 
     const [currentSlide, setCurrentSlide] = useState(1);
     const [totalSlides, setTotalSlides] = useState(data.length);
-    const [projects, setProjects] = useState([]);
+    // const [projects, setProjects] = useState([]);
 
-    useEffect(() => {
-        data.map(project => {
-           setProjects(projects => [...projects, { ...project, youtubeVideoPlaying: false }]);
-        });
-    }, [data]);
+    // useEffect(() => {
+    //     data.map(project => {
+    //        setProjects(projects => [...projects, { ...project, youtubeVideoPlaying: false }]);
+    //     });
+    // }, [data]);
 
-    useEffect(() => {
-        console.log(projects);
-    }, [projects]);
-
-    const togglePlayingVideo = (project) => {
-        // setProjects(projects => [...projects, project]);
-        setProjects(
-            projects.map(
-                (option) => option.id === project.id ? { ...option, youtubeVideoPlaying : !option.youtubeVideoPlaying } : option
-            )
-        );
-    };
-
-    const stopPlayAllVideos = () => {
-        projects.forEach(project => {
-            Object.defineProperty(project, 'youtubeVideoPlaying', {
-                value: false,
-                writable: true
-            });
-        });
-        return projects;
-    };
+    // const togglePlayingVideo = (project) => {
+    //     setProjects(
+    //         projects.map(
+    //             (option) => option.id === project.id ? { ...option, youtubeVideoPlaying : !option.youtubeVideoPlaying } : option
+    //         )
+    //     );
+    // };
 
     const carousel = React.createRef();
     const settings = {
@@ -55,10 +40,6 @@ const ProjectsCarousel = ({ data, baseUrl }) => {
         lazyLoad: true,
         beforeChange: (index, nextIndex) => {
             setCurrentSlide(nextIndex + 1);
-            setProjects(stopPlayAllVideos);
-        },
-        afterChange: () => {
-
         }
     };
 
@@ -86,17 +67,18 @@ const ProjectsCarousel = ({ data, baseUrl }) => {
             </div>
             <Slider ref={carousel} className="projects-carousel" {...settings}>
                 {
-                    projects.map((project, key) => (
+                    data.map((project, key) => (
                         <div className="projects-carousel-slide" key={key}>
                             <div className="project">
                                 <div className="project-preview">
                                     { !!project.youtubeVideoLink
                                         ? <ProjectVideo
                                             project={project}
-                                            baseUrl={baseUrl}
-                                            togglePlaying={togglePlayingVideo} />
+                                            baseUrl={baseUrl} />
                                         : <img
-                                            src={baseUrl + project.topImage.formats.large.url || ''}
+                                            src={!!project.topImage
+                                                ? baseUrl + project.topImage.formats.large.url
+                                                : 'https://via.placeholder.com/300/?text=GEO project'}
                                             alt={project.name} /> }
                                 </div>
                                 <div className="project-content">

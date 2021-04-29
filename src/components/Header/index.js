@@ -36,7 +36,7 @@ const Header = () => {
                                         <NavLink
                                             key={link.url}
                                             to={link.url}
-                                            className="link"
+                                            className={`link ${link.displayOnMobile ? 'display-xs' : ''}`}
                                         >{link.title}</NavLink>
                                     ))
                                 }

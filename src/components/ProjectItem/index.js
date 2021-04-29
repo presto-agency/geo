@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 import routes from 'routes';
 
-const _baseURL = process.env.REACT_APP_API_URL;
-
-const ProjectItem = ({ project: { id, name, topImage, city, countryData } }) => {
+const ProjectItem = ({ project: { id, name, topImage, city, countryData }, baseUrl }) => {
 
     return (
         <div className="project project-item">
             <Link to={`${routes.project.index}/${id}`} className="project-preview">
                 <div className="project-preview-box">
                     <img
-                        src={!!topImage ? _baseURL + topImage.url : 'https://via.placeholder.com/300/?text=GEO project'}
+                        src={!!topImage ? baseUrl + topImage.url : 'https://via.placeholder.com/300/?text=GEO project'}
                         alt={name}
                     />
                 </div>
@@ -30,7 +29,7 @@ const ProjectItem = ({ project: { id, name, topImage, city, countryData } }) => 
     )
 };
 
-export default ProjectItem;
+export default WithBaseUrl()(ProjectItem);
 
 ProjectItem.propTypes = {
     project: PropTypes.object.isRequired

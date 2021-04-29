@@ -37,12 +37,20 @@ const Switcher = () => {
 
     const tabsSettings = {
         dots: false,
-        arrows: false,
+        arrows: true,
         infinite: false,
         speed: 700,
         cssEase: 'ease',
         slidesToShow: 6,
         slidesToScroll: 2,
+        responsive: [
+            {
+                breakpoint: 1201,
+                settings: {
+                    slidesToShow: 4,
+                }
+            },
+        ]
     };
 
     const settings = {

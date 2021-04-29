@@ -721,7 +721,14 @@ const Map = () => {
                                 key={key}
                                 onMouseEnter={() => handleHover(country)}
                                 onMouseLeave={() => handleLeave()}
-                            >{country.toUpperCase().replace('_', ' ')}</li>
+                            >
+                                {country.toUpperCase().replace('_', ' ')}
+                                {
+                                    data.filter(office => office.country === country.toUpperCase()).map((office, key) => (
+                                        <p key={key}>{office.address}</p>
+                                    ))
+                                }
+                            </li>
                         ))
                     }
                 </ul>

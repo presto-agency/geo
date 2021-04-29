@@ -63,6 +63,9 @@
     }
     &.playing{
       z-index: 1;
+        .video-btn{
+          opacity: 0;
+        }
     }
     &:hover{
       .video{

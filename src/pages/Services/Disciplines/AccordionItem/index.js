@@ -6,7 +6,7 @@ import ProjectAccordion from "../Project";
 
 const apiClient = new ApiClient();
 
-const DisciplineSingleAccordion = ({ item: { title, description, category } }) => {
+const DisciplineSingleAccordion = ({ item: { id, name, description } }) => {
 
     const [collapsed, setCollapsed] = useState(true);
     const [projects, setProjects] = useState([]);
@@ -14,7 +14,7 @@ const DisciplineSingleAccordion = ({ item: { title, description, category } }) =
     const handleToggle = () => {
         if(collapsed) {
             setCollapsed(false);
-            apiClient.getProjects(0, category, '', '')
+            apiClient.getProjectByDisciplineId({disciplineId: id})
                 .then(data => setProjects(data))
                 .catch(error => console.error(error));
         } else {
@@ -26,12 +26,11 @@ const DisciplineSingleAccordion = ({ item: { title, description, category } }) =
         }, 100);
     };
 
-
     return (
         <div className={`accordion ${collapsed ? '' : 'active'}`}>
             <div className="accordion-header">
                 <div className="accordion-header-title">
-                    <p className="h-2">{title}</p>
+                    <p className="h-2">{name}</p>
                 </div>
                 <div className="accordion-header-btn" onClick={handleToggle}>
                     <svg width="26" height="15" viewBox="0 0 26 15" fill="none" xmlns="http://www.w3.org/2000/svg">

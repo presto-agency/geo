@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 import routes from 'routes'
 
-const _baseURL = process.env.REACT_APP_API_URL;
-
-const ProjectAccordion = ({ project: { id, topImage, name, countryData, city } }) => {
+const ProjectAccordion = ({ project: { id, topImage, name, countryData, city }, baseUrl }) => {
     return (
         <div className="accordion-projects-box">
             <div className="project project-accordion">
                 <Link to={`${routes.project.index}/${id}`} className="project-preview parallax">
                     <div className="project-preview-box">
                         <img
-                            src={!!topImage ? _baseURL + topImage.url : 'https://via.placeholder.com/300/?text=GEO project'}
+                            src={!!topImage ? baseUrl + topImage.url : 'https://via.placeholder.com/300/?text=GEO project'}
                             alt={name}
                         />
                     </div>
@@ -37,4 +36,4 @@ const ProjectAccordion = ({ project: { id, topImage, name, countryData, city } }
     )
 };
 
-export default ProjectAccordion;
+export default WithBaseUrl()(ProjectAccordion);

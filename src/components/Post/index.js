@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 import routes from 'routes'
 
-const _baseURL = process.env.REACT_APP_API_URL;
-
-const Post = ({ post: { id, topImage, title, description, tags } }) => {
+const Post = ({ post: { id, topImage, title, description, tags }, baseUrl }) => {
     return (
         <div className="post">
             <Link to={`${routes.news.index}/${id}`} className="post-preview">
                 <div className="post-preview-box">
                     <img
-                        src={!!topImage ? _baseURL + topImage.url : 'https://via.placeholder.com/300/?text=GEO article'}
+                        src={!!topImage ? baseUrl + topImage.url : 'https://via.placeholder.com/300/?text=GEO article'}
                         alt={title}
                     />
                 </div>
@@ -36,7 +35,7 @@ const Post = ({ post: { id, topImage, title, description, tags } }) => {
     )
 };
 
-export default Post;
+export default WithBaseUrl()(Post);
 
 Post.propTypes = {
     post: PropTypes.object.isRequired

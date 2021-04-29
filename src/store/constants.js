@@ -88,6 +88,13 @@ export const GET_HOMEPAGE_END = 'GET_HOMEPAGE_END';
 export const GET_HOMEPAGE_ERROR = 'GET_HOMEPAGE_ERROR';
 
 /*
+Services page
+ */
+export const GET_SERVICES_PAGE_START = 'GET_SERVICES_PAGE_START';
+export const GET_SERVICES_PAGE_END = 'GET_SERVICES_PAGE_END';
+export const GET_SERVICES_PAGE_ERROR = 'GET_SERVICES_PAGE_ERROR';
+
+/*
 Social links
  */
 export const GET_SOCIAL_START = 'GET_SOCIAL_START';

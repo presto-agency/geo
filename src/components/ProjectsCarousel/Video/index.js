@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import ReactPlayer from "react-player";
 
-const ProjectVideo = ({ project, baseUrl, togglePlaying }) => {
+const ProjectVideo = ({ project, baseUrl }) => {
 
     const [canPlay, setCanPlay] = useState(false);
+    const [playing, setPlaying] = useState(false);
 
     const handleTogglePlaying = () => {
-        project.youtubeVideoPlaying = !project.youtubeVideoPlaying;
-        togglePlaying(project);
+        setPlaying(!playing);
         setCanPlay(true);
     };
 
     return (
-        <div className="video loaded playing">
+        <div className={`video ${canPlay ? 'loaded' : ''} ${playing ? 'playing' : ''}`}>
             {
                 canPlay
                 ? (
                     <ReactPlayer
                         url={project.youtubeVideoLink}
-                        playing={project.youtubeVideoPlaying}
+                        playing={playing}
                         playsinline={true}
-                        // onReady={() => setPlaying(true)}
                         config={{
                             youtube: {
                                 playerVars: {
@@ -38,7 +37,7 @@ const ProjectVideo = ({ project, baseUrl, togglePlaying }) => {
             <div className="video-poster">
                 <img src={baseUrl + project.topImage.formats.large.url || ''} alt={project.name} />
             </div>
-            <div className="video-btn" onClick={handleTogglePlaying} />
+            <div className={`video-btn ${playing ? '__pause' : '__play'}`} onClick={handleTogglePlaying} />
         </div>
     )
 };

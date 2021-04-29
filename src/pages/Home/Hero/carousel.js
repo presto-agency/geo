@@ -30,16 +30,17 @@ const HeroCarousel = ({ defaultImages, baseUrl }) => {
             {
                 defaultImages.map((image, key) => (
                     <div className="hero-carousel-slide" key={key}>
-                        <img
-                            srcSet={`
-                                ${baseUrl + image.url} 1920w,
-                                ${baseUrl + image.formats.medium.url} 576w`}
-                            sizes="
-                                (max-width: 1920px) 1920w,
-                                (max-width: 576px) 576w"
-                            src={baseUrl + image.url}
-                            alt={image.alternativeText || image.hash}
-                        />
+                        {/*<img*/}
+                        {/*    srcSet={`*/}
+                        {/*        ${baseUrl + image.url} 1920w,*/}
+                        {/*        ${baseUrl + image.formats.medium.url} 576w`}*/}
+                        {/*    sizes="*/}
+                        {/*        (max-width: 1920px) 1920w,*/}
+                        {/*        (max-width: 576px) 576w"*/}
+                        {/*    src={baseUrl + image.url}*/}
+                        {/*    alt={image.alternativeText || image.hash}*/}
+                        {/*/>*/}
+                        <img src={baseUrl + image.url} alt={image.alternativeText || image.hash} />
                     </div>
                 ))
             }

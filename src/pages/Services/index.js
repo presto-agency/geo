@@ -1,4 +1,5 @@
-import React  from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import MetaTags from "react-meta-tags";
 
 import HeroInner from "components/HeroInner";
@@ -6,9 +7,22 @@ import Detail from "./Detail";
 import Switcher from "./Switcher";
 import DisciplinesAccordion from "./Disciplines";
 import FootBanner  from "components/FootBanner";
+import {isEmpty} from "utils/detectEmptyObject";
+import {getServicesPage} from "store/servicesPage/actions";
 import footerBanner from 'assets/images/services/Caterpillar.jpg';
 
 const ServicesPage = () => {
+
+    const dispatch = useDispatch();
+    const { data } = useSelector((state) => state.servicesPage);
+
+    useEffect(() => {
+        if(isEmpty(data)) {
+            dispatch(getServicesPage());
+            console.log('dispatch');
+        }
+    }, [dispatch]);
+
     return (
         <div className="page">
             <MetaTags>

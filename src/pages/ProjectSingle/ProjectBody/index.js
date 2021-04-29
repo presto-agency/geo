@@ -1,4 +1,5 @@
 import React from 'react';
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 import locationIcon from 'assets/images/icons/location.svg';
 import clientIcon from 'assets/images/icons/client.svg';
 import squareIcon from 'assets/images/icons/square.svg';
@@ -7,9 +8,7 @@ import areaIcon from 'assets/images/icons/area.svg';
 import ProjectPageCarousel from "./Carousel";
 import {numberWithCommas} from "utils/numberWithCommas";
 
-const _baseURL = process.env.REACT_APP_API_URL;
-
-const ProjectBody = ({ data }) => {
+const ProjectBody = ({ data, baseUrl }) => {
 
     return (
         <section className="section project-page">
@@ -23,7 +22,7 @@ const ProjectBody = ({ data }) => {
                             data-scroll-speed="-2"
                         >
                             <img
-                                src={_baseURL + data.topImage.url}
+                                src={baseUrl + data.topImage.url}
                                 alt={data.name}
                             />
                         </div>
@@ -126,7 +125,14 @@ const ProjectBody = ({ data }) => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
-                        {!!data.sliderMedia.length ? <ProjectPageCarousel data={data.sliderMedia} /> : null}
+                        {
+                            !!data.sliderMedia.length || data.youtubeVideoLink
+                            ? <ProjectPageCarousel
+                                    data={data}
+                                    video={data.youtubeVideoLink}
+                                    baseUrl={baseUrl} />
+                            : null
+                        }
                     </div>
                 </div>
             </div>
@@ -134,4 +140,4 @@ const ProjectBody = ({ data }) => {
     )
 };
 
-export default ProjectBody;
+export default WithBaseUrl()(ProjectBody);

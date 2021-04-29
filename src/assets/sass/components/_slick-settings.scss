@@ -9,4 +9,28 @@
           }
         }
     }
+    &-arrow{
+      width: 21px;
+      height: 21px;
+      background-repeat: no-repeat !important;
+      background-size: contain !important;
+      background-position: center !important;
+      transition: opacity .5s ease;
+        &:before{
+          display: none;
+        }
+        &.slick{
+            &-prev{
+              left: 0;
+              background-image: url(../../images/icons/arrow-left-line.svg);
+            }
+            &-next{
+              right: 0;
+              background-image: url(../../images/icons/arrow-right-line.svg);
+            }
+        }
+        &:hover{
+          opacity: .5;
+        }
+    }
 }

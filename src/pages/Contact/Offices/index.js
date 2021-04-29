@@ -1,15 +1,14 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 import {isEmpty} from "utils/detectEmptyObject";
 import {getOffices} from "store/offices/actions";
 import Preloader from "components/Preloader";
 
-const Map           = lazy(() => import("components/Map"));
+const Map = lazy(() => import("components/Map"));
 
-const _baseURL = process.env.REACT_APP_API_URL;
-
-const Offices = () => {
+const Offices = ({ baseUrl }) => {
 
     const dispatch = useDispatch();
     const { data, loading } = useSelector(state => state.offices);
@@ -43,7 +42,7 @@ const Offices = () => {
                                     <div className="offices-list-box" key={key}>
                                         <div className="office">
                                             <div className="office-preview parallax">
-                                                <img src={_baseURL + office.image.formats.large.url} alt={office.country} />
+                                                <img src={baseUrl + office.image.formats.large.url} alt={office.country} />
                                             </div>
                                             <div className="office-content fade-on-scroll">
                                                 <div className="row">
@@ -81,4 +80,4 @@ const Offices = () => {
     )
 };
 
-export default Offices;
+export default WithBaseUrl()(Offices);

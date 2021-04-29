@@ -92,6 +92,10 @@ export default class ApiClient {
         return await this.getSources('about-us');
     };
 
+    getServicesPage = async () => {
+        return await this.getSources('services-page');
+    };
+
     /*
     POST
      */

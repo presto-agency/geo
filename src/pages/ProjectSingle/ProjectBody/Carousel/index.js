@@ -3,11 +3,12 @@ import Slider from "react-slick";
 import CarouselNav from "components/CarouselNav";
 import CarouselPagination from "components/CarouselPagination";
 import ProjectPageCarouselSlide from "./Slide";
+import ProjectPageCarouselVideo from "./Video";
 
-const ProjectPageCarousel = ({ data }) => {
+const ProjectPageCarousel = ({ data, video, baseUrl }) => {
 
     const [currentSlide, setCurrentSlide] = useState(1);
-    const [totalSlides, setTotalSlides] = useState(data.length);
+    const [totalSlides, setTotalSlides] = useState(!!video ? data.sliderMedia.length + 1 : data.sliderMedia.length);
 
     const carousel = React.createRef();
     const settings = {
@@ -35,23 +36,45 @@ const ProjectPageCarousel = ({ data }) => {
 
     return (
         <div className="project-page-carousel">
-            <div className="carousel-nav">
-                <CarouselNav
-                    onNext={next}
-                    onPrev={prev}
-                    currentSlide={currentSlide}
-                    totalSlides={totalSlides}
-                />
-                <CarouselPagination
-                    currentSlide={currentSlide}
-                    totalSlides={totalSlides}
-                />
-            </div>
+            {
+                data.sliderMedia.length >= 1
+                ? (
+                    <div className="carousel-nav">
+                        <CarouselNav
+                            onNext={next}
+                            onPrev={prev}
+                            currentSlide={currentSlide}
+                            totalSlides={totalSlides}
+                        />
+                        <CarouselPagination
+                            currentSlide={currentSlide}
+                            totalSlides={totalSlides}
+                        />
+                    </div>
+                ) : null
+            }
             <Slider ref={carousel} className="projects-carousel" {...settings}>
                 {
-                    data.map((project, key) => (
-                        <ProjectPageCarouselSlide project={project} key={key} />
-                    ))
+                    !!video
+                    ? (
+                        <ProjectPageCarouselVideo
+                            key="key"
+                            video={video}
+                            data={data}
+                            baseUrl={baseUrl} />
+                    ) : null
+                }
+                {
+                    !!data.sliderMedia.length
+                    ? (
+                        data.sliderMedia.map((project, key) => (
+                            <ProjectPageCarouselSlide
+                                key={key}
+                                project={project}
+                                video={video}
+                                baseUrl={baseUrl}/>
+                        ))
+                    ) : null
                 }
             </Slider>
         </div>

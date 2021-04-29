@@ -185,6 +185,26 @@ body{
          }
        }
     }
+    &-back{
+      font-size: 12px;
+      text-transform: uppercase;
+      @extend .font-title-medium;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1em;
+      transition: color .4s ease, opacity .4s ease;
+        svg{
+          margin-right: 11px;
+        }
+        path{
+          fill: currentColor;
+        }
+        @include hover(991){
+          &:hover{
+            color: $blue;
+          }
+        }
+    }
     @include d(1200){
       font-size: 16px;
     }
@@ -488,4 +508,8 @@ body{
 
 .office-title{
   text-transform: capitalize;
+}
+
+.back{
+  padding: 53px 0;
 }
