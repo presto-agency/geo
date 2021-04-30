@@ -3,15 +3,33 @@
   align-items: center;
   @extend .font-title-medium;
   font-size: 14px;
+    &-load{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+        @include d(480){
+          flex-direction: column;
+        }
+    }
     .next,
     .previous{
       display: none;
     }
     a{
       padding: 0 5px;
+      transition: color .2s ease;
+        @include hover(991){
+          &:hover{
+            color: $blue;
+          }
+        }
     }
     .active{
       color: $blue;
       pointer-events: none;
+    }
+    @include d(480){
+      margin-bottom: 30px;
     }
 }

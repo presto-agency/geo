@@ -1,4 +1,4 @@
 export default {
     start: 0,
-    limit: 6
+    limit: 10
 }

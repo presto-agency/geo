@@ -10,11 +10,14 @@ import {
     GET_SINGLE_PROJECT_START,
     GET_SIMILAR_PROJECTS_END,
     GET_SIMILAR_PROJECTS_ERROR,
-    GET_SIMILAR_PROJECTS_START} from "store/constants";
+    GET_SIMILAR_PROJECTS_START,
+    LOAD_MORE_PROJECTS_END,
+    LOAD_MORE_PROJECTS_ERROR,
+    LOAD_MORE_PROJECTS_START} from "store/constants";
 
 const initialState = {
     loading: false,
-    data: {},
+    data: [],
     totalCount: null,
     currentPage: 1,
     filters: {
@@ -53,7 +56,7 @@ export default function projectsReducer(state = initialState, action) {
                 loading: false,
                 data: action.payload.posts,
                 totalCount: action.payload.postsCount,
-                currentPage: action.payload.currentPage,
+                currentPage: action.payload.currPage,
                 filters: {
                     ...state.filters,
                     category: action.payload.category,
@@ -67,6 +70,7 @@ export default function projectsReducer(state = initialState, action) {
                 loading: false,
                 error: action.payload
             };
+        // search //
         case SEARCH_PROJECTS_START:
             return {
                 ...state,
@@ -93,6 +97,7 @@ export default function projectsReducer(state = initialState, action) {
                     error: action.payload
                 }
             };
+        // single project //
         case GET_SINGLE_PROJECT_START:
             return {
                 ...state,
@@ -119,6 +124,7 @@ export default function projectsReducer(state = initialState, action) {
                     error: action.payload
                 }
             };
+        // similar projects //
         case GET_SIMILAR_PROJECTS_START:
             return {
                 ...state,
@@ -144,6 +150,34 @@ export default function projectsReducer(state = initialState, action) {
                     loading: false,
                     error: action.payload
                 }
+            };
+        // load more projects //
+        case LOAD_MORE_PROJECTS_START:
+            return {
+                ...state,
+                loading: true
+            };
+        case LOAD_MORE_PROJECTS_END:
+            return {
+                ...state,
+                loading: false,
+                data: [
+                    ...state.data,
+                    ...action.payload.posts
+                ],
+                currentPage: action.payload.currPage,
+                filters: {
+                    ...state.filters,
+                    category: action.payload.category,
+                    location: action.payload.location,
+                    sort: action.payload.sort
+                }
+            };
+        case LOAD_MORE_PROJECTS_ERROR:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
             };
         default:
             return state;

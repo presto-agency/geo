@@ -2,11 +2,17 @@ import {
     GET_PROJECTS_START,
     SEARCH_PROJECTS_START,
     GET_SINGLE_PROJECT_START,
-    GET_SIMILAR_PROJECTS_START} from "store/constants";
+    GET_SIMILAR_PROJECTS_START,
+    LOAD_MORE_PROJECTS_START} from "store/constants";
 
-export const getProjects = (pageNumber) => ({
+export const getProjects = (params) => ({
     type: GET_PROJECTS_START,
-    payload: pageNumber
+    payload: params
+});
+
+export const loadMoreProjects = (params) => ({
+    type: LOAD_MORE_PROJECTS_START,
+    payload: params
 });
 
 export const searchProjects = (query) => ({

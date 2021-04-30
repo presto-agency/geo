@@ -5,6 +5,7 @@
   width: 100%;
   padding: 48px 0;
   z-index: 3;
+  transition: padding 1s ease, background-color 1s ease;
     &-logo{
       display: inline-block;
       width: 90px;
@@ -42,5 +43,9 @@
           height: 48px;
           line-height: 48px;
         }
+    }
+    &.collapsed{
+      padding: 15px 0;
+      background-color: $black;
     }
 }

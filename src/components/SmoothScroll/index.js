@@ -61,6 +61,10 @@ const SmoothScroll = (props) => {
 
         locoScroll.on('scroll', ScrollTrigger.update);
 
+        // locoScroll.on('scroll', func => {
+        //    console.log(func);
+        // });
+
         ScrollTrigger.scrollerProxy(scrollRef.current, {
             scrollTop(value) {
                 return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;

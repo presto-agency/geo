@@ -14,13 +14,16 @@ const Header = () => {
     const [openNav, setOpenNav] = useState(false);
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', (event) => {
             setOpenNav(false);
         });
     }, []);
 
     return (
-        <header className="header">
+        <header className="header"
+                data-scroll={true}
+                data-scroll-sticky={true}
+                data-scroll-target="#wrapper">
             <div className="container">
                 <div className="row">
                     <div className="col-xl-2 col-lg-2 col-5">

@@ -5,13 +5,13 @@ import ApiClient from "service/ApiClient";
 
 const apiClient = new ApiClient();
 
-function* getProjects({ payload: { start, currentPage, category, location, sort } }) {
+function* getProjects({ payload: { start, currPage, category, location, sort } }) {
     try {
         const posts = yield call(apiClient.getProjects, start, category, location, sort);
         const postsCount = yield call(apiClient.getProjectsCount, start, category, location, sort);
         yield put({
             type: GET_PROJECTS_END,
-            payload: { posts, postsCount, currentPage, category, location, sort }
+            payload: { posts, postsCount, currPage, category, location, sort }
         });
         yield locoScroll.update();
     } catch ({ message }) {
