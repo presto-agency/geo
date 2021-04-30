@@ -9,7 +9,12 @@ const Clients = ({ defaultLogos, webpLogos, baseUrl }) => {
     }
 
     return (
-        <section className="section clients">
+        <section className="section clients"
+                 id="clients"
+                 data-scroll={true}
+                 data-scroll-id="home-clients"
+                 data-scroll-repeat="true"
+                 data-scroll-call="clients-moving">
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
@@ -20,10 +25,10 @@ const Clients = ({ defaultLogos, webpLogos, baseUrl }) => {
             <div className="clients-overlay">
                 <div
                     className="clients-list horizontal-moving"
-                    data-scroll={true}
-                    data-scroll-speed="7"
-                    data-scroll-position="top"
-                    data-scroll-direction="horizontal"
+                    // data-scroll={true}
+                    // data-scroll-speed="7"
+                    // data-scroll-position="top"
+                    // data-scroll-direction="horizontal"
                 >
                     {
                         defaultLogos.map((logo, key) => (
@@ -33,6 +38,21 @@ const Clients = ({ defaultLogos, webpLogos, baseUrl }) => {
                                         !!webpLogos[key].url
                                         ? <source srcSet={baseUrl + webpLogos[key].url} type="image/webp" />
                                         : null
+                                    }
+                                    <source srcSet={baseUrl + logo.url} type="image/png" />
+                                    <img src={baseUrl + logo.url} alt={logo.name} />
+                                </picture>
+                            </div>
+                        ))
+                    }
+                    {
+                        defaultLogos.map((logo, key) => (
+                            <div className="clients-list-item" key={key}>
+                                <picture>
+                                    {
+                                        !!webpLogos[key].url
+                                            ? <source srcSet={baseUrl + webpLogos[key].url} type="image/webp" />
+                                            : null
                                     }
                                     <source srcSet={baseUrl + logo.url} type="image/png" />
                                     <img src={baseUrl + logo.url} alt={logo.name} />

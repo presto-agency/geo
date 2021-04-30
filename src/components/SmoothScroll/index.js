@@ -6,6 +6,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import {servicesMove} from "utils/parallax/servicesMoving";
 import {disciplinesMoving} from "utils/parallax/disciplinesMoving";
+import {clientsMoving} from "utils/parallax/clientsMoving";
 import {showInViewport} from "store/about/actions";
 
 export let locoScroll;
@@ -24,6 +25,7 @@ const SmoothScroll = (props) => {
             smooth: true,
             lerp: 0.08,
             getDirection: true,
+            getSpeed: true,
             reloadOnContextChange: true,
             tablet: {
                 smooth: true,
@@ -37,15 +39,17 @@ const SmoothScroll = (props) => {
         locoScroll.on('call', (func, dir, obj) => {
             switch (func) {
                 case 'services-moving':
-                    servicesMove(obj, dir);
+                    servicesMove(obj);
                     return false;
                 case 'disciplines-moving':
-                    disciplinesMoving();
+                    disciplinesMoving(obj);
                     return false;
                 case 'about-values':
                     if(!isVisible && dir === 'enter') {
                         dispatch(showInViewport(true));
                     }
+                case 'clients-moving':
+                    clientsMoving(obj);
                     return false;
             }
         });

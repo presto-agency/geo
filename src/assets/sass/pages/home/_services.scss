@@ -21,6 +21,12 @@
           padding: 62px 0;
             &:not(:last-child){
               margin-right: 245px;
+                @include d(1440){
+                  margin-right: 150px;
+                }
+                @include d(767){
+                  margin-right: 80px;
+                }
             }
             @include d(1440){
               padding: 52px 0;

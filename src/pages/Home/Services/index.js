@@ -44,23 +44,23 @@ const Services = () => {
             <div className="services-list">
                 <div
                     className="list-scroll horizontal-moving"
-                    data-scroll={true}
-                    data-scroll-speed="2"
-                    data-scroll-position="top"
-                    data-scroll-direction="horizontal"
+                    // data-scroll={true}
+                    // data-scroll-speed="2"
+                    // data-scroll-position="top"
+                    // data-scroll-direction="horizontal"
                 >
                     {
                         disciplines.slice(0, average).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)
                     }
                 </div>
             </div>
-            <div className="services-list __reverse">
+            <div className="services-list">
                 <div
                     className="list-scroll horizontal-moving"
-                    data-scroll={true}
-                    data-scroll-speed="1.5"
-                    data-scroll-position="top"
-                    data-scroll-direction="horizontal"
+                    // data-scroll={true}
+                    // data-scroll-speed="1.5"
+                    // data-scroll-position="top"
+                    // data-scroll-direction="horizontal"
                 >
                     {
                         disciplines.slice(average, disciplines.length).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)

@@ -30,6 +30,7 @@ const HomePage = () => {
                 locoScroll.update();
             }, 1000);
         }
+
     }, [dispatch]);
 
     return (

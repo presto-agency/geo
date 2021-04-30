@@ -1,55 +1,35 @@
-import gsap, { TimelineMax, Power1 } from "gsap/gsap-core";
-import {locoScroll} from "components/SmoothScroll";
+import gsap, { TimelineMax, Power0 } from "gsap/gsap-core";
 
-export const servicesMove = (object, dir) => {
+export const servicesMove = (object) => {
 
-    // const titleTl = gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: list[0],
-    //         scroller: '#wrapper',
-    //         scrub: false,
-    //     }
-    // }).to(list[0], {
-    //     xPercent: -100,
-    //     duration: 200,
-    //     // paused: true
-    // });
+    const services = document.querySelector('.services');
+    if(!services.classList.contains('is-moving')) {
+        const list = object.el.querySelectorAll('.horizontal-moving');
+        const rollingTween1 = new TimelineMax();
+        const rollingTween2 = new TimelineMax();
+        const widthFirstList = list[0].clientWidth;
+        const widthSecondList = list[1].clientWidth;
 
+        rollingTween1.to(list[0], {
+            duration: 300,
+            x: `-=${widthFirstList}`,
+            ease: Power0.easeNone,
+            modifiers: {
+                x: gsap.utils.unitize(x => parseFloat(x) % widthFirstList)
+            },
+            repeat: -1,
+        });
 
-    // const rollingTween2 = new TimelineMax();
-    // const width = list[0].clientWidth;
-    //
-    // rollingTween1.to(list[0], {
-    //     duration: 100,
-    //     x: `-=${width}`,
-    //     ease: Power1.easeOut,
-    //     modifiers: {
-    //         x: gsap.utils.unitize(x => parseFloat(x) % width)
-    //     },
-    //     repeat: -1,
-    // });
-    //
-    // rollingTween2.to(list[1], {
-    //     duration: 130,
-    //     x: `-=${width}`,
-    //     ease: Power1.easeOut,
-    //     modifiers: {
-    //         x: gsap.utils.unitize(x => parseFloat(x) % width)
-    //     },
-    //     repeat: -1,
-    // });
-    //
-    // locoScroll.on('scroll', (obj) => {
-    //
-    //     let speed = Math.abs(parseInt(obj.speed)) || 1;
-    //     rollingTween1.timeScale(Math.min(4, speed));
-    //     rollingTween2.timeScale(Math.min(3, speed));
-    //
-    //     if(obj.direction === 'up') {
-    //         rollingTween1.reverse();
-    //         rollingTween2.reverse();
-    //     }
-    //
-    // });
+        rollingTween2.to(list[1], {
+            duration: 400,
+            x: `-=${widthSecondList}`,
+            ease: Power0.easeNone,
+            modifiers: {
+                x: gsap.utils.unitize(x => parseFloat(x) % widthSecondList)
+            },
+            repeat: -1,
+        });
+        services.classList.add('is-moving');
+    }
 
 };
