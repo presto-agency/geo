@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import MetaTags from "react-meta-tags";
 
 import HeroInner from "components/HeroInner";
-import Detail from "./Detail";
 import Switcher from "./Switcher";
 import DisciplinesAccordion from "./Disciplines";
 import FootBanner  from "components/FootBanner";
@@ -19,20 +18,31 @@ const ServicesPage = () => {
     useEffect(() => {
         if(isEmpty(data)) {
             dispatch(getServicesPage());
-            console.log('dispatch');
         }
     }, [dispatch]);
 
     return (
         <div className="page">
             <MetaTags>
-                <title>Global Engineering Office | Our Services</title>
-                <meta name="description" content="GEO is a firm of designers, engineers, planners and consultants providing a diverse range of professional services to clients around the middle-east. Our innovative and fully-integrated approach brings our full complement of skills and knowledge to bear on any given design problem. We exert a significant influence on the built environment and are the creative force behind many innovative and sustainable designs." />
-                <meta property="og:title" content="Global Engineering Office | Our Services" />
-                <meta property="og:image" content={footerBanner} />
+                <title>Global Engineering Office | {data.title}</title>
+                <meta name="description" content={data.descritpion} />
+                <meta property="og:title" content={`Global Engineering Office | ${data.title}`} />
+                <meta property="og:image" content="http://164.90.162.188/uploads/Double_Tree_by_HILTON_Front_View_md_8aad79d9cb.jpg" />
+                <meta property="og:url" content={window.location.href} />
+                <meta property="og:description" content={data.description} />
             </MetaTags>
-            <HeroInner title="Our Services" label="Main Expertise" toScroll="#services-switcher" />
-            <Detail />
+            <HeroInner title={data.title || ''} label={data.subTitle || ''} toScroll="#services-switcher" />
+            <section className="section detail">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xl-9 offset-xl-1">
+                            <div className="fade">
+                                <h4 className="h-4">{data.description}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <Switcher />
             <DisciplinesAccordion />
             <FootBanner src={footerBanner} />

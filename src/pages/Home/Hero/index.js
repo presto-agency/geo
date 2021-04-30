@@ -5,6 +5,7 @@ import HeroCarousel from './carousel';
 import {locoScroll} from "components/SmoothScroll";
 import SplitTitle from "components/SplitTitle";
 import {setUniqueOfficesArray} from "utils/setUniqueOfficesArray";
+import Slider from "react-slick/lib";
 
 const Hero = ({ data: { title, subTitle, topImages, offices } }) => {
 

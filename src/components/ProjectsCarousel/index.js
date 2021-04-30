@@ -1,7 +1,9 @@
 import React, {useState, useEffect, Fragment} from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 
+import routes from 'routes';
 import WithBaseUrl from "components/Hoc/withBaseUrl";
 import CarouselNav from "components/CarouselNav";
 import CarouselPagination from "components/CarouselPagination";
@@ -83,7 +85,7 @@ const ProjectsCarousel = ({ data, baseUrl }) => {
                                 </div>
                                 <div className="project-content">
                                     <div className="project-content-title">
-                                        <p className="project-title h-6">{project.name}</p>
+                                        <Link to={`${routes.project.index}/${project.id}`} className="project-title h-6">{project.name}</Link>
                                         <div className="project-tags">
                                             {!!project.countryData ? <p className="project-tag" >{project.countryData.name}</p> : null }
                                             {!!project.city ? <p className="project-tag" >{project.city}</p> : null }

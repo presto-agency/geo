@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
 import {getDisciplines} from "store/disciplines/actions";
@@ -25,6 +25,8 @@ const Services = () => {
         return <Preloader />
     }
 
+    const average = Math.ceil(disciplines.length / 2);
+
     return (
         <section className="section services"
              data-scroll={true}
@@ -48,7 +50,7 @@ const Services = () => {
                     data-scroll-direction="horizontal"
                 >
                     {
-                        disciplines.slice(0,20).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)
+                        disciplines.slice(0, average).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)
                     }
                 </div>
             </div>
@@ -61,7 +63,7 @@ const Services = () => {
                     data-scroll-direction="horizontal"
                 >
                     {
-                        disciplines.slice(20,40).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)
+                        disciplines.slice(average, disciplines.length).map((item, key) => <p className="services-list-item h-3" key={key}>{item.name}</p>)
                     }
                 </div>
             </div>

@@ -26,7 +26,8 @@ const HeroCarousel = ({ defaultImages, baseUrl }) => {
     }
 
     return (
-        <Slider className="hero-carousel" {...settings}>
+        <Slider
+            className="hero-carousel" {...settings}>
             {
                 defaultImages.map((image, key) => (
                     <div className="hero-carousel-slide" key={key}>
