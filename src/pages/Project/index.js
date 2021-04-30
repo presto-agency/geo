@@ -50,7 +50,7 @@ const ProjectPage = () => {
 
     const onLoadMore = () => {
         dispatch(loadMoreProjects({
-            start: (currPage * paginationParams.limit),
+            start: (currentPage * paginationParams.limit),
             currPage: currentPage + 1,
             ...filter
         }));
