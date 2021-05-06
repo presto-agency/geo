@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import WithBaseUrl from 'components/Hoc/withBaseUrl';
 import Preloader from "components/Preloader";
 
@@ -7,6 +7,12 @@ const Clients = ({ defaultLogos, webpLogos, baseUrl }) => {
     if(!defaultLogos.length) {
         return <Preloader />
     }
+
+    // const clients = document.querySelector('.clients');
+    // const list = document.querySelector('.clients .horizontal-moving');
+    //
+    // console.log(clients);
+    // console.log(list);
 
     return (
         <section className="section clients"

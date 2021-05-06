@@ -1,26 +1,29 @@
-import gsap, { TimelineMax, Power0 } from "gsap/gsap-core";
+import { TimelineMax, Power0 } from "gsap/gsap-core";
+import {locoScroll} from "../../components/SmoothScroll";
 
-export const clientsMoving = (object) => {
+export const clientsMoving = () => {
 
-    const clients = document.querySelector('.clients');
-    const list = object.el.querySelector('.horizontal-moving');
-    const rollingTween = new TimelineMax();
-    const widthList = list.clientWidth;
+    const list = document.querySelector('.clients-list.horizontal-moving');
 
-    // if(!clients.classList.contains('is-moving')) {
+    if(!!list && !list.classList.contains('is-moving')) {
+
+        const listWidth = list.clientWidth;
+        const rollingTween = new TimelineMax();
 
         rollingTween.to(list, {
-            duration: 10,
-            x: `-=${widthList}`,
+            duration: 30,
+            x: `-${listWidth / 2}`,
             ease: Power0.easeNone,
-            modifiers: {
-                x: gsap.utils.unitize(x => parseFloat(x) % widthList)
-            },
+            // modifiers: {
+            //     x: gsap.utils.unitize(x => parseFloat(x) % listWidth)
+            // },
             repeat: -1,
         });
 
-        // clients.classList.add('is-moving');
-    // }
+        locoScroll.on('scroll', (args) => {
+            rollingTween.timeScale(Math.max(2, Math.abs(args.speed)));
+        });
 
-    console.log('init clients moving');
+        list.classList.add('is-moving');
+    }
 };

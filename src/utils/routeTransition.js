@@ -39,12 +39,6 @@ export const routeIn = (pathname, node, appears) => {
             }
         }
     );
-
-    // const elems = document.querySelectorAll('.section');
-    // for(let i = 0; i < elems.length; i++) {
-    //     elems[i].classList.remove('is-moving');
-    // }
-
 };
 
 export const routeOut = (node) => {

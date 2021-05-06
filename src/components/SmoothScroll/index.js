@@ -8,6 +8,7 @@ import {servicesMove} from "utils/parallax/servicesMoving";
 import {disciplinesMoving} from "utils/parallax/disciplinesMoving";
 import {clientsMoving} from "utils/parallax/clientsMoving";
 import {showInViewport} from "store/about/actions";
+import {collapseHeader, unCollapseHeader} from "../../utils/parallax/detectHeader";
 
 export let locoScroll;
 
@@ -39,18 +40,19 @@ const SmoothScroll = (props) => {
         locoScroll.on('call', (func, dir, obj) => {
             switch (func) {
                 case 'services-moving':
-                    servicesMove(obj);
-                    return false;
+                    servicesMove();
+                    return true;
                 case 'disciplines-moving':
                     disciplinesMoving(obj);
-                    return false;
+                    return true;
                 case 'about-values':
                     if(!isVisible && dir === 'enter') {
                         dispatch(showInViewport(true));
                     }
+                    return true;
                 case 'clients-moving':
-                    clientsMoving(obj);
-                    return false;
+                    clientsMoving();
+                    return true;
             }
         });
 
@@ -58,16 +60,19 @@ const SmoothScroll = (props) => {
         //     //on init page
         //     // dispatch(showInViewport(false));
         //
-        //     setTimeout(() => {
-        //         locoScroll.update();
-        //     }, 100);
+        //     // setTimeout(() => {
+        //     //     locoScroll.update();
+        //     // }, 100);
         // });
 
-        locoScroll.on('scroll', ScrollTrigger.update);
-
-        // locoScroll.on('scroll', func => {
-        //    console.log(func);
-        // });
+        locoScroll.on('scroll', (args) => {
+            ScrollTrigger.update();
+            if(args.scroll.y > 100) {
+                collapseHeader();
+            } else {
+                unCollapseHeader();
+            }
+        });
 
         ScrollTrigger.scrollerProxy(scrollRef.current, {
             scrollTop(value) {
