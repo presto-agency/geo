@@ -11,7 +11,7 @@ const map = {
         gridSize: 50
     },
 };
-const KEY =  process.env.REACT_APP_GOOGLE_API_KEY;
+const KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const GoogleMap = ({ data }) => {
 
