@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MetaTags from 'react-meta-tags';
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 import {isEmpty} from "utils/detectEmptyObject";
 import Preloader from "components/Preloader";
@@ -9,9 +10,7 @@ import ArticleBody from "./ArticleBody";
 import OtherNews from "./OtherNews";
 import {getSingleArticle} from "store/news/actions";
 
-const _baseURL = process.env.REACT_APP_API_URL;
-
-const ArticlePage = ({ match }) => {
+const ArticlePage = ({ match, baseUrl }) => {
 
     const dispatch = useDispatch();
     const { data, loading } = useSelector((state) => state.news.singleArticle);
@@ -31,7 +30,9 @@ const ArticlePage = ({ match }) => {
                 <title>Global Engineering Office | {data.title}</title>
                 <meta name="description" content={data.description} />
                 <meta property="og:title" content={`Global Engineering Office | ${data.title}`} />
-                <meta property="og:image" content={_baseURL + data.topImage.formats.medium.url} />
+                <meta property="og:image" content={baseUrl + data.topImage.formats.medium.url} />
+                <meta property="og:url" content={window.location.href} />
+                <meta property="og:description" content={data.description} />
             </MetaTags>
             <section className="section hero hero-inner __default">
                 <div className="container">
@@ -53,4 +54,4 @@ const ArticlePage = ({ match }) => {
     )
 };
 
-export default ArticlePage;
+export default WithBaseUrl()(ArticlePage);

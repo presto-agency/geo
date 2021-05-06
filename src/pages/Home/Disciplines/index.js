@@ -1,7 +1,6 @@
 import React  from 'react';
 import { Link } from 'react-router-dom';
 import Wave from "react-wavify";
-import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 import routes from 'routes';
 import DetectCarouselType from "./detectCarouselType";
@@ -105,4 +104,4 @@ const Disciplines = ({ data, baseUrl }) => {
     )
 };
 
-export default WithBaseUrl()(Disciplines);
+export default Disciplines;

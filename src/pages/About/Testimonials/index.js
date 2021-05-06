@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 import CarouselNav from "components/CarouselNav";
 import TestimonialSingle from "./Testimonial";
 import Slider from 'react-slick';
-import list from './list';
 
 const Testimonials = ({ data }) => {
 
     const [currentSlide, setCurrentSlide] = useState(1);
-    const [totalSlides, setTotalSlides] = useState(list.length);
+    const [totalSlides, setTotalSlides] = useState(data.length);
     const carousel = React.createRef();
 
     const settings = {

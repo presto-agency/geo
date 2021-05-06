@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 
-const _baseURL = process.env.REACT_APP_API_URL;
-
-const TestimonialSingle = ({ testimonial: { message, authorFullName, authorPosition, authorAvatar, companyLogo } }) => {
+const TestimonialSingle = ({ testimonial: { message, authorFullName, authorPosition, authorAvatar, companyLogo }, baseUrl }) => {
     return (
         <div className="testimonial">
             <div className="testimonial-author">
                 <div className="testimonial-author-photo">
-                    <img src={_baseURL + authorAvatar.formats.thumbnail.url} alt={authorFullName} />
+                    <img src={baseUrl + authorAvatar.formats.thumbnail.url} alt={authorFullName} />
                 </div>
             </div>
             <div className="testimonial-body">
@@ -16,14 +15,14 @@ const TestimonialSingle = ({ testimonial: { message, authorFullName, authorPosit
                 <p className="testimonial-author-title h-6">{authorFullName}</p>
                 <p className="testimonial-author-position">{authorPosition}</p>
                 <div className="testimonial-author-logo">
-                    <img src={_baseURL + companyLogo.url} />
+                    <img src={baseUrl + companyLogo.url} />
                 </div>
             </div>
         </div>
     )
 };
 
-export default TestimonialSingle;
+export default WithBaseUrl()(TestimonialSingle);
 
 TestimonialSingle.propTypes = {
     testimonial: PropTypes.object.isRequired

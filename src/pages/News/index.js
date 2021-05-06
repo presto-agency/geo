@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MetaTags from "react-meta-tags";
 import { useDispatch, useSelector } from 'react-redux';
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 import {getNews} from "store/news/actions";
 import Pagination from "react-js-pagination";
@@ -12,9 +13,8 @@ import NewsList from "./List";
 import FilterSearch from "./Filters/Search";
 import FilterCategories from "./Filters/Categories";
 import FilterSort from "./Filters/Sort";
-import footerBanner from 'assets/images/services/Caterpillar.jpg';
 
-const NewsPage = () => {
+const NewsPage = ({ baseUrl }) => {
 
     const dispatch = useDispatch();
     const { data, totalCount, filters: { query, category, sort } } = useSelector((state) => state.news);
@@ -63,7 +63,9 @@ const NewsPage = () => {
                 <title>Global Engineering Office | Our News</title>
                 <meta name="description" content="GEO has four main global business areas – Buildings, Roads, Infrastructure and Urbanism – although our multi-disciplinary approach means that any given project may involve people from any or all of the sectors or regions in which we operate." />
                 <meta property="og:title" content="Global Engineering Office | Our News" />
-                <meta property="og:image" content={footerBanner} />
+                <meta property="og:image" content={`${baseUrl}/uploads/View_md_8baab9885b.jpg`} />
+                <meta property="og:url" content={window.location.href} />
+                <meta property="og:description" content="GEO has four main global business areas – Buildings, Roads, Infrastructure and Urbanism – although our multi-disciplinary approach means that any given project may involve people from any or all of the sectors or regions in which we operate." />
             </MetaTags>
             <section className="section hero hero-inner __default">
                 <div className="container">
@@ -129,4 +131,4 @@ const NewsPage = () => {
     )
 };
 
-export default NewsPage;
+export default WithBaseUrl()(NewsPage);

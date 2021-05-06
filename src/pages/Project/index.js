@@ -3,6 +3,7 @@ import MetaTags from "react-meta-tags";
 import { useSelector, useDispatch } from 'react-redux';
 import Pagination from "react-js-pagination";
 import paginationParams from "constants/paginationParams";
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 import {getProjects} from "store/projects/actions";
 import {loadMoreProjects} from "store/projects/actions";
@@ -13,7 +14,7 @@ import ProjectsList from "./List";
 
 import footerBanner from 'assets/images/home/Sport_Academy.jpg';
 
-const ProjectPage = () => {
+const ProjectPage = ({ baseUrl }) => {
 
     const dispatch = useDispatch();
     const { data, totalCount, currentPage, filters: { category, location, sort } } = useSelector(state => state.projects);
@@ -62,7 +63,9 @@ const ProjectPage = () => {
                 <title>Global Engineering Office | Our Projects</title>
                 <meta name="description" content="GEO has four main global business areas – Buildings, Roads, Infrastructure and Urbanism – although our multi-disciplinary approach means that any given project may involve people from any or all of the sectors or regions in which we operate." />
                 <meta property="og:title" content="Global Engineering Office | Our Projects" />
-                <meta property="og:image" content={footerBanner} />
+                <meta property="og:image" content={`${baseUrl}/uploads/View_md_8baab9885b.jpg`} />
+                <meta property="og:url" content={window.location.href} />
+                <meta property="og:description" content="GEO has four main global business areas – Buildings, Roads, Infrastructure and Urbanism – although our multi-disciplinary approach means that any given project may involve people from any or all of the sectors or regions in which we operate." />
             </MetaTags>
             <section className="section hero hero-inner projects">
                 <div className="container">
@@ -101,4 +104,4 @@ const ProjectPage = () => {
     )
 };
 
-export default ProjectPage;
+export default WithBaseUrl()(ProjectPage);

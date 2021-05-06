@@ -40,8 +40,10 @@ const ProjectSinglePage = ({ match, baseUrl }) => {
                 {
                     !!data.topImage
                     ? <meta property="og:image" content={baseUrl + data.topImage.formats.small.url} />
-                    : <meta property="og:image" content={footerBanner} />
+                    : <meta property="og:image" content={`${baseUrl}/uploads/View_md_8baab9885b.jpg`} />
                 }
+                <meta property="og:url" content={window.location.href} />
+                <meta property="og:description" content={data.description} />
             </MetaTags>
             <section className="section hero hero-inner __default">
                 <div className="container">

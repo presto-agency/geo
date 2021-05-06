@@ -1,6 +1,7 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import MetaTags from 'react-meta-tags';
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 import Hero from "./Hero";
 import AboutDetail from "./About";
@@ -18,7 +19,7 @@ const Videos            = lazy(() => import("./Videos"));
 const Contact           = lazy(() => import("./Contact"));
 const FootBanner        = lazy(() => import("components/FootBanner"));
 
-const HomePage = () => {
+const HomePage = ({ baseUrl }) => {
 
     const dispatch = useDispatch();
     const { data } = useSelector((state) => state.homePage);
@@ -39,15 +40,15 @@ const HomePage = () => {
                 <title>{data.title}</title>
                 <meta name="description" content={data.leftDescription} />
                 <meta property="og:title" content={data.title} />
-                <meta property="og:image" content="http://164.90.162.188/uploads/Double_Tree_by_HILTON_Front_View_md_8aad79d9cb.jpg" />
+                <meta property="og:image" content={`${baseUrl}/uploads/Double_Tree_by_HILTON_Front_View_md_8aad79d9cb.jpg`} />
                 <meta property="og:url" content={window.location.href} />
                 <meta property="og:description" content={data.leftDescription} />
             </MetaTags>
             <Hero data={data || {}} />
             <AboutDetail data={data} />
             <Suspense fallback={<Preloader />}>
-                <Clients defaultLogos={data.clientLogos || []} webpLogos={data.webpLogos || []} />
-                <Disciplines data={data.disciplines || []} />
+                <Clients defaultLogos={data.clientLogos || []} webpLogos={data.webpLogos || []} baseUrl={baseUrl} />
+                <Disciplines data={data.disciplines || []} baseUrl={baseUrl} />
                 <Services />
                 <Videos data={data.projects || []} />
                 <Contact />
@@ -57,4 +58,4 @@ const HomePage = () => {
     )
 };
 
-export default HomePage;
+export default WithBaseUrl()(HomePage);

@@ -1,6 +1,7 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MetaTags from "react-meta-tags";
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 import HeroInner from "components/HeroInner";
 import {getAboutPage} from "store/about/actions";
@@ -15,7 +16,7 @@ const Detail                = lazy(() => import("./Detail"));
 const WhereWeWork           = lazy(() => import("./WhereWeWork"));
 const FootBanner            = lazy(() => import("components/FootBanner"));
 
-const AboutPage = () => {
+const AboutPage = ({ baseUrl }) => {
 
     const dispatch = useDispatch();
     const { loading, data } = useSelector((state) => state.about);
@@ -39,13 +40,15 @@ const AboutPage = () => {
                 <title>Global Engineering Office | About Us</title>
                 <meta name="description" content="Our firm has competent staff working in offices in the United Arab Emirates and Lebanon. At any one time, we have many projects running concurrently." />
                 <meta property="og:title" content="Global Engineering Office | About Us" />
-                <meta property="og:image" content={footerBanner} />
+                <meta property="og:image" content={`${baseUrl}/uploads/Master_planning_md_dc23889e35.jpg`} />
+                <meta property="og:url" content={window.location.href} />
+                <meta property="og:description" content="Our firm has competent staff working in offices in the United Arab Emirates and Lebanon. At any one time, we have many projects running concurrently." />
             </MetaTags>
             <HeroInner title={data.title} label={data.subTitle} toScroll="#about-detail-values" />
             <Suspense fallback={<Preloader />}>
                 <Detail data={data} />
             </Suspense>
-            { !!data.team_members.length ? <Team data={data.team_members} /> : null }
+            { !!data.team_members.length ? <Team data={data.team_members} baseUrl={baseUrl} /> : null }
             { !!data.testimonials.length ? <Testimonials data={data.testimonials} /> : null }
             <Suspense fallback={<Preloader />}>
                 <WhereWeWork />
@@ -55,4 +58,4 @@ const AboutPage = () => {
     )
 };
 
-export default AboutPage;
+export default WithBaseUrl()(AboutPage);

@@ -1,6 +1,5 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 import {isEmpty} from "utils/detectEmptyObject";
 import {getOffices} from "store/offices/actions";
@@ -80,4 +79,4 @@ const Offices = ({ baseUrl }) => {
     )
 };
 
-export default WithBaseUrl()(Offices);
+export default Offices;

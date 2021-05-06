@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const _baseURL = process.env.REACT_APP_API_URL;
-
-const Team = ({ data }) => {
+const Team = ({ data, baseUrl }) => {
 
     return (
         <section
@@ -25,7 +23,7 @@ const Team = ({ data }) => {
                                         <div className="person">
                                             <div className="person-photo">
                                                 <img
-                                                    src={_baseURL + person.avatar.formats.small.url}
+                                                    src={baseUrl + person.avatar.formats.small.url}
                                                     alt={`${person.firstName} ${person.lastName}`}
                                                     className="group-scale"
                                                 />
