@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 const Team = ({ data, baseUrl }) => {
 
+    console.log(data);
+
     return (
         <section
             className="section team"
@@ -23,7 +25,7 @@ const Team = ({ data, baseUrl }) => {
                                         <div className="person">
                                             <div className="person-photo">
                                                 <img
-                                                    src={baseUrl + person.avatar.formats.small.url}
+                                                    src={!!person.avatar ? baseUrl + person.avatar.formats.thumbnail.url : 'https://via.placeholder.com/300/?text=GEO'}
                                                     alt={`${person.firstName} ${person.lastName}`}
                                                     className="group-scale"
                                                 />

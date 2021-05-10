@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 const TestimonialSingle = ({ testimonial: { message, authorFullName, authorPosition, authorAvatar, companyLogo }, baseUrl }) => {
+
+    console.log(authorAvatar)
+
     return (
         <div className="testimonial">
             <div className="testimonial-author">
                 <div className="testimonial-author-photo">
-                    <img src={baseUrl + authorAvatar.formats.thumbnail.url} alt={authorFullName} />
+                    <img src={!!authorAvatar ? baseUrl + authorAvatar.formats.thumbnail.url : 'https://via.placeholder.com/300/?text=GEO'} alt={authorFullName} />
                 </div>
             </div>
             <div className="testimonial-body">
@@ -15,7 +18,7 @@ const TestimonialSingle = ({ testimonial: { message, authorFullName, authorPosit
                 <p className="testimonial-author-title h-6">{authorFullName}</p>
                 <p className="testimonial-author-position">{authorPosition}</p>
                 <div className="testimonial-author-logo">
-                    <img src={baseUrl + companyLogo.url} />
+                    <img src={!!companyLogo ? baseUrl + companyLogo.url : 'https://via.placeholder.com/300/?text=GEO'} />
                 </div>
             </div>
         </div>
