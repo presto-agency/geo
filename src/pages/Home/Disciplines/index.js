@@ -45,9 +45,15 @@ const Disciplines = ({ data, baseUrl }) => {
                                     >
                                         <div className="disciplines-box-preview">
                                             <picture>
-                                                <source srcSet={baseUrl + box.webpLogo.url} type="image/webp" />
-                                                <source srcSet={baseUrl + box.logo.formats.large.url} type="image/jpg" />
-                                                <img src={baseUrl + box.logo.url} alt={box.name} />
+                                                <source
+                                                    srcSet={box.webpLogo ? baseUrl + box.webpLogo.url : ''}
+                                                    type="image/webp" />
+                                                <source
+                                                    srcSet={box.logo ? baseUrl + box.logo.url : ''}
+                                                    type="image/jpg" />
+                                                <img
+                                                    src={box.logo ? baseUrl + box.logo.url : ''}
+                                                    alt={box.name} />
                                             </picture>
                                         </div>
                                         <p className="label">{box.subName}</p>

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 const Team = ({ data, baseUrl }) => {
 
-    console.log(data);
-
     return (
         <section
             className="section team"
