@@ -9,10 +9,20 @@ const ProjectAccordion = ({ project: { id, topImage, name, countryData, city }, 
             <div className="project project-accordion">
                 <Link to={`${routes.project.index}/${id}`} className="project-preview parallax">
                     <div className="project-preview-box">
-                        <img
-                            src={!!topImage ? baseUrl + topImage.url : 'https://via.placeholder.com/300/?text=GEO project'}
-                            alt={name}
-                        />
+                        {
+                            !!topImage
+                                ? (
+                                    <img
+                                        src={!!topImage.formats.large
+                                            ? baseUrl + topImage.formats.large.url
+                                            : baseUrl + topImage.url}
+                                        alt={name}
+                                    />
+                                )
+                                : (
+                                    <img src="https://via.placeholder.com/760x760?text=GeoCo project" alt={name} />
+                                )
+                        }
                     </div>
                 </Link>
                 <div className="project-content">

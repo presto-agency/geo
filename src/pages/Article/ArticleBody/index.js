@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 import routes from 'routes';
 import monthNames from 'constants/monthNames';
@@ -7,9 +8,7 @@ import FollowLink from "components/FollowLink";
 import {isEmpty} from "utils/detectEmptyObject";
 import Sharing from "../Sharing";
 
-const _baseURL = process.env.REACT_APP_API_URL;
-
-const ArticleBody = ({ data, nextArticle }) => {
+const ArticleBody = ({ data, nextArticle, baseUrl }) => {
 
     const createdDate = new Date(data.createdAt);
     const month = monthNames[createdDate.getMonth()].abbreviation;
@@ -28,7 +27,7 @@ const ArticleBody = ({ data, nextArticle }) => {
                                 data-scroll-speed="-2"
                             >
                                 <img
-                                    src={!!data.topImage ? _baseURL + data.topImage.url : 'https://via.placeholder.com/300/?text=GEO article'}
+                                    src={!!data.topImage ? baseUrl + data.topImage.url : 'https://via.placeholder.com/300/?text=GEO article'}
                                     alt={data.title}
                                 />
                             </div>
@@ -71,7 +70,7 @@ const ArticleBody = ({ data, nextArticle }) => {
     )
 };
 
-export default ArticleBody;
+export default WithBaseUrl()(ArticleBody);
 
 ArticleBody.propTypes = {
     data: PropTypes.object,

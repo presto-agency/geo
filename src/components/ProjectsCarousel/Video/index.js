@@ -31,11 +31,15 @@ const ProjectVideo = ({ project, baseUrl }) => {
                         height="100%"
                     />
                 ) : (
-                    <img src={!!project.topImage ? baseUrl + project.topImage.formats.large.url : 'https://via.placeholder.com/300/?text=GEO project'} alt={project.name} />
+                    <img src={!!project.topImage.formats.large
+                        ? baseUrl + project.topImage.formats.large.url
+                        : baseUrl + project.topImage.url} alt={project.name} />
                 )
             }
             <div className="video-poster">
-                <img src={!!project.topImage ? baseUrl + project.topImage.formats.large.url : 'https://via.placeholder.com/300/?text=GEO project'} alt={project.name} />
+                <img src={!!project.topImage.formats.large
+                    ? baseUrl + project.topImage.formats.large.url
+                    : baseUrl + project.topImage.url} alt={project.name} />
             </div>
             <div className={`video-btn ${playing ? '__pause' : '__play'}`} onClick={handleTogglePlaying} />
         </div>

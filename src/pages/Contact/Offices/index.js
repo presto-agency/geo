@@ -41,7 +41,7 @@ const Offices = ({ baseUrl }) => {
                                     <div className="offices-list-box" key={key}>
                                         <div className="office">
                                             <div className="office-preview parallax">
-                                                <img src={baseUrl + office.image.formats.large.url} alt={office.country} />
+                                                <img src={office.image.formats.large ? baseUrl + office.image.formats.large.url : baseUrl + office.image.url} alt={office.country} />
                                             </div>
                                             <div className="office-content fade-on-scroll">
                                                 <div className="row">

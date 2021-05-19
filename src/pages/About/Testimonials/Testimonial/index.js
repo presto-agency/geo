@@ -10,7 +10,7 @@ const TestimonialSingle = ({ testimonial: { message, authorFullName, authorPosit
         <div className="testimonial">
             <div className="testimonial-author">
                 <div className="testimonial-author-photo">
-                    <img src={!!authorAvatar ? baseUrl + authorAvatar.formats.thumbnail.url : 'https://via.placeholder.com/300/?text=GEO'} alt={authorFullName} />
+                    <img src={!!authorAvatar.formats.thumbnail ? baseUrl + authorAvatar.formats.thumbnail.url : baseUrl + authorAvatar.url} alt={authorFullName} />
                 </div>
             </div>
             <div className="testimonial-body">

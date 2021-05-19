@@ -5,6 +5,7 @@ import WithBaseUrl from "components/Hoc/withBaseUrl";
 import routes from 'routes'
 
 const Post = ({ post: { id, topImage, title, description, tags }, baseUrl }) => {
+
     return (
         <div className="post">
             <Link to={`${routes.news.index}/${id}`} className="post-preview">

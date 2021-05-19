@@ -78,9 +78,9 @@ const ProjectsCarousel = ({ data, baseUrl }) => {
                                             project={project}
                                             baseUrl={baseUrl} />
                                         : <img
-                                            src={!!project.topImage
+                                            src={!!project.topImage.formats.large
                                                 ? baseUrl + project.topImage.formats.large.url
-                                                : 'https://via.placeholder.com/300/?text=GEO project'}
+                                                : baseUrl + project.topImage.url}
                                             alt={project.name} /> }
                                 </div>
                                 <div className="project-content">

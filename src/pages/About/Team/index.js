@@ -23,7 +23,7 @@ const Team = ({ data, baseUrl }) => {
                                         <div className="person">
                                             <div className="person-photo">
                                                 <img
-                                                    src={!!person.avatar ? baseUrl + person.avatar.formats.thumbnail.url : 'https://via.placeholder.com/300/?text=GEO'}
+                                                    src={!!person.avatar.formats.thumbnail ? baseUrl + person.avatar.formats.thumbnail.url : baseUrl + person.avatar.url}
                                                     alt={`${person.firstName} ${person.lastName}`}
                                                     className="group-scale"
                                                 />

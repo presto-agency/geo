@@ -7,7 +7,9 @@ const ProjectPageCarouselSlide = ({ project, baseUrl }) => {
             <div className="project">
                 <div className="project-preview">
                     <img
-                        src={baseUrl + project.formats.large.url}
+                        src={!!project.formats.large
+                            ? baseUrl + project.formats.large.url
+                            : baseUrl + project.url}
                         alt={project.alternativeText || project.name} />
                 </div>
             </div>

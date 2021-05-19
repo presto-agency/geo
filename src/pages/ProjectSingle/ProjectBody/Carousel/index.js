@@ -37,7 +37,7 @@ const ProjectPageCarousel = ({ data, video, baseUrl }) => {
     return (
         <div className="project-page-carousel">
             {
-                data.sliderMedia.length >= 1
+                data.sliderMedia.length > 1
                 ? (
                     <div className="carousel-nav">
                         <CarouselNav
