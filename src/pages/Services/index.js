@@ -45,7 +45,7 @@ const ServicesPage = ({ baseUrl }) => {
                 </div>
             </section>
             <Switcher />
-            <DisciplinesAccordion />
+            <DisciplinesAccordion data={data.disciplines || []} />
             <FootBanner src={footerBanner} />
         </div>
     )

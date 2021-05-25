@@ -1,22 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 
 import DisciplineSingleAccordion from "./AccordionItem";
-import {getHomePage} from "store/homePage/actions";
 import Preloader from "components/Preloader";
 
-const DisciplinesAccordion = () => {
+const DisciplinesAccordion = ({ data }) => {
 
-    const dispatch = useDispatch();
-    const { data: { disciplines } } = useSelector((state) => state.homePage);
-
-    useEffect(() => {
-        if(!disciplines) {
-            dispatch(getHomePage());
-        }
-    }, [dispatch]);
-
-    if(!disciplines) {
+    if(!data.length) {
         return <Preloader />
     }
 
@@ -28,7 +17,7 @@ const DisciplinesAccordion = () => {
                         <p className="label fade-on-scroll">Main Expertise</p>
                         <div className="disciplines-accordion-box">
                             {
-                                disciplines.slice(0, 10).map((item, key) => <DisciplineSingleAccordion item={item} key={key} />)
+                                data.slice(0, 10).map((item, key) => <DisciplineSingleAccordion item={item} key={key} />)
                             }
                         </div>
                     </div>
