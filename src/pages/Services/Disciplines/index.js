@@ -17,7 +17,7 @@ const DisciplinesAccordion = ({ data }) => {
                         <p className="label fade-on-scroll">Main Expertise</p>
                         <div className="disciplines-accordion-box">
                             {
-                                data.slice(0, 10).map((item, key) => <DisciplineSingleAccordion item={item} key={key} />)
+                                data.map((item, key) => <DisciplineSingleAccordion item={item} key={key} />)
                             }
                         </div>
                     </div>

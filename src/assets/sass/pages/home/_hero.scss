@@ -26,6 +26,9 @@
         &-list{
           padding-top: 8px;
           overflow: hidden;
+            [data-country="uae"]{
+              text-transform: uppercase;
+            }
         }
     }
     &-office{
