@@ -22,7 +22,7 @@ const NewsPage = ({ baseUrl }) => {
     const [filter, setFilter] = useState({
         query: '',
         category: '' || category,
-        sort: '' || sort
+        sort: 'ASC' || sort
     });
 
     useEffect(() => {

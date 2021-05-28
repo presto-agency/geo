@@ -1,41 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import CustomSelect from "components/Select";
+import {getProjectsCategories} from "store/projects/actions";
 
 const projects = [
     {
         value: '',
         label: 'All projects',
-        filter: 'category'
-    },
-    {
-        value: 'Major Projects',
-        label: 'Major Projects',
-        filter: 'category'
-    },
-    {
-        value: 'Urban Planning',
-        label: 'Urban Planning',
-        filter: 'category'
-    },
-    {
-        value: 'Infrastructure, Roads',
-        label: 'Infrastructure, Roads',
-        filter: 'category'
-    },
-    {
-        value: 'Buildings',
-        label: 'Buildings',
-        filter: 'category'
-    },
-    {
-        value: 'Logistics, E-Commerce Industrial',
-        label: 'Logistics, E-Commerce Industrial',
-        filter: 'category'
-    },
-    {
-        value: 'Villa projects',
-        label: 'Villa projects',
         filter: 'category'
     }
 ];
@@ -81,17 +53,43 @@ const sort = [
 
 const ProjectsSort = ({ onChange, defaultValues }) => {
 
+    const dispatch = useDispatch();
+    const categories = useSelector((state) => state.projects.categories.data);
     const defaultProject = projects.filter(project => project.value === defaultValues.category);
     const defaultLocation = locations.filter(project => project.value === defaultValues.location);
     const defaultSort = sort.filter(project => project.value === defaultValues.sort);
 
+    useEffect(() => {
+        if(!categories.length) {
+            dispatch(getProjectsCategories());
+        }
+    }, [dispatch])
+
+    useEffect(() => {
+        if(!!categories.length) {
+            for(let i = 0; i < categories.length; i++) {
+                let newObj = {
+                    value: categories[i].name,
+                    label: categories[i].name,
+                    filter: 'category'
+                }
+                projects.push(newObj);
+            }
+        }
+    }, [categories]);
+
     return (
         <div className="projects-sort fade" id="project-sort">
-            <CustomSelect
-                options={projects}
-                callback={onChange}
-                defaultValue={defaultProject[0] || projects[0]}
-            />
+            {
+                !!categories.length
+                ? (
+                    <CustomSelect
+                        options={projects}
+                        callback={onChange}
+                        defaultValue={defaultProject[0] || projects[0]}
+                    />
+                ) : null
+            }
             <CustomSelect
                 options={locations}
                 callback={onChange}

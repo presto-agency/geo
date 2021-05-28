@@ -3,7 +3,9 @@ import {
     SEARCH_PROJECTS_START,
     GET_SINGLE_PROJECT_START,
     GET_SIMILAR_PROJECTS_START,
-    LOAD_MORE_PROJECTS_START} from "store/constants";
+    LOAD_MORE_PROJECTS_START,
+    GET_PROJECTS_CATEGORIES_START
+} from "store/constants";
 
 export const getProjects = (params) => ({
     type: GET_PROJECTS_START,
@@ -28,4 +30,9 @@ export const getSingleProject = (id) => ({
 export const getSimilarProjects = (disciplineId) => ({
     type: GET_SIMILAR_PROJECTS_START,
     payload: disciplineId
+});
+
+export const getProjectsCategories = (categories) => ({
+    type: GET_PROJECTS_CATEGORIES_START,
+    payload: categories
 });

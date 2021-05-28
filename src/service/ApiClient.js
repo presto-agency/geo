@@ -52,6 +52,10 @@ export default class ApiClient {
         return await this.getSources(`projects/${id}`);
     };
 
+    getProjectsCategories = async () => {
+        return await  this.getSources('project-catogiries');
+    }
+
     getNews = async (start = paginationParams.start, query = '', category = '', sort = 'ASC') => {
         return await this.getSources(`news-items?${transformNewsUrl(start, query, category, sort)}`);
     };

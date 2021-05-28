@@ -5,7 +5,7 @@ import {
     SEARCH_PROJECTS_END,
     SEARCH_PROJECTS_ERROR,
     SEARCH_PROJECTS_START,
-    GET_SINGLE_PROJECT_END, 
+    GET_SINGLE_PROJECT_END,
     GET_SINGLE_PROJECT_ERROR,
     GET_SINGLE_PROJECT_START,
     GET_SIMILAR_PROJECTS_END,
@@ -13,7 +13,8 @@ import {
     GET_SIMILAR_PROJECTS_START,
     LOAD_MORE_PROJECTS_END,
     LOAD_MORE_PROJECTS_ERROR,
-    LOAD_MORE_PROJECTS_START} from "store/constants";
+    LOAD_MORE_PROJECTS_START, GET_PROJECTS_CATEGORIES_START, GET_PROJECTS_CATEGORIES_END, GET_PROJECTS_CATEGORIES_ERROR
+} from "store/constants";
 
 const initialState = {
     loading: false,
@@ -41,6 +42,11 @@ const initialState = {
         data: {},
         error: null
     },
+    categories: {
+        loading: false,
+        data: [],
+        error: null
+    }
 };
 
 export default function projectsReducer(state = initialState, action) {
@@ -178,6 +184,33 @@ export default function projectsReducer(state = initialState, action) {
                 ...state,
                 loading: false,
                 error: action.payload
+            };
+        // projects categories //
+        case GET_PROJECTS_CATEGORIES_START:
+            return {
+                ...state,
+                categories: {
+                    ...state.categories,
+                    loading: true
+                }
+            };
+        case GET_PROJECTS_CATEGORIES_END:
+            return {
+                ...state,
+                categories: {
+                    ...state.categories,
+                    loading: false,
+                    data: action.payload
+                }
+            };
+        case GET_PROJECTS_CATEGORIES_ERROR:
+            return {
+                ...state,
+                categories: {
+                    ...state.categories,
+                    loading: false,
+                    error: action.payload
+                }
             };
         default:
             return state;
