@@ -22,7 +22,7 @@ const ProjectPage = ({ baseUrl }) => {
     const [filter, setFilter] = useState({
        category: '' || category,
        location: '' || location,
-       sort: 'ASC' || sort
+       sort: 'DESC' || sort
     });
 
     useEffect(() => {

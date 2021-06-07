@@ -32,11 +32,11 @@ export default class ApiClient {
         return await this.getSources('services');
     };
 
-    getProjects = async (start = paginationParams.start, category = '', location = '', sort = 'ASC') => {
+    getProjects = async (start = paginationParams.start, category = '', location = '', sort = 'DESC') => {
         return await this.getSources(`projects?${transformProjectUrl(start, category, location, sort)}`);
     };
 
-    getProjectsCount = async (start = paginationParams.start, category = '', location = '', sort = 'ASC') => {
+    getProjectsCount = async (start = paginationParams.start, category = '', location = '', sort = 'DESC') => {
         return await this.getSources(`projects/count?${transformProjectUrl(start, category, location, sort)}`);
     };
 

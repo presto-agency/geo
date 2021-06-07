@@ -40,12 +40,12 @@ const locations = [
 ];
 const sort = [
     {
-        value: 'ASC',
+        value: 'DESC',
         label: 'Date: from newest to oldest',
         filter: 'sort'
     },
     {
-        value: 'DESC',
+        value: 'ASC',
         label: 'Date: from oldest to newest',
         filter: 'sort'
     }
