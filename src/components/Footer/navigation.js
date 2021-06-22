@@ -12,7 +12,7 @@ export default [
         blank: false,
     },
     {
-        title: 'Project',
+        title: 'Projects',
         url: routes.project.index,
         blank: false,
     },

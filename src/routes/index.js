@@ -3,9 +3,9 @@ export default {
     about: '/about',
     services: '/services',
     project: {
-        index: '/project',
-        pages: '/project/page/:pageNumber',
-        detail: '/project/:id',
+        index: '/projects',
+        pages: '/projects/page/:pageNumber',
+        detail: '/projects/:id',
     },
     news: {
         index: '/news',

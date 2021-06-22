@@ -12,7 +12,7 @@ export default [
         displayOnMobile: false
     },
     {
-        title: 'Project',
+        title: 'Projects',
         url: routes.project.index,
         displayOnMobile: false
     },
