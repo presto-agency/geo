@@ -21,7 +21,7 @@ const Detail = ({ data: {
                     <div className="col-xl-10 offset-xl-1">
                         <h4 className="h-4 fade">{description}</h4>
                         <div
-                            className="detail-values fade"
+                            className="detail-values"
                             id="about-detail-values"
                             data-scroll={true}
                             data-scroll-call="about-values"

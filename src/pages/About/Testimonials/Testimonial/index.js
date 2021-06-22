@@ -4,8 +4,6 @@ import WithBaseUrl from "components/Hoc/withBaseUrl";
 
 const TestimonialSingle = ({ testimonial: { message, authorFullName, authorPosition, authorAvatar, companyLogo }, baseUrl }) => {
 
-    console.log(authorAvatar)
-
     return (
         <div className="testimonial">
             <div className="testimonial-author">

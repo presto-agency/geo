@@ -1,4 +1,5 @@
 import Tween, { Power2 } from 'gsap';
+
 import {locoScroll} from "components/SmoothScroll";
 import {scaleIn} from "utils/common/scaleIn";
 import {fadeInContent} from "utils/common/fadeInContent";

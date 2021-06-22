@@ -8,7 +8,10 @@ export const fadeInContent = () => {
 
         Tween.set(elements[i], {
             opacity: 0,
-            y: 20
+            y: 20,
+            onComplete: () => {
+                elements[i].classList.remove('fade');
+            }
         });
 
         Tween.fromTo(elements[i], {
@@ -18,7 +21,7 @@ export const fadeInContent = () => {
             y: 0,
             opacity: 1,
             duration: 2,
-            ease: Power4.easeOut
+            ease: Power4.easeOut,
         });
 
     }

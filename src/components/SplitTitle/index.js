@@ -18,7 +18,13 @@ const SplitTitle = (props) => {
                             yPercent: 0,
                             opacity: 1,
                             ease: Power2.easeOut,
-                            stagger: 0.1
+                            stagger: 0.1,
+                            onComplete: () => {
+                                const hiddenElements = document.querySelectorAll('.fade');
+                                for(let i = 0; i < hiddenElements.length; i++) {
+                                    hiddenElements[i].classList.remove('fade');
+                                }
+                            }
                         });
                     }, 200);
                 }

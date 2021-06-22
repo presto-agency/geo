@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Slider from 'react-slick';
 
 import CarouselNav from "components/CarouselNav";
 import TestimonialSingle from "./Testimonial";
-import Slider from 'react-slick';
 
 const Testimonials = ({ data }) => {
 
@@ -40,12 +40,14 @@ const Testimonials = ({ data }) => {
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
                         <p className="label fade-on-scroll">Testimonials</p>
-                        <CarouselNav
+                        { totalSlides > 1 ? (
+                          <CarouselNav
                             onNext={next}
                             onPrev={prev}
                             currentSlide={currentSlide}
                             totalSlides={totalSlides}
-                        />
+                          />
+                        ) : null }
                         <Slider ref={carousel} className="testimonials-carousel" {...settings}>
                             {
                                 data.map((testimonial, key) => (

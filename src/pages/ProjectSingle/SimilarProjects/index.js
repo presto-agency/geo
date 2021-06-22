@@ -23,7 +23,7 @@ const SimilarProjects = ({ disciplineId, projectId }) => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-10 offset-xl-1">
-                        <div className="accordion-projects fade-on-scroll">
+                        <div className="accordion-projects">
                             {
                                 data.slice(0,2).map((project, key) => <ProjectAccordion project={project} key={key} />)
                             }
