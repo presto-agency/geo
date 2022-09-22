@@ -7,7 +7,6 @@ const WhereWeWork = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-11 offset-xl-1">
-                        <p className="label fade-on-scroll">Where we work</p>
                         <Map />
                     </div>
                 </div>
